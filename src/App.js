@@ -10,6 +10,8 @@ import store from "./store";
 import M from "materialize-css/dist/js/materialize.min.js";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginPageView from "./views/LoginPageView";
+import Navbar from "./components/common/Navbar";
+import BottomNavbar from "./components/common/BottomNavbar";
 
 const App = () => {
    useEffect(() => {
@@ -18,23 +20,25 @@ const App = () => {
 
    const height = window.outerHeight;
 
+   const MainStyle = {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: height,
+      flexDirection: "column",
+   };
+
    return (
       <Provider store={store}>
          <BrowserRouter>
-            <Switch>
-               <div
-                  style={{
-                     display: "flex",
-                     justifyContent: "center",
-                     alignItems: "center",
-                     height: height,
-                     flexDirection: "column",
-                  }}
-               >
+            <div style={MainStyle}>
+               <Switch>
                   <Route exact path="/" component={LoginPageView} />
-                  <Route exact path="/main" component={MainPageView} />
-               </div>
-            </Switch>
+                  <Navbar>
+                     <Route exact path="/main" component={MainPageView} />
+                  </Navbar>
+               </Switch>
+            </div>
          </BrowserRouter>
       </Provider>
    );
