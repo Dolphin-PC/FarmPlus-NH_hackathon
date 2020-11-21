@@ -39,7 +39,7 @@ const LoginPageView = () => {
          </div>
          <h4>선구안</h4>
          <small>선도거래를 구조한다, 안전하게</small>&emsp;
-         <form action={onSubmit} style={{ width: "80%" }}>
+         <form onSubmit={onSubmit} style={{ width: "80%" }}>
             <TextField
                type="text"
                fullWidth

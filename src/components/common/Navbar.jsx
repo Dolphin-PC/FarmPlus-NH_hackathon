@@ -64,6 +64,16 @@ const Navbar = (props) => {
       );
    };
 
+   const handleSearch = () => {
+      alert("search!");
+   };
+   const handleFilter = () => {
+      alert("filter");
+   };
+   const handleNotification = () => {
+      alert("notice");
+   };
+
    switch (value) {
       case "main":
          return (
@@ -71,11 +81,11 @@ const Navbar = (props) => {
                <TopNavbarRender>
                   상단 헤더바{" "}
                   <div>
-                     <Search />
+                     <Search onClick={handleSearch} />
                      &emsp;
-                     <FilterList />
+                     <FilterList onClick={handleFilter} />
                      &emsp;
-                     <Notifications />
+                     <Notifications onClick={handleNotification} />
                   </div>
                </TopNavbarRender>
 

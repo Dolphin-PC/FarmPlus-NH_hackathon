@@ -1,23 +1,26 @@
-import { TextField } from "@material-ui/core";
-import React from "react";
-import SearchIcon from "@material-ui/icons/Search";
+import { FormControl, MenuItem, Select, TextField } from "@material-ui/core";
+import { Col } from "reactstrap";
+import React, { Fragment } from "react";
+
+import { useSelector } from "react-redux";
 
 const MainPageView = () => {
-   const onSubmit = (e) => {
-      e.preventDefault();
-      alert("Search!!");
+   const filter = useSelector((state) => state.filter.state);
+
+   const HeaderRender = () => {
+      return (
+         <Fragment>
+            <small>지역&ensp;/&ensp;카테고리</small>
+            <h5>
+               {filter.location}&emsp;/&emsp;{filter.category}
+            </h5>
+            <hr />
+         </Fragment>
+      );
    };
    return (
       <div className="MainStyle">
-         <form onSubmit={onSubmit}>
-            <TextField
-               InputProps={{ startAdornment: <SearchIcon /> }}
-               fullWidth
-               variant="outlined"
-               color="primary"
-               placeholder="검색어를 입력하세요."
-            />
-         </form>
+         <HeaderRender />
          <div>Lists</div>
          <div>Lists</div>
       </div>
