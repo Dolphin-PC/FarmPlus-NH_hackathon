@@ -1,12 +1,19 @@
+import React, { Fragment, useState } from "react";
+import { Link } from "react-router-dom";
 import {
    AppBar,
    BottomNavigation,
    BottomNavigationAction,
    Toolbar,
 } from "@material-ui/core";
-import React, { Fragment, useState } from "react";
-import { Home, Favorite, AccountCircle } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import {
+   Home,
+   Favorite,
+   AccountCircle,
+   Search,
+   FilterList,
+   Notifications,
+} from "@material-ui/icons";
 
 const Navbar = (props) => {
    const [value, setValue] = useState("main");
@@ -14,13 +21,18 @@ const Navbar = (props) => {
    const handleChange = (event, value) => {
       setValue(value);
    };
-   return (
-      <Fragment>
-         <AppBar position="fixed">
-            <Toolbar>상단 헤더바</Toolbar>
-         </AppBar>
-         {props.children}
 
+   const TopNavbarRender = (props) => {
+      return (
+         <AppBar position="fixed">
+            <Toolbar style={{ justifyContent: "space-between" }}>
+               {props.children}
+            </Toolbar>
+         </AppBar>
+      );
+   };
+   const BottomNavbarRender = () => {
+      return (
          <BottomNavigation
             value={value}
             onChange={handleChange}
@@ -49,8 +61,47 @@ const Navbar = (props) => {
                icon={<AccountCircle />}
             />
          </BottomNavigation>
-      </Fragment>
-   );
+      );
+   };
+
+   switch (value) {
+      case "main":
+         return (
+            <Fragment>
+               <TopNavbarRender>
+                  상단 헤더바{" "}
+                  <div>
+                     <Search />
+                     &emsp;
+                     <FilterList />
+                     &emsp;
+                     <Notifications />
+                  </div>
+               </TopNavbarRender>
+
+               {props.children}
+               <BottomNavbarRender />
+            </Fragment>
+         );
+      case "favorite":
+         return (
+            <Fragment>
+               <TopNavbarRender>찜리스트</TopNavbarRender>
+               {props.children}
+               <BottomNavbarRender />
+            </Fragment>
+         );
+      case "setting":
+         return (
+            <Fragment>
+               <TopNavbarRender>설정</TopNavbarRender>
+               {props.children}
+               <BottomNavbarRender />
+            </Fragment>
+         );
+      default:
+         return <BottomNavbarRender />;
+   }
 };
 
 export default Navbar;
