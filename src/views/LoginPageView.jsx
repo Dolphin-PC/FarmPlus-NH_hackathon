@@ -33,7 +33,7 @@ const LoginPageView = () => {
 
    const onSubmit = () => {};
    return (
-      <Fragment>
+      <div className="LoginStyle" style={{ height: height }}>
          <div style={{ width: "80%", height: 200 }}>
             <Lottie options={defaultOptions} />
          </div>
@@ -72,7 +72,7 @@ const LoginPageView = () => {
                회원가입
             </Button>
          </form>
-      </Fragment>
+      </div>
    );
 };
 

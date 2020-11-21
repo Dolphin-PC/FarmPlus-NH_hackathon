@@ -1,0 +1,20 @@
+.LoginStyle {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   overflow: hidden;
+}
+
+.MainStyle {
+   padding-top: 60px;
+}
+
+.center {
+   text-align: center;
+}
+
+.LeftBorder30 {
+   border-top-left-radius: 30px;
+   border-bottom-left-radius: 30px;
+}
