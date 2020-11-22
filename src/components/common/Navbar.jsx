@@ -24,10 +24,14 @@ import {
 import { useSelector } from "react-redux";
 import FilterDialogs from "../dialogs/FilterDialog";
 import FilterDialog from "../dialogs/FilterDialog";
+import SearchDialog from "../dialogs/SearchDialog";
+import NoticeDialog from "../dialogs/NoticeDialog";
 
 const Navbar = (props) => {
    const [value, setValue] = useState("main");
    const [openFilter, setOpenFilter] = useState(false);
+   const [openSearch, setOpenSearch] = useState(false);
+   const [openNotice, setOpenNotice] = useState(false);
 
    const history = useHistory();
 
@@ -36,18 +40,20 @@ const Navbar = (props) => {
    const handleChange = (event, value) => {
       setValue(value);
    };
-   const handleToLogin = () => {
-      history.push("/");
+   const handleToLogout = () => {
+      if (window.confirm("로그아웃 하시겠습니까?")) {
+         history.push("/");
+      }
    };
 
    const handleSearch = () => {
-      alert("search!");
+      setOpenSearch(true);
    };
    const handleFilter = () => {
       setOpenFilter(true);
    };
    const handleNotification = () => {
-      alert("notice");
+      setOpenNotice(true);
    };
 
    const TopNavbarRender = (props) => {
@@ -98,7 +104,7 @@ const Navbar = (props) => {
             <Fragment>
                <TopNavbarRender>
                   <div>
-                     <ArrowBack onClick={handleToLogin} />
+                     <ArrowBack onClick={handleToLogout} />
                      &emsp;
                      {filter.location}&emsp;/&emsp;{filter.category}
                   </div>
@@ -118,6 +124,14 @@ const Navbar = (props) => {
                   open={openFilter}
                   onClose={() => setOpenFilter(!openFilter)}
                />
+               <SearchDialog
+                  open={openSearch}
+                  onClose={() => setOpenSearch(!openSearch)}
+               />
+               <NoticeDialog
+                  open={openNotice}
+                  onClose={() => setOpenNotice(!openNotice)}
+               />
                <BottomNavbarRender />
             </Fragment>
          );
@@ -126,7 +140,7 @@ const Navbar = (props) => {
             <Fragment>
                <TopNavbarRender>
                   <div>
-                     <ArrowBack onClick={handleToLogin} />
+                     <ArrowBack onClick={handleToLogout} />
                      &emsp;찜리스트
                   </div>
                </TopNavbarRender>
@@ -139,7 +153,7 @@ const Navbar = (props) => {
             <Fragment>
                <TopNavbarRender>
                   <div>
-                     <ArrowBack onClick={handleToLogin} />
+                     <ArrowBack onClick={handleToLogout} />
                      &emsp;설정
                   </div>
                </TopNavbarRender>

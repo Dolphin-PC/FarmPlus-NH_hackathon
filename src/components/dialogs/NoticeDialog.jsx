@@ -1,44 +1,43 @@
 import {
-   Avatar,
    Button,
    Dialog,
    DialogActions,
    DialogContent,
    DialogContentText,
    DialogTitle,
+   Slide,
 } from "@material-ui/core";
+import { Cancel } from "@material-ui/icons";
 import React from "react";
 
-const FilterDialog = (props) => {
+const NoticeDialog = (props) => {
    const { onClose, open } = props;
 
    const handleClose = () => {
       onClose();
    };
    const handleSetting = () => {
-      // TODO: filter Reducer 설정
       onClose();
    };
 
    return (
-      <Dialog open={open} onClose={handleClose}>
-         <DialogTitle>게시글 필터 설정</DialogTitle>
+      <Dialog fullScreen open={open} onClose={handleClose}>
+         <DialogTitle>
+            수신된 알림
+            <Cancel
+               style={{ position: "fixed", top: 20, right: 20 }}
+               onClick={handleClose}
+            />
+         </DialogTitle>
+
          <DialogContent>
             <DialogContentText>
                Let Google help apps determine location. This means sending
                anonymous location data to Google, even when no apps are running.
             </DialogContentText>
          </DialogContent>
-         <DialogActions>
-            <Button onClick={handleClose} color="primary">
-               취소
-            </Button>
-            <Button onClick={handleSetting} color="primary">
-               설정
-            </Button>
-         </DialogActions>
       </Dialog>
    );
 };
 
-export default FilterDialog;
+export default NoticeDialog;

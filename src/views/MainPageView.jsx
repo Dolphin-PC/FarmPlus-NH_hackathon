@@ -33,7 +33,7 @@ const MainPageView = () => {
                backgroundColor: "#C7B492",
             }}
          >
-            <Slider {...sliderSettings}>
+            <Slider {...sliderSettings} arrows={false}>
                <ItemRender icon={<DialpadIcon />} text="전체" />
                <ItemRender icon={<DialpadIcon />} text="감자" />
                <ItemRender icon={<DialpadIcon />} text="고구마" />
@@ -50,21 +50,6 @@ const MainPageView = () => {
       <div className="MainStyle">
          <CategorySliderRender />
          <hr />
-         <ItemCardComp />
-         <ItemCardComp />
-         <ItemCardComp />
-         <ItemCardComp />
-         <ItemCardComp />
-         <ItemCardComp />
-         <ItemCardComp />
-         <ItemCardComp />
-         <ItemCardComp />
-         <ItemCardComp />
-         <ItemCardComp />
-         <ItemCardComp />
-         <ItemCardComp />
-         <ItemCardComp />
-         <ItemCardComp />
          <ItemCardComp />
          <ItemCardComp />
          <ItemCardComp />

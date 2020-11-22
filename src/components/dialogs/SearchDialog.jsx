@@ -1,28 +1,40 @@
 import {
-   Avatar,
    Button,
    Dialog,
    DialogActions,
    DialogContent,
    DialogContentText,
    DialogTitle,
+   Slide,
 } from "@material-ui/core";
+import { Cancel } from "@material-ui/icons";
 import React from "react";
 
-const FilterDialog = (props) => {
+const SearchDialog = (props) => {
    const { onClose, open } = props;
 
    const handleClose = () => {
       onClose();
    };
    const handleSetting = () => {
-      // TODO: filter Reducer 설정
       onClose();
    };
 
    return (
-      <Dialog open={open} onClose={handleClose}>
-         <DialogTitle>게시글 필터 설정</DialogTitle>
+      <Dialog
+         fullScreen
+         open={open}
+         onClose={handleClose}
+         style={{ marginTop: 100 }}
+      >
+         <DialogTitle>
+            검색어 설정
+            <Cancel
+               style={{ position: "fixed", top: 120, right: 20 }}
+               onClick={handleClose}
+            />
+         </DialogTitle>
+
          <DialogContent>
             <DialogContentText>
                Let Google help apps determine location. This means sending
@@ -41,4 +53,4 @@ const FilterDialog = (props) => {
    );
 };
 
-export default FilterDialog;
+export default SearchDialog;
