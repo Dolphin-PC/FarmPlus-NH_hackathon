@@ -1,28 +1,74 @@
-import { FormControl, MenuItem, Select, TextField } from "@material-ui/core";
+import DialpadIcon from "@material-ui/icons/Dialpad";
 import { Col } from "reactstrap";
 import React, { Fragment } from "react";
 
-import { useSelector } from "react-redux";
+import Slider from "react-slick";
+import ItemCardComp from "../components/cards/ItemCardComp";
 
 const MainPageView = () => {
-   const filter = useSelector((state) => state.filter.state);
-
-   const HeaderRender = () => {
+   const CategorySliderRender = () => {
+      const sliderSettings = {
+         dots: false,
+         infinite: true,
+         speed: 500,
+         slidesToShow: 4,
+         swipeToSlide: true,
+      };
+      const ItemRender = ({ icon, text }) => {
+         return (
+            <div>
+               {icon}
+               <br />
+               <small>{text}</small>
+            </div>
+         );
+      };
       return (
-         <Fragment>
-            <small>지역&ensp;/&ensp;카테고리</small>
-            <h5>
-               {filter.location}&emsp;/&emsp;{filter.category}
-            </h5>
-            <hr />
-         </Fragment>
+         <div
+            className="LeftBorder30"
+            style={{
+               marginTop: 20,
+               padding: 20,
+               textAlign: "center",
+               backgroundColor: "#C7B492",
+            }}
+         >
+            <Slider {...sliderSettings}>
+               <ItemRender icon={<DialpadIcon />} text="전체" />
+               <ItemRender icon={<DialpadIcon />} text="감자" />
+               <ItemRender icon={<DialpadIcon />} text="고구마" />
+               <ItemRender icon={<DialpadIcon />} text="사과" />
+               <ItemRender icon={<DialpadIcon />} text="배" />
+               <ItemRender icon={<DialpadIcon />} text="양파" />
+               <ItemRender icon={<DialpadIcon />} text="수박" />
+            </Slider>
+         </div>
       );
    };
+
    return (
       <div className="MainStyle">
-         <HeaderRender />
-         <div>Lists</div>
-         <div>Lists</div>
+         <CategorySliderRender />
+         <hr />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
+         <ItemCardComp />
       </div>
    );
 };

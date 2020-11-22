@@ -1,9 +1,15 @@
 import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
    AppBar,
    BottomNavigation,
    BottomNavigationAction,
+   Button,
+   Dialog,
+   DialogActions,
+   DialogContent,
+   DialogContentText,
+   DialogTitle,
    Toolbar,
 } from "@material-ui/core";
 import {
@@ -13,18 +19,40 @@ import {
    Search,
    FilterList,
    Notifications,
+   ArrowBack,
 } from "@material-ui/icons";
+import { useSelector } from "react-redux";
+import FilterDialogs from "../dialogs/FilterDialog";
+import FilterDialog from "../dialogs/FilterDialog";
 
 const Navbar = (props) => {
    const [value, setValue] = useState("main");
+   const [openFilter, setOpenFilter] = useState(false);
+
+   const history = useHistory();
+
+   const filter = useSelector((state) => state.filter.state);
 
    const handleChange = (event, value) => {
       setValue(value);
    };
+   const handleToLogin = () => {
+      history.push("/");
+   };
+
+   const handleSearch = () => {
+      alert("search!");
+   };
+   const handleFilter = () => {
+      setOpenFilter(true);
+   };
+   const handleNotification = () => {
+      alert("notice");
+   };
 
    const TopNavbarRender = (props) => {
       return (
-         <AppBar position="fixed">
+         <AppBar position="fixed" color="white">
             <Toolbar style={{ justifyContent: "space-between" }}>
                {props.children}
             </Toolbar>
@@ -64,39 +92,44 @@ const Navbar = (props) => {
       );
    };
 
-   const handleSearch = () => {
-      alert("search!");
-   };
-   const handleFilter = () => {
-      alert("filter");
-   };
-   const handleNotification = () => {
-      alert("notice");
-   };
-
    switch (value) {
       case "main":
          return (
             <Fragment>
                <TopNavbarRender>
-                  상단 헤더바{" "}
+                  <div>
+                     <ArrowBack onClick={handleToLogin} />
+                     &emsp;
+                     {filter.location}&emsp;/&emsp;{filter.category}
+                  </div>
+
                   <div>
                      <Search onClick={handleSearch} />
                      &emsp;
                      <FilterList onClick={handleFilter} />
                      &emsp;
                      <Notifications onClick={handleNotification} />
+                     &emsp;
                   </div>
                </TopNavbarRender>
 
                {props.children}
+               <FilterDialog
+                  open={openFilter}
+                  onClose={() => setOpenFilter(!openFilter)}
+               />
                <BottomNavbarRender />
             </Fragment>
          );
       case "favorite":
          return (
             <Fragment>
-               <TopNavbarRender>찜리스트</TopNavbarRender>
+               <TopNavbarRender>
+                  <div>
+                     <ArrowBack onClick={handleToLogin} />
+                     &emsp;찜리스트
+                  </div>
+               </TopNavbarRender>
                {props.children}
                <BottomNavbarRender />
             </Fragment>
@@ -104,7 +137,13 @@ const Navbar = (props) => {
       case "setting":
          return (
             <Fragment>
-               <TopNavbarRender>설정</TopNavbarRender>
+               <TopNavbarRender>
+                  <div>
+                     <ArrowBack onClick={handleToLogin} />
+                     &emsp;설정
+                  </div>
+               </TopNavbarRender>
+
                {props.children}
                <BottomNavbarRender />
             </Fragment>

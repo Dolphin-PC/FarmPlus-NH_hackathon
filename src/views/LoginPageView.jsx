@@ -34,8 +34,8 @@ const LoginPageView = () => {
    const onSubmit = () => {};
    return (
       <div className="LoginStyle" style={{ height: height }}>
-         <div style={{ width: "80%", height: 200 }}>
-            <Lottie options={defaultOptions} />
+         <div>
+            <Lottie options={defaultOptions} width={`80%`} height={`80%`} />
          </div>
          <h4>선구안</h4>
          <small>선도거래를 구조한다, 안전하게</small>&emsp;
