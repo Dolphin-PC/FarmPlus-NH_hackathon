@@ -1,11 +1,8 @@
 import {
-   Button,
    Dialog,
-   DialogActions,
    DialogContent,
    DialogContentText,
    DialogTitle,
-   Slide,
 } from "@material-ui/core";
 import { Cancel } from "@material-ui/icons";
 import React from "react";
@@ -14,9 +11,6 @@ const NoticeDialog = (props) => {
    const { onClose, open } = props;
 
    const handleClose = () => {
-      onClose();
-   };
-   const handleSetting = () => {
       onClose();
    };
 
