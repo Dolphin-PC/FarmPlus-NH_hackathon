@@ -1,18 +1,24 @@
 import DialpadIcon from "@material-ui/icons/Dialpad";
 import { Col } from "reactstrap";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 import Slider from "react-slick";
 import ItemCardComp from "../components/cards/ItemCardComp";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SET_CATEGORY } from "../actions/types";
 import { Fab } from "@material-ui/core";
 import { Add } from "@material-ui/icons";
 import NewProductDialog from "../components/dialogs/NewProductDialog";
+import { getPosts } from "../actions/postActions";
 
 const MainPageView = () => {
    const [openAdd, setOpenAdd] = useState(false);
    const dispatch = useDispatch();
+   const { loading, error, posts } = useSelector((state) => state.post);
+
+   useEffect(() => {
+      dispatch(getPosts());
+   }, []);
 
    const CategorySliderRender = () => {
       const sliderSettings = {
@@ -74,6 +80,19 @@ const MainPageView = () => {
          </Fab>
       );
    };
+
+   const PostRender = () => {
+      if (error) return <p>에러가 발생했습니다...</p>;
+
+      if (loading) return <p>로딩 중...</p>;
+
+      return (
+         <Fragment>
+            {!loading &&
+               posts.map((post) => <ItemCardComp key={post.id} {...post} />)}
+         </Fragment>
+      );
+   };
    return (
       <div className="MainStyle">
          <CategorySliderRender />
@@ -83,10 +102,7 @@ const MainPageView = () => {
             onClose={() => setOpenAdd(!openAdd)}
          />
          <hr />
-         <ItemCardComp />
-         <ItemCardComp />
-         <ItemCardComp />
-         <ItemCardComp />
+         <PostRender />
          <hr />
          <div className="center">
             <small>- End -</small>
