@@ -8,8 +8,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { SET_CATEGORY } from "../actions/types";
 import { Fab } from "@material-ui/core";
 import { Add } from "@material-ui/icons";
-import NewProductDialog from "../components/dialogs/NewProductDialog";
+import NewPostDialog from "../components/dialogs/NewPostDialog";
 import { getPosts } from "../actions/postActions";
+
+import { category } from "../data/data";
 
 const MainPageView = () => {
    const [openAdd, setOpenAdd] = useState(false);
@@ -54,13 +56,13 @@ const MainPageView = () => {
             }}
          >
             <Slider {...sliderSettings} arrows={false}>
-               <ItemRender icon={<DialpadIcon />} text="전체" />
-               <ItemRender icon={<DialpadIcon />} text="감자" />
-               <ItemRender icon={<DialpadIcon />} text="고구마" />
-               <ItemRender icon={<DialpadIcon />} text="사과" />
-               <ItemRender icon={<DialpadIcon />} text="배" />
-               <ItemRender icon={<DialpadIcon />} text="양파" />
-               <ItemRender icon={<DialpadIcon />} text="수박" />
+               {category.map((data, index) => (
+                  <ItemRender
+                     key={index}
+                     icon={<DialpadIcon />}
+                     text={data.text}
+                  />
+               ))}
             </Slider>
          </div>
       );
@@ -97,10 +99,7 @@ const MainPageView = () => {
       <div className="MainStyle">
          <CategorySliderRender />
          <PostAddButton />
-         <NewProductDialog
-            open={openAdd}
-            onClose={() => setOpenAdd(!openAdd)}
-         />
+         <NewPostDialog open={openAdd} onClose={() => setOpenAdd(!openAdd)} />
          <hr />
          <PostRender />
          <hr />

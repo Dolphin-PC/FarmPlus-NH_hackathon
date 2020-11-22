@@ -21,7 +21,7 @@ const ItemCardComp = (props) => {
             <h5>{title}</h5>
             <StarIcon /> {star}
             <p>
-               {size}&ensp;|&ensp;{location}
+               {size}&ensp;㎡&ensp;|&ensp;{location}
             </p>
          </Col>
       </Row>

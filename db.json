@@ -1,22 +1,42 @@
 {
-   "posts": [
-      {
-         "id": 1,
-         "title": "json-server",
-         "star": 3.4,
-         "size": 1234,
-         "category": "감자",
-         "location": "강원도"
-      }
-   ],
-   "comments": [
-      {
-         "id": 1,
-         "body": "some comment",
-         "postId": 1
-      }
-   ],
-   "profile": {
-      "name": "typicode"
-   }
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "star": 3.4,
+      "size": 1234,
+      "category": "감자",
+      "location": "강원도"
+    },
+    {
+      "title": "싱싱한 감자 팝니다~!",
+      "star": 0,
+      "size": "12222",
+      "category": "감자",
+      "location": "부산",
+      "cost": "012121212",
+      "content": "ㄹㄴㅇㄹㅇㄴ",
+      "id": 2
+    },
+    {
+      "title": "강원도 고구마",
+      "star": 0,
+      "size": "10000",
+      "category": "고구마",
+      "location": "강원도",
+      "cost": "10000000",
+      "content": "싱싱합니다요~!",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

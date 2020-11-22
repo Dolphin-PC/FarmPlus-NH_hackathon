@@ -10,19 +10,26 @@ import {
    MenuItem,
    Select,
 } from "@material-ui/core";
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { CLEAR_FILTER, SET_FILTER, SET_LOCATION } from "../../actions/types";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { CLEAR_FILTER, SET_FILTER } from "../../actions/types";
 
-const FilterDialog = (props) => {
-   const { onClose, open } = props;
-   const _filter = useSelector((state) => state.filter);
+import { category, location } from "../../data/data";
+
+const FilterDialog = ({ onClose, open, filterData }) => {
    const dispatch = useDispatch();
 
    const [filter, setFilter] = useState({
-      location: _filter.location,
-      category: _filter.category,
+      location: filterData.location,
+      category: filterData.category,
    });
+
+   useEffect(() => {
+      setFilter({
+         location: filterData.location,
+         category: filterData.category,
+      });
+   }, [filterData]);
 
    const handleClose = () => {
       onClose();
@@ -62,24 +69,6 @@ const FilterDialog = (props) => {
       onClose();
    };
 
-   const locationData = [
-      { value: "전체", text: "전체" },
-      { value: "서울", text: "서울" },
-      { value: "부산", text: "부산" },
-      { value: "강원도", text: "강원도" },
-      { value: "경기도", text: "경기도" },
-      { value: "대전", text: "대전" },
-   ];
-   const categoryData = [
-      { value: "전체", text: "전체" },
-      { value: "감자", text: "감자" },
-      { value: "고구마", text: "고구마" },
-      { value: "사과", text: "사과" },
-      { value: "배", text: "배" },
-      { value: "양파", text: "양파" },
-      { value: "수박", text: "수박" },
-   ];
-
    return (
       <Dialog fullWidth open={open} onClose={handleClose}>
          <DialogTitle>게시글 필터 설정</DialogTitle>
@@ -92,7 +81,7 @@ const FilterDialog = (props) => {
                onChange={handleFilter}
             >
                <MenuItem disabled>지역을 선택해주세요.</MenuItem>
-               {locationData.map((location) => (
+               {location.map((location) => (
                   <MenuItem key={location.value} value={location.value}>
                      {location.text}
                   </MenuItem>
@@ -108,7 +97,7 @@ const FilterDialog = (props) => {
                onChange={handleFilter}
             >
                <MenuItem disabled>지역을 선택해주세요.</MenuItem>
-               {categoryData.map((category) => (
+               {category.map((category) => (
                   <MenuItem key={category.value} value={category.value}>
                      {category.text}
                   </MenuItem>

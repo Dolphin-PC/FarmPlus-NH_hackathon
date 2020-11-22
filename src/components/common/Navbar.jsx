@@ -115,13 +115,14 @@ const Navbar = (props) => {
                </TopNavbarRender>
 
                {props.children}
-               <FilterDialog
-                  open={openFilter}
-                  onClose={() => setOpenFilter(!openFilter)}
-               />
                <SearchDialog
                   open={openSearch}
                   onClose={() => setOpenSearch(!openSearch)}
+               />
+               <FilterDialog
+                  open={openFilter}
+                  onClose={() => setOpenFilter(!openFilter)}
+                  filterData={filter}
                />
                <NoticeDialog
                   open={openNotice}
