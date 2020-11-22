@@ -15,7 +15,7 @@ import {
    Notifications,
    ArrowBack,
 } from "@material-ui/icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import FilterDialog from "../dialogs/FilterDialog";
 import SearchDialog from "../dialogs/SearchDialog";
 import NoticeDialog from "../dialogs/NoticeDialog";

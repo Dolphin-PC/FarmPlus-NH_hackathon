@@ -4,8 +4,12 @@ import React, { Fragment } from "react";
 
 import Slider from "react-slick";
 import ItemCardComp from "../components/cards/ItemCardComp";
+import { useDispatch } from "react-redux";
+import { SET_CATEGORY } from "../actions/types";
 
 const MainPageView = () => {
+   const dispatch = useDispatch();
+
    const CategorySliderRender = () => {
       const sliderSettings = {
          dots: false,
@@ -15,8 +19,14 @@ const MainPageView = () => {
          swipeToSlide: true,
       };
       const ItemRender = ({ icon, text }) => {
+         const handleSetCategory = () => {
+            dispatch({
+               type: SET_CATEGORY,
+               payload: text,
+            });
+         };
          return (
-            <div>
+            <div onClick={handleSetCategory}>
                {icon}
                <br />
                <small>{text}</small>
