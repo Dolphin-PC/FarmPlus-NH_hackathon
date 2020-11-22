@@ -1,4 +1,9 @@
-import { CLEAR_FILTER, SET_CATEGORY, SET_LOCATION } from "../actions/types";
+import {
+   CLEAR_FILTER,
+   SET_CATEGORY,
+   SET_FILTER,
+   SET_LOCATION,
+} from "../actions/types";
 
 const initialState = {
    location: "전체",
@@ -7,10 +12,10 @@ const initialState = {
 
 export default function filter(state = initialState, action) {
    switch (action.type) {
-      case SET_LOCATION:
+      case SET_FILTER:
          return {
-            ...state,
-            location: action.payload,
+            location: action.payload.location,
+            category: action.payload.category,
          };
       case SET_CATEGORY:
          return {
@@ -19,10 +24,10 @@ export default function filter(state = initialState, action) {
          };
       case CLEAR_FILTER:
          return {
-            location: "",
-            category: "",
+            location: "전체",
+            category: "전체",
          };
       default:
-         return { state };
+         return { ...state };
    }
 }

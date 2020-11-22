@@ -4,12 +4,6 @@ import {
    AppBar,
    BottomNavigation,
    BottomNavigationAction,
-   Button,
-   Dialog,
-   DialogActions,
-   DialogContent,
-   DialogContentText,
-   DialogTitle,
    Toolbar,
 } from "@material-ui/core";
 import {
@@ -22,7 +16,6 @@ import {
    ArrowBack,
 } from "@material-ui/icons";
 import { useSelector } from "react-redux";
-import FilterDialogs from "../dialogs/FilterDialog";
 import FilterDialog from "../dialogs/FilterDialog";
 import SearchDialog from "../dialogs/SearchDialog";
 import NoticeDialog from "../dialogs/NoticeDialog";
@@ -35,7 +28,7 @@ const Navbar = (props) => {
 
    const history = useHistory();
 
-   const filter = useSelector((state) => state.filter.state);
+   const filter = useSelector((state) => state.filter);
 
    const handleChange = (event, value) => {
       setValue(value);
@@ -106,7 +99,9 @@ const Navbar = (props) => {
                   <div>
                      <ArrowBack onClick={handleToLogout} />
                      &emsp;
-                     {filter.location}&emsp;/&emsp;{filter.category}
+                     <b onClick={handleFilter}>
+                        {filter.location}&emsp;/&emsp;{filter.category}
+                     </b>
                   </div>
 
                   <div>
