@@ -2,14 +2,11 @@ import {
    Dialog,
    DialogActions,
    DialogContent,
-   DialogContentText,
    DialogTitle,
    Button,
    InputLabel,
    TextField,
    Select,
-   MenuItem,
-   ListSubheader,
 } from "@material-ui/core";
 import { Cancel } from "@material-ui/icons";
 import React, { Fragment, useState } from "react";
@@ -17,11 +14,12 @@ import { useDispatch } from "react-redux";
 import { addNewPost } from "../../actions/postActions";
 
 import { category, location } from "../../data/data";
+import { getToday } from "../../app/functions";
 
 const NewProductDialog = (props) => {
    const dispatch = useDispatch();
    const { onClose, open } = props;
-   const [newPost, setNewPost] = useState({
+   const initState = {
       title: "",
       star: 0,
       size: "",
@@ -29,13 +27,19 @@ const NewProductDialog = (props) => {
       location: "",
       cost: 0,
       content: "",
-   });
+      imageUrls: [],
+      createDate: new Date(),
+      date: getToday(),
+   };
+   const [newPost, setNewPost] = useState(initState);
+   const [images, setImages] = useState([]);
 
    const handleClose = () => {
       onClose();
    };
 
    const handleCreate = async () => {
+      if (images.length === 0) return alert("하나 이상의 이미지를 올려주세요.");
       if (newPost.title === "") return alert("제목을 입력해주세요.");
       if (newPost.category === "") return alert("카테고리를 입력해주세요.");
       if (newPost.location === "") return alert("지역을 입력해주세요.");
@@ -46,8 +50,9 @@ const NewProductDialog = (props) => {
 
       if (newPost.content === "") return alert("내용을 입력해주세요.");
 
-      await dispatch(addNewPost(newPost));
+      await dispatch(addNewPost(newPost, images));
       alert("게시글 생성 완료!");
+      setNewPost(initState);
       onClose();
    };
 
@@ -74,6 +79,8 @@ const NewProductDialog = (props) => {
 
          <DialogContent>
             <Fragment>
+               <InputLabel>이미지를 업로드해주세요.</InputLabel>
+               <input type="file" onChange={(e) => setImages(e.target.files)} />
                <TextField
                   style={TextFieldStyle}
                   fullWidth

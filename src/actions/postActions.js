@@ -1,4 +1,5 @@
 import axios from "axios";
+import { FireStorage } from "../app/firebaseConfig";
 import {
    ADD_POST,
    SET_POSTS,
@@ -9,10 +10,23 @@ import {
 
 const url = "http://localhost:5000";
 
-export const addNewPost = (post) => async (dispatch) => {
+export const addNewPost = (post, images) => async (dispatch) => {
    try {
       dispatch({
          type: SET_POSTS_UPLOADING,
+      });
+
+      const imageRef = FireStorage.ref(
+         `${post.location}/${post.category}/images`
+      ).child(post.title);
+
+      await imageRef
+         .put(images[0])
+         .then(() => console.info("success upload image!"))
+         .catch((err) => console.error(err));
+
+      await imageRef.getDownloadURL().then((url) => {
+         post.imageUrls.push(url);
       });
 
       await axios

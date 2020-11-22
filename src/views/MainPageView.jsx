@@ -75,7 +75,7 @@ const MainPageView = () => {
       return (
          <Fab
             color="primary"
-            style={{ position: "fixed", bottom: 70, right: 20 }}
+            style={{ position: "fixed", bottom: 70, right: 20, zIndex: 5 }}
             onClick={handleAdd}
          >
             <Add />

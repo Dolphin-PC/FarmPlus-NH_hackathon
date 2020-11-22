@@ -1,32 +1,19 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "star": 3.4,
-      "size": 1234,
-      "category": "감자",
-      "location": "강원도"
-    },
-    {
-      "title": "싱싱한 감자 팝니다~!",
-      "star": 0,
-      "size": "12222",
-      "category": "감자",
-      "location": "부산",
-      "cost": "012121212",
-      "content": "ㄹㄴㅇㄹㅇㄴ",
-      "id": 2
-    },
-    {
-      "title": "강원도 고구마",
+      "title": "강원도 감자 팝니다",
       "star": 0,
       "size": "10000",
-      "category": "고구마",
+      "category": "감자",
       "location": "강원도",
-      "cost": "10000000",
-      "content": "싱싱합니다요~!",
-      "id": 3
+      "cost": "100000",
+      "content": "싱싱한 강원도 감자입니다~!",
+      "imageUrls": [
+        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%20%ED%8C%9D%EB%8B%88%EB%8B%A4?alt=media&token=5bcbb29a-b401-41e1-bd5a-173bf3375ac5"
+      ],
+      "createDate": "2020-11-22T17:17:13.712Z",
+      "date": "2020-11-23",
+      "id": 1
     }
   ],
   "comments": [
