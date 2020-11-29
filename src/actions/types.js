@@ -8,3 +8,6 @@ export const SET_POSTS_UPLOADING = "SET_POSTS_UPLOADING";
 export const SET_POSTS_ERROR = "SET_POSTS_ERROR";
 
 export const ADD_POST = "ADD_POST";
+
+// Navigation
+export const SET_NAV = "SET_NAV";

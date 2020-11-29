@@ -19,9 +19,12 @@ import { useDispatch, useSelector } from "react-redux";
 import FilterDialog from "../dialogs/FilterDialog";
 import SearchDialog from "../dialogs/SearchDialog";
 import NoticeDialog from "../dialogs/NoticeDialog";
+import { SET_NAV } from "../../actions/types";
 
 const Navbar = (props) => {
-   const [value, setValue] = useState("main");
+   const nav = useSelector((state) => state.nav);
+   const dispatch = useDispatch();
+
    const [openFilter, setOpenFilter] = useState(false);
    const [openSearch, setOpenSearch] = useState(false);
    const [openNotice, setOpenNotice] = useState(false);
@@ -31,7 +34,10 @@ const Navbar = (props) => {
    const filter = useSelector((state) => state.filter);
 
    const handleChange = (event, value) => {
-      setValue(value);
+      dispatch({
+         type: SET_NAV,
+         payload: value,
+      });
    };
    const handleToLogout = () => {
       if (window.confirm("로그아웃 하시겠습니까?")) {
@@ -61,7 +67,7 @@ const Navbar = (props) => {
    const BottomNavbarRender = () => {
       return (
          <BottomNavigation
-            value={value}
+            value={nav.location}
             onChange={handleChange}
             style={{ position: "fixed", bottom: 0, width: "100%" }}
          >
@@ -91,7 +97,7 @@ const Navbar = (props) => {
       );
    };
 
-   switch (value) {
+   switch (nav.location) {
       case "main":
          return (
             <Fragment>
@@ -159,7 +165,7 @@ const Navbar = (props) => {
             </Fragment>
          );
       default:
-         return <BottomNavbarRender />;
+         return <Fragment>{props.children}</Fragment>;
    }
 };
 
