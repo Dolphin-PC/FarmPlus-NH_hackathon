@@ -19,7 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import FilterDialog from "../dialogs/FilterDialog";
 import SearchDialog from "../dialogs/SearchDialog";
 import NoticeDialog from "../dialogs/NoticeDialog";
-import { SET_NAV } from "../../actions/types";
+import { CLEAR_USER, SET_NAV } from "../../actions/types";
 
 const Navbar = (props) => {
    const nav = useSelector((state) => state.nav);
@@ -41,6 +41,7 @@ const Navbar = (props) => {
    };
    const handleToLogout = () => {
       if (window.confirm("로그아웃 하시겠습니까?")) {
+         dispatch({ type: CLEAR_USER });
          history.push("/");
       }
    };
@@ -57,7 +58,7 @@ const Navbar = (props) => {
 
    const TopNavbarRender = (props) => {
       return (
-         <AppBar position="fixed" color="white">
+         <AppBar position="fixed" color="default">
             <Toolbar style={{ justifyContent: "space-between" }}>
                {props.children}
             </Toolbar>

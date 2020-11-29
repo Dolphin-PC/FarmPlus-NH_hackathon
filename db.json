@@ -28,20 +28,6 @@
       "user": {
         "personalInfo": {
           "name": "박찬영",
-          "phoneNumber": "213123123",
-          "address": "강원도"
-        },
-        "accountInfo": {
-          "bankCode": "011",
-          "accountNumber": "3020000001926"
-        }
-      },
-      "id": 1
-    },
-    {
-      "user": {
-        "personalInfo": {
-          "name": "박찬영",
           "phoneNumber": "010-1234-5667",
           "address": "강원도",
           "id": "pcy474",
@@ -55,36 +41,27 @@
       "id": 2
     },
     {
-      "undefined": {
-        "personalInfo": {
-          "name": "박찬영",
-          "phoneNumber": "023012302103",
-          "address": "주소주소",
-          "id": "pcx474@gmail.com",
-          "password": "654321"
-        },
-        "accountInfo": {
-          "bankCode": "011",
-          "accountNumber": "3020000001926"
-        }
+      "personalInfo": {
+        "name": "박찬영11",
+        "phoneNumber": "전화",
+        "address": "주소",
+        "id": "pcx474@gmail.com",
+        "password": "654321"
+      },
+      "accountInfo": {
+        "bankCode": "011",
+        "accountNumber": "3020000001926"
       },
       "id": 3
     },
     {
-      "user": {
-        "personalInfo": {
-          "name": "박찬영",
-          "phoneNumber": "010-23123-12312",
-          "address": "주소주소",
-          "id": "pcx474@gmail.com",
-          "password": "654321"
-        },
-        "accountInfo": {
-          "bankCode": "011",
-          "accountNumber": "3020000001926"
-        }
-      },
-      "id": 4
+      "name": "박찬영2",
+      "phoneNumber": "전화",
+      "address": "주소",
+      "id": "pcx474@gmail.com",
+      "password": "654321",
+      "bankCode": "011",
+      "accountNumber": "3020000001926"
     }
   ]
 }
