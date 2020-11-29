@@ -1,5 +1,6 @@
 import axios from "axios";
 import { FireStorage } from "../app/firebaseConfig";
+import { serverUrl } from "../app/info";
 import {
    ADD_POST,
    SET_POSTS,
@@ -7,8 +8,6 @@ import {
    SET_POSTS_LOADING,
    SET_POSTS_UPLOADING,
 } from "./types";
-
-const url = "http://localhost:5000";
 
 export const addNewPost = (post, images) => async (dispatch) => {
    try {
@@ -30,7 +29,7 @@ export const addNewPost = (post, images) => async (dispatch) => {
       });
 
       await axios
-         .post(`${url}/posts`, {
+         .post(`${serverUrl}/posts`, {
             ...post,
          })
          .then((res) => {
@@ -54,7 +53,7 @@ export const getPosts = () => async (dispatch) => {
          type: SET_POSTS_LOADING,
       });
 
-      const res = await axios.get(`${url}/posts`);
+      const res = await axios.get(`${serverUrl}/posts`);
 
       dispatch({
          type: SET_POSTS,

@@ -28,7 +28,7 @@ const LoginPageView = () => {
    };
 
    const handleRegister = () => {
-      // 회원가입 처리
+      history.push("/register");
    };
 
    const onSubmit = () => {};

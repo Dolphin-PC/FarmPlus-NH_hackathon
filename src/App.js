@@ -14,6 +14,7 @@ import Navbar from "./components/common/Navbar";
 
 import "./assets/css/app.css";
 import DetailPageView from "./views/DetailPageView";
+import RegisterPageView from "./views/RegisterPageView";
 
 const App = () => {
    useEffect(() => {
@@ -25,7 +26,7 @@ const App = () => {
          <BrowserRouter>
             <Switch>
                <Route exact path="/" component={LoginPageView} />
-
+               <Route exact path="/register" component={RegisterPageView} />
                <Navbar>
                   <Route exact path="/main" component={MainPageView} />
                   <Route exact path="/favorite" component={FavoritePageView} />
