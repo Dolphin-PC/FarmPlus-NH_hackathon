@@ -1,6 +1,7 @@
 import {
    ADD_POST,
    CLEAR_CURRENT,
+   CLEAR_POSTS,
    SET_CURRENT,
    SET_POSTS,
    SET_POSTS_ERROR,
@@ -44,6 +45,11 @@ export default function post(state = initialState, action) {
             ...state,
             error: action.payload,
             loading: false,
+         };
+      case CLEAR_POSTS:
+         return {
+            ...state,
+            posts: [],
          };
 
       case SET_CURRENT:

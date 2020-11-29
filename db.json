@@ -1,67 +1,42 @@
 {
-  "posts": [
-    {
-      "title": "강원도 감자 팝니다",
-      "star": 0,
-      "size": 10000,
-      "category": "감자",
-      "location": "강원도",
-      "cost": 100000,
-      "content": "싱싱한 강원도 감자입니다~!",
-      "imageUrls": [
-        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%20%ED%8C%9D%EB%8B%88%EB%8B%A4?alt=media&token=5bcbb29a-b401-41e1-bd5a-173bf3375ac5"
-      ],
-      "createDate": "2020-11-22T17:17:13.712Z",
-      "date": "2020-11-23",
-      "id": 1
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "users": [
-    {
-      "user": {
-        "personalInfo": {
-          "name": "박찬영",
-          "phoneNumber": "010-1234-5667",
-          "address": "강원도",
-          "id": "pcy474",
-          "password": "pchany110!"
-        },
-        "accountInfo": {
-          "bankCode": "011",
-          "accountNumber": "3020000001926"
-        }
-      },
-      "id": 2
-    },
-    {
-      "personalInfo": {
-        "name": "박찬영11",
-        "phoneNumber": "전화",
-        "address": "주소",
-        "id": "pcx474@gmail.com",
-        "password": "654321"
-      },
-      "accountInfo": {
-        "bankCode": "011",
-        "accountNumber": "3020000001926"
-      },
-      "id": 3
-    },
-    {
-      "name": "박찬영2",
-      "phoneNumber": "전화",
-      "address": "주소",
-      "id": "pcx474@gmail.com",
-      "password": "654321",
-      "bankCode": "011",
-      "accountNumber": "3020000001926"
-    }
-  ]
+   "posts": [
+      {
+         "title": "강원도 감자 3333",
+         "star": 0,
+         "size": 10000,
+         "category": "감자",
+         "location": "강원도",
+         "cost": 20302030,
+         "content": "러ㅏㅇ니렁나ㅣ렁니ㅏ렁나ㅣㅇ",
+         "imageUrls": [
+            "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%203333?alt=media&token=948c2090-a93f-40b7-95a1-a6fc0494e708"
+         ],
+         "createDate": "2020-11-29T13:32:11.979Z",
+         "date": "2020-11-29",
+         "name": "박찬영2",
+         "phoneNumber": "전화",
+         "address": "주소",
+         "id": "pcx474@gmail.com",
+         "bankCode": "011",
+         "accountNumber": "3020000001926"
+      }
+   ],
+   "comments": [
+      {
+         "id": 1,
+         "body": "some comment",
+         "postId": 1
+      }
+   ],
+   "users": [
+      {
+         "name": "박찬영2",
+         "phoneNumber": "010-4744-3358",
+         "address": "강원도 춘천시",
+         "id": "pcx474@gmail.com",
+         "password": "654321",
+         "bankCode": "011",
+         "accountNumber": "3020000001926"
+      }
+   ]
 }

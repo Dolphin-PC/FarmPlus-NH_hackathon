@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { SET_CURRENT, SET_NAV } from "../../actions/types";
 
 const ItemCardComp = (props) => {
-   const { image, title, star, size, location } = props;
+   const { imageUrls, title, star, size, location } = props;
    const history = useHistory();
 
    const dispatch = useDispatch();
@@ -35,13 +35,25 @@ const ItemCardComp = (props) => {
          onClick={handleOnClickItem}
       >
          <Col xs="4">
-            <img src={image} alt={image} className="ItemCardImageStyle" />
+            <img
+               src={imageUrls[0]}
+               alt={title}
+               className="ItemCardImageStyle"
+            />
          </Col>
          <Col xs="7">
-            <h5>{title}</h5>
+            <h5
+               style={{
+                  height: 25,
+                  overflow: "hidden",
+                  textOverflow: "ellipsis2",
+               }}
+            >
+               {title}
+            </h5>
             <StarIcon /> {star}
             <p>
-               {size}&ensp;㎡&ensp;|&ensp;{location}
+               {size.toLocaleString()}&ensp;㎡&ensp;|&ensp;{location}
             </p>
          </Col>
       </Row>

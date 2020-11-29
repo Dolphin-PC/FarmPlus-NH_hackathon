@@ -19,7 +19,12 @@ import { useDispatch, useSelector } from "react-redux";
 import FilterDialog from "../dialogs/FilterDialog";
 import SearchDialog from "../dialogs/SearchDialog";
 import NoticeDialog from "../dialogs/NoticeDialog";
-import { CLEAR_USER, SET_NAV } from "../../actions/types";
+import {
+   CLEAR_FILTER,
+   CLEAR_POSTS,
+   CLEAR_USER,
+   SET_NAV,
+} from "../../actions/types";
 
 const Navbar = (props) => {
    const nav = useSelector((state) => state.nav);
@@ -42,6 +47,8 @@ const Navbar = (props) => {
    const handleToLogout = () => {
       if (window.confirm("로그아웃 하시겠습니까?")) {
          dispatch({ type: CLEAR_USER });
+         dispatch({ type: CLEAR_FILTER });
+         dispatch({ type: CLEAR_POSTS });
          history.push("/");
       }
    };

@@ -10,19 +10,21 @@ import {
 } from "@material-ui/core";
 import { Cancel } from "@material-ui/icons";
 import React, { Fragment, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addNewPost } from "../../actions/postActions";
 
 import { category, location } from "../../data/data";
 import { getToday } from "../../app/functions";
 
 const NewProductDialog = (props) => {
+   const user = useSelector((state) => state.user.user);
+
    const dispatch = useDispatch();
    const { onClose, open } = props;
    const initState = {
       title: "",
       star: 0,
-      size: "",
+      size: 0,
       category: "",
       location: "",
       cost: 0,
@@ -43,14 +45,14 @@ const NewProductDialog = (props) => {
       if (newPost.title === "") return alert("제목을 입력해주세요.");
       if (newPost.category === "") return alert("카테고리를 입력해주세요.");
       if (newPost.location === "") return alert("지역을 입력해주세요.");
-      if (newPost.size === "") return alert("면적을 입력해주세요.");
+      if (newPost.size < 0) return alert("면적을 입력해주세요.");
 
       if (newPost.cost === "") return alert("가격 입력해주세요.");
       if (newPost.cost < 0) return alert("가격은 0 이하가 될 수 없습니다.");
 
       if (newPost.content === "") return alert("내용을 입력해주세요.");
 
-      await dispatch(addNewPost(newPost, images));
+      await dispatch(addNewPost(newPost, images, user));
       alert("게시글 생성 완료!");
       setNewPost(initState);
       onClose();

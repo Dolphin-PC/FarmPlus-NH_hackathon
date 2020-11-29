@@ -9,7 +9,9 @@ import {
    SET_POSTS_UPLOADING,
 } from "./types";
 
-export const addNewPost = (post, images) => async (dispatch) => {
+export const addNewPost = (post, images, user) => async (dispatch) => {
+   delete user.password;
+   console.info(user);
    try {
       dispatch({
          type: SET_POSTS_UPLOADING,
@@ -31,6 +33,9 @@ export const addNewPost = (post, images) => async (dispatch) => {
       await axios
          .post(`${serverUrl}/posts`, {
             ...post,
+            cost: Number(post.cost),
+            size: Number(post.size),
+            ...user,
          })
          .then((res) => {
             dispatch({

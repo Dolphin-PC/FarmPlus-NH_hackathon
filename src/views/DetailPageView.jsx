@@ -24,10 +24,10 @@ const DetailPageView = () => {
          dispatch({ type: CLEAR_CURRENT });
       };
       const handleShare = () => {
-         alert("sellerPhoneNumber");
+         alert("Share");
       };
       const handleOption = () => {
-         alert("Share!");
+         alert("Option!");
       };
       return (
          <>
@@ -56,6 +56,12 @@ const DetailPageView = () => {
       );
    };
    const UserContactCard = () => {
+      const handleOnPhone = () => {
+         alert(current.phoneNumber);
+      };
+      const handleOnFavorite = () => {
+         alert("Favorite!");
+      };
       return (
          <div>
             <div
@@ -65,18 +71,21 @@ const DetailPageView = () => {
                }}
             >
                <div style={{ display: "flex", alignItems: "center" }}>
-                  <Avatar>H</Avatar>
+                  <Avatar>{current.name[0]}</Avatar>
                   &ensp;
                   <p style={{ margin: 0 }}>
-                     sellerName
+                     {current.name}
                      <br />
-                     <small>sellerAddress</small>
+                     <small>{current.address}</small>
                   </p>
                </div>
                <div style={{ marginTop: "auto" }}>
-                  <FavoriteIcon style={{ fontSize: 30 }} />
+                  <FavoriteIcon
+                     style={{ fontSize: 30 }}
+                     onClick={handleOnFavorite}
+                  />
                   &emsp;
-                  <PhoneIcon style={{ fontSize: 30 }} />
+                  <PhoneIcon style={{ fontSize: 30 }} onClick={handleOnPhone} />
                </div>
             </div>
          </div>
