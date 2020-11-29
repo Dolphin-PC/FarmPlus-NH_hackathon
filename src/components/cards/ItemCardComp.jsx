@@ -4,7 +4,7 @@ import StarIcon from "@material-ui/icons/Star";
 import Faker from "faker";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { SET_NAV } from "../../actions/types";
+import { SET_CURRENT, SET_NAV } from "../../actions/types";
 
 const ItemCardComp = (props) => {
    const { image, title, star, size, location } = props;
@@ -12,10 +12,15 @@ const ItemCardComp = (props) => {
 
    const dispatch = useDispatch();
 
+   // Dese : 'detail' 이동 && Redux Current Data Binding
    const handleOnClickItem = () => {
       dispatch({
          type: SET_NAV,
          payload: "detail",
+      });
+      dispatch({
+         type: SET_CURRENT,
+         payload: props,
       });
       history.push("/detail");
    };

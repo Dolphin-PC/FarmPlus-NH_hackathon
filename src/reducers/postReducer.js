@@ -1,5 +1,7 @@
 import {
    ADD_POST,
+   CLEAR_CURRENT,
+   SET_CURRENT,
    SET_POSTS,
    SET_POSTS_ERROR,
    SET_POSTS_LOADING,
@@ -8,6 +10,7 @@ import {
 
 const initialState = {
    posts: [],
+   current: null,
    loading: false,
    uploading: false,
    error: null,
@@ -41,6 +44,17 @@ export default function post(state = initialState, action) {
             ...state,
             error: action.payload,
             loading: false,
+         };
+
+      case SET_CURRENT:
+         return {
+            ...state,
+            current: action.payload,
+         };
+      case CLEAR_CURRENT:
+         return {
+            ...state,
+            current: null,
          };
       default:
          return { ...state };

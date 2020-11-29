@@ -6,11 +6,11 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import PhoneIcon from "@material-ui/icons/Phone";
 import { ArrowBack, Share, Dialpad } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { SET_NAV } from "../actions/types";
+import { useDispatch, useSelector } from "react-redux";
+import { CLEAR_CURRENT, SET_NAV } from "../actions/types";
 
-const DetailPageView = (props) => {
-   const { imageUrls, title, category, _location, content, interest } = props;
+const DetailPageView = () => {
+   const current = useSelector((state) => state.post.current);
 
    const history = useHistory();
    const dispatch = useDispatch();
@@ -21,12 +21,13 @@ const DetailPageView = (props) => {
       const handleBack = () => {
          history.push("/main");
          dispatch({ type: SET_NAV, payload: "main" });
+         dispatch({ type: CLEAR_CURRENT });
       };
       const handleShare = () => {
-         alert("share!");
+         alert("sellerPhoneNumber");
       };
       const handleOption = () => {
-         alert("option!");
+         alert("Share!");
       };
       return (
          <>
@@ -67,9 +68,9 @@ const DetailPageView = (props) => {
                   <Avatar>H</Avatar>
                   &ensp;
                   <p style={{ margin: 0 }}>
-                     마피아
+                     sellerName
                      <br />
-                     <small>주소</small>
+                     <small>sellerAddress</small>
                   </p>
                </div>
                <div style={{ marginTop: "auto" }}>
@@ -96,8 +97,12 @@ const DetailPageView = (props) => {
             }}
          >
             <Col xs="6">
-               <p style={{ marginBottom: "auto" }}>1,000,000 원</p>
-               <p style={{ marginBottom: "auto" }}>10,000 평</p>
+               <p style={{ marginBottom: "auto" }}>
+                  {current.cost.toLocaleString()}&ensp;원
+               </p>
+               <p style={{ marginBottom: "auto" }}>
+                  {current.size.toLocaleString()}&ensp;평
+               </p>
             </Col>
             <Col xs="6">
                <Button color="primary" variant="contained">
@@ -112,23 +117,20 @@ const DetailPageView = (props) => {
       <div>
          <TopIconRender />
          <img
-            src={imageUrls}
+            src={current.imageUrls[0]}
             alt="#"
             style={{ height: height / 2, width: "100%", objectFit: "cover" }}
          />
          <div style={{ padding: 10, marginBottom: 100 }}>
             <UserContactCard />
             <hr />
-            <h3>{title}</h3>
+            <h3>{current.title}</h3>
             <small>
-               {category} / {_location}
+               {current.category} / {current.location}
             </small>
-            <p>{content}</p>
-            <p>{content}</p>
-            <p>{content}</p>
-            <p>{content}</p>
+            <p>{current.content}</p>
             <hr />
-            <small>관심 {interest}</small>
+            <small>관심 {current.star}</small>
          </div>
 
          <BottomRender />

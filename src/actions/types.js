@@ -6,6 +6,8 @@ export const SET_POSTS = "SET_POSTS";
 export const SET_POSTS_LOADING = "SET_POSTS_LOADING";
 export const SET_POSTS_UPLOADING = "SET_POSTS_UPLOADING";
 export const SET_POSTS_ERROR = "SET_POSTS_ERROR";
+export const SET_CURRENT = "SET_CURRENT";
+export const CLEAR_CURRENT = "CLEAR_CURRENT";
 
 export const ADD_POST = "ADD_POST";
 

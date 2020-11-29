@@ -19,7 +19,9 @@ const MainPageView = () => {
    const { loading, error, posts } = useSelector((state) => state.post);
 
    useEffect(() => {
-      dispatch(getPosts());
+      if (posts.length === 0) {
+         dispatch(getPosts());
+      }
    }, []);
 
    const CategorySliderRender = () => {
