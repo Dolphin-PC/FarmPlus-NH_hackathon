@@ -15,6 +15,7 @@ import Navbar from "./components/common/Navbar";
 import "./assets/css/app.css";
 import DetailPageView from "./views/DetailPageView";
 import RegisterPageView from "./views/RegisterPageView";
+import FilterPageView from "./views/FilterPageView";
 
 const App = () => {
    useEffect(() => {
@@ -32,6 +33,7 @@ const App = () => {
                   <Route exact path="/favorite" component={FavoritePageView} />
                   <Route exact path="/setting" component={SettingPageView} />
                   <Route exact path="/detail" component={DetailPageView} />
+                  <Route exact path="/filter" component={FilterPageView} />
                </Navbar>
             </Switch>
          </BrowserRouter>

@@ -7,10 +7,19 @@ import PhoneIcon from "@material-ui/icons/Phone";
 import { ArrowBack, Share, Dialpad } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { CLEAR_CURRENT, SET_NAV } from "../actions/types";
+import {
+   ADD_FAVORITE,
+   CLEAR_CURRENT,
+   SET_FAVORITE,
+   SET_NAV,
+} from "../actions/types";
+import { addFavorite } from "../actions/userActions";
+import Axios from "axios";
+import { serverUrl } from "../app/info";
 
 const DetailPageView = () => {
    const current = useSelector((state) => state.post.current);
+   const user = useSelector((state) => state.user);
 
    const history = useHistory();
    const dispatch = useDispatch();
@@ -59,8 +68,22 @@ const DetailPageView = () => {
       const handleOnPhone = () => {
          alert(current.phoneNumber);
       };
-      const handleOnFavorite = () => {
-         alert("Favorite!");
+      const handleOnFavorite = async () => {
+         dispatch({
+            type: ADD_FAVORITE,
+            payload: current,
+         });
+
+         await Axios.put(`${serverUrl}/users/${user.user.id}`, {
+            ...user.user,
+            favorite: user.favorite,
+         })
+            .then((res) => {
+               alert("찜 되었습니다.");
+            })
+            .catch((err) => {
+               console.error(err);
+            });
       };
       return (
          <div>
@@ -131,6 +154,7 @@ const DetailPageView = () => {
             style={{ height: height / 2, width: "100%", objectFit: "cover" }}
          />
          <div style={{ padding: 10, marginBottom: 100 }}>
+            #442F51
             <UserContactCard />
             <hr />
             <h3>{current.title}</h3>

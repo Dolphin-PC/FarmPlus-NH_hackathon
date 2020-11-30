@@ -172,6 +172,19 @@ const Navbar = (props) => {
                <BottomNavbarRender />
             </Fragment>
          );
+      case "filter":
+         return (
+            <Fragment>
+               <TopNavbarRender>
+                  <div>
+                     <ArrowBack onClick={handleToLogout} />
+                     &emsp;게시물 필터 설정
+                  </div>
+               </TopNavbarRender>
+               {props.children}
+               <BottomNavbarRender />
+            </Fragment>
+         );
       default:
          return <Fragment>{props.children}</Fragment>;
    }

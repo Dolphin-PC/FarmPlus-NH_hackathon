@@ -1,6 +1,7 @@
 import Axios from "axios";
+import { useSelector } from "react-redux";
 import { serverUrl } from "../app/info";
-import { SET_USER } from "./types";
+import { ADD_FAVORITE, SET_FAVORITE, SET_USER } from "./types";
 
 export const newUser = async (user) => {
    await Axios.post(`${serverUrl}/users`, {

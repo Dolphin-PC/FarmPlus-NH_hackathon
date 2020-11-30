@@ -1,10 +1,11 @@
 import { Button, TextField } from "@material-ui/core";
 import React, { Fragment, useEffect, useState } from "react";
-import Lottie from "react-lottie";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { SET_NAV } from "../actions/types";
 import { loginUser } from "../actions/userActions";
-import LoginAni from "../assets/animations/login.json";
+import * as Color from "../assets/colors";
+import loginVideo from "../assets/video/LoginVideo.mp4";
 
 const LoginPageView = () => {
    // 현재 브라우저의 전체 높이 값을 반환
@@ -18,16 +19,6 @@ const LoginPageView = () => {
       id: "",
       password: "",
    });
-
-   // lottie Animation option
-   const defaultOptions = {
-      loop: true,
-      autoplay: true,
-      animationData: LoginAni,
-      rendererSettings: {
-         preserveAspectRatio: "xMidYMid slice",
-      },
-   };
 
    const handleLogin = () => {
       // 로그인 처리
@@ -47,17 +38,35 @@ const LoginPageView = () => {
 
    useEffect(() => {
       if (_user.user !== null) {
-         history.push("/main");
+         history.push("/filter");
+         dispatch({
+            type: SET_NAV,
+            payload: "filter",
+         });
       }
    }, [_user]);
+
    return (
       <div className="LoginStyle" style={{ height: height }}>
-         <div>
-            <Lottie options={defaultOptions} width={`80%`} height={`80%`} />
-         </div>
-         <h4>선구안</h4>
-         <small>선도거래를 구조한다, 안전하게</small>&emsp;
-         <form style={{ width: "80%" }}>
+         <video
+            controls
+            width="100%"
+            height={height}
+            style={{ position: "absolute", objectFit: "cover", zIndex: -1 }}
+            autoPlay
+            muted
+         >
+            <source src={loginVideo} type="video/mp4" />
+         </video>
+         <h1
+            style={{ fontSize: 50, marginRight: 150, marginBottom: 290 }}
+            className="LoginHeader"
+         >
+            FARM
+            <br />
+            PLUS +
+         </h1>
+         <form style={{ width: "80%", marginTop: 50 }}>
             <TextField
                name="id"
                value={user.id}
@@ -79,8 +88,8 @@ const LoginPageView = () => {
             />
             &emsp;
             <Button
+               style={{ backgroundColor: "white" }}
                fullWidth
-               color="primary"
                variant="contained"
                onClick={handleLogin}
             >
@@ -90,7 +99,7 @@ const LoginPageView = () => {
             <Button
                fullWidth
                color="secondary"
-               variant="outlined"
+               variant="contained"
                onClick={handleRegister}
             >
                회원가입

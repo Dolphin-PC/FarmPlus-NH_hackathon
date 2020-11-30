@@ -5,7 +5,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import Slider from "react-slick";
 import ItemCardComp from "../components/cards/ItemCardComp";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_CATEGORY } from "../actions/types";
+import { SET_CATEGORY, SET_NAV } from "../actions/types";
 import { Fab } from "@material-ui/core";
 import { Add } from "@material-ui/icons";
 import NewPostDialog from "../components/dialogs/NewPostDialog";
@@ -22,6 +22,10 @@ const MainPageView = () => {
       if (posts.length === 0) {
          dispatch(getPosts());
       }
+      dispatch({
+         type: SET_NAV,
+         payload: window.location.href.split("/")[3],
+      });
    }, []);
 
    const CategorySliderRender = () => {

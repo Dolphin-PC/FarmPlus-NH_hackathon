@@ -1,8 +1,17 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Badge, Col, Row } from "reactstrap";
 import { Settings, ChevronRight } from "@material-ui/icons";
+import { useDispatch } from "react-redux";
+import { SET_NAV } from "../actions/types";
 
 const SettingPageView = () => {
+   const dispatch = useDispatch();
+   useEffect(() => {
+      dispatch({
+         type: SET_NAV,
+         payload: window.location.href.split("/")[3],
+      });
+   }, []);
    const GyuljaehamRender = () => {
       return (
          <div
