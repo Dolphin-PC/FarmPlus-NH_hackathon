@@ -7,7 +7,7 @@
       "category": "감자",
       "location": "강원도",
       "cost": 20302030,
-      "content": "러ㅏㅇ니렁나ㅣ렁니ㅏ렁나ㅣㅇ",
+      "content": "강원도 감자 싸게 팝니다~!~!",
       "imageUrls": [
         "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%203333?alt=media&token=948c2090-a93f-40b7-95a1-a6fc0494e708"
       ],
@@ -19,6 +19,27 @@
       "id": "pcx474@gmail.com",
       "bankCode": "011",
       "accountNumber": "3020000001926"
+    },
+    {
+      "title": "감자 밭 8월 재배예정",
+      "star": 0,
+      "size": 11111,
+      "category": "감자",
+      "location": "강원도",
+      "cost": 1000000,
+      "content": "강원도 감자 팝니다~!~!~!~!~!",
+      "imageUrls": [
+        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%90%EC%9E%90%20%EB%B0%AD%208%EC%9B%94%20%EC%9E%AC%EB%B0%B0%EC%98%88%EC%A0%95?alt=media&token=17ae374d-2b45-410c-9ddd-efabed33f1c2"
+      ],
+      "createDate": "2020-12-01T15:11:55.944Z",
+      "date": "2020-12-2",
+      "name": "판매자1",
+      "phoneNumber": "010-1234-5678",
+      "idNumber": "강원도 춘천시",
+      "landNumber": "12-34567-12-345-231",
+      "id": "seller",
+      "bankCode": "011",
+      "accountNumber": "3020000001880"
     }
   ],
   "users": [
@@ -30,7 +51,259 @@
       "password": "654321",
       "bankCode": "011",
       "accountNumber": "3020000001926",
-      "favorite": []
+      "favorite": [
+        {
+          "title": "강원도 감자 3333",
+          "star": 0,
+          "size": 10000,
+          "category": "감자",
+          "location": "강원도",
+          "cost": 20302030,
+          "content": "강원도 감자 싸게 팝니다~!~!",
+          "imageUrls": [
+            "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%203333?alt=media&token=948c2090-a93f-40b7-95a1-a6fc0494e708"
+          ],
+          "createDate": "2020-11-29T13:32:11.979Z",
+          "date": "2020-11-29",
+          "name": "박찬영2",
+          "phoneNumber": "010-4744-3358",
+          "address": "강원도 춘천시",
+          "id": "pcx474@gmail.com",
+          "bankCode": "011",
+          "accountNumber": "3020000001926",
+          "image": "http://placeimg.com/640/480/abstract"
+        },
+        {
+          "title": "감자 밭 8월 재배예정",
+          "star": 0,
+          "size": 11111,
+          "category": "감자",
+          "location": "강원도",
+          "cost": 1000000,
+          "content": "강원도 감자 팝니다~!~!~!~!~!",
+          "imageUrls": [
+            "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%90%EC%9E%90%20%EB%B0%AD%208%EC%9B%94%20%EC%9E%AC%EB%B0%B0%EC%98%88%EC%A0%95?alt=media&token=17ae374d-2b45-410c-9ddd-efabed33f1c2"
+          ],
+          "createDate": "2020-12-01T15:11:55.944Z",
+          "date": "2020-12-2",
+          "name": "판매자1",
+          "phoneNumber": "010-1234-5678",
+          "idNumber": "강원도 춘천시",
+          "landNumber": "12-34567-12-345-231",
+          "id": "seller",
+          "bankCode": "011",
+          "accountNumber": "3020000001880",
+          "image": "http://placeimg.com/640/480/abstract"
+        },
+        {
+          "title": "감자 밭 8월 재배예정",
+          "star": 0,
+          "size": 11111,
+          "category": "감자",
+          "location": "강원도",
+          "cost": 1000000,
+          "content": "강원도 감자 팝니다~!~!~!~!~!",
+          "imageUrls": [
+            "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%90%EC%9E%90%20%EB%B0%AD%208%EC%9B%94%20%EC%9E%AC%EB%B0%B0%EC%98%88%EC%A0%95?alt=media&token=17ae374d-2b45-410c-9ddd-efabed33f1c2"
+          ],
+          "createDate": "2020-12-01T15:11:55.944Z",
+          "date": "2020-12-2",
+          "name": "판매자1",
+          "phoneNumber": "010-1234-5678",
+          "idNumber": "강원도 춘천시",
+          "landNumber": "12-34567-12-345-231",
+          "id": "seller",
+          "bankCode": "011",
+          "accountNumber": "3020000001880",
+          "image": "http://placeimg.com/640/480/abstract"
+        }
+      ]
+    },
+    {
+      "name": "박찬영",
+      "phoneNumber": "010-1234-5678",
+      "idNumber": "강원도",
+      "landNumber": "3123-1233123-123213",
+      "id": "pcy47",
+      "password": "111",
+      "bankCode": "011",
+      "accountNumber": "3020000001926"
+    },
+    {
+      "name": "판매자1",
+      "phoneNumber": "010-1234-5678",
+      "idNumber": "강원도 춘천시",
+      "landNumber": "12-34567-12-345-231",
+      "id": "seller",
+      "password": "111",
+      "bankCode": "011",
+      "accountNumber": "3020000001880",
+      "favorite": [
+        {
+          "title": "강원도 감자 3333",
+          "star": 0,
+          "size": 10000,
+          "category": "감자",
+          "location": "강원도",
+          "cost": 20302030,
+          "content": "강원도 감자 싸게 팝니다~!~!",
+          "imageUrls": [
+            "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%203333?alt=media&token=948c2090-a93f-40b7-95a1-a6fc0494e708"
+          ],
+          "createDate": "2020-11-29T13:32:11.979Z",
+          "date": "2020-11-29",
+          "name": "박찬영2",
+          "phoneNumber": "010-4744-3358",
+          "address": "강원도 춘천시",
+          "id": "pcx474@gmail.com",
+          "bankCode": "011",
+          "accountNumber": "3020000001926",
+          "image": "http://placeimg.com/640/480/cats"
+        },
+        {
+          "title": "감자 밭 8월 재배예정",
+          "star": 0,
+          "size": 11111,
+          "category": "감자",
+          "location": "강원도",
+          "cost": 1000000,
+          "content": "강원도 감자 팝니다~!~!~!~!~!",
+          "imageUrls": [
+            "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%90%EC%9E%90%20%EB%B0%AD%208%EC%9B%94%20%EC%9E%AC%EB%B0%B0%EC%98%88%EC%A0%95?alt=media&token=17ae374d-2b45-410c-9ddd-efabed33f1c2"
+          ],
+          "createDate": "2020-12-01T15:11:55.944Z",
+          "date": "2020-12-2",
+          "name": "판매자1",
+          "phoneNumber": "010-1234-5678",
+          "idNumber": "강원도 춘천시",
+          "landNumber": "12-34567-12-345-231",
+          "id": "seller",
+          "bankCode": "011",
+          "accountNumber": "3020000001880",
+          "image": "http://placeimg.com/640/480/business"
+        },
+        {
+          "title": "감자 밭 8월 재배예정",
+          "star": 0,
+          "size": 11111,
+          "category": "감자",
+          "location": "강원도",
+          "cost": 1000000,
+          "content": "강원도 감자 팝니다~!~!~!~!~!",
+          "imageUrls": [
+            "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%90%EC%9E%90%20%EB%B0%AD%208%EC%9B%94%20%EC%9E%AC%EB%B0%B0%EC%98%88%EC%A0%95?alt=media&token=17ae374d-2b45-410c-9ddd-efabed33f1c2"
+          ],
+          "createDate": "2020-12-01T15:11:55.944Z",
+          "date": "2020-12-2",
+          "name": "판매자1",
+          "phoneNumber": "010-1234-5678",
+          "idNumber": "강원도 춘천시",
+          "landNumber": "12-34567-12-345-231",
+          "id": "seller",
+          "bankCode": "011",
+          "accountNumber": "3020000001880",
+          "image": "http://placeimg.com/640/480/people"
+        }
+      ],
+      "notice": [
+        {
+          "noticeType": "거래신청",
+          "requester": {
+            "name": "chanyoung park",
+            "phoneNumber": "+82332571200",
+            "address": "강원도 춘천시 충열로 16번길 21-14",
+            "id": "pcy4742",
+            "backCode": "011",
+            "accountNumber": "3020000001926"
+          },
+          "product": {
+            "title": "감자 밭 8월 재배예정",
+            "star": 0,
+            "size": 11111,
+            "category": "감자",
+            "location": "강원도",
+            "cost": 1000000,
+            "content": "강원도 감자 팝니다~!~!~!~!~!",
+            "imageUrls": [
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%90%EC%9E%90%20%EB%B0%AD%208%EC%9B%94%20%EC%9E%AC%EB%B0%B0%EC%98%88%EC%A0%95?alt=media&token=17ae374d-2b45-410c-9ddd-efabed33f1c2"
+            ],
+            "createDate": "2020-12-01T15:11:55.944Z",
+            "date": "2020-12-2",
+            "name": "판매자1",
+            "phoneNumber": "010-1234-5678",
+            "idNumber": "강원도 춘천시",
+            "landNumber": "12-34567-12-345-231",
+            "id": "seller",
+            "bankCode": "011",
+            "accountNumber": "3020000001880",
+            "image": "http://placeimg.com/640/480/abstract"
+          }
+        },
+        {
+          "noticeType": "거래신청",
+          "requester": {
+            "name": "판매자1",
+            "phoneNumber": "010-1234-5678",
+            "id": "seller",
+            "backCode": "011",
+            "accountNumber": "3020000001880"
+          },
+          "product": {
+            "title": "감자 밭 8월 재배예정",
+            "star": 0,
+            "size": 11111,
+            "category": "감자",
+            "location": "강원도",
+            "cost": 1000000,
+            "content": "강원도 감자 팝니다~!~!~!~!~!",
+            "imageUrls": [
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%90%EC%9E%90%20%EB%B0%AD%208%EC%9B%94%20%EC%9E%AC%EB%B0%B0%EC%98%88%EC%A0%95?alt=media&token=17ae374d-2b45-410c-9ddd-efabed33f1c2"
+            ],
+            "createDate": "2020-12-01T15:11:55.944Z",
+            "date": "2020-12-2",
+            "name": "판매자1",
+            "phoneNumber": "010-1234-5678",
+            "idNumber": "강원도 춘천시",
+            "landNumber": "12-34567-12-345-231",
+            "id": "seller",
+            "bankCode": "011",
+            "accountNumber": "3020000001880",
+            "image": "http://placeimg.com/640/480/people"
+          }
+        },
+        {
+          "noticeType": "거래신청",
+          "requester": {
+            "name": "판매자1",
+            "phoneNumber": "010-1234-5678",
+            "id": "seller",
+            "backCode": "011",
+            "accountNumber": "3020000001880"
+          },
+          "product": {
+            "title": "감자 밭 8월 재배예정",
+            "star": 0,
+            "size": 11111,
+            "category": "감자",
+            "location": "강원도",
+            "cost": 1000000,
+            "content": "강원도 감자 팝니다~!~!~!~!~!",
+            "imageUrls": [
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%90%EC%9E%90%20%EB%B0%AD%208%EC%9B%94%20%EC%9E%AC%EB%B0%B0%EC%98%88%EC%A0%95?alt=media&token=17ae374d-2b45-410c-9ddd-efabed33f1c2"
+            ],
+            "createDate": "2020-12-01T15:11:55.944Z",
+            "date": "2020-12-2",
+            "name": "판매자1",
+            "phoneNumber": "010-1234-5678",
+            "idNumber": "강원도 춘천시",
+            "landNumber": "12-34567-12-345-231",
+            "id": "seller",
+            "bankCode": "011",
+            "accountNumber": "3020000001880",
+            "image": "http://placeimg.com/640/480/people"
+          }
+        }
+      ]
     }
   ]
 }

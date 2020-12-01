@@ -35,7 +35,8 @@
       "test": "react-scripts test",
       "eject": "react-scripts eject",
       "dev": "concurrently \"json-server --watch db.json --port 5000\" \"react-scripts start\"",
-      "server": "json-server --watch db.json --port 5000"
+      "server": "json-server --watch db.json --port 5000",
+      "deploy": "npm run build && firebase deploy --only hosting"
    },
    "eslintConfig": {
       "extends": [

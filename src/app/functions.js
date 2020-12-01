@@ -12,6 +12,15 @@ export const getTodayApi = () => {
    var year = date.getFullYear();
    var month = date.getMonth() + 1;
    var day = date.getDate();
+   if (year < 10) {
+      year = "0" + year;
+   }
+   if (month < 10) {
+      month = "0" + month;
+   }
+   if (day < 10) {
+      day = "0" + day;
+   }
 
    return `${year}${month}${day}`;
 };

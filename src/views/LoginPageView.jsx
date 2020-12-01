@@ -59,14 +59,14 @@ const LoginPageView = () => {
             <source src={loginVideo} type="video/mp4" />
          </video>
          <h1
-            style={{ fontSize: 50, marginRight: 150, marginBottom: 290 }}
+            style={{ fontSize: 50, position: "fixed", top: 20, left: 20 }}
             className="LoginHeader"
          >
             FARM
             <br />
             PLUS +
          </h1>
-         <form style={{ width: "80%", marginTop: 50 }}>
+         <form style={{ width: "80%", position: "fixed", bottom: 20 }}>
             <TextField
                name="id"
                value={user.id}

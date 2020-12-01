@@ -21,7 +21,8 @@ const RegisterPageView = () => {
    const [personalInfo, setPersonalInfo] = useState({
       name: "",
       phoneNumber: "",
-      address: "",
+      idNumber: "",
+      landNumber: "",
       id: "",
       password: "",
    });
@@ -66,7 +67,10 @@ const RegisterPageView = () => {
       if (personalInfo.name === "") return alert("이름을 입력해주세요.");
       if (personalInfo.phoneNumber === "")
          return alert("전화번호를 입력해주세요.");
-      if (personalInfo.address === "") return alert("주소를 입력해주세요.");
+      if (personalInfo.idNumber === "")
+         return alert("주민등록번호를 입력해주세요.");
+      if (personalInfo.landNumber === "")
+         return alert("토지등록번호를 입력해주세요.");
       if (personalInfo.id === "") return alert("아이디를 입력해주세요.");
       if (personalInfo.password === "")
          return alert("비밀번호를 입력해주세요.");
@@ -133,8 +137,15 @@ const RegisterPageView = () => {
             <TextField
                fullWidth
                label="주소"
-               name="address"
-               value={personalInfo.address}
+               name="idNumber"
+               value={personalInfo.idNumber}
+               onChange={onChangePersonalInfo}
+            />
+            <TextField
+               fullWidth
+               label="토지등록번호"
+               name="landNumber"
+               value={personalInfo.landNumber}
                onChange={onChangePersonalInfo}
             />
             <TextField

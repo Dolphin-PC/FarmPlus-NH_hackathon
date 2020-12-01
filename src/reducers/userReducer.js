@@ -5,6 +5,7 @@ import {
    CLEAR_USER,
    SET_FAVORITE,
    SET_USER,
+   GET_USER,
 } from "../actions/types";
 
 const initialState = {
@@ -18,6 +19,11 @@ export default function userReducer(state = initialState, action) {
             ...state,
             user: action.payload,
          };
+      case GET_USER:
+         return {
+            ...state,
+            user: action.payload,
+         };
       case CLEAR_USER:
          return {
             ...state,
@@ -26,7 +32,7 @@ export default function userReducer(state = initialState, action) {
       case ADD_FAVORITE:
          return {
             ...state,
-            [state.user.favorite]: [...state.favorite, action.payload],
+            [state.user.favorite]: [...state.user.favorite, action.payload],
          };
       case SET_FAVORITE:
          return {

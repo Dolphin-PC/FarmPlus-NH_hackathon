@@ -7,15 +7,8 @@ import PhoneIcon from "@material-ui/icons/Phone";
 import { ArrowBack, Share, Dialpad } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-   ADD_FAVORITE,
-   CLEAR_CURRENT,
-   SET_FAVORITE,
-   SET_NAV,
-} from "../actions/types";
-import { addFavorite } from "../actions/userActions";
-import Axios from "axios";
-import { serverUrl } from "../app/info";
+import { CLEAR_CURRENT } from "../actions/types";
+import { addFavorite, tradeRequest } from "../actions/userActions";
 
 const DetailPageView = () => {
    const current = useSelector((state) => state.post.current);
@@ -26,11 +19,16 @@ const DetailPageView = () => {
 
    const height = window.outerHeight;
 
+   const handleOnRequest = () => {
+      if (window.confirm("거래를 신청하시겠습니까?")) {
+         dispatch(tradeRequest(user, current));
+      }
+   };
+
    const TopIconRender = () => {
       const handleBack = () => {
-         history.push("/main");
-         dispatch({ type: SET_NAV, payload: "main" });
-         dispatch({ type: CLEAR_CURRENT });
+         history.goBack();
+         // dispatch({ type: CLEAR_CURRENT });
       };
       const handleShare = () => {
          alert("Share");
@@ -69,21 +67,7 @@ const DetailPageView = () => {
          alert(current.phoneNumber);
       };
       const handleOnFavorite = async () => {
-         dispatch({
-            type: ADD_FAVORITE,
-            payload: current,
-         });
-
-         await Axios.put(`${serverUrl}/users/${user.user.id}`, {
-            ...user.user,
-            favorite: user.favorite,
-         })
-            .then((res) => {
-               alert("찜 되었습니다.");
-            })
-            .catch((err) => {
-               console.error(err);
-            });
+         dispatch(addFavorite(user, current));
       };
       return (
          <div>
@@ -137,7 +121,11 @@ const DetailPageView = () => {
                </p>
             </Col>
             <Col xs="6">
-               <Button color="primary" variant="contained">
+               <Button
+                  color="primary"
+                  variant="contained"
+                  onClick={handleOnRequest}
+               >
                   거래 신청하기
                </Button>
             </Col>
@@ -154,7 +142,6 @@ const DetailPageView = () => {
             style={{ height: height / 2, width: "100%", objectFit: "cover" }}
          />
          <div style={{ padding: 10, marginBottom: 100 }}>
-            #442F51
             <UserContactCard />
             <hr />
             <h3>{current.title}</h3>

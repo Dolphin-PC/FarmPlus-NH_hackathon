@@ -27,6 +27,8 @@ export const accountHolderFunc = async (accountInfo) => {
       Acno: accountInfo.accountNumber,
    };
 
+   console.info(body);
+
    let result;
 
    await Axios.post(url, body)

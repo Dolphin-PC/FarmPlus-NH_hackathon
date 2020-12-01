@@ -9,7 +9,7 @@ import {
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { Col } from "reactstrap";
 import React, { Fragment, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { SET_FILTER, SET_NAV } from "../actions/types";
 import { category, location } from "../data/data";
@@ -30,6 +30,7 @@ const FilterPageView = () => {
    const height = window.outerHeight;
    const [filterCategory, setFilterCategory] = useState([]);
    const [filterLocation, setFilterLocation] = useState([]);
+   const user = useSelector((state) => state.user);
 
    const dispatch = useDispatch();
    const history = useHistory();
@@ -127,7 +128,7 @@ const FilterPageView = () => {
          <div>
             <h3>
                <AccountCircleIcon style={{ fontSize: 40 }} />
-               &ensp;홍길동 님 안녕하세요.
+               &ensp;{user.user.name} 님 안녕하세요.
             </h3>
             <hr />
          </div>
