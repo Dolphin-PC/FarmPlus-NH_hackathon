@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { serverUrl } from "../app/info";
 import { ADD_FAVORITE, GET_USER, SET_FAVORITE, SET_USER } from "./types";
 
+import shortid from "shortid";
+
 export const newUser = async (user) => {
    await Axios.post(`${serverUrl}/users`, {
       ...user.personalInfo,
@@ -75,11 +77,22 @@ export const addFavorite = (user, current) => async (dispatch) => {
 };
 
 export const tradeRequest = (user, current) => async (dispatch) => {
-   var noticeList = [];
-   if (user.user.notice) {
-      noticeList = user.user.notice;
+   const tradeId = shortid.generate();
+   let myList = [];
+   let sellerList = [];
+
+   // 셀러 정보 가져오기(거래정보)
+   const seller = await Axios.get(`${serverUrl}/users/${current.id}`);
+
+   if (user.user.trade) {
+      myList = user.user.trade;
    }
-   noticeList.push({
+   if (seller.data.trade) {
+      sellerList = seller.data.trade;
+   }
+
+   const newTrade = {
+      tradeId: tradeId,
       noticeType: "거래신청",
       requester: {
          name: user.user.name,
@@ -90,12 +103,44 @@ export const tradeRequest = (user, current) => async (dispatch) => {
          accountNumber: user.user.accountNumber,
       },
       product: current,
+   };
+
+   myList.push(newTrade);
+   sellerList.push(newTrade);
+
+   // 내 거래내역 추가
+   await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
+      trade: myList,
+   }).catch((err) => {
+      console.error(err);
    });
+
+   // 상대방 거래내역 추가
    await Axios.patch(`${serverUrl}/users/${current.id}`, {
-      notice: noticeList,
+      trade: sellerList,
    })
       .then((res) => {
          alert("거래 신청이 완료되었습니다.");
+      })
+      .catch((err) => {
+         console.error(err);
+      });
+   // 상대방 알림 내역 추가
+   await Axios.patch(`${serverUrl}/users/${current.id}`, {
+      notice: sellerList,
+   }).catch((err) => {
+      console.error(err);
+   });
+};
+
+export const acceptRequest = (user, tradeId, requester, product) => async (
+   dispatch
+) => {
+   await Axios.patch(`${serverUrl}/user/${user.user.id}/trade/${tradeId}`, {
+      tradeType: "거래 진행",
+   })
+      .then(() => {
+         alert("거래 진행중입니다!");
       })
       .catch((err) => {
          console.error(err);

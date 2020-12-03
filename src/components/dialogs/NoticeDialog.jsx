@@ -50,6 +50,7 @@ const NoticeDialog = (props) => {
 
    return (
       <DialogRender>
+         <hr />
          {user.user.notice.map((noti, index) => (
             <NoticeCardComp key={index} {...noti} />
          ))}

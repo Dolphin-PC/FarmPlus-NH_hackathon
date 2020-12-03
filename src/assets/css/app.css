@@ -38,7 +38,7 @@
 }
 
 .LoginHeader {
-   font-family: "Montserrat", sans-serif;
+   font-family: "Open Sans", sans-serif;
 }
 
 /* font-family: 'Montserrat', sans-serif;
@@ -48,4 +48,9 @@ font-family: 'Raleway', sans-serif; */
 
 .Row {
    display: flex;
+}
+
+.Col {
+   display: flex;
+   flex-direction: column;
 }

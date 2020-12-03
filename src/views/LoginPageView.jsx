@@ -75,6 +75,11 @@ const LoginPageView = () => {
                variant="outlined"
                label="아이디를 입력해주세요."
                onChange={handleOnChange}
+               style={{
+                  color: "white",
+                  borderColor: "white",
+                  backgroundColor: "white",
+               }}
             />
             &emsp;
             <TextField
@@ -85,9 +90,15 @@ const LoginPageView = () => {
                variant="outlined"
                label="비밀번호를 입력해주세요."
                onChange={handleOnChange}
+               style={{
+                  color: "white",
+                  borderColor: "white",
+                  backgroundColor: "white",
+               }}
             />
             &emsp;
             <Button
+               size="large"
                style={{ backgroundColor: "white" }}
                fullWidth
                variant="contained"
@@ -97,6 +108,7 @@ const LoginPageView = () => {
             </Button>
             &emsp;
             <Button
+               size="large"
                fullWidth
                color="secondary"
                variant="contained"
