@@ -13,7 +13,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { acceptRequest } from "../../actions/userActions";
 
 const RequesterInfoDialog = (props) => {
-   console.info(props);
    const { onClose, open, requester, product, tradeId } = props;
 
    const dispatch = useDispatch();

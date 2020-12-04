@@ -10,16 +10,28 @@ const NoticeCardComp = (props) => {
       setOpen(true);
    };
 
+   const NoticeIconRender = () => {
+      switch (noticeType) {
+         case "거래신청":
+            return (
+               <div className="Col">
+                  <RateReviewIcon style={{ fontSize: 50 }} />
+                  <small>{noticeType}</small>
+               </div>
+            );
+         default:
+            return (
+               <div className="Col">
+                  <RateReviewIcon style={{ fontSize: 50 }} />
+                  <small>{noticeType}</small>
+               </div>
+            );
+      }
+   };
+
    return (
       <div className="Row" style={{ marginTop: 10 }}>
-         {noticeType === "거래신청" ? (
-            <div className="Col">
-               <RateReviewIcon style={{ fontSize: 50 }} />
-               <small>{noticeType}</small>
-            </div>
-         ) : (
-            <RateReviewIcon />
-         )}
+         <NoticeIconRender />
          &emsp;
          <div onClick={handleNoticeClick}>
             <h5>{product.title}</h5>
