@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Nanum+Gothic&family=Open+Sans:wght@300&family=Raleway:wght@100&display=swap");
 
+p,
+small,
+h1,
+h2,
+h3,
+h4,
+h5 {
+   font-family: "Nanum Gothic", sans-serif;
+}
+
 .LoginStyle {
    display: flex;
    justify-content: center;
@@ -38,7 +48,7 @@
 }
 
 .LoginHeader {
-   font-family: "Open Sans", sans-serif;
+   font-family: "Open Sans", sans-serif !important;
 }
 
 /* font-family: 'Montserrat', sans-serif;
@@ -53,4 +63,22 @@ font-family: 'Raleway', sans-serif; */
 .Col {
    display: flex;
    flex-direction: column;
+}
+
+h5 {
+   margin-bottom: 0px !important;
+}
+
+.ContractButton {
+   border-radius: 24px;
+   background: #ffffff;
+   box-shadow: 5px 5px 15px #b5b5b5, -5px -5px 15px #ffffff;
+   margin: 20px !important;
+}
+
+.MuiDialogTitle-root {
+   border-bottom: 1px solid lightgray;
+}
+.MuiDialogActions-root {
+   border-top: 1px solid lightgray;
 }

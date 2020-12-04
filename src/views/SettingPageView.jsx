@@ -1,10 +1,11 @@
 import React, { Fragment, useEffect } from "react";
 import { Badge, Col, Row } from "reactstrap";
 import { Settings, ChevronRight } from "@material-ui/icons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SET_NAV } from "../actions/types";
 
 const SettingPageView = () => {
+   const user = useSelector((state) => state.user);
    const dispatch = useDispatch();
    useEffect(() => {
       dispatch({
@@ -13,6 +14,24 @@ const SettingPageView = () => {
       });
    }, []);
    const GyuljaehamRender = () => {
+      let waitTrade = [],
+         proceedTrade = [],
+         completeTrade = [];
+      if (user.user.trade) {
+         user.user.trade.map((trade) => {
+            switch (trade.noticeType) {
+               case "거래신청":
+                  return waitTrade.push(trade);
+               case "거래진행중":
+                  return proceedTrade.push(trade);
+               case "거래완료":
+                  return completeTrade.push(trade);
+               default:
+                  return;
+            }
+         });
+      }
+
       return (
          <div
             className="LeftBorder30"
@@ -25,14 +44,14 @@ const SettingPageView = () => {
             <h4 style={{ color: "white" }}>결재함</h4>
             <Row style={{ color: "white" }}>
                <Col xs="4" className="center">
-                  <h5>0</h5>
+                  <h5>{waitTrade.length}</h5>
                   결재대상
                </Col>
                <Col xs="4" className="center">
-                  <h5>0</h5>결재진행
+                  <h5>{proceedTrade.length}</h5>결재진행
                </Col>
                <Col xs="4" className="center">
-                  <h5>0</h5>결재완료
+                  <h5>{completeTrade.length}</h5>결재완료
                </Col>
             </Row>
          </div>
@@ -91,13 +110,14 @@ const SettingPageView = () => {
          </div>
       );
    };
+
    return (
       <div className="MainStyle">
          <div style={{ paddingLeft: 30, paddingTop: 30 }}>
             <p>내 정보</p>
 
             <h3>
-               <b>박찬영</b> 님<br />
+               <b>{user.user.name}</b> 님<br />
                안녕하세요.
             </h3>
             <GyuljaehamRender />

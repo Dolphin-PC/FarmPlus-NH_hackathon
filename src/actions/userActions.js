@@ -154,9 +154,15 @@ export const acceptRequest = (user, tradeId, requester, product) => async (
    await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
       trade: myTradeInfo,
       notice: myTradeInfo,
+   }).catch((err) => {
+      console.error(err);
    });
    await Axios.patch(`${serverUrl}/users/${requester.id}`, {
       trade: requesterTradeInfo,
       notice: requesterTradeInfo,
-   });
+   })
+      .then(() => console.info("거래가 성사되었습니다."))
+      .catch((err) => {
+         console.error(err);
+      });
 };

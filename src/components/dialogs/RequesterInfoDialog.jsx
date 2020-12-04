@@ -40,7 +40,7 @@ const RequesterInfoDialog = (props) => {
                <Button onClick={handleOnDenied} color="primary">
                   거절
                </Button>
-               <Button onClick={handleOnAccept} color="primary" autoFocus>
+               <Button onClick={handleOnAccept} color="primary">
                   수락
                </Button>
             </DialogActions>
