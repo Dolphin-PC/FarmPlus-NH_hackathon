@@ -26,6 +26,7 @@ import { getToday } from "../../app/functions";
 import { contract } from "../../data/data";
 import { Check } from "@material-ui/icons";
 import { sendContract } from "../../actions/contractActions";
+import { drawingTransfer } from "../../api/simplePayActions";
 
 const ContractDialog = (props) => {
    const dispatch = useDispatch();
@@ -60,6 +61,7 @@ const ContractDialog = (props) => {
       });
    }, [page]);
 
+   // 계약서 조항 동의
    const handleOnAgree = (event) => {
       setAgreement({
          ...agreement,
@@ -67,9 +69,12 @@ const ContractDialog = (props) => {
       });
    };
 
+   // 계약서 뒤로가기(메인으로)
    const handleOnBack = () => {
       setPage("main");
    };
+
+   // 계약서 다음(모든 조항 동의 후)
    const handleOnNext = () => {
       for (var i in agreement) {
          if (!agreement[i]) {
@@ -80,6 +85,8 @@ const ContractDialog = (props) => {
       setIsContractAgree(true);
       setPage("main");
    };
+
+   // 계약서 모든 조항 동의
    const handleOnAllCheck = () => {
       setAgreement({
          agree1: true,
@@ -98,11 +105,13 @@ const ContractDialog = (props) => {
       });
    };
 
+   // 계약서 다이얼로그 닫기
    const handleClose = () => {
       setPage("main");
       onClose();
    };
 
+   // 계약서 전송
    const handleOnAccept = () => {
       if (!isContractAgree)
          return alert("계약 정보 확인 및 동의가 필요합니다.");
@@ -113,6 +122,15 @@ const ContractDialog = (props) => {
       }
    };
 
+   const handleOnSendDeposit = () => {
+      if (!user.user.FinAcno) {
+         return alert("출금이체를 위해 핀어카운트 발급이 필요합니다.");
+      }
+
+      drawingTransfer(user, product, tradeId);
+   };
+
+   // 계약서 Header, Bottom 틀
    const DialogRender = (props) => {
       return (
          <Dialog open={open} onClose={handleClose}>
@@ -127,6 +145,7 @@ const ContractDialog = (props) => {
       );
    };
 
+   // 계약 조항 틀
    const AccordionRender = ({ summary, agreeName, content }) => {
       const check = agreement[agreeName];
       return (
@@ -223,6 +242,7 @@ const ContractDialog = (props) => {
       );
    };
 
+   // 메인 Render
    switch (page) {
       case "contract":
          return (
@@ -268,9 +288,24 @@ const ContractDialog = (props) => {
          return (
             <Dialog open={open} onClose={handleClose}>
                <DialogTitle>계약금 송금하기</DialogTitle>
-               <DialogContent>거래 정보 표시</DialogContent>
+               <DialogContent>
+                  <InputLabel>판매자 정보</InputLabel>
+                  <div className="FormDivStyle">
+                     <InputLabel>
+                        <small>이름</small>&ensp;<b>{product.name}</b>
+                     </InputLabel>
+                     <InputLabel>
+                        <small>전화번호</small>&ensp;
+                        <b>{product.phoneNumber}</b>
+                     </InputLabel>
+                     <InputLabel>
+                        <small>가격</small>&ensp;
+                        <b>{product.cost.toLocaleString()} 원</b>
+                     </InputLabel>
+                  </div>
+               </DialogContent>
                <DialogActions>
-                  <Button onClick={handleOnNext} color="primary">
+                  <Button onClick={handleOnSendDeposit} color="primary">
                      송금
                   </Button>
                </DialogActions>

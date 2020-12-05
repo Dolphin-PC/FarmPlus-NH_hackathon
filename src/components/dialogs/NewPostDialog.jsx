@@ -24,14 +24,17 @@ const NewProductDialog = (props) => {
    const initState = {
       title: "",
       star: 0,
-      size: 0,
+      size: null,
       category: "",
       location: "",
-      cost: 0,
+      cost: null,
       content: "",
       imageUrls: [],
       createDate: new Date(),
       date: getToday(),
+      address: null,
+      plantDay: null,
+      outDay: null,
    };
    const [newPost, setNewPost] = useState(initState);
    const [images, setImages] = useState([]);
@@ -78,7 +81,6 @@ const NewProductDialog = (props) => {
                onClick={handleClose}
             />
          </DialogTitle>
-
          <DialogContent>
             <Fragment>
                <InputLabel>이미지를 업로드해주세요.</InputLabel>
@@ -133,12 +135,22 @@ const NewProductDialog = (props) => {
                </Select>
 
                <TextField
+                  type="text"
+                  style={TextFieldStyle}
+                  fullWidth
+                  name="address"
+                  value={newPost.address}
+                  label="상세 주소를 입력해주세요."
+                  onChange={handleChange}
+               />
+
+               <TextField
                   type="number"
                   style={TextFieldStyle}
                   fullWidth
                   name="size"
                   value={newPost.size}
-                  label="면적을 입력해주세요.(㎡)"
+                  label="면적을 입력해주세요.(평)"
                   onChange={handleChange}
                />
                <TextField
@@ -148,6 +160,24 @@ const NewProductDialog = (props) => {
                   name="cost"
                   value={newPost.cost}
                   label="가격을 입력해주세요."
+                  onChange={handleChange}
+               />
+               <InputLabel>파종일을 입력해주세요.</InputLabel>
+               <TextField
+                  type="date"
+                  style={TextFieldStyle}
+                  fullWidth
+                  name="plantDay"
+                  value={newPost.plantDay}
+                  onChange={handleChange}
+               />
+               <InputLabel>반출날짜를 입력해주세요.</InputLabel>
+               <TextField
+                  type="date"
+                  style={TextFieldStyle}
+                  fullWidth
+                  name="outDay"
+                  value={newPost.outDay}
                   onChange={handleChange}
                />
                <TextField

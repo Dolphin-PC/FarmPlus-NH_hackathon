@@ -82,3 +82,8 @@ h5 {
 .MuiDialogActions-root {
    border-top: 1px solid lightgray;
 }
+
+.FormDivStyle {
+   border: 1px solid lightgray;
+   padding: 30px;
+}
