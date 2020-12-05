@@ -23,6 +23,7 @@ const RegisterPageView = () => {
       phoneNumber: "",
       idNumber: "",
       landNumber: "",
+      birthDay: "",
       id: "",
       password: "",
    });
@@ -69,8 +70,8 @@ const RegisterPageView = () => {
          return alert("전화번호를 입력해주세요.");
       if (personalInfo.idNumber === "")
          return alert("주민등록번호를 입력해주세요.");
-      if (personalInfo.landNumber === "")
-         return alert("토지등록번호를 입력해주세요.");
+      if (personalInfo.birthDay === "")
+         return alert("생년월일을 입력해주세요.");
       if (personalInfo.id === "") return alert("아이디를 입력해주세요.");
       if (personalInfo.password === "")
          return alert("비밀번호를 입력해주세요.");
@@ -121,6 +122,7 @@ const RegisterPageView = () => {
          <InputLabel>개인정보 입력</InputLabel>
          <div style={TextFieldDivStyle}>
             <TextField
+               required
                fullWidth
                label="이름"
                name="name"
@@ -128,6 +130,7 @@ const RegisterPageView = () => {
                onChange={onChangePersonalInfo}
             />
             <TextField
+               required
                fullWidth
                label="전화번호"
                name="phoneNumber"
@@ -135,10 +138,19 @@ const RegisterPageView = () => {
                onChange={onChangePersonalInfo}
             />
             <TextField
+               required
                fullWidth
                label="주소"
                name="idNumber"
                value={personalInfo.idNumber}
+               onChange={onChangePersonalInfo}
+            />
+            <TextField
+               required
+               fullWidth
+               label="생년월일"
+               name="birthDay"
+               value={personalInfo.birthDay}
                onChange={onChangePersonalInfo}
             />
             <TextField
@@ -149,6 +161,7 @@ const RegisterPageView = () => {
                onChange={onChangePersonalInfo}
             />
             <TextField
+               required
                fullWidth
                label="아이디"
                name="id"
@@ -156,6 +169,7 @@ const RegisterPageView = () => {
                onChange={onChangePersonalInfo}
             />
             <TextField
+               required
                type="password"
                fullWidth
                label="비밀번호"

@@ -3,6 +3,8 @@ import { Badge, Col, Row } from "reactstrap";
 import { Settings, ChevronRight } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_NAV } from "../actions/types";
+import { Button } from "@material-ui/core";
+import { registerFinAccount } from "../api/financialActions";
 
 const SettingPageView = () => {
    const user = useSelector((state) => state.user);
@@ -13,6 +15,14 @@ const SettingPageView = () => {
          payload: window.location.href.split("/")[3],
       });
    }, []);
+
+   const handleAccount = () => {
+      registerFinAccount(user);
+   };
+   const handleRemit = () => {};
+   const handleContract = () => {};
+   const handleQna = () => {};
+
    const GyuljaehamRender = () => {
       let waitTrade = [],
          proceedTrade = [],
@@ -45,13 +55,13 @@ const SettingPageView = () => {
             <Row style={{ color: "white" }}>
                <Col xs="4" className="center">
                   <h5>{waitTrade.length}</h5>
-                  결재대상
+                  거래대기
                </Col>
                <Col xs="4" className="center">
-                  <h5>{proceedTrade.length}</h5>결재진행
+                  <h5>{proceedTrade.length}</h5>거래진행
                </Col>
                <Col xs="4" className="center">
-                  <h5>{completeTrade.length}</h5>결재완료
+                  <h5>{completeTrade.length}</h5>거래완료
                </Col>
             </Row>
          </div>
@@ -76,20 +86,28 @@ const SettingPageView = () => {
             </div>
             <Row>
                <Col xs="5" style={borderBottomStyle}>
-                  거래내역조회
-                  <ChevronRight />
+                  <Button onClick={handleAccount}>
+                     핀어카운트 발급
+                     <ChevronRight />
+                  </Button>
                </Col>
                <Col xs="5" style={borderBottomStyle}>
-                  송금
-                  <ChevronRight />
+                  <Button onClick={handleRemit}>
+                     송금
+                     <ChevronRight />
+                  </Button>
                </Col>
                <Col xs="5" style={borderBottomStyle}>
-                  지방세납부
-                  <ChevronRight />
+                  <Button onClick={handleContract}>
+                     계약서 조회
+                     <ChevronRight />
+                  </Button>
                </Col>
                <Col xs="5" style={borderBottomStyle}>
-                  환율조회
-                  <ChevronRight />
+                  <Button onClick={handleQna}>
+                     고객센터
+                     <ChevronRight />
+                  </Button>
                </Col>
             </Row>
          </div>

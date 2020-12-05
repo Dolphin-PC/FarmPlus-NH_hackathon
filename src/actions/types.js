@@ -23,3 +23,7 @@ export const GET_USER = "GET_USER";
 export const CLEAR_USER = "CLEAR_USER";
 export const SET_FAVORITE = "SET_FAVORITE";
 export const ADD_FAVORITE = "ADD_FAVORITE";
+
+// Contract
+export const SET_CONTRACT = "SET_CONTRACT";
+export const CLEAR_CONTRACT = "CLEAR_CONTRACT";
