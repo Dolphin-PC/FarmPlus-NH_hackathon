@@ -45,13 +45,13 @@ export const drawingTransfer = async (user, product, tradeId) => {
 
    myTradeInfo = myTradeInfo.data.trade.map((trade) => {
       if (trade.tradeId === tradeId) {
-         return { ...trade, noticeType: "거래완료" };
+         return { ...trade, noticeType: "거래완료", deposit: product.cost };
       }
       return trade;
    });
    sellerTradeInfo = sellerTradeInfo.data.trade.map((trade) => {
       if (trade.tradeId === tradeId) {
-         return { ...trade, noticeType: "거래완료" };
+         return { ...trade, noticeType: "거래완료", deposit: product.cost };
       }
       return trade;
    });
@@ -72,5 +72,39 @@ export const drawingTransfer = async (user, product, tradeId) => {
       })
       .catch((err) => {
          console.error(err);
+      });
+};
+
+export const receivedTransferAccountNumber = async (user, product, tradeId) => {
+   const url =
+      "https://developers.nonghyup.com/ReceivedTransferAccountNumber.nh";
+
+   const body = {
+      Header: {
+         ApiNm: "ReceivedTransferAccountNumber",
+         Tsymd: getTodayApi(),
+         Trtm: getTimeApi(),
+         Iscd,
+         FintechApsno,
+         ApiSvcCd: "ReceivedTransferA",
+         IsTuno: getIsTuno(),
+         AccessToken,
+      },
+      Bncd: product.bankCode,
+      Acno: product.accountNumber,
+      Tram: product.cost,
+      DractOtlt: "출금계좌인자내용1",
+      MractOtlt: "입금계좌인자내용2",
+   };
+
+   // 입금이체
+   await Axios.post(url, body)
+      .then((res) => {
+         console.info(res.data);
+         alert(res.data.Header.Rsms);
+      })
+      .catch((err) => {
+         console.error(err);
+         return "error";
       });
 };

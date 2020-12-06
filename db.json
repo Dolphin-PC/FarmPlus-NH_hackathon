@@ -3,19 +3,19 @@
     {
       "title": "강원도 감자 10KG 5천원",
       "star": 0,
-      "size": 123123123,
+      "size": 1000000,
       "category": "감자",
       "location": "강원도",
-      "cost": 100001998,
-      "content": "강원도 감자 싸게싸게 팝니다~\n연락주세요~",
+      "cost": 1000000,
+      "content": "강원도 감자 10KG 5천원",
       "imageUrls": [
-        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=cd68c4c1-520d-4748-8ce5-8e4bbda12c70"
+        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=920f7e4c-c0cc-4213-b655-fbc6aa5be498"
       ],
-      "createDate": "2020-12-05T14:35:47.243Z",
-      "date": "2020-12-5",
-      "address": "강원도 춘천시 후평동",
-      "plantDay": "2020-12-10",
-      "outDay": "2020-12-24",
+      "createDate": "2020-12-06T15:22:06.505Z",
+      "date": "2020-12-7",
+      "address": "강원도 춘천시 충열로 16번길 21-14",
+      "plantDay": "2020-12-08",
+      "outDay": "2020-12-08",
       "name": "판매자",
       "phoneNumber": "010-9876-5432",
       "idNumber": "경기도 파주시",
@@ -25,7 +25,9 @@
       "bankCode": "011",
       "accountNumber": "3020000002420",
       "Rgno": "20201205000000597",
-      "FinAcno": "00820100004520000000000001287"
+      "FinAcno": "00820100004520000000000001287",
+      "trade": [],
+      "notice": []
     }
   ],
   "users": [
@@ -41,10 +43,41 @@
       "accountNumber": "3020000002419",
       "Rgno": "20201205000000596",
       "FinAcno": "00820100004520000000000001278",
-      "favorite": [],
+      "favorite": [
+        {
+          "title": "강원도 감자 10KG 5천원",
+          "star": 0,
+          "size": 1000000,
+          "category": "감자",
+          "location": "강원도",
+          "cost": 1000000,
+          "content": "강원도 감자 10KG 5천원",
+          "imageUrls": [
+            "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=920f7e4c-c0cc-4213-b655-fbc6aa5be498"
+          ],
+          "createDate": "2020-12-06T15:22:06.505Z",
+          "date": "2020-12-7",
+          "address": "강원도 춘천시 충열로 16번길 21-14",
+          "plantDay": "2020-12-08",
+          "outDay": "2020-12-08",
+          "name": "판매자",
+          "phoneNumber": "010-9876-5432",
+          "idNumber": "경기도 파주시",
+          "landNumber": "3123128903123523",
+          "birthDay": "19960110",
+          "id": "seller",
+          "bankCode": "011",
+          "accountNumber": "3020000002420",
+          "Rgno": "20201205000000597",
+          "FinAcno": "00820100004520000000000001287",
+          "trade": [],
+          "notice": [],
+          "image": "http://placeimg.com/640/480/people"
+        }
+      ],
       "trade": [
         {
-          "tradeId": "AD91JSf5w",
+          "tradeId": "KZsYD1DIs",
           "noticeType": "거래완료",
           "requester": {
             "name": "박찬영",
@@ -56,19 +89,19 @@
           "product": {
             "title": "강원도 감자 10KG 5천원",
             "star": 0,
-            "size": 123123123,
+            "size": 1000000,
             "category": "감자",
             "location": "강원도",
-            "cost": 100001998,
-            "content": "강원도 감자 싸게싸게 팝니다~\n연락주세요~",
+            "cost": 1000000,
+            "content": "강원도 감자 10KG 5천원",
             "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=cd68c4c1-520d-4748-8ce5-8e4bbda12c70"
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=920f7e4c-c0cc-4213-b655-fbc6aa5be498"
             ],
-            "createDate": "2020-12-05T14:35:47.243Z",
-            "date": "2020-12-5",
-            "address": "강원도 춘천시 후평동",
-            "plantDay": "2020-12-10",
-            "outDay": "2020-12-24",
+            "createDate": "2020-12-06T15:22:06.505Z",
+            "date": "2020-12-7",
+            "address": "강원도 춘천시 충열로 16번길 21-14",
+            "plantDay": "2020-12-08",
+            "outDay": "2020-12-08",
             "name": "판매자",
             "phoneNumber": "010-9876-5432",
             "idNumber": "경기도 파주시",
@@ -79,54 +112,17 @@
             "accountNumber": "3020000002420",
             "Rgno": "20201205000000597",
             "FinAcno": "00820100004520000000000001287",
-            "image": "http://placeimg.com/640/480/food"
+            "trade": [],
+            "notice": [],
+            "image": "http://placeimg.com/640/480/people"
           },
-          "isContract": true
-        },
-        {
-          "tradeId": "4SeDqXF-D",
-          "noticeType": "거래완료",
-          "requester": {
-            "name": "박찬영",
-            "phoneNumber": "01047443358",
-            "id": "pcy474",
-            "backCode": "011",
-            "accountNumber": "3020000002419"
-          },
-          "product": {
-            "title": "강원도 감자 10KG 5천원",
-            "star": 0,
-            "size": 123123123,
-            "category": "감자",
-            "location": "강원도",
-            "cost": 100001998,
-            "content": "강원도 감자 싸게싸게 팝니다~\n연락주세요~",
-            "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=cd68c4c1-520d-4748-8ce5-8e4bbda12c70"
-            ],
-            "createDate": "2020-12-05T14:35:47.243Z",
-            "date": "2020-12-5",
-            "address": "강원도 춘천시 후평동",
-            "plantDay": "2020-12-10",
-            "outDay": "2020-12-24",
-            "name": "판매자",
-            "phoneNumber": "010-9876-5432",
-            "idNumber": "경기도 파주시",
-            "landNumber": "3123128903123523",
-            "birthDay": "19960110",
-            "id": "seller",
-            "bankCode": "011",
-            "accountNumber": "3020000002420",
-            "Rgno": "20201205000000597",
-            "FinAcno": "00820100004520000000000001287",
-            "image": "http://placeimg.com/640/480/food"
-          },
-          "isContract": true
+          "isContract": true,
+          "deposit": 1000000
         }
       ],
       "notice": [
         {
-          "tradeId": "AD91JSf5w",
+          "tradeId": "KZsYD1DIs",
           "noticeType": "거래완료",
           "requester": {
             "name": "박찬영",
@@ -138,19 +134,19 @@
           "product": {
             "title": "강원도 감자 10KG 5천원",
             "star": 0,
-            "size": 123123123,
+            "size": 1000000,
             "category": "감자",
             "location": "강원도",
-            "cost": 100001998,
-            "content": "강원도 감자 싸게싸게 팝니다~\n연락주세요~",
+            "cost": 1000000,
+            "content": "강원도 감자 10KG 5천원",
             "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=cd68c4c1-520d-4748-8ce5-8e4bbda12c70"
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=920f7e4c-c0cc-4213-b655-fbc6aa5be498"
             ],
-            "createDate": "2020-12-05T14:35:47.243Z",
-            "date": "2020-12-5",
-            "address": "강원도 춘천시 후평동",
-            "plantDay": "2020-12-10",
-            "outDay": "2020-12-24",
+            "createDate": "2020-12-06T15:22:06.505Z",
+            "date": "2020-12-7",
+            "address": "강원도 춘천시 충열로 16번길 21-14",
+            "plantDay": "2020-12-08",
+            "outDay": "2020-12-08",
             "name": "판매자",
             "phoneNumber": "010-9876-5432",
             "idNumber": "경기도 파주시",
@@ -161,49 +157,12 @@
             "accountNumber": "3020000002420",
             "Rgno": "20201205000000597",
             "FinAcno": "00820100004520000000000001287",
-            "image": "http://placeimg.com/640/480/food"
+            "trade": [],
+            "notice": [],
+            "image": "http://placeimg.com/640/480/people"
           },
-          "isContract": true
-        },
-        {
-          "tradeId": "4SeDqXF-D",
-          "noticeType": "거래완료",
-          "requester": {
-            "name": "박찬영",
-            "phoneNumber": "01047443358",
-            "id": "pcy474",
-            "backCode": "011",
-            "accountNumber": "3020000002419"
-          },
-          "product": {
-            "title": "강원도 감자 10KG 5천원",
-            "star": 0,
-            "size": 123123123,
-            "category": "감자",
-            "location": "강원도",
-            "cost": 100001998,
-            "content": "강원도 감자 싸게싸게 팝니다~\n연락주세요~",
-            "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=cd68c4c1-520d-4748-8ce5-8e4bbda12c70"
-            ],
-            "createDate": "2020-12-05T14:35:47.243Z",
-            "date": "2020-12-5",
-            "address": "강원도 춘천시 후평동",
-            "plantDay": "2020-12-10",
-            "outDay": "2020-12-24",
-            "name": "판매자",
-            "phoneNumber": "010-9876-5432",
-            "idNumber": "경기도 파주시",
-            "landNumber": "3123128903123523",
-            "birthDay": "19960110",
-            "id": "seller",
-            "bankCode": "011",
-            "accountNumber": "3020000002420",
-            "Rgno": "20201205000000597",
-            "FinAcno": "00820100004520000000000001287",
-            "image": "http://placeimg.com/640/480/food"
-          },
-          "isContract": true
+          "isContract": true,
+          "deposit": 1000000
         }
       ]
     },
@@ -221,7 +180,7 @@
       "FinAcno": "00820100004520000000000001287",
       "trade": [
         {
-          "tradeId": "AD91JSf5w",
+          "tradeId": "KZsYD1DIs",
           "noticeType": "거래완료",
           "requester": {
             "name": "박찬영",
@@ -233,19 +192,19 @@
           "product": {
             "title": "강원도 감자 10KG 5천원",
             "star": 0,
-            "size": 123123123,
+            "size": 1000000,
             "category": "감자",
             "location": "강원도",
-            "cost": 100001998,
-            "content": "강원도 감자 싸게싸게 팝니다~\n연락주세요~",
+            "cost": 1000000,
+            "content": "강원도 감자 10KG 5천원",
             "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=cd68c4c1-520d-4748-8ce5-8e4bbda12c70"
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=920f7e4c-c0cc-4213-b655-fbc6aa5be498"
             ],
-            "createDate": "2020-12-05T14:35:47.243Z",
-            "date": "2020-12-5",
-            "address": "강원도 춘천시 후평동",
-            "plantDay": "2020-12-10",
-            "outDay": "2020-12-24",
+            "createDate": "2020-12-06T15:22:06.505Z",
+            "date": "2020-12-7",
+            "address": "강원도 춘천시 충열로 16번길 21-14",
+            "plantDay": "2020-12-08",
+            "outDay": "2020-12-08",
             "name": "판매자",
             "phoneNumber": "010-9876-5432",
             "idNumber": "경기도 파주시",
@@ -256,54 +215,17 @@
             "accountNumber": "3020000002420",
             "Rgno": "20201205000000597",
             "FinAcno": "00820100004520000000000001287",
-            "image": "http://placeimg.com/640/480/food"
+            "trade": [],
+            "notice": [],
+            "image": "http://placeimg.com/640/480/people"
           },
-          "isContract": true
-        },
-        {
-          "tradeId": "4SeDqXF-D",
-          "noticeType": "거래완료",
-          "requester": {
-            "name": "박찬영",
-            "phoneNumber": "01047443358",
-            "id": "pcy474",
-            "backCode": "011",
-            "accountNumber": "3020000002419"
-          },
-          "product": {
-            "title": "강원도 감자 10KG 5천원",
-            "star": 0,
-            "size": 123123123,
-            "category": "감자",
-            "location": "강원도",
-            "cost": 100001998,
-            "content": "강원도 감자 싸게싸게 팝니다~\n연락주세요~",
-            "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=cd68c4c1-520d-4748-8ce5-8e4bbda12c70"
-            ],
-            "createDate": "2020-12-05T14:35:47.243Z",
-            "date": "2020-12-5",
-            "address": "강원도 춘천시 후평동",
-            "plantDay": "2020-12-10",
-            "outDay": "2020-12-24",
-            "name": "판매자",
-            "phoneNumber": "010-9876-5432",
-            "idNumber": "경기도 파주시",
-            "landNumber": "3123128903123523",
-            "birthDay": "19960110",
-            "id": "seller",
-            "bankCode": "011",
-            "accountNumber": "3020000002420",
-            "Rgno": "20201205000000597",
-            "FinAcno": "00820100004520000000000001287",
-            "image": "http://placeimg.com/640/480/food"
-          },
-          "isContract": true
+          "isContract": true,
+          "deposit": 1000000
         }
       ],
       "notice": [
         {
-          "tradeId": "AD91JSf5w",
+          "tradeId": "KZsYD1DIs",
           "noticeType": "거래완료",
           "requester": {
             "name": "박찬영",
@@ -315,19 +237,19 @@
           "product": {
             "title": "강원도 감자 10KG 5천원",
             "star": 0,
-            "size": 123123123,
+            "size": 1000000,
             "category": "감자",
             "location": "강원도",
-            "cost": 100001998,
-            "content": "강원도 감자 싸게싸게 팝니다~\n연락주세요~",
+            "cost": 1000000,
+            "content": "강원도 감자 10KG 5천원",
             "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=cd68c4c1-520d-4748-8ce5-8e4bbda12c70"
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=920f7e4c-c0cc-4213-b655-fbc6aa5be498"
             ],
-            "createDate": "2020-12-05T14:35:47.243Z",
-            "date": "2020-12-5",
-            "address": "강원도 춘천시 후평동",
-            "plantDay": "2020-12-10",
-            "outDay": "2020-12-24",
+            "createDate": "2020-12-06T15:22:06.505Z",
+            "date": "2020-12-7",
+            "address": "강원도 춘천시 충열로 16번길 21-14",
+            "plantDay": "2020-12-08",
+            "outDay": "2020-12-08",
             "name": "판매자",
             "phoneNumber": "010-9876-5432",
             "idNumber": "경기도 파주시",
@@ -338,49 +260,12 @@
             "accountNumber": "3020000002420",
             "Rgno": "20201205000000597",
             "FinAcno": "00820100004520000000000001287",
-            "image": "http://placeimg.com/640/480/food"
+            "trade": [],
+            "notice": [],
+            "image": "http://placeimg.com/640/480/people"
           },
-          "isContract": true
-        },
-        {
-          "tradeId": "4SeDqXF-D",
-          "noticeType": "거래완료",
-          "requester": {
-            "name": "박찬영",
-            "phoneNumber": "01047443358",
-            "id": "pcy474",
-            "backCode": "011",
-            "accountNumber": "3020000002419"
-          },
-          "product": {
-            "title": "강원도 감자 10KG 5천원",
-            "star": 0,
-            "size": 123123123,
-            "category": "감자",
-            "location": "강원도",
-            "cost": 100001998,
-            "content": "강원도 감자 싸게싸게 팝니다~\n연락주세요~",
-            "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%EB%8F%84%2F%EA%B0%90%EC%9E%90%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=cd68c4c1-520d-4748-8ce5-8e4bbda12c70"
-            ],
-            "createDate": "2020-12-05T14:35:47.243Z",
-            "date": "2020-12-5",
-            "address": "강원도 춘천시 후평동",
-            "plantDay": "2020-12-10",
-            "outDay": "2020-12-24",
-            "name": "판매자",
-            "phoneNumber": "010-9876-5432",
-            "idNumber": "경기도 파주시",
-            "landNumber": "3123128903123523",
-            "birthDay": "19960110",
-            "id": "seller",
-            "bankCode": "011",
-            "accountNumber": "3020000002420",
-            "Rgno": "20201205000000597",
-            "FinAcno": "00820100004520000000000001287",
-            "image": "http://placeimg.com/640/480/food"
-          },
-          "isContract": true
+          "isContract": true,
+          "deposit": 1000000
         }
       ]
     }
