@@ -86,6 +86,7 @@ const DetailPageView = () => {
                      <small>{current.address}</small>
                   </p>
                </div>
+               {/* TODO: 이 부분이나 적당한 부분에 뱃지 추가하면 될듯 */}
                <div style={{ marginTop: "auto" }}>
                   <FavoriteIcon
                      style={{ fontSize: 30 }}

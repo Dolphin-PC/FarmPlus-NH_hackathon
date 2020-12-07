@@ -24,8 +24,8 @@ const ContractAccordionComp = ({ product, requester }) => {
                   <div className="Col">
                      <small>{product.name}</small>
                      <small>{product.phoneNumber}</small>
-                     <small>product.birthDay</small>
-                     <small>product.address</small>
+                     <small>{product.birthDay}</small>
+                     <small>{product.address}</small>
                   </div>
                </div>
                <br />
@@ -37,8 +37,8 @@ const ContractAccordionComp = ({ product, requester }) => {
                   <div className="Col">
                      <small>{requester.name}</small>
                      <small>{requester.phoneNumber}</small>
-                     <small>requester.birthDay</small>
-                     <small>requester.address</small>
+                     <small>{requester.birthDay}</small>
+                     <small>{requester.address}</small>
                   </div>
                </div>
                <br />
@@ -56,10 +56,10 @@ const ContractAccordionComp = ({ product, requester }) => {
                   <b>{product.size.toLocaleString()} 평</b>
                </InputLabel>
                <InputLabel>
-                  <small>파종일</small>&ensp;<b>product.plantDay</b>
+                  <small>파종일</small>&ensp;<b>{product.plantDay}</b>
                </InputLabel>
                <InputLabel>
-                  <small>반출일</small>&ensp;<b>product.outDay</b>
+                  <small>반출일</small>&ensp;<b>{product.outDay}</b>
                </InputLabel>
                <InputLabel>
                   <small>총 매매대금</small>&ensp;

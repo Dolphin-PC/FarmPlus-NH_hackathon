@@ -61,6 +61,7 @@ const MainPageView = () => {
                backgroundColor: "#C7B492",
             }}
          >
+            {/* TODO: 여기 아이콘 바꾸면 됨 */}
             <Slider {...sliderSettings} arrows={false}>
                {category.map((data, index) => (
                   <ItemRender
@@ -94,6 +95,7 @@ const MainPageView = () => {
 
       if (loading) return <p>로딩 중...</p>;
 
+      // TODO: 게시물 데이터 필터 설정 여기서 하면 됨
       return (
          <Fragment>
             {!loading &&

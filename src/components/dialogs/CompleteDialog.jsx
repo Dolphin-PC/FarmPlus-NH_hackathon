@@ -28,7 +28,13 @@ const CompleteDialog = (props) => {
 
       // 판매자 일 경우, 돈 입금이체 신청
       if (window.confirm("입금 이체를 신청하시겠습니까?")) {
-         receivedTransferAccountNumber(user, product, tradeId);
+         if (receivedTransferAccountNumber(user, product, tradeId)) {
+            alert("정상적으로 처리되었습니다.");
+            // TODO: 입금이체 성공 후, 해당 trade에 isComplete[true]처리
+            onClose();
+         } else {
+            alert("오류가 발생했습니다.(console 확인)");
+         }
       }
    };
 

@@ -161,7 +161,10 @@ export const acceptRequest = (user, tradeId, requester, product) => async (
       trade: requesterTradeInfo,
       notice: requesterTradeInfo,
    })
-      .then(() => console.info("거래가 성사되었습니다."))
+      .then(() => {
+         console.info("거래가 성사되었습니다.");
+         return true;
+      })
       .catch((err) => {
          console.error(err);
       });

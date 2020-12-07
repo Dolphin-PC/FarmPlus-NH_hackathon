@@ -52,6 +52,7 @@ const SettingPageView = () => {
             }}
          >
             <h4 style={{ color: "white" }}>결재함</h4>
+            {/* TODO: 거래대기/거래진행/거래완료 */}
             <Row style={{ color: "white" }}>
                <Col xs="4" className="center">
                   <h5>{waitTrade.length}</h5>

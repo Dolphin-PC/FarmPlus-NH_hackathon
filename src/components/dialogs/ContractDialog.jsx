@@ -126,7 +126,11 @@ const ContractDialog = (props) => {
          return alert("출금이체를 위해 핀어카운트 발급이 필요합니다.");
       }
 
-      drawingTransfer(user, product, tradeId);
+      // 출금 이체 성공 시
+      if (drawingTransfer(user, product, tradeId)) {
+         alert("정상적으로 처리되었습니다.");
+         onClose();
+      }
    };
 
    // 계약서 Header, Bottom 틀
@@ -175,6 +179,7 @@ const ContractDialog = (props) => {
 
    // 메인 Render
    switch (page) {
+      // 계약서 다이얼로그
       case "contract":
          return (
             <Dialog open={open} onClose={handleClose}>
@@ -218,7 +223,23 @@ const ContractDialog = (props) => {
             </Dialog>
          );
 
+      // 송금 다이얼로그
       case "deposit":
+         if (user.user.id === product.id) {
+            return (
+               <Dialog open={open} onClose={handleClose}>
+                  <DialogTitle>계약서 대기 중</DialogTitle>
+                  <DialogContent>
+                     상대방의 계약서가 전송되지 않았습니다.
+                  </DialogContent>
+                  <DialogActions>
+                     <Button onClick={onClose} color="primary">
+                        닫기
+                     </Button>
+                  </DialogActions>
+               </Dialog>
+            );
+         }
          return (
             <Dialog open={open} onClose={handleClose}>
                <DialogTitle>계약금 송금하기</DialogTitle>
@@ -246,6 +267,7 @@ const ContractDialog = (props) => {
             </Dialog>
          );
 
+      // 계약 버튼 다이얼로그
       default:
          return (
             <DialogRender>

@@ -28,7 +28,12 @@ const RequesterInfoDialog = (props) => {
    };
 
    const handleOnAccept = () => {
-      dispatch(acceptRequest(user, tradeId, requester, product));
+      if (window.confirm("거래를 수락하시겠습니까?")) {
+         if (dispatch(acceptRequest(user, tradeId, requester, product))) {
+            alert("거래가 성사되었습니다!");
+            onClose();
+         }
+      }
    };
 
    const DialogRender = (props) => {

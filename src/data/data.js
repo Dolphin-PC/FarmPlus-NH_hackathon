@@ -1,20 +1,23 @@
 export const category = [
    { value: "전체", text: "전체" },
-   { value: "감자", text: "감자" },
-   { value: "고구마", text: "고구마" },
-   { value: "사과", text: "사과" },
-   { value: "배", text: "배" },
+   { value: "배추", text: "배추" },
+   { value: "무", text: "무" },
+   { value: "당근", text: "당근" },
+   { value: "마늘", text: "마늘" },
    { value: "양파", text: "양파" },
-   { value: "수박", text: "수박" },
+   { value: "파", text: "파" },
 ];
 
 export const location = [
    { value: "전체", text: "전체" },
-   { value: "서울", text: "서울" },
-   { value: "부산", text: "부산" },
-   { value: "강원도", text: "강원도" },
-   { value: "경기도", text: "경기도" },
-   { value: "대전", text: "대전" },
+   { value: "경기", text: "경기" },
+   { value: "충북", text: "충북" },
+   { value: "충남", text: "충남" },
+   { value: "전북", text: "전북" },
+   { value: "전남", text: "전남" },
+   { value: "경북", text: "경북" },
+   { value: "경남", text: "경남" },
+   { value: "제주", text: "제주" },
 ];
 
 export const bankCode = [

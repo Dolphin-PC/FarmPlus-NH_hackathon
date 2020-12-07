@@ -6,6 +6,7 @@ import { getTodayApi, getIsTuno, getTimeApi } from "../app/functions";
 import { Iscd, FintechApsno, ApiSvcCd, AccessToken } from "../app/info";
 import Axios from "axios";
 
+// 출금 이체
 export const drawingTransfer = async (user, product, tradeId) => {
    const url = "https://developers.nonghyup.com/DrawingTransfer.nh";
 
@@ -68,13 +69,14 @@ export const drawingTransfer = async (user, product, tradeId) => {
    })
       .then((res) => {
          console.info(res);
-         alert("정상적으로 처리되었습니다.");
+         return true;
       })
       .catch((err) => {
          console.error(err);
       });
 };
 
+// 입금 이체
 export const receivedTransferAccountNumber = async (user, product, tradeId) => {
    const url =
       "https://developers.nonghyup.com/ReceivedTransferAccountNumber.nh";
@@ -101,10 +103,10 @@ export const receivedTransferAccountNumber = async (user, product, tradeId) => {
    await Axios.post(url, body)
       .then((res) => {
          console.info(res.data);
-         alert(res.data.Header.Rsms);
+         return true;
       })
       .catch((err) => {
          console.error(err);
-         return "error";
+         return false;
       });
 };
