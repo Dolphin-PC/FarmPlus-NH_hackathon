@@ -32,7 +32,15 @@ import ContractAccordionComp from "../accordions/ContractAccordionComp";
 const ContractDialog = (props) => {
    const dispatch = useDispatch();
    const user = useSelector((state) => state.user);
-   const { onClose, open, requester, product, tradeId } = props;
+   const {
+      onClose,
+      open,
+      requester,
+      product,
+      tradeId,
+      deposit,
+      isContract,
+   } = props;
 
    const [page, setPage] = useState("main");
    const [agreement, setAgreement] = useState({
@@ -53,11 +61,10 @@ const ContractDialog = (props) => {
    const [isContractAgree, setIsContractAgree] = useState(false);
 
    useEffect(() => {
-      user.user.trade.map((trade) => {
-         if (trade.isContract) {
-            setPage("deposit");
-         }
-      });
+      console.info(isContract);
+      if (isContract) {
+         setPage("deposit");
+      }
    }, [page]);
 
    // 계약서 조항 동의
@@ -228,9 +235,9 @@ const ContractDialog = (props) => {
          if (user.user.id === product.id) {
             return (
                <Dialog open={open} onClose={handleClose}>
-                  <DialogTitle>계약서 대기 중</DialogTitle>
+                  <DialogTitle>계약금 입금 대기 중</DialogTitle>
                   <DialogContent>
-                     상대방의 계약서가 전송되지 않았습니다.
+                     상대방의 계약금이 아직 입금되지 않았습니다.
                   </DialogContent>
                   <DialogActions>
                      <Button onClick={onClose} color="primary">

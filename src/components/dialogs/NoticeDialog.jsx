@@ -18,11 +18,6 @@ const NoticeDialog = (props) => {
    };
 
    const user = useSelector((state) => state.user);
-   const dispatch = useDispatch();
-
-   useEffect(() => {
-      dispatch(getUserInfo(user));
-   }, [open]);
 
    const DialogRender = (props) => {
       return (
@@ -40,7 +35,11 @@ const NoticeDialog = (props) => {
       );
    };
 
-   if (user.user.notice === null || user.user.notice === undefined) {
+   if (
+      user.user.notice === null ||
+      user.user.notice === undefined ||
+      user.user.notice.length === 0
+   ) {
       return (
          <DialogRender>
             <p>수신된 알림이 없습니다.</p>
@@ -51,7 +50,7 @@ const NoticeDialog = (props) => {
    return (
       <DialogRender>
          {/* TODO: 칼럼 CardComponent 추가하기, 게시글이랑 똑같은 양식으로 게시글이랑 붙여서 해도 되고, 상단이나 하단에 위치해도 되고*/}
-         {user.user.notice.map((noti, index) => (
+         {user.user.trade.map((noti, index) => (
             <NoticeCardComp key={index} {...noti} />
          ))}
       </DialogRender>

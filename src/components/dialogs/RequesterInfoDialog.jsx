@@ -10,7 +10,7 @@ import {
 import PhoneIcon from "@material-ui/icons/Phone";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { acceptRequest } from "../../actions/userActions";
+import { acceptRequest, getUserInfo } from "../../actions/userActions";
 
 const RequesterInfoDialog = (props) => {
    const { onClose, open, requester, product, tradeId } = props;
@@ -31,6 +31,7 @@ const RequesterInfoDialog = (props) => {
       if (window.confirm("거래를 수락하시겠습니까?")) {
          if (dispatch(acceptRequest(user, tradeId, requester, product))) {
             alert("거래가 성사되었습니다!");
+            dispatch(getUserInfo(user));
             onClose();
          }
       }
