@@ -7,7 +7,7 @@ import RequesterInfoDialog from "../dialogs/RequesterInfoDialog";
 import ContractDialog from "../dialogs/ContractDialog";
 import CompleteDialog from "../dialogs/CompleteDialog";
 
-const NoticeCardComp = (props) => {
+const TradeCardComp = (props) => {
   const { noticeType, requester, product } = props;
   const [openRequesterInfoDialog, setOpenRequesterInfoDialog] = useState(false);
   const [openContractDialog, setOpenContractDialog] = useState(false);
@@ -85,4 +85,4 @@ const NoticeCardComp = (props) => {
   );
 };
 
-export default NoticeCardComp;
+export default TradeCardComp;
