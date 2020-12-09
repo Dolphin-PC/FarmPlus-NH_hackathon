@@ -6,9 +6,6 @@ ctrl + k 누르고, ctrl + 0 눌러서
 2. NoticeDialog - 칼럼(수신 알림 모달 안에), 칼럼은 클릭하면 모달창 하나 띄우고, 
     거기 정보는 [농가피해보상법]이런거 검색해서 내용 아무거나 넣으면 될듯
 
-3. MainPageView - 게시물 데이터 필터링(지금은 보이기만 되있음)
-
-4. MainPageView - 상단 필터 Icon 바꾸기
 
 5. DetailPageView - 판매자 뱃지 등급 표시
 (그 전에 회원 등급 만들어줘야 됨)
@@ -26,6 +23,10 @@ ctrl + k 누르고, ctrl + 0 눌러서
 TODO: 거래대기, 거래진행, 거래완료 클릭 시,
 NoticeDialog 처럼 [리스트] 표시
 Filtering 해서
+
+3. MainPageView - 게시물 데이터 필터링(지금은 보이기만 되있음)
+
+4. MainPageView - 상단 필터 Icon 바꾸기
 
 -----------------------------------------------
 
