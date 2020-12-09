@@ -1,14 +1,19 @@
 import React, { Fragment, useState } from "react";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import {
+   AppBar,
+   Box,
    Button,
    IconButton,
    InputLabel,
    Select,
    Snackbar,
+   Tab,
+   Tabs,
    TextField,
+   Typography,
 } from "@material-ui/core";
-import { Close } from "@material-ui/icons";
+import { ArrowBack, Close } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
 
 import { bankCode } from "../data/data";
@@ -16,7 +21,34 @@ import { accountHolderFunc } from "../api/financialActions";
 import { getIsTuno } from "../app/functions";
 import { newUser } from "../actions/userActions";
 
+const TabPanel = (props) => {
+   const { children, value, index, ...other } = props;
+
+   return (
+      <div
+         role="tabpanel"
+         hidden={value !== index}
+         id={`simple-tabpanel-${index}`}
+         aria-labelledby={`simple-tab-${index}`}
+         {...other}
+      >
+         {value === index && (
+            <Box p={3}>
+               <Typography>{children}</Typography>
+            </Box>
+         )}
+      </div>
+   );
+};
+function a11yProps(index) {
+   return {
+      id: `simple-tab-${index}`,
+      "aria-controls": `simple-tabpanel-${index}`,
+   };
+}
+
 const RegisterPageView = () => {
+   const [value, setValue] = useState(0);
    const history = useHistory();
    const [personalInfo, setPersonalInfo] = useState({
       name: "",
@@ -114,74 +146,110 @@ const RegisterPageView = () => {
       );
    };
 
+   const handleChange = (event, newValue) => {
+      setValue(newValue);
+   };
+
    return (
       <div style={{ padding: 20 }}>
-         <AccountCircleIcon style={{ fontSize: 50 }} />
-         &emsp;회원가입
+         <div className="Row">
+            <ArrowBack />
+            &emsp;<h4>회원가입</h4>
+         </div>
          <hr />
-         <InputLabel>개인정보 입력</InputLabel>
-         <div style={TextFieldDivStyle}>
+         <TabPanel value={value} index={0}>
+            <p>1. 개인정보를 입력해주세요.(필수)</p>
+            <br />
+            <InputLabel>이름</InputLabel>
             <TextField
+               variant="outlined"
+               placeholder="이름"
                required
                fullWidth
-               label="이름"
                name="name"
                value={personalInfo.name}
                onChange={onChangePersonalInfo}
             />
+            &emsp;
+            <InputLabel>전화번호</InputLabel>
             <TextField
+               variant="outlined"
+               placeholder="전화번호"
                required
                fullWidth
-               label="전화번호"
                name="phoneNumber"
                value={personalInfo.phoneNumber}
                onChange={onChangePersonalInfo}
             />
+            &emsp;
+            <InputLabel>주소</InputLabel>
             <TextField
+               variant="outlined"
+               placeholder="주소"
                required
                fullWidth
-               label="주소"
                name="idNumber"
                value={personalInfo.idNumber}
                onChange={onChangePersonalInfo}
             />
+            &emsp;
+            <InputLabel>생년월일</InputLabel>
             <TextField
+               variant="outlined"
+               placeholder="생년월일"
                required
                fullWidth
-               label="생년월일"
                name="birthDay"
                value={personalInfo.birthDay}
                onChange={onChangePersonalInfo}
             />
+            &emsp;
+         </TabPanel>
+         <TabPanel value={value} index={1}>
+            <p>2. 계정정보를 입력해주세요.(필수)</p>
+            <br />
+            <InputLabel>아이디</InputLabel>
+            <TextField
+               variant="outlined"
+               required
+               fullWidth
+               name="id"
+               placeholder="아이디"
+               value={personalInfo.id}
+               onChange={onChangePersonalInfo}
+            />
+            &emsp;
+            <InputLabel>비밀번호</InputLabel>
             <TextField
                fullWidth
-               label="토지등록번호"
+               variant="outlined"
+               required
+               type="password"
+               name="password"
+               placeholder="비밀번호"
+               value={personalInfo.password}
+               onChange={onChangePersonalInfo}
+            />
+         </TabPanel>
+         <TabPanel value={value} index={2}>
+            <p>3. 서류를 등록해주세요.(선택)</p>
+            <br />
+            <InputLabel>토지등록번호</InputLabel>
+            <TextField
+               variant="outlined"
+               fullWidth
+               placeholder="토지등록번호"
                name="landNumber"
                value={personalInfo.landNumber}
                onChange={onChangePersonalInfo}
             />
-            <TextField
-               required
-               fullWidth
-               label="아이디"
-               name="id"
-               value={personalInfo.id}
-               onChange={onChangePersonalInfo}
-            />
-            <TextField
-               required
-               type="password"
-               fullWidth
-               label="비밀번호"
-               name="password"
-               value={personalInfo.password}
-               onChange={onChangePersonalInfo}
-            />
-         </div>
-         <br />
-         <InputLabel>계좌정보 입력</InputLabel>
-         <div style={TextFieldDivStyle}>
+         </TabPanel>
+         <TabPanel value={value} index={3}>
+            <p>4. 계좌정보를 입력해주세요.(필수)</p>
+            <br />
+            <InputLabel>은행사 선택</InputLabel>
             <Select
+               variant="outlined"
                disabled={checkAccount}
                fullWidth
                native
@@ -199,10 +267,13 @@ const RegisterPageView = () => {
                   </option>
                ))}
             </Select>
+            &emsp;
+            <InputLabel>계좌번호</InputLabel>
             <TextField
+               variant="outlined"
                disabled={checkAccount}
                fullWidth
-               label="계좌번호 입력"
+               placeholder="계좌번호 입력"
                name="accountNumber"
                value={accountInfo.accountNumber}
                onChange={onChangeAccountInfo}
@@ -222,16 +293,58 @@ const RegisterPageView = () => {
                &emsp;
                <small>{status}</small>
             </div>
-         </div>
-         &emsp;
-         <Button
-            fullWidth
-            variant="contained"
-            color="primary"
-            onClick={handleOnRegister}
+            &emsp;
+            <Button
+               fullWidth
+               variant="outlined"
+               color="primary"
+               onClick={handleOnRegister}
+            >
+               회원가입
+            </Button>
+         </TabPanel>
+         <Tabs
+            style={{ position: "fixed", bottom: 0 }}
+            value={value}
+            onChange={handleChange}
+            aria-label="simple tabs example"
          >
-            회원가입
-         </Button>
+            <Tab label="인적정보" {...a11yProps(0)} />
+            <Tab label="계정정보" {...a11yProps(1)} />
+            <Tab label="판매자서류(선택)" {...a11yProps(2)} />
+            <Tab label="계좌정보(필수)" {...a11yProps(3)} />
+         </Tabs>
+         <SnackbarRender />
+      </div>
+   );
+};
+export default RegisterPageView;
+
+{
+   /* 
+
+
+   return (
+      <div style={{ padding: 20 }}>
+         <AccountCircleIcon style={{ fontSize: 50 }} />
+         &emsp;회원가입
+         <hr />
+         <InputLabel>개인정보 입력</InputLabel>
+         <div style={TextFieldDivStyle}>
+            
+            <TextField
+               fullWidth
+               label="토지등록번호"
+               name="landNumber"
+               value={personalInfo.landNumber}
+               onChange={onChangePersonalInfo}
+            />
+           
+         </div>
+         <br />
+        
+         &emsp;
+         
          &emsp;
          <Button
             fullWidth
@@ -244,11 +357,5 @@ const RegisterPageView = () => {
          <SnackbarRender />
       </div>
    );
-};
-
-const TextFieldDivStyle = {
-   border: "1px solid lightgrey",
-   padding: 30,
-};
-
-export default RegisterPageView;
+*/
+}

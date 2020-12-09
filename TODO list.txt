@@ -36,3 +36,5 @@ Filtering 해서
 7. 판매자 입금이체 신청
 => 돈 입금처리
 
+
+FIXME: seller.trade : null 되는 문제 해결하기.
