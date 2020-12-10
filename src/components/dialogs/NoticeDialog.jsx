@@ -1,14 +1,10 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from "@material-ui/core";
+import { Dialog, DialogContent, DialogTitle } from "@material-ui/core";
 import { Cancel } from "@material-ui/icons";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserInfo } from "../../actions/userActions";
 import NoticeCardComp from "../cards/NoticeCardComp";
+import ColumnCardComp from "../cards/ColumnCardComp";
 
 const NoticeDialog = (props) => {
   const { onClose, open } = props;
@@ -50,9 +46,7 @@ const NoticeDialog = (props) => {
 
   return (
     <DialogRender>
-      {/* TODO: 칼럼 CardComponent 추가하기, 
-         게시글이랑 똑같은 양식으로 게시글이랑 붙여서 해도 되고, 
-         상단이나 하단에 위치해도 되고*/}
+      <ColumnCardComp />
 
       {user.user.notice.map((noti, index) => (
         <NoticeCardComp key={index} {...noti} />
