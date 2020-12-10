@@ -18,34 +18,8 @@ import { useHistory } from "react-router-dom";
 
 import { bankCode } from "../data/data";
 import { accountHolderFunc } from "../api/financialActions";
-import { getIsTuno } from "../app/functions";
+import { a11yProps, getIsTuno, TabPanel } from "../app/functions";
 import { newUser } from "../actions/userActions";
-
-const TabPanel = (props) => {
-   const { children, value, index, ...other } = props;
-
-   return (
-      <div
-         role="tabpanel"
-         hidden={value !== index}
-         id={`simple-tabpanel-${index}`}
-         aria-labelledby={`simple-tab-${index}`}
-         {...other}
-      >
-         {value === index && (
-            <Box p={3}>
-               <Typography>{children}</Typography>
-            </Box>
-         )}
-      </div>
-   );
-};
-function a11yProps(index) {
-   return {
-      id: `simple-tab-${index}`,
-      "aria-controls": `simple-tabpanel-${index}`,
-   };
-}
 
 const RegisterPageView = () => {
    const [value, setValue] = useState(0);
@@ -146,7 +120,7 @@ const RegisterPageView = () => {
       );
    };
 
-   const handleChange = (event, newValue) => {
+   const handleChangePage = (event, newValue) => {
       setValue(newValue);
    };
 
@@ -308,7 +282,7 @@ const RegisterPageView = () => {
             scrollButtons="on"
             style={{ position: "fixed", bottom: 0, left: -5 }}
             value={value}
-            onChange={handleChange}
+            onChange={handleChangePage}
          >
             <Tab label="개인정보(필수)" {...a11yProps(0)} />
             <Tab label="계정정보(필수)" {...a11yProps(1)} />

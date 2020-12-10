@@ -16,6 +16,7 @@ const NoticeDialog = (props) => {
    const user = useSelector((state) => state.user);
    const dispatch = useDispatch();
 
+   // FIXME: 이 똥 치우기...(re-render 문제)
    useEffect(() => {
       dispatch(getUserInfo(user));
    }, [open]);
