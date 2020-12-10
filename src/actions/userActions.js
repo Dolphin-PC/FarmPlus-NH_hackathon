@@ -140,13 +140,13 @@ export const acceptRequest = (user, tradeId, requester, product) => async (
 
   myTradeInfo = myTradeInfo.data.trade.map((trade) => {
     if (trade.tradeId === tradeId) {
-      return { ...trade, noticeType: "거래진행중" };
+      return { ...trade, noticeType: "거래진행" };
     }
     return trade;
   });
   requesterTradeInfo = requesterTradeInfo.data.trade.map((trade) => {
     if (trade.tradeId === tradeId) {
-      return { ...trade, noticeType: "거래진행중" };
+      return { ...trade, noticeType: "거래진행" };
     }
     return trade;
   });

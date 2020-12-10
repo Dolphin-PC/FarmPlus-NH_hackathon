@@ -17,7 +17,7 @@ const TradeCardComp = (props) => {
     switch (noticeType) {
       case "거래대기":
         return setOpenRequesterInfoDialog(true);
-      case "거래진행중":
+      case "거래진행":
         return setOpenContractDialog(true);
       case "거래완료":
         return setOpenCompleteDialog(true);
@@ -34,7 +34,7 @@ const TradeCardComp = (props) => {
             <RateReviewIcon style={{ fontSize: 50 }} />
           </div>
         );
-      case "거래진행중":
+      case "거래진행":
         return (
           <div className="Col">
             <CompareArrowsIcon style={{ fontSize: 50 }} />

@@ -17,7 +17,7 @@ const NoticeCardComp = (props) => {
     switch (noticeType) {
       case "거래대기":
         return setOpenRequesterInfoDialog(true);
-      case "거래진행중":
+      case "거래진행":
         return setOpenContractDialog(true);
       case "거래완료":
         return setOpenCompleteDialog(true);
@@ -32,35 +32,39 @@ const NoticeCardComp = (props) => {
         return (
           <div className="Col">
             <RateReviewIcon style={{ fontSize: 50 }} />
+            <small>{noticeType}</small>
           </div>
         );
-      case "거래진행중":
+      case "거래진행":
         return (
           <div className="Col">
             <CompareArrowsIcon style={{ fontSize: 50 }} />
+            <small>{noticeType}</small>
           </div>
         );
       case "거래완료":
         return (
           <div className="Col">
             <CheckCircleIcon style={{ fontSize: 50 }} />
+            <small>{noticeType}</small>
           </div>
         );
       default:
         return (
           <div className="Col">
             <RateReviewIcon style={{ fontSize: 50 }} />
+            <small>{noticeType}</small>
           </div>
         );
     }
   };
 
   return (
-    <div>
+    <div style={{ borderBottom: "1px solid lightgray", paddingBottom: "10px" }}>
       <div className="Row" style={{ marginTop: 10 }}>
         <NoticeIconRender />
         &emsp;
-        <div onClick={handleNoticeClick}>
+        <div onClick={handleNoticeClick} style={{ marginTop: 10 }}>
           <h5>{product.title}</h5>
           <small>from {requester.id}</small>
         </div>
@@ -80,7 +84,6 @@ const NoticeCardComp = (props) => {
           {...props}
         />
       </div>
-      <small>{noticeType}</small>
     </div>
   );
 };

@@ -836,7 +836,7 @@
         },
         {
           "tradeId": "LCpjRqK9Y",
-          "noticeType": "거래진행중",
+          "noticeType": "거래진행",
           "requester": {
             "name": "판매자",
             "phoneNumber": "010-9876-5432",
@@ -1089,7 +1089,7 @@
         },
         {
           "tradeId": "LCpjRqK9Y",
-          "noticeType": "거래진행중",
+          "noticeType": "거래진행",
           "requester": {
             "name": "판매자",
             "phoneNumber": "010-9876-5432",
