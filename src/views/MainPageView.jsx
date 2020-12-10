@@ -1,5 +1,4 @@
 import DialpadIcon from "@material-ui/icons/Dialpad";
-import { Col } from "reactstrap";
 import React, { Fragment, useEffect, useState } from "react";
 
 import Slider from "react-slick";
@@ -11,111 +10,124 @@ import { Add } from "@material-ui/icons";
 import NewPostDialog from "../components/dialogs/NewPostDialog";
 import { getPosts } from "../actions/postActions";
 
-import { category } from "../data/data";
+import { category, category_icon } from "../data/data";
 
 const MainPageView = () => {
-   const [openAdd, setOpenAdd] = useState(false);
-   const dispatch = useDispatch();
-   const { loading, error, posts } = useSelector((state) => state.post);
+  const [openAdd, setOpenAdd] = useState(false);
 
-   useEffect(() => {
-      if (posts.length === 0) {
-         dispatch(getPosts());
-      }
-      dispatch({
-         type: SET_NAV,
-         payload: window.location.href.split("/")[3],
-      });
-   }, []);
+  const dispatch = useDispatch();
+  const { loading, error, posts } = useSelector((state) => state.post);
+  const { filter } = useSelector((state) => state);
 
-   const CategorySliderRender = () => {
-      const sliderSettings = {
-         dots: false,
-         infinite: true,
-         speed: 500,
-         slidesToShow: 4,
-         swipeToSlide: true,
+  useEffect(() => {
+    if (posts.length === 0) {
+      dispatch(getPosts());
+    }
+    dispatch({
+      type: SET_NAV,
+      payload: window.location.href.split("/")[3],
+    });
+  }, []);
+
+  const CategorySliderRender = () => {
+    const sliderSettings = {
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 4,
+      swipeToSlide: true,
+    };
+
+    const ItemRender = ({ icon, text }) => {
+      const handleSetCategory = () => {
+        dispatch({
+          type: SET_CATEGORY,
+          payload: text,
+        });
       };
-      const ItemRender = ({ icon, text }) => {
-         const handleSetCategory = () => {
-            dispatch({
-               type: SET_CATEGORY,
-               payload: text,
-            });
-         };
-         return (
-            <div onClick={handleSetCategory}>
-               {icon}
-               <br />
-               <small>{text}</small>
-            </div>
-         );
-      };
+
       return (
-         <div
-            className="LeftBorder30"
-            style={{
-               marginTop: 20,
-               padding: 20,
-               textAlign: "center",
-               backgroundColor: "#C7B492",
-            }}
-         >
-            {/* TODO: 여기 아이콘 바꾸면 됨 */}
-            <Slider {...sliderSettings} arrows={false}>
-               {category.map((data, index) => (
-                  <ItemRender
-                     key={index}
-                     icon={<DialpadIcon />}
-                     text={data.text}
-                  />
-               ))}
-            </Slider>
-         </div>
+        <div onClick={handleSetCategory}>
+          <img src={icon.src} alt="icon" style={{ margin: "10px auto" }}></img>
+          <small>{text}</small>
+        </div>
       );
-   };
-
-   const PostAddButton = () => {
-      const handleAdd = () => {
-         setOpenAdd(true);
-      };
-      return (
-         <Fab
-            color="primary"
-            style={{ position: "fixed", bottom: 70, right: 20, zIndex: 5 }}
-            onClick={handleAdd}
-         >
-            <Add />
-         </Fab>
-      );
-   };
-
-   const PostRender = () => {
-      if (error) return <p>에러가 발생했습니다...</p>;
-
-      if (loading) return <p>로딩 중...</p>;
-
-      // TODO: 게시물 데이터 필터 설정 여기서 하면 됨
-      return (
-         <Fragment>
-            {!loading &&
-               posts.map((post) => <ItemCardComp key={post.id} {...post} />)}
-         </Fragment>
-      );
-   };
-   return (
-      <div className="MainStyle">
-         <CategorySliderRender />
-         <PostAddButton />
-         <NewPostDialog open={openAdd} onClose={() => setOpenAdd(!openAdd)} />
-         <hr />
-         <PostRender />
-         <hr />
-         <div className="center">
-            <small>- End -</small>
-         </div>
+    };
+    return (
+      <div
+        className="LeftBorder30"
+        style={{
+          marginTop: 20,
+          padding: 20,
+          textAlign: "center",
+          backgroundColor: "#C7B492",
+        }}
+      >
+        <Slider {...sliderSettings} arrows={false}>
+          {category.map((data, index) => (
+            <ItemRender
+              key={index}
+              icon={category_icon[index]}
+              text={data.text}
+            />
+          ))}
+        </Slider>
       </div>
-   );
+    );
+  };
+
+  const PostAddButton = () => {
+    const handleAdd = () => {
+      setOpenAdd(true);
+    };
+    return (
+      <Fab
+        color="primary"
+        style={{ position: "fixed", bottom: 70, right: 20, zIndex: 5 }}
+        onClick={handleAdd}
+      >
+        <Add />
+      </Fab>
+    );
+  };
+
+  const PostRender = () => {
+    if (error) return <p>에러가 발생했습니다...</p>;
+
+    if (loading) return <p>로딩 중...</p>;
+
+    let filterValue;
+    if (filter.category === "전체") filterValue = posts;
+    else
+      filterValue = posts.filter((post) => post.category === filter.category);
+
+    if (filter.location !== "전체")
+      filterValue = filterValue.filter(
+        (post) => post.location === filter.location
+      );
+
+    return (
+      <Fragment>
+        {filterValue.map((post, idx) => (
+          <ItemCardComp key={idx} {...post} />
+        ))}
+      </Fragment>
+    );
+  };
+
+  return (
+    <div className="MainStyle">
+      <CategorySliderRender />
+      <PostAddButton />
+      <NewPostDialog open={openAdd} onClose={() => setOpenAdd(!openAdd)} />
+      <hr />
+      <PostRender />
+      <hr />
+      <div className="center">
+        <small>- End -</small>
+      </div>
+    </div>
+  );
 };
 
 export default MainPageView;
