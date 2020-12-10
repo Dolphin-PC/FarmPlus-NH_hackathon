@@ -283,6 +283,7 @@ const RegisterPageView = () => {
                style={{ display: "flex", alignItems: "center", marginTop: 5 }}
             >
                <Button
+                  color="default"
                   disabled={checkAccount}
                   variant="contained"
                   color="inherit"
@@ -304,13 +305,14 @@ const RegisterPageView = () => {
             </Button>
          </TabPanel>
          <Tabs
-            style={{ position: "fixed", bottom: 0 }}
+            variant="scrollable"
+            scrollButtons="on"
+            style={{ position: "fixed", bottom: 0, left: -5 }}
             value={value}
             onChange={handleChange}
-            aria-label="simple tabs example"
          >
-            <Tab label="인적정보" {...a11yProps(0)} />
-            <Tab label="계정정보" {...a11yProps(1)} />
+            <Tab label="개인정보(필수)" {...a11yProps(0)} />
+            <Tab label="계정정보(필수)" {...a11yProps(1)} />
             <Tab label="판매자서류(선택)" {...a11yProps(2)} />
             <Tab label="계좌정보(필수)" {...a11yProps(3)} />
          </Tabs>
