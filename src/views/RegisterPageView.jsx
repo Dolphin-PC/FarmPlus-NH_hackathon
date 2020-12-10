@@ -153,7 +153,7 @@ const RegisterPageView = () => {
    return (
       <div style={{ padding: 20 }}>
          <div className="Row">
-            <ArrowBack />
+            <ArrowBack onClick={handleOnLogin} />
             &emsp;<h4>회원가입</h4>
          </div>
          <hr />
@@ -283,7 +283,6 @@ const RegisterPageView = () => {
                style={{ display: "flex", alignItems: "center", marginTop: 5 }}
             >
                <Button
-                  color="default"
                   disabled={checkAccount}
                   variant="contained"
                   color="inherit"
