@@ -221,8 +221,9 @@ const ContractDialog = (props) => {
       );
 
     // 송금 다이얼로그
+    // 송금 다이얼로그
     case "deposit":
-      if (user.user.id === product.id) {
+      if (user.user.id === product.sellerId) {
         return (
           <Dialog open={open} onClose={handleClose}>
             <DialogTitle>계약금 입금 대기 중</DialogTitle>

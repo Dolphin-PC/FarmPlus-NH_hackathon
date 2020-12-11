@@ -27,7 +27,7 @@ const RegisterPageView = () => {
    const [personalInfo, setPersonalInfo] = useState({
       name: "",
       phoneNumber: "",
-      idNumber: "",
+      address: "",
       landNumber: "",
       birthDay: "",
       id: "",
@@ -74,8 +74,7 @@ const RegisterPageView = () => {
       if (personalInfo.name === "") return alert("이름을 입력해주세요.");
       if (personalInfo.phoneNumber === "")
          return alert("전화번호를 입력해주세요.");
-      if (personalInfo.idNumber === "")
-         return alert("주민등록번호를 입력해주세요.");
+      if (personalInfo.address === "") return alert("주소를 입력해주세요.");
       if (personalInfo.birthDay === "")
          return alert("생년월일을 입력해주세요.");
       if (personalInfo.id === "") return alert("아이디를 입력해주세요.");
@@ -162,8 +161,8 @@ const RegisterPageView = () => {
                placeholder="주소"
                required
                fullWidth
-               name="idNumber"
-               value={personalInfo.idNumber}
+               name="address"
+               value={personalInfo.address}
                onChange={onChangePersonalInfo}
             />
             &emsp;
