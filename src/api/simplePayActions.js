@@ -94,9 +94,9 @@ export const receivedTransferAccountNumber = async (user, product, tradeId) => {
       },
       Bncd: product.bankCode,
       Acno: product.accountNumber,
-      Tram: product.cost,
-      DractOtlt: "출금계좌인자내용1",
-      MractOtlt: "입금계좌인자내용2",
+      Tram: product.cost - product.cost * 0.01,
+      DractOtlt: `[${user.user.id}]계약금 출금`,
+      MractOtlt: "[팜플러스]계약금 입금",
    };
 
    // 입금이체

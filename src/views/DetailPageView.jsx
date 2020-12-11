@@ -33,6 +33,7 @@ import { addFavorite, tradeRequest } from "../actions/userActions";
 
 import badge from "../assets/icon/badge.png";
 import * as Color from "../assets/colors";
+import DrawerText from "../components/Drawer/DrawerText";
 
 const longText = `배지 X -  수수료 1.0%\n
 동배지 -  수수료 0.9%
@@ -41,13 +42,12 @@ const longText = `배지 X -  수수료 1.0%\n
 기준: 계약이행률, 상품의 품질, 경작지 관리 등을 산지유통인이 평가`;
 
 const useStyles = makeStyles((theme) => ({
-  customWidth: {
-    maxWidth: 110,
-  },
+   customWidth: {
+      maxWidth: 110,
+   },
 }));
 
 const DetailPageView = () => {
-
    const classes = useStyles();
 
    const [openBottomDrawer, setOpenBottomDrawer] = useState(false);
@@ -73,7 +73,10 @@ const DetailPageView = () => {
 
    const handleOnRequest = () => {
       if (window.confirm("거래를 신청하시겠습니까?")) {
-         dispatch(tradeRequest(user, current));
+         if (dispatch(tradeRequest(user, current))) {
+            alert("거래 신청이 정상적으로 처리되었습니다.");
+            setOpenBottomDrawer(false);
+         }
       }
    };
 
@@ -136,14 +139,14 @@ const DetailPageView = () => {
                   <p style={{ margin: 0 }}>
                      {current.name}
                      {user.user.isVIP === true ? (
-                <Tooltip
-                  title={longText}
-                  classes={{ tooltip: classes.customWidth }}
-                  arrow
-                >
-                  <img src={badge} alt="" style={{ width: 20 }} />
-                </Tooltip>
-              ) : null}
+                        <Tooltip
+                           title={longText}
+                           classes={{ tooltip: classes.customWidth }}
+                           arrow
+                        >
+                           <img src={badge} alt="" style={{ width: 20 }} />
+                        </Tooltip>
+                     ) : null}
                      <br />
                      <small>{current.address}</small>
                   </p>
@@ -203,16 +206,6 @@ const DetailPageView = () => {
                </Button>
             </Col>
          </div>
-      </div>
-   );
-
-   const DrawerText = ({ left, right }) => (
-      <div
-         className="Row"
-         style={{ justifyContent: "space-between", margin: 8 }}
-      >
-         <small>{left}</small>
-         <b>{right}</b>
       </div>
    );
 

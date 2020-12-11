@@ -10,6 +10,7 @@ import {
    DialogTitle,
    Drawer,
    FormControlLabel,
+   Input,
    InputLabel,
    Typography,
 } from "@material-ui/core";
@@ -23,6 +24,9 @@ import { contract } from "../../data/data";
 import { sendContract } from "../../actions/contractActions";
 import { drawingTransfer } from "../../api/simplePayActions";
 import ContractAccordionComp from "../accordions/ContractAccordionComp";
+import { getUserInfo } from "../../actions/userActions";
+import { getAccountNumber, getBankName } from "../../app/functions";
+import { getRemainCost } from "../../api/financialActions";
 
 const ContractDialog = (props) => {
    const dispatch = useDispatch();
@@ -54,13 +58,23 @@ const ContractDialog = (props) => {
       agree13: false,
    });
    const [isContractAgree, setIsContractAgree] = useState(false);
+   const [remainCost, setRemainCost] = useState("Loading...");
 
    useEffect(() => {
       console.info(isContract);
       if (isContract) {
          setPage("deposit");
       }
-   }, [page]);
+
+      const fetchRemainCost = async () => {
+         const res = await getRemainCost(user);
+         if (res.data.Header.Rsms === "정상처리 되었습니다.") {
+            setRemainCost(`${Number(res.data.RlpmAbamt).toLocaleString()} 원`);
+         }
+      };
+
+      fetchRemainCost();
+   }, [open]);
 
    // 계약서 조항 동의
    const handleOnAgree = (event) => {
@@ -119,6 +133,7 @@ const ContractDialog = (props) => {
 
       if (sendContract(user, tradeId)) {
          alert("계약서 전송에 성공하였습니다.");
+         dispatch(getUserInfo(user));
          handleClose();
       }
    };
@@ -257,24 +272,16 @@ const ContractDialog = (props) => {
                            본인 계좌
                         </div>
                      </InputLabel>
-                     <div className="Account-Bank-Box ">
-                        <div style={{ width: "50%", display: "inline-block" }}>
-                           <small>계좌은행</small>
+                     <div className="Account-Bank-Box Row">
+                        <div className="Col" style={{ width: "50%" }}>
+                           <InputLabel>
+                              {getBankName(user.user.bankCode)}
+                           </InputLabel>
+                           <b>{getAccountNumber(user.user.accountNumber)}</b>
                         </div>
-                        <div
-                           className="text-right"
-                           style={{ width: "50%", display: "inline-block" }}
-                        >
-                           <small>출금가능금액</small>
-                        </div>
-                        <div style={{ width: "50%", display: "inline-block" }}>
-                           <b>508-13-432028-6</b>
-                        </div>
-                        <div
-                           className="text-right"
-                           style={{ width: "50%", display: "inline-block" }}
-                        >
-                           <b>2,560,174원</b>
+                        <div className="Col" style={{ width: "50%" }}>
+                           <InputLabel>출금가능금액</InputLabel>
+                           <b>{remainCost}</b>
                         </div>
                      </div>
                      <InputLabel style={{ margin: "0 30px" }}>

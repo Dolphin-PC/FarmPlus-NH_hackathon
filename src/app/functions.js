@@ -67,3 +67,28 @@ export const a11yProps = (index) => {
       "aria-controls": `simple-tabpanel-${index}`,
    };
 };
+
+export const getBankName = (code) => {
+   switch (code) {
+      case "011":
+         return "NH농협";
+      case "003":
+         return "기업은행";
+      case "004":
+         return "국민은행";
+      case "081":
+         return "KEB하나은행";
+      case "020":
+         return "우리은행";
+      case "088":
+         return "신한은행";
+      case "090":
+         return "카카오뱅크";
+      default:
+         return "계좌은행";
+   }
+};
+
+export const getAccountNumber = (number) => {
+   return `${number.slice(0, 3)}-${number.slice(3, 5)}-${number.slice(5)}`;
+};

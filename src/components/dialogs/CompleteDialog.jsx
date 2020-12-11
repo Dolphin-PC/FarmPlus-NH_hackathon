@@ -4,35 +4,46 @@ import {
    DialogActions,
    DialogContent,
    DialogTitle,
+   Drawer,
    InputLabel,
 } from "@material-ui/core";
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { receivedTradeDeposit } from "../../actions/tradeActions";
 import { getUserInfo } from "../../actions/userActions";
+import { getRemainCost } from "../../api/financialActions";
 import { receivedTransferAccountNumber } from "../../api/simplePayActions";
+import { getAccountNumber, getBankName } from "../../app/functions";
 import ContractAccordionComp from "../accordions/ContractAccordionComp";
+import DrawerText from "../Drawer/DrawerText";
 
 const CompleteDialog = (props) => {
    const { onClose, open, requester, product, tradeId, deposit } = props;
 
    const dispatch = useDispatch();
    const user = useSelector((state) => state.user);
+   const [remainCost, setRemainCost] = useState("Loading...");
+   const realCost = product.cost - product.cost * 0.01;
+
+   useEffect(() => {
+      const fetchRemainCost = async () => {
+         const res = await getRemainCost(user);
+         if (res.data.Header.Rsms === "정상처리 되었습니다.") {
+            setRemainCost(`${Number(res.data.RlpmAbamt).toLocaleString()} 원`);
+         }
+      };
+
+      fetchRemainCost();
+   }, [open]);
 
    const handleClose = () => {
       onClose();
    };
    const handleOnAccept = () => {
-      // 구매자 일 경우, 거래 종료
-      if (user.user.id === requester.id) {
-         onClose();
-         return alert("판매자에게 계약금이 전달되었습니다. 감사합니다.");
-      }
-
       // 판매자 일 경우, 돈 입금이체 신청
       if (
          window.confirm(
-            `${deposit.toLocaleString()} 원\n입금 이체를 신청하시겠습니까?`
+            `${realCost.toLocaleString()} 원\n입금 이체를 신청하시겠습니까?`
          )
       ) {
          if (receivedTransferAccountNumber(user, product, tradeId)) {
@@ -49,41 +60,82 @@ const CompleteDialog = (props) => {
    const DialogRender = (props) => {
       return (
          <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>거래 성사</DialogTitle>
+            <DialogTitle>거래 완료</DialogTitle>
             <DialogContent>{props.children}</DialogContent>
-            {deposit > 0 ? (
-               <DialogActions>
-                  <Button onClick={handleClose} color="primary">
-                     아니오
-                  </Button>
-                  <Button onClick={handleOnAccept} color="primary">
-                     예
-                  </Button>
-               </DialogActions>
-            ) : (
-               ""
-            )}
          </Dialog>
       );
    };
-   return (
-      <DialogRender>
-         <small>게시물 명</small>
-         <br />
-         {product.title}
-         <br />
-         <br />
-         {deposit > 0 ? (
+
+   if (user.user.id === requester.id) {
+      return (
+         <DialogRender>
+            <small>게시물 명</small>
+            <br />
+            {product.title}
+            <br />
+            <br />
             <Fragment>
                <ContractAccordionComp product={product} requester={requester} />
 
                <br />
-               <InputLabel>거래를 완료하시겠습니까?</InputLabel>
+
+               <DialogActions>
+                  <InputLabel>거래가 완료되었습니다.</InputLabel>
+               </DialogActions>
             </Fragment>
-         ) : (
-            "이미 성사된 거래입니다."
-         )}
-      </DialogRender>
+         </DialogRender>
+      );
+   }
+   return (
+      <Drawer anchor="bottom" open={open} onClose={handleClose}>
+         <div style={{ padding: 20, marginBottom: 100 }}>
+            <InputLabel>계약금 입금</InputLabel>
+            <hr />
+            <InputLabel>본인 계좌</InputLabel>
+            <div className="Account-Bank-Box Row">
+               <div className="Col" style={{ width: "50%" }}>
+                  <InputLabel>{getBankName(user.user.bankCode)}</InputLabel>
+                  <b>{getAccountNumber(user.user.accountNumber)}</b>
+               </div>
+               <div className="Col" style={{ width: "50%" }}>
+                  <InputLabel>현재 금액</InputLabel>
+                  <b>{remainCost}</b>
+               </div>
+            </div>
+
+            <InputLabel>판매 정보</InputLabel>
+            <div className="Account-Bank-Box">
+               <DrawerText left="게시글" right={product.title} />
+               <DrawerText
+                  left="품종/품목"
+                  right={`${product.category}/${product.subCategory}`}
+               />
+               <DrawerText
+                  left="계약금"
+                  right={`${product.cost.toLocaleString()} 원`}
+               />
+               <DrawerText
+                  left="서비스 수수료(1%)"
+                  right={`${(product.cost * 0.01).toLocaleString()} 원`}
+               />
+               <DrawerText
+                  left="실 입금액"
+                  right={`${realCost.toLocaleString()} 원`}
+               />
+            </div>
+         </div>
+
+         <Button
+            style={{ padding: 10 }}
+            disabled={deposit === 0 ? true : false}
+            onClick={handleOnAccept}
+            color="primary"
+            variant="contained"
+            fullWidth
+         >
+            {deposit === 0 ? "입금완료" : "입금받기"}
+         </Button>
+      </Drawer>
    );
 };
 

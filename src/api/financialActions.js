@@ -140,3 +140,30 @@ export const registerFinAccount = async (u) => {
          alert("에러가 발생하였습니다.");
       });
 };
+
+export const getRemainCost = async (user) => {
+   const url = "https://developers.nonghyup.com/InquireBalance.nh";
+
+   const body = {
+      Header: {
+         ApiNm: "InquireBalance",
+         Tsymd: getTodayApi(),
+         Trtm: getTimeApi(),
+         Iscd,
+         FintechApsno,
+         ApiSvcCd,
+         IsTuno: getIsTuno(),
+         AccessToken,
+      },
+      FinAcno: user.user.FinAcno,
+   };
+
+   const result = await Axios.post(url, body)
+      .then((res) => res)
+      .catch((err) => {
+         // console.error(err);
+         return err;
+      });
+
+   return result;
+};

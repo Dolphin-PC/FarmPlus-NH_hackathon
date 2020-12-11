@@ -6,6 +6,7 @@ import {
    DialogContent,
    DialogContentText,
    DialogTitle,
+   InputLabel,
 } from "@material-ui/core";
 import PhoneIcon from "@material-ui/icons/Phone";
 import HomeIcon from "@material-ui/icons/Home";
@@ -32,6 +33,7 @@ const RequesterInfoDialog = (props) => {
       if (window.confirm("거래를 수락하시겠습니까?")) {
          if (dispatch(acceptRequest(user, tradeId, requester, product))) {
             alert("거래가 성사되었습니다!");
+            dispatch(getUserInfo(user));
             onClose();
          }
       }
@@ -62,55 +64,36 @@ const RequesterInfoDialog = (props) => {
    return (
       <DialogRender>
          <div style={{ marginBottom: "20px" }}>
-            <small>게시물 명</small>
-            <div>{product.title}</div>
+            <InputLabel>게시물 명</InputLabel>
+            <p>{product.title}</p>
          </div>
 
          <div>
-            <small>신청자 정보</small>
-            <div style={{ display: "flex", alignItems: "center" }}>
-               <div className="text-center" style={{ width: 40 }}>
-                  <Avatar>{requester.name[0]}</Avatar>
-               </div>
-
-               <div style={{ marginLeft: 5 }}>{requester.name}</div>
+            <InputLabel>신청자 정보</InputLabel>
+            <div className="Row Post" style={{ paddingRight: 10 }}>
+               <Avatar style={{ backgroundColor: "aqua" }}>
+                  {requester.name[0]}
+               </Avatar>
+               &emsp;
+               <small style={{ margin: "auto 0" }}>{requester.name}</small>
             </div>
 
-            <div style={{ display: "flex", alignItems: "center" }}>
-               <div
-                  className="text-center"
-                  style={{
-                     width: 40,
-                     height: 40,
-                     borderRadius: "50%",
-                     border: "1px solid black",
-                     lineHeight: 2,
-                     flexShrink: 0,
-                  }}
-               >
+            <div className="Row Post" style={{ paddingRight: 10 }}>
+               <Avatar>
                   <HomeIcon />
-               </div>
-               <div style={{ marginLeft: 5 }}>{requester.address}</div>
+               </Avatar>
+               &emsp;
+               <small style={{ margin: "auto 0" }}>{requester.address}</small>
             </div>
 
-            <div style={{ display: "flex", alignItems: "center" }}>
-               <div
-                  className="text-center"
-                  style={{
-                     width: 40,
-                     height: 40,
-                     borderRadius: "50%",
-                     border: "1px solid black",
-                     lineHeight: 2,
-                     flexShrink: 0,
-                  }}
-               >
+            <div className="Row Post" style={{ paddingRight: 10 }}>
+               <Avatar>
                   <PhoneIcon />
-               </div>
-
-               <div style={{ marginLeft: 5 }}>
-                  <b style={{ margin: 0 }}>{requester.phoneNumber}</b>
-               </div>
+               </Avatar>
+               &emsp;
+               <small style={{ margin: "auto 0" }}>
+                  {requester.phoneNumber}
+               </small>
             </div>
          </div>
       </DialogRender>

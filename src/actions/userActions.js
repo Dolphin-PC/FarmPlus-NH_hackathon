@@ -122,7 +122,7 @@ export const tradeRequest = (user, current) => async (dispatch) => {
       notice: sellerList,
    })
       .then((res) => {
-         alert("거래 신청이 완료되었습니다.");
+         return true;
       })
       .catch((err) => {
          console.error(err);

@@ -17,7 +17,7 @@ export const receivedTradeDeposit = async (user, tradeId) => {
 
    console.info("userInfo", userInfo);
 
-   await Axios.patch(jsonServerUrl, {
+   const result = await Axios.patch(jsonServerUrl, {
       trade: userInfo,
       notice: userInfo,
    })
@@ -29,4 +29,6 @@ export const receivedTradeDeposit = async (user, tradeId) => {
          console.error(err);
          alert("에러가 발생했습니다.");
       });
+
+   return result;
 };

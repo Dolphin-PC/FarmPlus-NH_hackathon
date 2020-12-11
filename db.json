@@ -86,38 +86,11 @@
       "password": "111",
       "bankCode": "011",
       "accountNumber": "3020000003038",
-      "favorite": [
-        {
-          "id": "NO1XUse-X",
-          "sellerId": "seller2",
-          "title": "강원도 배추 10KG 5천원",
-          "star": 0,
-          "size": 10000,
-          "category": "배추",
-          "subCategory": "고랭지 배추",
-          "location": "강원",
-          "cost": 10000000,
-          "content": "고랭지 배추 팔아요",
-          "imageUrls": [
-            "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EB%B0%B0%EC%B6%94%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=515d09b5-7bfb-44b1-bd64-3d8af4597c20"
-          ],
-          "createDate": "2020-12-11T12:53:50.427Z",
-          "date": "2020-12-11",
-          "address": "강원도 충열로 16번길 21-14",
-          "plantDay": "2020-12-12",
-          "outDay": "2020-12-24",
-          "landNumber": "12-34567-12-345-231",
-          "name": "판매자",
-          "phoneNumber": "010-2345-6789",
-          "birthDay": "19960110",
-          "bankCode": "011",
-          "accountNumber": "3020000003037",
-          "image": "http://placeimg.com/640/480/transport"
-        }
-      ],
+      "Rgno": "20201211000000969",
+      "FinAcno": "00820100004520000000000004455",
       "trade": [
         {
-          "tradeId": "8amM1wcmb",
+          "tradeId": "Vj6X52gs7",
           "noticeType": "거래완료",
           "requester": {
             "name": "박찬영",
@@ -126,7 +99,9 @@
             "birthDay": "19960110",
             "id": "pc474",
             "bankCode": "011",
-            "accountNumber": "3020000003038"
+            "accountNumber": "3020000003038",
+            "Rgno": "20201211000000969",
+            "FinAcno": "00820100004520000000000004455"
           },
           "product": {
             "id": "NO1XUse-X",
@@ -150,7 +125,7 @@
             "landNumber": "12-34567-12-345-231",
             "name": "판매자",
             "phoneNumber": "010-2345-6789",
-            "birthDay": "19960110",
+            "birthDay": "19880118",
             "bankCode": "011",
             "accountNumber": "3020000003037",
             "image": "http://placeimg.com/640/480/transport"
@@ -159,11 +134,9 @@
           "deposit": 10000000
         }
       ],
-      "Rgno": "20201211000000969",
-      "FinAcno": "00820100004520000000000004455",
       "notice": [
         {
-          "tradeId": "8amM1wcmb",
+          "tradeId": "Vj6X52gs7",
           "noticeType": "거래완료",
           "requester": {
             "name": "박찬영",
@@ -172,7 +145,9 @@
             "birthDay": "19960110",
             "id": "pc474",
             "bankCode": "011",
-            "accountNumber": "3020000003038"
+            "accountNumber": "3020000003038",
+            "Rgno": "20201211000000969",
+            "FinAcno": "00820100004520000000000004455"
           },
           "product": {
             "id": "NO1XUse-X",
@@ -196,7 +171,7 @@
             "landNumber": "12-34567-12-345-231",
             "name": "판매자",
             "phoneNumber": "010-2345-6789",
-            "birthDay": "19960110",
+            "birthDay": "19880118",
             "bankCode": "011",
             "accountNumber": "3020000003037",
             "image": "http://placeimg.com/640/480/transport"
@@ -216,9 +191,11 @@
       "password": "123",
       "bankCode": "011",
       "accountNumber": "3020000003037",
+      "Rgno": "20201211000000970",
+      "FinAcno": "00820100004520000000000004464",
       "trade": [
         {
-          "tradeId": "8amM1wcmb",
+          "tradeId": "Vj6X52gs7",
           "noticeType": "거래완료",
           "requester": {
             "name": "박찬영",
@@ -227,7 +204,9 @@
             "birthDay": "19960110",
             "id": "pc474",
             "bankCode": "011",
-            "accountNumber": "3020000003038"
+            "accountNumber": "3020000003038",
+            "Rgno": "20201211000000969",
+            "FinAcno": "00820100004520000000000004455"
           },
           "product": {
             "id": "NO1XUse-X",
@@ -251,7 +230,7 @@
             "landNumber": "12-34567-12-345-231",
             "name": "판매자",
             "phoneNumber": "010-2345-6789",
-            "birthDay": "19960110",
+            "birthDay": "19880118",
             "bankCode": "011",
             "accountNumber": "3020000003037",
             "image": "http://placeimg.com/640/480/transport"
@@ -262,7 +241,7 @@
       ],
       "notice": [
         {
-          "tradeId": "8amM1wcmb",
+          "tradeId": "Vj6X52gs7",
           "noticeType": "거래완료",
           "requester": {
             "name": "박찬영",
@@ -271,7 +250,9 @@
             "birthDay": "19960110",
             "id": "pc474",
             "bankCode": "011",
-            "accountNumber": "3020000003038"
+            "accountNumber": "3020000003038",
+            "Rgno": "20201211000000969",
+            "FinAcno": "00820100004520000000000004455"
           },
           "product": {
             "id": "NO1XUse-X",
@@ -295,7 +276,7 @@
             "landNumber": "12-34567-12-345-231",
             "name": "판매자",
             "phoneNumber": "010-2345-6789",
-            "birthDay": "19960110",
+            "birthDay": "19880118",
             "bankCode": "011",
             "accountNumber": "3020000003037",
             "image": "http://placeimg.com/640/480/transport"
@@ -303,9 +284,7 @@
           "isContract": true,
           "deposit": 0
         }
-      ],
-      "Rgno": "20201211000000970",
-      "FinAcno": "00820100004520000000000004464"
+      ]
     }
   ]
 }
