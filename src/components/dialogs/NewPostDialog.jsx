@@ -7,16 +7,22 @@ import {
    InputLabel,
    TextField,
    Select,
+   Tabs,
+   Tab,
+   FormHelperText,
 } from "@material-ui/core";
-import { Cancel } from "@material-ui/icons";
+import { ArrowBack, Cancel, PostAdd } from "@material-ui/icons";
 import React, { Fragment, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewPost } from "../../actions/postActions";
 
 import { category, location } from "../../data/data";
-import { getToday } from "../../app/functions";
+import { a11yProps, getToday, TabPanel } from "../../app/functions";
+import { useHistory } from "react-router-dom";
 
 const NewProductDialog = (props) => {
+   const [page, setPage] = useState(0);
+
    const user = useSelector((state) => state.user.user);
 
    const dispatch = useDispatch();
@@ -26,6 +32,7 @@ const NewProductDialog = (props) => {
       star: 0,
       size: null,
       category: "",
+      subCategory: "",
       location: "",
       cost: null,
       content: "",
@@ -35,6 +42,7 @@ const NewProductDialog = (props) => {
       address: null,
       plantDay: null,
       outDay: null,
+      landNumber: null,
    };
    const [newPost, setNewPost] = useState(initState);
    const [images, setImages] = useState([]);
@@ -55,6 +63,8 @@ const NewProductDialog = (props) => {
 
       if (newPost.content === "") return alert("내용을 입력해주세요.");
 
+      if (!window.confirm("게시글을 등록하시겠습니까?")) return;
+
       await dispatch(addNewPost(newPost, images, user));
       alert("게시글 생성 완료!");
       setNewPost(initState);
@@ -67,45 +77,90 @@ const NewProductDialog = (props) => {
          [e.target.name]: e.target.value,
       });
    };
+   const handleChangePage = (event, newValue) => {
+      setPage(newValue);
+   };
+
    return (
-      <Dialog
-         fullScreen
-         open={open}
-         onClose={handleClose}
-         style={{ marginTop: 60 }}
-      >
+      <Dialog fullScreen open={open} onClose={handleClose}>
          <DialogTitle>
-            글 올리기
-            <Cancel
-               style={{ position: "fixed", top: 80, right: 20 }}
-               onClick={handleClose}
+            <ArrowBack onClick={handleClose} />
+            &emsp; 글 올리기
+            <PostAdd
+               style={{ position: "fixed", top: 20, right: 20 }}
+               onClick={handleCreate}
             />
          </DialogTitle>
-         <DialogContent>
-            <Fragment>
+         <DialogContent style={{ padding: 20 }}>
+            <TabPanel value={page} index={0}>
+               <p>1. 게시글 정보를 입력해주세요.</p>
+               <br />
                <InputLabel>이미지를 업로드해주세요.</InputLabel>
                <input type="file" onChange={(e) => setImages(e.target.files)} />
+               <br />
+               <br />
+               <InputLabel>제목</InputLabel>
                <TextField
-                  style={TextFieldStyle}
+                  variant="outlined"
                   fullWidth
                   name="title"
                   value={newPost.title}
-                  label="제목을 입력해주세요."
+                  placeholder="제목을 입력해주세요."
                   onChange={handleChange}
                />
-
-               <InputLabel>카테고리를 선택해주세요.</InputLabel>
-               <Select
+               &emsp;
+               <InputLabel>내용</InputLabel>
+               <TextField
+                  variant="outlined"
+                  multiline
+                  type="text"
                   fullWidth
-                  native
-                  style={TextFieldStyle}
-                  name="category"
+                  name="content"
+                  value={newPost.content}
+                  placeholder="내용을 입력해주세요."
                   onChange={handleChange}
-               >
+               />
+            </TabPanel>
+            <TabPanel value={page} index={1}>
+               <p>2. 가격, 면적을 입력해주세요.</p>
+               <br />
+               <InputLabel>가격</InputLabel>
+               <TextField
+                  variant="outlined"
+                  type="number"
+                  fullWidth
+                  name="cost"
+                  value={newPost.cost}
+                  placeholder="가격을 입력해주세요."
+                  onChange={handleChange}
+               />
+               <FormHelperText>
+                  {Number(newPost.cost).toLocaleString()} 원
+               </FormHelperText>
+               &emsp;
+               <InputLabel>면적</InputLabel>
+               <TextField
+                  variant="outlined"
+                  type="number"
+                  fullWidth
+                  name="size"
+                  value={newPost.size}
+                  placeholder="면적을 입력해주세요.(평)"
+                  onChange={handleChange}
+               />
+               <FormHelperText>
+                  {Number(newPost.size).toLocaleString()} 평
+               </FormHelperText>
+            </TabPanel>
+            <TabPanel value={page} index={2}>
+               <p>3. 상품 정보를 입력해주세요.</p>
+               <br />
+               <InputLabel>품목</InputLabel>
+               <Select fullWidth native name="category" onChange={handleChange}>
                   <option
                      disabled
                      value={newPost.category}
-                     label="카테고리를 선택해주세요."
+                     placeholder="품목을 선택해주세요."
                   />
                   {category.map((data, index) => (
                      <option value={data.value} key={index}>
@@ -113,99 +168,88 @@ const NewProductDialog = (props) => {
                      </option>
                   ))}
                </Select>
-
-               <InputLabel>지역을 선택해주세요.</InputLabel>
-               <Select
+               &emsp;
+               <TextField
+                  variant="outlined"
+                  type="text"
                   fullWidth
-                  native
-                  style={TextFieldStyle}
-                  name="location"
+                  name="subCategory"
+                  value={newPost.subCategory}
+                  placeholder="상세 품종을 입력해주세요."
                   onChange={handleChange}
-               >
-                  <option
-                     disabled
-                     value={newPost.location}
-                     label="지역을 선택해주세요."
-                  />
+               />
+               &emsp;
+               <InputLabel>지역</InputLabel>
+               <Select native fullWidth name="location" onChange={handleChange}>
+                  <option disabled value={newPost.location} />
                   {location.map((data, index) => (
                      <option value={data.value} key={index}>
                         {data.text}
                      </option>
                   ))}
                </Select>
-
+               &emsp;
                <TextField
+                  variant="outlined"
                   type="text"
-                  style={TextFieldStyle}
                   fullWidth
                   name="address"
                   value={newPost.address}
-                  label="상세 주소를 입력해주세요."
+                  placeholder="상세 주소를 입력해주세요."
                   onChange={handleChange}
                />
-
+            </TabPanel>
+            <TabPanel value={page} index={3}>
+               <p>4. 계약 정보를 입력해주세요.</p>
+               <br />
+               <InputLabel>파종일</InputLabel>
                <TextField
-                  type="number"
-                  style={TextFieldStyle}
-                  fullWidth
-                  name="size"
-                  value={newPost.size}
-                  label="면적을 입력해주세요.(평)"
-                  onChange={handleChange}
-               />
-               <TextField
-                  type="number"
-                  style={TextFieldStyle}
-                  fullWidth
-                  name="cost"
-                  value={newPost.cost}
-                  label="가격을 입력해주세요."
-                  onChange={handleChange}
-               />
-               <InputLabel>파종일을 입력해주세요.</InputLabel>
-               <TextField
+                  variant="outlined"
                   type="date"
-                  style={TextFieldStyle}
                   fullWidth
                   name="plantDay"
+                  placeholder="파종일을 입력해주세요."
                   value={newPost.plantDay}
                   onChange={handleChange}
                />
-               <InputLabel>반출날짜를 입력해주세요.</InputLabel>
+               &emsp;
+               <InputLabel>반출날짜</InputLabel>
                <TextField
+                  variant="outlined"
                   type="date"
-                  style={TextFieldStyle}
                   fullWidth
                   name="outDay"
+                  placeholder="반출일을 입력해주세요."
                   value={newPost.outDay}
                   onChange={handleChange}
                />
+               &emsp;
+               <InputLabel>토지등록번호</InputLabel>
                <TextField
-                  multiline
+                  variant="outlined"
                   type="text"
-                  style={TextFieldStyle}
                   fullWidth
-                  name="content"
-                  value={newPost.content}
-                  label="내용을 입력해주세요."
+                  placeholder="토지등록번호를 입력해주세요."
+                  name="landNumber"
+                  value={newPost.landNumber}
                   onChange={handleChange}
                />
-            </Fragment>
+            </TabPanel>
+            <Tabs
+               variant="scrollable"
+               scrollButtons="on"
+               style={{ position: "fixed", bottom: 0, left: -5 }}
+               value={page}
+               onChange={handleChangePage}
+            >
+               <Tab label="1.게시글 정보" {...a11yProps(0)} />
+               <Tab label="2.가격,면적" {...a11yProps(1)} />
+               <Tab label="3.상품 정보" {...a11yProps(2)} />
+               <Tab label="4.계약 정보" {...a11yProps(3)} />
+            </Tabs>
          </DialogContent>
-         <DialogActions>
-            <Button onClick={handleClose} color="secondary" variant="outlined">
-               취소
-            </Button>
-            <Button onClick={handleCreate} color="primary" variant="contained">
-               게시
-            </Button>
-         </DialogActions>
       </Dialog>
    );
-};
-
-const TextFieldStyle = {
-   marginBottom: 20,
 };
 
 export default NewProductDialog;
