@@ -15,26 +15,27 @@ const NoticeCardComp = (props) => {
       );
    };
 
+   const NoticeIconRender = () => {
+      return (
+         <div className="Col text-center">
+            <DescriptionIcon style={{ fontSize: 50 }} />
+            <small> 칼럼 </small>
+         </div>
+      );
+   };
 
-  const NoticeIconRender = () => {
-    return (
-      <div className="Col text-center">
-        <DescriptionIcon style={{ fontSize: 50 }} />
-        <small> 칼럼 </small>
-      </div>
-    );
-  };
-
-  return (
-    <div style={{ borderBottom: "1px solid lightgray", paddingBottom: "10px" }}>
-      <div className="Row" style={{ marginTop: 10 }}>
-        <NoticeIconRender />
-        &emsp;
-        <div onClick={handleNoticeClick} style={{ marginTop: 10 }}>
-          <h5> 오늘의 칼럼 (12.13)</h5>
-          <small> [ 농업인 유튜브 어떻게 활용할 것인가? ]</small>
-        </div>
-        {/* 
+   return (
+      <div
+         style={{ borderBottom: "1px solid lightgray", paddingBottom: "10px" }}
+      >
+         <div className="Row" style={{ marginTop: 10 }}>
+            <NoticeIconRender />
+            &emsp;
+            <div onClick={handleNoticeClick} style={{ marginTop: 10 }}>
+               <h5> 오늘의 칼럼 (12.13)</h5>
+               <small> [ 농업인 유튜브 어떻게 활용할 것인가? ]</small>
+            </div>
+            {/* 
         링크로 대체
         <ColumnDialog
           open={openColumnDialog}
@@ -44,9 +45,7 @@ const NoticeCardComp = (props) => {
          </div>
          <small> &nbsp;&nbsp; 칼럼 </small>
       </div>
-
-    </div>
-  );
+   );
 };
 
 export default NoticeCardComp;

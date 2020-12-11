@@ -15,49 +15,47 @@ const TradeCardComp = (props) => {
    const [openContractDialog, setOpenContractDialog] = useState(false);
    const [openCompleteDialog, setOpenCompleteDialog] = useState(false);
 
+   const handleNoticeClick = () => {
+      switch (noticeType) {
+         case "거래대기":
+            return setOpenRequesterInfoDialog(true);
+         case "거래진행중":
+            return setOpenContractDialog(true);
+         case "거래완료":
+            return setOpenCompleteDialog(true);
+         default:
+            return;
+      }
+   };
 
-  const handleNoticeClick = () => {
-    switch (noticeType) {
-      case "거래대기":
-        return setOpenRequesterInfoDialog(true);
-      case "거래진행":
-        return setOpenContractDialog(true);
-      case "거래완료":
-        return setOpenCompleteDialog(true);
-      default:
-        return;
-    }
-  };
-
-  const NoticeIconRender = () => {
-    switch (noticeType) {
-      case "거래대기":
-        return (
-          <div className="Col">
-            <RateReviewIcon style={{ fontSize: 50 }} />
-          </div>
-        );
-      case "거래진행":
-        return (
-          <div className="Col">
-            <CompareArrowsIcon style={{ fontSize: 50 }} />
-          </div>
-        );
-      case "거래완료":
-        return (
-          <div className="Col">
-            <CheckCircleIcon style={{ fontSize: 50 }} />
-          </div>
-        );
-      default:
-        return (
-          <div className="Col">
-            <RateReviewIcon style={{ fontSize: 50 }} />
-          </div>
-        );
-    }
-  };
-
+   const NoticeIconRender = () => {
+      switch (noticeType) {
+         case "거래대기":
+            return (
+               <div className="Col">
+                  <RateReviewIcon style={{ fontSize: 50 }} />
+               </div>
+            );
+         case "거래진행중":
+            return (
+               <div className="Col">
+                  <CompareArrowsIcon style={{ fontSize: 50 }} />
+               </div>
+            );
+         case "거래완료":
+            return (
+               <div className="Col">
+                  <CheckCircleIcon style={{ fontSize: 50 }} />
+               </div>
+            );
+         default:
+            return (
+               <div className="Col">
+                  <RateReviewIcon style={{ fontSize: 50 }} />
+               </div>
+            );
+      }
+   };
 
    return (
       <div className="Post">
