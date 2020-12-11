@@ -36,13 +36,13 @@ export const drawingTransfer = async (user, product, tradeId) => {
          return "error";
       });
 
-   // DB update to [Complete]
-
    // 내 거래정보
    let myTradeInfo = await Axios.get(`${serverUrl}/users/${user.user.id}`);
 
    // 판매자 거래정보
-   let sellerTradeInfo = await Axios.get(`${serverUrl}/users/${product.id}`);
+   let sellerTradeInfo = await Axios.get(
+      `${serverUrl}/users/${product.sellerId}`
+   );
 
    myTradeInfo = myTradeInfo.data.trade.map((trade) => {
       if (trade.tradeId === tradeId) {
@@ -63,7 +63,7 @@ export const drawingTransfer = async (user, product, tradeId) => {
    }).catch((err) => {
       console.error(err);
    });
-   await Axios.patch(`${serverUrl}/users/${product.id}`, {
+   await Axios.patch(`${serverUrl}/users/${product.sellerId}`, {
       trade: sellerTradeInfo,
       notice: sellerTradeInfo,
    })

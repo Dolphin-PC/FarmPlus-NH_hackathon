@@ -43,7 +43,6 @@ const NoticeCardComp = (props) => {
           {...props}
         /> */}
          </div>
-         <small> &nbsp;&nbsp; 칼럼 </small>
       </div>
    );
 };

@@ -32,10 +32,22 @@ const NoticeDialog = (props) => {
                />
             </DialogTitle>
 
-            <DialogContent>{props.children}</DialogContent>
+            <DialogContent>
+               <ColumnCardComp />
+
+               {props.children}
+            </DialogContent>
          </Dialog>
       );
    };
+
+   if (!user.user.notice) {
+      return (
+         <DialogRender>
+            <p>수신된 알림이 없습니다.</p>
+         </DialogRender>
+      );
+   }
 
    if (user.user.notice === null || user.user.notice === undefined) {
       return (
@@ -47,8 +59,6 @@ const NoticeDialog = (props) => {
 
    return (
       <DialogRender>
-         <ColumnCardComp />
-
          {user.user.notice.map((noti, index) => (
             <NoticeCardComp key={index} {...noti} />
          ))}

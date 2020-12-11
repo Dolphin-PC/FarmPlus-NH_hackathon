@@ -20,6 +20,7 @@ export const sendContract = async (user, tradeId) => {
 
    await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
       trade: myInfo,
+      notice: myInfo,
    })
       .then(() => true)
       .catch((err) => {
