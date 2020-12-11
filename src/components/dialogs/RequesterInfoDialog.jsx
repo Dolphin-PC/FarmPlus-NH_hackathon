@@ -1,11 +1,11 @@
 import {
-   Avatar,
-   Button,
-   Dialog,
-   DialogActions,
-   DialogContent,
-   DialogContentText,
-   DialogTitle,
+  Avatar,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
 } from "@material-ui/core";
 import PhoneIcon from "@material-ui/icons/Phone";
 import HomeIcon from "@material-ui/icons/Home";
@@ -14,28 +14,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { acceptRequest, getUserInfo } from "../../actions/userActions";
 
 const RequesterInfoDialog = (props) => {
-   const { onClose, open, requester, product, tradeId } = props;
+  const { onClose, open, requester, product, tradeId } = props;
 
-   const dispatch = useDispatch();
-   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
 
-   const handleClose = () => {
-      onClose();
-   };
+  const handleClose = () => {
+    onClose();
+  };
 
-   const handleOnDenied = () => {
-      alert("거래 취소");
-      onClose();
-   };
+  const handleOnDenied = () => {
+    alert("거래 취소");
+    onClose();
+  };
 
-   const handleOnAccept = () => {
-      if (window.confirm("거래를 수락하시겠습니까?")) {
-         if (dispatch(acceptRequest(user, tradeId, requester, product))) {
-            alert("거래가 성사되었습니다!");
-            onClose();
-         }
+  const handleOnAccept = () => {
+    if (window.confirm("거래를 수락하시겠습니까?")) {
+      if (dispatch(acceptRequest(user, tradeId, requester, product))) {
+        alert("거래가 성사되었습니다!");
+        onClose();
       }
-   };
+    }
+  };
 
   const DialogRender = (props) => {
     return (
@@ -104,14 +104,11 @@ const RequesterInfoDialog = (props) => {
             <PhoneIcon />
           </div>
 
-          <div style={{ marginLeft: 5 }}>
-            <b style={{ margin: 0 }}>{requester.phoneNumber}</b>
-          </div>
+          <div style={{ marginLeft: 5 }}>{requester.phoneNumber}</div>
         </div>
       </div>
     </DialogRender>
   );
-
 };
 
 export default RequesterInfoDialog;
