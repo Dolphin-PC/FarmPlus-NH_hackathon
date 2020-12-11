@@ -1,5 +1,4 @@
 import Axios from "axios";
-import axios from "axios";
 import { serverUrl } from "../app/info";
 
 export const sendContract = async (user, tradeId) => {

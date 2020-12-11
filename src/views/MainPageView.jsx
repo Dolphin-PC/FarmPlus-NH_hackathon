@@ -11,123 +11,132 @@ import NewPostDialog from "../components/dialogs/NewPostDialog";
 import { getPosts } from "../actions/postActions";
 
 import { category, category_icon } from "../data/data";
+import { getUserInfo } from "../actions/userActions";
 
 const MainPageView = () => {
-  const [openAdd, setOpenAdd] = useState(false);
+   const [openAdd, setOpenAdd] = useState(false);
 
-  const dispatch = useDispatch();
-  const { loading, error, posts } = useSelector((state) => state.post);
-  const { filter } = useSelector((state) => state);
+   const dispatch = useDispatch();
+   const { loading, error, posts } = useSelector((state) => state.post);
+   const { filter } = useSelector((state) => state);
+   const user = useSelector((state) => state.user);
 
-  useEffect(() => {
-    if (posts.length === 0) {
-      dispatch(getPosts());
-    }
-    dispatch({
-      type: SET_NAV,
-      payload: window.location.href.split("/")[3],
-    });
-  }, []);
+   useEffect(() => {
+      if (posts.length === 0) {
+         dispatch(getPosts());
+      }
+      dispatch({
+         type: SET_NAV,
+         payload: window.location.href.split("/")[3],
+      });
+      dispatch(getUserInfo(user));
+   }, []);
 
-  const CategorySliderRender = () => {
-    const sliderSettings = {
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 4,
-      swipeToSlide: true,
-    };
-
-    const ItemRender = ({ icon, text }) => {
-      const handleSetCategory = () => {
-        dispatch({
-          type: SET_CATEGORY,
-          payload: text,
-        });
+   const CategorySliderRender = () => {
+      const sliderSettings = {
+         dots: false,
+         infinite: true,
+         speed: 500,
+         slidesToShow: 4,
+         swipeToSlide: true,
       };
 
+      const ItemRender = ({ icon, text }) => {
+         const handleSetCategory = () => {
+            dispatch({
+               type: SET_CATEGORY,
+               payload: text,
+            });
+         };
+
+         return (
+            <div onClick={handleSetCategory}>
+               <img
+                  src={icon.src}
+                  alt="icon"
+                  style={{ margin: "10px auto" }}
+               ></img>
+               <small>{text}</small>
+            </div>
+         );
+      };
       return (
-        <div onClick={handleSetCategory}>
-          <img src={icon.src} alt="icon" style={{ margin: "10px auto" }}></img>
-          <small>{text}</small>
-        </div>
+         <div
+            className="LeftBorder30 Slider"
+            style={{
+               marginTop: 20,
+               padding: 20,
+               textAlign: "center",
+               backgroundColor: "#C7B492",
+            }}
+         >
+            <Slider {...sliderSettings} arrows={false}>
+               {category.map((data, index) => (
+                  <ItemRender
+                     key={index}
+                     icon={category_icon[index]}
+                     text={data.text}
+                  />
+               ))}
+            </Slider>
+         </div>
       );
-    };
-    return (
-      <div
-        className="LeftBorder30"
-        style={{
-          marginTop: 20,
-          padding: 20,
-          textAlign: "center",
-          backgroundColor: "#C7B492",
-        }}
-      >
-        <Slider {...sliderSettings} arrows={false}>
-          {category.map((data, index) => (
-            <ItemRender
-              key={index}
-              icon={category_icon[index]}
-              text={data.text}
-            />
-          ))}
-        </Slider>
-      </div>
-    );
-  };
+   };
 
-  const PostAddButton = () => {
-    const handleAdd = () => {
-      setOpenAdd(true);
-    };
-    return (
-      <Fab
-        color="primary"
-        style={{ position: "fixed", bottom: 70, right: 20, zIndex: 5 }}
-        onClick={handleAdd}
-      >
-        <Add />
-      </Fab>
-    );
-  };
-
-  const PostRender = () => {
-    if (error) return <p>에러가 발생했습니다...</p>;
-
-    if (loading) return <p>로딩 중...</p>;
-
-    let filterValue;
-    if (filter.category === "전체") filterValue = posts;
-    else
-      filterValue = posts.filter((post) => post.category === filter.category);
-
-    if (filter.location !== "전체")
-      filterValue = filterValue.filter(
-        (post) => post.location === filter.location
+   const PostAddButton = () => {
+      const handleAdd = () => {
+         setOpenAdd(true);
+      };
+      return (
+         <Fab
+            color="primary"
+            style={{ position: "fixed", bottom: 70, right: 20, zIndex: 5 }}
+            onClick={handleAdd}
+         >
+            <Add />
+         </Fab>
       );
+   };
 
-    return (
-      <Fragment>
-        {filterValue.map((post, idx) => (
-          <ItemCardComp key={idx} {...post} />
-        ))}
-      </Fragment>
-    );
-  };
+   const PostRender = () => {
+      if (error) return <p>에러가 발생했습니다...</p>;
 
-  return (
-    <div className="MainStyle">
-      <CategorySliderRender />
-      <PostAddButton />
-      <NewPostDialog open={openAdd} onClose={() => setOpenAdd(!openAdd)} />
-      <hr />
-      <PostRender />
-      <hr />
-      <div className="center">
-        <small>- End -</small>
+      if (loading) return <p>로딩 중...</p>;
+
+      let filterValue;
+      if (filter.category === "전체") filterValue = posts;
+      else
+         filterValue = posts.filter(
+            (post) => post.category === filter.category
+         );
+
+      if (filter.location !== "전체")
+         filterValue = filterValue.filter(
+            (post) => post.location === filter.location
+         );
+
+      return (
+         <div className="Posts">
+            {filterValue.map((post, idx) => (
+               <ItemCardComp key={idx} {...post} />
+            ))}
+         </div>
+      );
+   };
+
+   return (
+      <div className="MainStyle">
+         <CategorySliderRender />
+         <PostAddButton />
+         <NewPostDialog open={openAdd} onClose={() => setOpenAdd(!openAdd)} />
+         <hr />
+         <PostRender />
+         <hr />
+         <div className="center">
+            <small>- End -</small>
+         </div>
       </div>
-    </div>
-  );
+   );
 };
 
 export default MainPageView;

@@ -5,15 +5,16 @@ import DescriptionIcon from "@material-ui/icons/ViewColumn";
 import ColumnDialog from "../dialogs/ColumnDialog";
 
 const NoticeCardComp = (props) => {
-  const [openColumnDialog, setOpenColumnDialog] = useState(false);
+   const [openColumnDialog, setOpenColumnDialog] = useState(false);
 
-  const handleNoticeClick = () => {
-    setOpenColumnDialog(true);
-    window.open(
-      "https://www.nongsaro.go.kr/portal/ps/psx/psxn/sptExpertDtl.ps;jsessionid=aktb3ax47n1l0abW506oh1JMU7a1d1jssU6f4CJIJEMZOT3cV2VAsCjsREPTFUkp.nongsaro-web_servlet_engine1?menuId=PS63117&infoNo=12&colmnNo=2&pageIndex=1&pageSize=10&sCtgCode=&sType=all&sWord=&sOrdrType=date",
-      "_blank"
-    );
-  };
+   const handleNoticeClick = () => {
+      setOpenColumnDialog(true);
+      window.open(
+         "https://www.nongsaro.go.kr/portal/ps/psx/psxn/sptExpertDtl.ps;jsessionid=aktb3ax47n1l0abW506oh1JMU7a1d1jssU6f4CJIJEMZOT3cV2VAsCjsREPTFUkp.nongsaro-web_servlet_engine1?menuId=PS63117&infoNo=12&colmnNo=2&pageIndex=1&pageSize=10&sCtgCode=&sType=all&sWord=&sOrdrType=date",
+         "_blank"
+      );
+   };
+
 
   const NoticeIconRender = () => {
     return (
@@ -40,7 +41,10 @@ const NoticeCardComp = (props) => {
           onClose={() => setOpenColumnDialog(!openColumnDialog)}
           {...props}
         /> */}
+         </div>
+         <small> &nbsp;&nbsp; 칼럼 </small>
       </div>
+
     </div>
   );
 };

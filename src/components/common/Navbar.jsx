@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import {
    AppBar,
@@ -37,6 +37,7 @@ const Navbar = (props) => {
    const history = useHistory();
 
    const filter = useSelector((state) => state.filter);
+   const user = useSelector((state) => state.user);
 
    const handleChange = (event, value) => {
       dispatch({

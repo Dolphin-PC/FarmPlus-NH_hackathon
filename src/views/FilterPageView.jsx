@@ -28,8 +28,8 @@ const MenuProps = {
 
 const FilterPageView = () => {
    const height = window.outerHeight;
-   const [filterCategory, setFilterCategory] = useState([]);
-   const [filterLocation, setFilterLocation] = useState([]);
+   const [filterCategory, setFilterCategory] = useState("전체");
+   const [filterLocation, setFilterLocation] = useState("전체");
    const user = useSelector((state) => state.user);
 
    const dispatch = useDispatch();
@@ -55,8 +55,8 @@ const FilterPageView = () => {
       history.push("/main");
    };
    const handleToFilterInit = () => {
-      setFilterCategory([]);
-      setFilterLocation([]);
+      setFilterCategory("전체");
+      setFilterLocation("전체");
    };
 
    const CategoryRender = () => {
@@ -64,7 +64,7 @@ const FilterPageView = () => {
          setFilterCategory(e.target.value);
       };
       return (
-         <div style={grayStyle}>
+         <div style={grayStyle} className="FilterDiv">
             <InputLabel>검색할 카테고리</InputLabel>
             <hr />
             <Select
@@ -92,7 +92,7 @@ const FilterPageView = () => {
          setFilterLocation(e.target.value);
       };
       return (
-         <div style={grayStyle}>
+         <div style={grayStyle} className="FilterDiv">
             <InputLabel>검색할 지역</InputLabel>
             <hr />
             <Select

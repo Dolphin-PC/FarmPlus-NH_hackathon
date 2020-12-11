@@ -8,10 +8,12 @@ import ContractDialog from "../dialogs/ContractDialog";
 import CompleteDialog from "../dialogs/CompleteDialog";
 
 const NoticeCardComp = (props) => {
-  const { noticeType, requester, product } = props;
-  const [openRequesterInfoDialog, setOpenRequesterInfoDialog] = useState(false);
-  const [openContractDialog, setOpenContractDialog] = useState(false);
-  const [openCompleteDialog, setOpenCompleteDialog] = useState(false);
+   const { noticeType, requester, product } = props;
+   const [openRequesterInfoDialog, setOpenRequesterInfoDialog] = useState(
+      false
+   );
+   const [openContractDialog, setOpenContractDialog] = useState(false);
+   const [openCompleteDialog, setOpenCompleteDialog] = useState(false);
 
   const handleNoticeClick = () => {
     switch (noticeType) {
@@ -86,6 +88,7 @@ const NoticeCardComp = (props) => {
       </div>
     </div>
   );
+
 };
 
 export default NoticeCardComp;

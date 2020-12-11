@@ -8,10 +8,13 @@ import ContractDialog from "../dialogs/ContractDialog";
 import CompleteDialog from "../dialogs/CompleteDialog";
 
 const TradeCardComp = (props) => {
-  const { noticeType, requester, product } = props;
-  const [openRequesterInfoDialog, setOpenRequesterInfoDialog] = useState(false);
-  const [openContractDialog, setOpenContractDialog] = useState(false);
-  const [openCompleteDialog, setOpenCompleteDialog] = useState(false);
+   const { noticeType, requester, product } = props;
+   const [openRequesterInfoDialog, setOpenRequesterInfoDialog] = useState(
+      false
+   );
+   const [openContractDialog, setOpenContractDialog] = useState(false);
+   const [openCompleteDialog, setOpenCompleteDialog] = useState(false);
+
 
   const handleNoticeClick = () => {
     switch (noticeType) {
@@ -55,34 +58,37 @@ const TradeCardComp = (props) => {
     }
   };
 
-  return (
-    <div>
-      <div className="Row" style={{ marginTop: 10 }}>
-        <NoticeIconRender />
-        &emsp;
-        <div onClick={handleNoticeClick}>
-          <h5>{product.title}</h5>
-          <small>from {requester.id}</small>
-        </div>
-        <RequesterInfoDialog
-          open={openRequesterInfoDialog}
-          onClose={() => setOpenRequesterInfoDialog(!openRequesterInfoDialog)}
-          {...props}
-        />
-        <ContractDialog
-          open={openContractDialog}
-          onClose={() => setOpenContractDialog(!openContractDialog)}
-          {...props}
-        />
-        <CompleteDialog
-          open={openCompleteDialog}
-          onClose={() => setOpenCompleteDialog(!openCompleteDialog)}
-          {...props}
-        />
+
+   return (
+      <div className="Post">
+         <div className="Row" style={{ marginTop: 10 }}>
+            <NoticeIconRender />
+            &emsp;
+            <div onClick={handleNoticeClick}>
+               <h5>{product.title}</h5>
+               <small>from {requester.id}</small>
+            </div>
+            <RequesterInfoDialog
+               open={openRequesterInfoDialog}
+               onClose={() =>
+                  setOpenRequesterInfoDialog(!openRequesterInfoDialog)
+               }
+               {...props}
+            />
+            <ContractDialog
+               open={openContractDialog}
+               onClose={() => setOpenContractDialog(!openContractDialog)}
+               {...props}
+            />
+            <CompleteDialog
+               open={openCompleteDialog}
+               onClose={() => setOpenCompleteDialog(!openCompleteDialog)}
+               {...props}
+            />
+         </div>
+         <small>{noticeType}</small>
       </div>
-      <small>{noticeType}</small>
-    </div>
-  );
+   );
 };
 
 export default TradeCardComp;
