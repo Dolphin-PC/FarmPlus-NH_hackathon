@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Faker from "faker";
+
 import {
    Avatar,
    Button,
@@ -33,7 +34,22 @@ import { addFavorite, tradeRequest } from "../actions/userActions";
 import badge from "../assets/icon/badge.png";
 import * as Color from "../assets/colors";
 
+const longText = `배지 X -  수수료 1.0%\n
+동배지 -  수수료 0.9%
+은배지 - 수수료 0.8%\n
+금배지 - 수수료 0.7%\n
+기준: 계약이행률, 상품의 품질, 경작지 관리 등을 산지유통인이 평가`;
+
+const useStyles = makeStyles((theme) => ({
+  customWidth: {
+    maxWidth: 110,
+  },
+}));
+
 const DetailPageView = () => {
+
+   const classes = useStyles();
+
    const [openBottomDrawer, setOpenBottomDrawer] = useState(false);
 
    const current = useSelector((state) => state.post.current);
@@ -120,8 +136,14 @@ const DetailPageView = () => {
                   <p style={{ margin: 0 }}>
                      {current.name}
                      {user.user.isVIP === true ? (
-                        <img src={badge} alt="" style={{ width: 20 }} />
-                     ) : null}
+                <Tooltip
+                  title={longText}
+                  classes={{ tooltip: classes.customWidth }}
+                  arrow
+                >
+                  <img src={badge} alt="" style={{ width: 20 }} />
+                </Tooltip>
+              ) : null}
                      <br />
                      <small>{current.address}</small>
                   </p>

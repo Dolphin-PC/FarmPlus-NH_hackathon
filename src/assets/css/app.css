@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Nanum+Gothic&family=Open+Sans:wght@300&family=Raleway:wght@100&display=swap");
 
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+/* font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';  */
+
+@font-face {
+  font-family: "KOTRA_BOLD-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 p,
 small,
 h1,
@@ -7,48 +18,52 @@ h2,
 h3,
 h4,
 h5 {
-   font-family: "Nanum Gothic", sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+.font-Spoqa {
+  font-family: "KOTRA_BOLD-Bold";
 }
 
 .LoginStyle {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .MainStyle {
-   padding-top: 60px;
-   padding-left: 20px;
-   padding-bottom: 50px;
+  padding-top: 60px;
+  padding-left: 20px;
+  padding-bottom: 50px;
 }
 
 .center {
-   text-align: center;
+  text-align: center;
 }
 
 .LeftBorder30 {
-   border-top-left-radius: 30px;
-   border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
 
 .ItemCardImageStyle {
-   width: 100%;
-   height: 95px;
-   object-fit: cover;
-   border-radius: 10px;
+  width: 100%;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .mainColor {
-   color: #442f51;
+  color: #442f51;
 }
 .mainBackColor {
-   background-color: #442f51;
+  background-color: #442f51;
 }
 
 .LoginHeader {
-   font-family: "Open Sans", sans-serif !important;
+  font-family: "Open Sans", sans-serif !important;
 }
 
 /* font-family: 'Montserrat', sans-serif;
@@ -57,35 +72,75 @@ font-family: 'Open Sans', sans-serif;
 font-family: 'Raleway', sans-serif; */
 
 .Row {
-   display: flex;
+  display: flex;
 }
 
 .Col {
-   display: flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 h5 {
-   margin-bottom: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 .ContractButton {
-   border-radius: 24px;
-   background: #ffffff;
-   box-shadow: 5px 5px 15px #b5b5b5, -5px -5px 15px #ffffff;
-   margin: 20px !important;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 5px 5px 15px #b5b5b5, -5px -5px 15px #ffffff;
+  margin: 20px !important;
 }
 
 .MuiDialogTitle-root {
-   border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 .MuiDialogActions-root {
-   border-top: 1px solid lightgray;
+  border-top: 1px solid lightgray;
 }
 
 .FormDivStyle {
-   border: 1px solid lightgray;
-   padding: 30px;
+  border: 1px solid lightgray;
+  padding: 30px 0;
+
+  height: 70vh;
+}
+
+.Contract-Key {
+  font-family: "Spoqa Han Sans";
+  width: 40%;
+  display: inline-block;
+}
+
+.Contract-Value {
+  font-family: "Spoqa Han Sans";
+  width: 60%;
+  display: inline-block;
+  color: black;
+
+  margin: 6px auto;
+}
+
+.Account-Bank-Box {
+  background-color: rgb(235, 235, 235);
+  margin: 0 0 30px;
+  padding: 20px 30px 20px;
+}
+
+.Deposit-Cost,
+.Deposit-Name,
+.Deposit-Phone {
+  width: 100%;
+  border-bottom: 1px solid black;
+  padding: 10px 0;
+
+  color: black;
+}
+.Deposit-Button {
+  width: 100%;
+  background-color: blue !important;
+
+  color: white !important;
+  font-size: 1.2rem !important;
 }
 
 /* 뉴로모피즘 */

@@ -40,7 +40,7 @@ const SettingPageView = () => {
         switch (trade.noticeType) {
           case "거래대기":
             return waitTrade.push(trade);
-          case "거래진행중":
+          case "거래진행":
             return proceedTrade.push(trade);
           case "거래완료":
             return completeTrade.push(trade);
@@ -76,7 +76,7 @@ const SettingPageView = () => {
             xs="4"
             className="center"
             onClick={() => {
-              setTradeType("거래진행중");
+              setTradeType("거래진행");
               handleTrade();
             }}
           >
