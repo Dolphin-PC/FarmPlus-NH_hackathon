@@ -15,18 +15,24 @@ const ContractAccordionComp = ({ product, requester }) => {
         계약서 내용 확인
       </AccordionSummary>
       <AccordionDetails>
-        <div style={{ width: "100%" }}>
+        <div style={{ width: "100%" }} className="font-Spoqa">
           <div
             className="Row"
             style={{ border: "1px solid lightgray", padding: 10 }}
           >
-            <div className="col-sm-2 text-center" style={{ padding: 0 }}>
+            <div
+              className="col-xs-2 text-center"
+              style={{ writingMode: "tb-rl" }}
+            >
               매도인(갑)
             </div>
-            <div className="col-sm-8">
+            <div className="col-xs-10" style={{ paddingLeft: "7px" }}>
               <small>{product.name}</small>
+              <br />
               <small>{product.phoneNumber}</small>
+              <br />
               <small>{product.birthDay}</small>
+              <br />
               <small>{product.address}</small>
             </div>
           </div>
@@ -35,14 +41,20 @@ const ContractAccordionComp = ({ product, requester }) => {
             className="Row"
             style={{ border: "1px solid lightgray", padding: 10 }}
           >
-            <div className="col-sm-2 text-center" style={{ padding: 0 }}>
+            <div
+              className="col-xs-2 text-center"
+              style={{ writingMode: "tb-rl" }}
+            >
               매수인(을)
             </div>
-            <div className="col-sm-8">
+            <div className="col-xs-10" style={{ paddingLeft: "7px" }}>
               <small>{requester.name}</small>
+              <br />
               <small>{requester.phoneNumber}</small>
-              <small>{requester.birthDay}asdasdasdsadd</small>
-              <small>{requester.address}</small>
+              <br />
+              <small>{requester.birthDay}생년월일</small>
+              <br />
+              <small>{requester.address}주소지</small>
             </div>
           </div>
           <br />
@@ -67,7 +79,7 @@ const ContractAccordionComp = ({ product, requester }) => {
               <small>품종</small>
             </div>
             <div className="text-right Contract-Value">
-              <b> {/*product.subCategory*/} 서브카테고리</b>
+              <b> {/*product.subCategory*/} 품종</b>
             </div>
           </InputLabel>
           <InputLabel>

@@ -1,6 +1,6 @@
 import React from "react";
 import Faker from "faker";
-import { Avatar, Button } from "@material-ui/core";
+import { Avatar, Button, makeStyles, Tooltip } from "@material-ui/core";
 import { Col } from "reactstrap";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import PhoneIcon from "@material-ui/icons/Phone";
@@ -12,7 +12,21 @@ import { addFavorite, tradeRequest } from "../actions/userActions";
 
 import badge from "../assets/icon/badge.png";
 
+const longText = `배지 X -  수수료 1.0%\n
+동배지 -  수수료 0.9%
+은배지 - 수수료 0.8%\n
+금배지 - 수수료 0.7%\n
+기준: 계약이행률, 상품의 품질, 경작지 관리 등을 산지유통인이 평가`;
+
+const useStyles = makeStyles((theme) => ({
+  customWidth: {
+    maxWidth: 110,
+  },
+}));
+
 const DetailPageView = () => {
+  const classes = useStyles();
+
   const current = useSelector((state) => state.post.current);
   const user = useSelector((state) => state.user);
 
@@ -86,7 +100,13 @@ const DetailPageView = () => {
             <p style={{ margin: 0 }}>
               {current.name}
               {user.user.isVIP === true ? (
-                <img src={badge} alt="" style={{ width: 20 }} />
+                <Tooltip
+                  title={longText}
+                  classes={{ tooltip: classes.customWidth }}
+                  arrow
+                >
+                  <img src={badge} alt="" style={{ width: 20 }} />
+                </Tooltip>
               ) : null}
               <br />
               <small>{current.address}</small>

@@ -8,6 +8,7 @@ import {
   DialogTitle,
 } from "@material-ui/core";
 import PhoneIcon from "@material-ui/icons/Phone";
+import HomeIcon from "@material-ui/icons/Home";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { acceptRequest } from "../../actions/userActions";
@@ -39,7 +40,7 @@ const RequesterInfoDialog = (props) => {
   const DialogRender = (props) => {
     return (
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>거래신청이 들어왔습니다.</DialogTitle>
+        <DialogTitle>거래요청</DialogTitle>
         <DialogContent>{props.children}</DialogContent>
         <DialogActions>
           <Button onClick={handleOnDenied} color="primary">
@@ -54,25 +55,59 @@ const RequesterInfoDialog = (props) => {
   };
   return (
     <DialogRender>
-      <small>게시물 명</small>
-      <br />
-      {product.title}
-      <br />
-      <br />
-      <small>신청자 정보</small>
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <Avatar>{requester.name[0]}</Avatar>
-        &ensp;
-        <p style={{ margin: 0 }}>
-          {requester.name}
-          <br />
-          <small>{requester.address}</small>
-        </p>
+      <div style={{ marginBottom: "20px" }}>
+        <small>게시물 명</small>
+        <div>{product.title}</div>
       </div>
-      <div className="Row">
-        <PhoneIcon />
-        &ensp;
-        <p style={{ margin: 0 }}>{requester.phoneNumber}</p>
+
+      <div>
+        <small>신청자 정보</small>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <div className="text-center" style={{ width: 40 }}>
+            <Avatar>{requester.name[0]}</Avatar>
+          </div>
+
+          <div style={{ marginLeft: 5 }}>{requester.name}</div>
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <div
+            className="text-center"
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: "50%",
+              border: "1px solid black",
+              lineHeight: 2,
+              flexShrink: 0,
+            }}
+          >
+            <HomeIcon />
+          </div>
+          <div style={{ marginLeft: 5 }}>
+            강원도 춘천시 옥천동 2-4 303호{requester.address}
+          </div>
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <div
+            className="text-center"
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: "50%",
+              border: "1px solid black",
+              lineHeight: 2,
+              flexShrink: 0,
+            }}
+          >
+            <PhoneIcon />
+          </div>
+
+          <div style={{ marginLeft: 5 }}>
+            <b style={{ margin: 0 }}>{requester.phoneNumber}</b>
+          </div>
+        </div>
       </div>
     </DialogRender>
   );

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 
 //import DescriptionIcon from "@material-ui/icons/Description";
 import DescriptionIcon from "@material-ui/icons/ViewColumn";
@@ -33,7 +33,9 @@ const NoticeCardComp = (props) => {
           <h5> 오늘의 칼럼 (12.13)</h5>
           <small> [ 농업인 유튜브 어떻게 활용할 것인가? ]</small>
         </div>
-        {/* <ColumnDialog
+        {/* 
+        링크로 대체
+        <ColumnDialog
           open={openColumnDialog}
           onClose={() => setOpenColumnDialog(!openColumnDialog)}
           {...props}
