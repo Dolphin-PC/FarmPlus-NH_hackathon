@@ -1,169 +1,252 @@
-import React from "react";
+import React, { Fragment, useState } from "react";
 import Faker from "faker";
-import { Avatar, Button } from "@material-ui/core";
+import {
+   Avatar,
+   Button,
+   Divider,
+   Drawer,
+   Fade,
+   InputLabel,
+   List,
+   ListItem,
+   ListItemIcon,
+   ListItemText,
+   makeStyles,
+   Tooltip,
+} from "@material-ui/core";
 import { Col } from "reactstrap";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import PhoneIcon from "@material-ui/icons/Phone";
-import { ArrowBack, Share, Dialpad } from "@material-ui/icons";
+import {
+   ArrowBack,
+   Share,
+   Dialpad,
+   Inbox,
+   Mail,
+   ArrowDropUp,
+} from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { addFavorite, tradeRequest } from "../actions/userActions";
 
 import badge from "../assets/icon/badge.png";
+import * as Color from "../assets/colors";
 
 const DetailPageView = () => {
-  const current = useSelector((state) => state.post.current);
-  const user = useSelector((state) => state.user);
+   const [openBottomDrawer, setOpenBottomDrawer] = useState(false);
 
-  const history = useHistory();
-  const dispatch = useDispatch();
+   const current = useSelector((state) => state.post.current);
+   const user = useSelector((state) => state.user);
 
-  const height = window.outerHeight;
+   const history = useHistory();
+   const dispatch = useDispatch();
 
-  const handleOnRequest = () => {
-    if (window.confirm("거래를 신청하시겠습니까?")) {
-      dispatch(tradeRequest(user, current));
-    }
-  };
+   const height = window.outerHeight;
 
-  const TopIconRender = () => {
-    const handleBack = () => {
-      history.goBack();
-      // dispatch({ type: CLEAR_CURRENT });
-    };
-    const handleShare = () => {
-      alert("Share");
-    };
-    const handleOption = () => {
-      alert("Option!");
-    };
-    return (
-      <>
-        <ArrowBack
-          style={{
-            position: "fixed",
-            top: 10,
-            left: 20,
-            color: "white",
-          }}
-          onClick={handleBack}
-        />
-        <div
-          style={{
-            position: "fixed",
-            top: 10,
-            right: 20,
-            color: "white",
-          }}
-        >
-          <Share onClick={handleShare} />
-          &emsp;
-          <Dialpad onClick={handleOption} />
-        </div>
-      </>
-    );
-  };
-  const UserContactCard = () => {
-    const handleOnPhone = () => {
-      alert(current.phoneNumber);
-    };
-    const handleOnFavorite = async () => {
-      dispatch(addFavorite(user, current));
-    };
+   const toggleDrawer = (open) => (event) => {
+      if (
+         event.type === "keydown" &&
+         (event.key === "Tab" || event.key === "Shift")
+      ) {
+         return;
+      }
 
-    return (
+      setOpenBottomDrawer(open);
+   };
+
+   const handleOnRequest = () => {
+      if (window.confirm("거래를 신청하시겠습니까?")) {
+         dispatch(tradeRequest(user, current));
+      }
+   };
+
+   const TopIconRender = () => {
+      const handleBack = () => {
+         history.goBack();
+         // dispatch({ type: CLEAR_CURRENT });
+      };
+      const handleShare = () => {
+         alert("Share");
+      };
+      const handleOption = () => {
+         alert("Option!");
+      };
+      return (
+         <>
+            <ArrowBack
+               style={{
+                  position: "fixed",
+                  top: 10,
+                  left: 20,
+                  color: "white",
+               }}
+               onClick={handleBack}
+            />
+            <div
+               style={{
+                  position: "fixed",
+                  top: 10,
+                  right: 20,
+                  color: "white",
+               }}
+            >
+               <Share onClick={handleShare} />
+               &emsp;
+               <Dialpad onClick={handleOption} />
+            </div>
+         </>
+      );
+   };
+   const UserContactCard = () => {
+      const handleOnPhone = () => {
+         alert(current.phoneNumber);
+      };
+      const handleOnFavorite = async () => {
+         dispatch(addFavorite(user, current));
+      };
+
+      return (
+         <div>
+            <div
+               style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+               }}
+            >
+               <div style={{ display: "flex", alignItems: "center" }}>
+                  <Avatar>{current.name[0]}</Avatar>
+                  &ensp;
+                  <p style={{ margin: 0 }}>
+                     {current.name}
+                     {user.user.isVIP === true ? (
+                        <img src={badge} alt="" style={{ width: 20 }} />
+                     ) : null}
+                     <br />
+                     <small>{current.address}</small>
+                  </p>
+               </div>
+               <div style={{ marginTop: "auto" }}>
+                  <FavoriteIcon
+                     style={{ fontSize: 30 }}
+                     onClick={handleOnFavorite}
+                  />
+                  &emsp;
+                  <PhoneIcon style={{ fontSize: 30 }} onClick={handleOnPhone} />
+               </div>
+            </div>
+         </div>
+      );
+   };
+
+   const DrawerContent = () => (
       <div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <Avatar>{current.name[0]}</Avatar>
-            &ensp;
-            <p style={{ margin: 0 }}>
-              {current.name}
-              {user.user.isVIP === true ? (
-                <img src={badge} alt="" style={{ width: 20 }} />
-              ) : null}
-              <br />
-              <small>{current.address}</small>
-            </p>
-          </div>
-          <div style={{ marginTop: "auto" }}>
-            <FavoriteIcon style={{ fontSize: 30 }} onClick={handleOnFavorite} />
-            &emsp;
-            <PhoneIcon style={{ fontSize: 30 }} onClick={handleOnPhone} />
-          </div>
-        </div>
+         <div style={{ padding: 20, marginBottom: 100 }}>
+            <InputLabel>게시글 제목</InputLabel>
+            <h3>{current.title}</h3>
+            <hr />
+            <DrawerText
+               left="크기"
+               right={`${current.size.toLocaleString()} 평`}
+            />
+            <DrawerText
+               left="가격"
+               right={`${current.cost.toLocaleString()} 원`}
+            />
+            <DrawerText left="품종/품목" right={`${current.category}`} />
+            <DrawerText left="지역/주소" right={current.address} />
+            <DrawerText left="파종일" right={current.plantDay} />
+            <DrawerText left="반출일" right={current.outDay} />
+            <DrawerText left="토지등록번호" right={current.landNumber} />
+         </div>
+         <div className="Row">
+            <Col lg="6" style={{ padding: 0 }}>
+               <Button
+                  fullWidth
+                  variant="outlined"
+                  color="secondary"
+                  onClick={toggleDrawer(false)}
+               >
+                  취소
+               </Button>
+            </Col>
+            <Col lg="6" style={{ padding: 0 }}>
+               <Button
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  onClick={handleOnRequest}
+               >
+                  신청
+               </Button>
+            </Col>
+         </div>
       </div>
-    );
-  };
+   );
 
-  const BottomRender = () => {
-    return (
+   const DrawerText = ({ left, right }) => (
       <div
-        style={{
-          position: "fixed",
-          bottom: 0,
-          width: "100%",
-          height: 100,
-          backgroundColor: "white",
-          display: "flex",
-          alignItems: "center",
-        }}
+         className="Row"
+         style={{ justifyContent: "space-between", margin: 8 }}
       >
-        <Col xs="6">
-          <p style={{ marginBottom: "auto" }}>
-            {current.cost.toLocaleString()}&ensp;원
-          </p>
-          <p style={{ marginBottom: "auto" }}>
-            {current.size.toLocaleString()}&ensp;평
-          </p>
-        </Col>
-        <Col xs="6">
-          <Button color="primary" variant="contained" onClick={handleOnRequest}>
-            거래 신청하기
-          </Button>
-        </Col>
+         <small>{left}</small>
+         <b>{right}</b>
       </div>
-    );
-  };
+   );
 
-  return (
-    <div>
-      <TopIconRender />
-      <img
-        src={current.imageUrls[0]}
-        alt="#"
-        style={{ height: height / 2, width: "100%", objectFit: "cover" }}
-      />
-      <div style={{ padding: 10, marginBottom: 100 }}>
-        <UserContactCard />
-        <hr />
-        <h3>{current.title}</h3>
-        <small>
-          {current.category} / {current.location}
-        </small>
-        <p>{current.content}</p>
-        <hr />
-        <small>관심 {current.star}</small>
+   return (
+      <div>
+         <TopIconRender />
+         <img
+            src={current.imageUrls[0]}
+            alt="#"
+            style={{ height: height / 2, width: "100%", objectFit: "cover" }}
+         />
+         <div style={{ padding: 10, marginBottom: 100 }}>
+            <UserContactCard />
+            <hr />
+            <h3>{current.title}</h3>
+            <small>
+               {current.category} / {current.location}
+            </small>
+            <p>{current.content}</p>
+            <hr />
+            <small>관심 {current.star}</small>
+         </div>
+
+         <div
+            style={{
+               position: "fixed",
+               bottom: 0,
+               width: "100%",
+               textAlign: "center",
+               padding: 10,
+               backgroundColor: Color.mainColor,
+               color: "white",
+            }}
+            onClick={() => setOpenBottomDrawer(true)}
+         >
+            <ArrowDropUp />
+            <small>상세정보</small>
+         </div>
+         <Drawer
+            anchor="bottom"
+            open={openBottomDrawer}
+            onClose={toggleDrawer(false)}
+         >
+            <DrawerContent />
+         </Drawer>
       </div>
-
-      <BottomRender />
-    </div>
-  );
+   );
 };
 
 DetailPageView.defaultProps = {
-  imageUrls: Faker.random.image(),
-  title: Faker.random.words(),
-  _location: "강원도",
-  category: "감자",
-  content: Faker.lorem.lines(),
-  interest: Faker.random.number() % 10,
+   imageUrls: Faker.random.image(),
+   title: Faker.random.words(),
+   _location: "강원도",
+   category: "감자",
+   content: Faker.lorem.lines(),
+   interest: Faker.random.number() % 10,
 };
 
 export default DetailPageView;
