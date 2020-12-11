@@ -102,6 +102,7 @@ h5 {
 }
 
 .Post {
+   padding-top: 5px;
    border-radius: 0px;
    box-shadow: 6px 6px 13px#e7e7e7, -6px -6px 13px #ffffff;
 }
