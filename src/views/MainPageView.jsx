@@ -11,6 +11,7 @@ import NewPostDialog from "../components/dialogs/NewPostDialog";
 import { getPosts } from "../actions/postActions";
 
 import { category, category_icon } from "../data/data";
+import { getUserInfo } from "../actions/userActions";
 
 const MainPageView = () => {
    const [openAdd, setOpenAdd] = useState(false);
@@ -18,6 +19,7 @@ const MainPageView = () => {
    const dispatch = useDispatch();
    const { loading, error, posts } = useSelector((state) => state.post);
    const { filter } = useSelector((state) => state);
+   const user = useSelector((state) => state.user);
 
    useEffect(() => {
       if (posts.length === 0) {
@@ -27,6 +29,7 @@ const MainPageView = () => {
          type: SET_NAV,
          payload: window.location.href.split("/")[3],
       });
+      dispatch(getUserInfo(user));
    }, []);
 
    const CategorySliderRender = () => {
@@ -59,7 +62,7 @@ const MainPageView = () => {
       };
       return (
          <div
-            className="LeftBorder30"
+            className="LeftBorder30 Slider"
             style={{
                marginTop: 20,
                padding: 20,
@@ -67,7 +70,6 @@ const MainPageView = () => {
                backgroundColor: "#C7B492",
             }}
          >
-            {/* FIXME: 오류 해결 하기 Unable to preventDefault inside passive event listener invocation. */}
             <Slider {...sliderSettings} arrows={false}>
                {category.map((data, index) => (
                   <ItemRender
@@ -114,11 +116,11 @@ const MainPageView = () => {
          );
 
       return (
-         <Fragment>
+         <div className="Posts">
             {filterValue.map((post, idx) => (
                <ItemCardComp key={idx} {...post} />
             ))}
-         </Fragment>
+         </div>
       );
    };
 

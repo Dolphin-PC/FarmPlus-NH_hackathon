@@ -25,7 +25,6 @@ import {
    CLEAR_USER,
    SET_NAV,
 } from "../../actions/types";
-import { getUserInfo } from "../../actions/userActions";
 
 const Navbar = (props) => {
    const nav = useSelector((state) => state.nav);
@@ -39,10 +38,6 @@ const Navbar = (props) => {
 
    const filter = useSelector((state) => state.filter);
    const user = useSelector((state) => state.user);
-
-   useEffect(() => {
-      dispatch(getUserInfo(user));
-   }, [openNotice]);
 
    const handleChange = (event, value) => {
       dispatch({

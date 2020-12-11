@@ -64,7 +64,7 @@ const FilterPageView = () => {
          setFilterCategory(e.target.value);
       };
       return (
-         <div style={grayStyle}>
+         <div style={grayStyle} className="FilterDiv">
             <InputLabel>검색할 카테고리</InputLabel>
             <hr />
             <Select
@@ -92,7 +92,7 @@ const FilterPageView = () => {
          setFilterLocation(e.target.value);
       };
       return (
-         <div style={grayStyle}>
+         <div style={grayStyle} className="FilterDiv">
             <InputLabel>검색할 지역</InputLabel>
             <hr />
             <Select

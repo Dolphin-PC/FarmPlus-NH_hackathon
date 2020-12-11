@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, DialogTitle } from "@material-ui/core";
-import { Cancel } from "@material-ui/icons";
+import { Cancel, Refresh } from "@material-ui/icons";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserInfo } from "../../actions/userActions";
@@ -16,16 +16,16 @@ const NoticeDialog = (props) => {
    const user = useSelector((state) => state.user);
    const dispatch = useDispatch();
 
-   // FIXME: 이 똥 치우기...(re-render 문제)
-   useEffect(() => {
+   const handleOnRefresh = () => {
       dispatch(getUserInfo(user));
-   }, [open]);
+   };
 
    const DialogRender = (props) => {
       return (
          <Dialog fullScreen open={open} onClose={handleClose}>
             <DialogTitle>
-               수신된 알림
+               수신된 알림 &ensp;
+               <Refresh onClick={handleOnRefresh} className="RefreshIcon" />
                <Cancel
                   style={{ position: "fixed", top: 20, right: 20 }}
                   onClick={handleClose}

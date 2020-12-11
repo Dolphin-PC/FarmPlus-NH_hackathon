@@ -87,3 +87,27 @@ h5 {
    border: 1px solid lightgray;
    padding: 30px;
 }
+
+/* 뉴로모피즘 */
+
+.RefreshIcon {
+   border-radius: 150px;
+   background: #ffffff;
+   box-shadow: 5px 5px 24px #a6a6a6, -5px -5px 24px #ffffff;
+}
+
+.Slider {
+   background: linear-gradient(145deg, #c7b492, #c7b492);
+   box-shadow: 6px 6px 13px #919191, -6px -6px 13px #ffffff;
+}
+
+.Post {
+   border-radius: 0px;
+   box-shadow: 6px 6px 13px#e7e7e7, -6px -6px 13px #ffffff;
+}
+
+.FilterDiv {
+   border-radius: 25px;
+   background: #e7e7e7;
+   box-shadow: 7px 7px 12px #848484, -7px -7px 12px #ffffff;
+}

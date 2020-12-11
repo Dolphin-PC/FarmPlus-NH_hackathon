@@ -33,6 +33,7 @@ const ItemCardComp = (props) => {
             paddingTop: 10,
          }}
          onClick={handleOnClickItem}
+         className="Post"
       >
          <Col xs="4">
             <img
