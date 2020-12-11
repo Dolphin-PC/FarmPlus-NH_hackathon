@@ -1,10 +1,10 @@
 import { Button, TextField } from "@material-ui/core";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { SET_NAV } from "../actions/types";
 import { loginUser } from "../actions/userActions";
-import * as Color from "../assets/colors";
+// import * as Color from "../assets/colors";
 import loginVideo from "../assets/video/LoginVideo.mp4";
 
 const LoginPageView = () => {
@@ -36,6 +36,7 @@ const LoginPageView = () => {
       });
    };
 
+   // eslint-disable-next-line
    useEffect(() => {
       if (_user.user !== null) {
          history.push("/filter");
@@ -44,6 +45,7 @@ const LoginPageView = () => {
             payload: "filter",
          });
       }
+      // eslint-disable-next-line
    }, [_user]);
 
    return (
@@ -79,6 +81,7 @@ const LoginPageView = () => {
                   color: "white",
                   borderColor: "white",
                   backgroundColor: "white",
+                  borderRadius: 10,
                }}
             />
             &emsp;
@@ -94,6 +97,7 @@ const LoginPageView = () => {
                   color: "white",
                   borderColor: "white",
                   backgroundColor: "white",
+                  borderRadius: 10,
                }}
             />
             &emsp;
