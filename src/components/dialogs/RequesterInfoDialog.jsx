@@ -13,6 +13,8 @@ import HomeIcon from "@material-ui/icons/Home";
 import React, { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { acceptRequest, getUserInfo } from "../../actions/userActions";
+import * as Color from "../../assets/colors";
+import DrawerText from "../Drawer/DrawerText";
 
 const RequesterInfoDialog = (props) => {
    const { onClose, open, requester, product, tradeId } = props;
@@ -70,8 +72,13 @@ const RequesterInfoDialog = (props) => {
 
          <div>
             <InputLabel>신청자 정보</InputLabel>
-            <div className="Row Post" style={{ paddingRight: 10 }}>
-               <Avatar style={{ backgroundColor: "aqua" }}>
+            <div className="Account-Bank-Box">
+               <DrawerText left="이름" right={requester.name} />
+               <DrawerText left="주소" right={requester.address} />
+               <DrawerText left="전화번호" right={requester.phoneNumber} />
+            </div>
+            {/* <div className="Row Post" style={{ paddingRight: 10 }}>
+               <Avatar style={{ backgroundColor: Color.mainColor }}>
                   {requester.name[0]}
                </Avatar>
                &emsp;
@@ -79,7 +86,7 @@ const RequesterInfoDialog = (props) => {
             </div>
 
             <div className="Row Post" style={{ paddingRight: 10 }}>
-               <Avatar>
+               <Avatar style={{ backgroundColor: Color.secondColor }}>
                   <HomeIcon />
                </Avatar>
                &emsp;
@@ -87,14 +94,14 @@ const RequesterInfoDialog = (props) => {
             </div>
 
             <div className="Row Post" style={{ paddingRight: 10 }}>
-               <Avatar>
+               <Avatar style={{ backgroundColor: Color.thirdColor }}>
                   <PhoneIcon />
                </Avatar>
                &emsp;
                <small style={{ margin: "auto 0" }}>
                   {requester.phoneNumber}
                </small>
-            </div>
+            </div> */}
          </div>
       </DialogRender>
    );

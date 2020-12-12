@@ -25,6 +25,7 @@ import {
    Inbox,
    Mail,
    ArrowDropUp,
+   FavoriteBorder,
 } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -51,6 +52,7 @@ const DetailPageView = () => {
    const classes = useStyles();
 
    const [openBottomDrawer, setOpenBottomDrawer] = useState(false);
+   const [isHeart, setIsHeart] = useState(false);
 
    const current = useSelector((state) => state.post.current);
    const user = useSelector((state) => state.user);
@@ -124,7 +126,10 @@ const DetailPageView = () => {
          alert(current.seller.phoneNumber);
       };
       const handleOnFavorite = async () => {
-         dispatch(addFavorite(user, current));
+         setIsHeart(!isHeart);
+         if (!isHeart) {
+            dispatch(addFavorite(user, current));
+         }
       };
 
       return (
@@ -154,10 +159,17 @@ const DetailPageView = () => {
                   </p>
                </div>
                <div style={{ marginTop: "auto" }}>
-                  <FavoriteIcon
-                     style={{ fontSize: 30 }}
-                     onClick={handleOnFavorite}
-                  />
+                  {isHeart ? (
+                     <FavoriteIcon
+                        style={{ fontSize: 30 }}
+                        onClick={handleOnFavorite}
+                     />
+                  ) : (
+                     <FavoriteBorder
+                        style={{ fontSize: 30 }}
+                        onClick={handleOnFavorite}
+                     />
+                  )}
                   &emsp;
                   <PhoneIcon style={{ fontSize: 30 }} onClick={handleOnPhone} />
                </div>
@@ -168,40 +180,43 @@ const DetailPageView = () => {
 
    const DrawerContent = () => (
       <div>
-         <div style={{ padding: 20, marginBottom: 100 }}>
+         <div style={{ padding: 20, marginBottom: 80 }}>
             <InputLabel>게시글 제목</InputLabel>
             <h3>{current.title}</h3>
             <hr />
-            <DrawerText
-               left="크기"
-               right={`${current.size.toLocaleString()} 평`}
-            />
-            <DrawerText
-               left="가격"
-               right={`${current.cost.toLocaleString()} 원`}
-            />
-            <DrawerText left="품종/품목" right={`${current.category}`} />
-            <DrawerText left="지역/주소" right={current.address} />
-            <DrawerText left="파종일" right={current.plantDay} />
-            <DrawerText left="반출일" right={current.outDay} />
-            <DrawerText left="토지등록번호" right={current.landNumber} />
+            <div className="Account-Bank-Box">
+               <DrawerText
+                  left="크기"
+                  right={`${current.size.toLocaleString()} 평`}
+               />
+               <DrawerText
+                  left="가격"
+                  right={`${current.cost.toLocaleString()} 원`}
+               />
+               <DrawerText left="품종/품목" right={`${current.category}`} />
+               <DrawerText left="지역/주소" right={current.address} />
+               <DrawerText left="파종일" right={current.plantDay} />
+               <DrawerText left="반출일" right={current.outDay} />
+               <DrawerText left="토지등록번호" right={current.landNumber} />
+            </div>
          </div>
          <div className="Row">
             <Col lg="6" style={{ padding: 0 }}>
                <Button
                   fullWidth
-                  variant="outlined"
-                  color="secondary"
                   onClick={toggleDrawer(false)}
+                  style={{
+                     border: `1px solid ${Color.redColor}`,
+                     color: Color.redColor,
+                  }}
                >
                   취소
                </Button>
             </Col>
             <Col lg="6" style={{ padding: 0 }}>
                <Button
+                  style={{ backgroundColor: Color.mainColor, color: "white" }}
                   fullWidth
-                  variant="contained"
-                  color="primary"
                   onClick={handleOnRequest}
                >
                   신청

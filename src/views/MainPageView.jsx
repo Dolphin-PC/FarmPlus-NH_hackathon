@@ -12,6 +12,7 @@ import { getPosts } from "../actions/postActions";
 
 import { category, category_icon } from "../data/data";
 import { getUserInfo } from "../actions/userActions";
+import * as Color from "../assets/colors";
 
 const MainPageView = () => {
    const [openAdd, setOpenAdd] = useState(false);
@@ -87,8 +88,14 @@ const MainPageView = () => {
       };
       return (
          <Fab
-            color="primary"
-            style={{ position: "fixed", bottom: 70, right: 20, zIndex: 5 }}
+            style={{
+               position: "fixed",
+               bottom: 70,
+               right: 20,
+               zIndex: 5,
+               backgroundColor: Color.mainColor,
+               color: "white",
+            }}
             onClick={handleAdd}
          >
             <Add />

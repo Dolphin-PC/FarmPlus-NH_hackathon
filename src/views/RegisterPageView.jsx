@@ -258,9 +258,11 @@ const RegisterPageView = () => {
                style={{ display: "flex", alignItems: "center", marginTop: 15 }}
             >
                <Button
+                  style={{
+                     border: `1px solid ${Color.mainColor}`,
+                     color: Color.mainColor,
+                  }}
                   disabled={checkAccount}
-                  variant="outlined"
-                  color="primary"
                   onClick={handleOnAccountAuth}
                >
                   계좌인증

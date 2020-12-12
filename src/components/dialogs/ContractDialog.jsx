@@ -18,7 +18,6 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import PropTypes from "prop-types";
 
 import { contract } from "../../data/data";
 import { sendContract } from "../../actions/contractActions";
@@ -28,6 +27,7 @@ import { getUserInfo } from "../../actions/userActions";
 import { getAccountNumber, getBankName } from "../../app/functions";
 import { getRemainCost } from "../../api/financialActions";
 import DrawerText from "../Drawer/DrawerText";
+import * as Color from "../../assets/colors";
 
 const ContractDialog = (props) => {
    const dispatch = useDispatch();
@@ -257,7 +257,7 @@ const ContractDialog = (props) => {
          return (
             <Drawer anchor="bottom" open={open} onClose={handleClose}>
                <div style={{ padding: "20px 20px 0px 20px " }}>
-                  <InputLabel>계약금 출금이체</InputLabel>
+                  <h5>계약금 출금이체</h5>
                   <hr />
                   <InputLabel>본인 계좌</InputLabel>
                   <div
@@ -296,10 +296,9 @@ const ContractDialog = (props) => {
                </div>
 
                <Button
+                  style={{ backgroundColor: Color.mainColor, color: "white" }}
                   fullWidth
-                  variant="contained"
                   onClick={handleOnSendDeposit}
-                  color="primary"
                   className="Deposit-Button"
                >
                   출금 이체

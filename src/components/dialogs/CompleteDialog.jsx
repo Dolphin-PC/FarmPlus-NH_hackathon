@@ -11,12 +11,12 @@ import Rating from "@material-ui/lab/Rating";
 
 import React, { Fragment, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { receivedTradeDeposit } from "../../actions/tradeActions";
 import { getRemainCost } from "../../api/financialActions";
 import { receivedTransferAccountNumber } from "../../api/simplePayActions";
 import { getAccountNumber, getBankName } from "../../app/functions";
 import ContractAccordionComp from "../accordions/ContractAccordionComp";
 import DrawerText from "../Drawer/DrawerText";
+import * as Color from "../../assets/colors";
 
 const CompleteDialog = (props) => {
    const { onClose, open, requester, product, tradeId, deposit } = props;
@@ -94,7 +94,7 @@ const CompleteDialog = (props) => {
    return (
       <Drawer anchor="bottom" open={open} onClose={handleClose}>
          <div style={{ padding: "20px 20px 0px 20px " }}>
-            <InputLabel>계약금 입금이체</InputLabel>
+            <h5>계약금 입금이체</h5>
             <hr />
             <InputLabel>본인 계좌</InputLabel>
             <div
@@ -140,11 +140,15 @@ const CompleteDialog = (props) => {
          </div>
 
          <Button
-            style={{ padding: 10, position: "fixed", bottom: 0 }}
+            style={{
+               padding: 10,
+               position: "fixed",
+               bottom: 0,
+               backgroundColor: deposit === 0 ? "gray" : Color.mainColor,
+               color: "white",
+            }}
             disabled={deposit === 0 ? true : false}
             onClick={handleOnAccept}
-            color="primary"
-            variant="contained"
             fullWidth
          >
             {deposit === 0 ? "입금완료" : "입금받기"}

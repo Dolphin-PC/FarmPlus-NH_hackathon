@@ -92,14 +92,14 @@ const Navbar = (props) => {
                to="/main"
                label="Main"
                value="main"
-               icon={<Home />}
+               icon={<Home style={{ color: Color.mainColor }} />}
             />
             <BottomNavigationAction
                component={Link}
                to="/favorite"
                label="Favorite"
                value="favorite"
-               icon={<Favorite />}
+               icon={<Favorite style={{ color: Color.mainColor }} />}
             />
 
             <BottomNavigationAction
@@ -107,7 +107,7 @@ const Navbar = (props) => {
                to="/setting"
                label="Setting"
                value="setting"
-               icon={<AccountCircle />}
+               icon={<AccountCircle style={{ color: Color.mainColor }} />}
             />
          </BottomNavigation>
       );
