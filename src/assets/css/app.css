@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Nanum+Gothic&family=Open+Sans:wght@300&family=Raleway:wght@100&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700;900&display=swap");
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 /* font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';  */
 
@@ -16,9 +16,12 @@ small,
 h1,
 h2,
 h3,
-h4,
-h5 {
+h4 {
    font-family: "Nanum Gothic", sans-serif;
+}
+h5 {
+   font-family: "Noto Sans KR", sans-serif;
+   font-weight: 700;
 }
 
 .font-Spoqa {
@@ -158,4 +161,8 @@ h5 {
    border-radius: 25px;
    background: #e7e7e7;
    box-shadow: 7px 7px 12px #848484, -7px -7px 12px #ffffff;
+}
+
+.topNavbar {
+   border-bottom: 2px solid #2d4441;
 }

@@ -76,6 +76,8 @@ const DetailPageView = () => {
          if (dispatch(tradeRequest(user, current))) {
             alert("거래 신청이 정상적으로 처리되었습니다.");
             setOpenBottomDrawer(false);
+         } else {
+            alert("거래 신청 오류!");
          }
       }
    };
@@ -137,14 +139,14 @@ const DetailPageView = () => {
                   <Avatar>{current.name[0]}</Avatar>
                   &ensp;
                   <p style={{ margin: 0 }}>
-                     {current.name}
+                     {current.name}&ensp;
                      {user.user.isVIP === true ? (
                         <Tooltip
                            title={longText}
                            classes={{ tooltip: classes.customWidth }}
                            arrow
                         >
-                           <img src={badge} alt="" style={{ width: 20 }} />
+                           <img src={badge} alt="" style={{ height: 20 }} />
                         </Tooltip>
                      ) : null}
                      <br />

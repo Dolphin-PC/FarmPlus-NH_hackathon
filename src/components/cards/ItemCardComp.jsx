@@ -3,11 +3,28 @@ import { Col, Row } from "reactstrap";
 import StarIcon from "@material-ui/icons/Star";
 import Faker from "faker";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SET_CURRENT, SET_NAV } from "../../actions/types";
+import { makeStyles, Tooltip } from "@material-ui/core";
+import badge from "../../assets/icon/badge.png";
+
+const longText = `배지 X -  수수료 1.0%\n
+동배지 -  수수료 0.9%
+은배지 - 수수료 0.8%\n
+금배지 - 수수료 0.7%\n
+기준: 계약이행률, 상품의 품질, 경작지 관리 등을 산지유통인이 평가`;
+
+const useStyles = makeStyles((theme) => ({
+   customWidth: {
+      maxWidth: 110,
+   },
+}));
 
 const ItemCardComp = (props) => {
+   const classes = useStyles();
+
    const { imageUrls, title, star, size, location } = props;
+   const user = useSelector((state) => state.user);
    const history = useHistory();
 
    const dispatch = useDispatch();
@@ -45,11 +62,21 @@ const ItemCardComp = (props) => {
          <Col xs="7">
             <h5
                style={{
-                  height: 25,
+                  height: 26,
                   overflow: "hidden",
                   textOverflow: "ellipsis2",
                }}
             >
+               {user.user.isVIP === true ? (
+                  <Tooltip
+                     title={longText}
+                     classes={{ tooltip: classes.customWidth }}
+                     arrow
+                  >
+                     <img src={badge} alt="" style={{ height: 20 }} />
+                  </Tooltip>
+               ) : null}
+               &ensp;
                {title}
             </h5>
             <StarIcon /> {star}

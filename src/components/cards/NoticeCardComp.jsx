@@ -8,7 +8,7 @@ import ContractDialog from "../dialogs/ContractDialog";
 import CompleteDialog from "../dialogs/CompleteDialog";
 
 const NoticeCardComp = (props) => {
-   const { noticeType, requester, product } = props;
+   const { noticeType, requester, product, deposit } = props;
    const [openRequesterInfoDialog, setOpenRequesterInfoDialog] = useState(
       false
    );
@@ -20,7 +20,11 @@ const NoticeCardComp = (props) => {
          case "거래대기":
             return setOpenRequesterInfoDialog(true);
          case "거래진행":
-            return setOpenContractDialog(true);
+            if (deposit) {
+               return setOpenCompleteDialog(true);
+            } else {
+               return setOpenContractDialog(true);
+            }
          case "거래완료":
             return setOpenCompleteDialog(true);
          default:
@@ -70,7 +74,17 @@ const NoticeCardComp = (props) => {
             &emsp;
             <div onClick={handleNoticeClick} style={{ marginTop: 10 }}>
                <h5>{product.title}</h5>
-               <small>from {requester.id}</small>
+               <div
+                  className="Row"
+                  style={{ justifyContent: "space-between", marginTop: 8 }}
+               >
+                  <small>from {requester.id}</small>
+                  {noticeType === "거래진행" ? (
+                     <small style={{ color: "lightgray" }}>[거래해약]</small>
+                  ) : (
+                     ""
+                  )}
+               </div>
             </div>
             <RequesterInfoDialog
                open={openRequesterInfoDialog}

@@ -54,7 +54,7 @@ const MainPageView = () => {
                <img
                   src={icon.src}
                   alt="icon"
-                  style={{ margin: "10px auto" }}
+                  style={{ width: 32, margin: "10px auto" }}
                ></img>
                <small>{text}</small>
             </div>

@@ -93,7 +93,9 @@ const NewProductDialog = (props) => {
          </DialogTitle>
          <DialogContent style={{ padding: 20 }}>
             <TabPanel value={page} index={0}>
-               <p>1. 게시글 정보를 입력해주세요.</p>
+               <br />
+               <h5>1. 게시글 정보를 입력해주세요.</h5>
+               <br />
                <br />
                <InputLabel>이미지를 업로드해주세요.</InputLabel>
                <input type="file" onChange={(e) => setImages(e.target.files)} />
@@ -122,7 +124,9 @@ const NewProductDialog = (props) => {
                />
             </TabPanel>
             <TabPanel value={page} index={1}>
-               <p>2. 가격, 면적을 입력해주세요.</p>
+               <br />
+               <h5>2. 가격, 면적을 입력해주세요.</h5>
+               <br />
                <br />
                <InputLabel>가격</InputLabel>
                <TextField
@@ -153,7 +157,9 @@ const NewProductDialog = (props) => {
                </FormHelperText>
             </TabPanel>
             <TabPanel value={page} index={2}>
-               <p>3. 상품 정보를 입력해주세요.</p>
+               <br />
+               <h5>3. 상품 정보를 입력해주세요.</h5>
+               <br />
                <br />
                <InputLabel>품목</InputLabel>
                <Select fullWidth native name="category" onChange={handleChange}>
@@ -200,7 +206,9 @@ const NewProductDialog = (props) => {
                />
             </TabPanel>
             <TabPanel value={page} index={3}>
-               <p>4. 계약 정보를 입력해주세요.</p>
+               <br />
+               <h5>4. 계약 정보를 입력해주세요.</h5>
+               <br />
                <br />
                <InputLabel>파종일</InputLabel>
                <TextField

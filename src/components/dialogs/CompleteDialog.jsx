@@ -10,7 +10,6 @@ import {
 import React, { Fragment, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { receivedTradeDeposit } from "../../actions/tradeActions";
-import { getUserInfo } from "../../actions/userActions";
 import { getRemainCost } from "../../api/financialActions";
 import { receivedTransferAccountNumber } from "../../api/simplePayActions";
 import { getAccountNumber, getBankName } from "../../app/functions";
@@ -88,18 +87,24 @@ const CompleteDialog = (props) => {
    }
    return (
       <Drawer anchor="bottom" open={open} onClose={handleClose}>
-         <div style={{ padding: 20, marginBottom: 100 }}>
+         <div style={{ padding: "20px 20px 0px 20px " }}>
             <InputLabel>계약금 입금</InputLabel>
             <hr />
             <InputLabel>본인 계좌</InputLabel>
-            <div className="Account-Bank-Box Row">
-               <div className="Col" style={{ width: "50%" }}>
+            <div
+               className="Account-Bank-Box Row"
+               style={{ justifyContent: "space-between" }}
+            >
+               <div className="Col" style={{ width: "48%" }}>
                   <InputLabel>{getBankName(user.user.bankCode)}</InputLabel>
-                  <b>{getAccountNumber(user.user.accountNumber)}</b>
+                  <small>{getAccountNumber(user.user.accountNumber)}</small>
                </div>
-               <div className="Col" style={{ width: "50%" }}>
+               <div
+                  className="Col"
+                  style={{ width: "48%", textAlign: "right" }}
+               >
                   <InputLabel>현재 금액</InputLabel>
-                  <b>{remainCost}</b>
+                  <small>{remainCost}</small>
                </div>
             </div>
 
@@ -124,9 +129,12 @@ const CompleteDialog = (props) => {
                />
             </div>
          </div>
+         <div style={{ marginBottom: 40 }}>
+            <ContractAccordionComp product={product} requester={requester} />
+         </div>
 
          <Button
-            style={{ padding: 10 }}
+            style={{ padding: 10, position: "fixed", bottom: 0 }}
             disabled={deposit === 0 ? true : false}
             onClick={handleOnAccept}
             color="primary"

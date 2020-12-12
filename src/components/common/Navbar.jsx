@@ -25,6 +25,7 @@ import {
    CLEAR_USER,
    SET_NAV,
 } from "../../actions/types";
+import * as Color from "../../assets/colors";
 
 const Navbar = (props) => {
    const nav = useSelector((state) => state.nav);
@@ -78,7 +79,13 @@ const Navbar = (props) => {
          <BottomNavigation
             value={nav.location}
             onChange={handleChange}
-            style={{ position: "fixed", bottom: 0, width: "100%" }}
+            style={{
+               position: "fixed",
+               bottom: 0,
+               width: "100%",
+               borderTop: `1px solid lightgray`,
+               paddingTop: 10,
+            }}
          >
             <BottomNavigationAction
                component={Link}

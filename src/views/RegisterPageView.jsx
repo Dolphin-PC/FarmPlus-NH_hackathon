@@ -1,8 +1,5 @@
 import React, { Fragment, useState } from "react";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import {
-   AppBar,
-   Box,
    Button,
    IconButton,
    InputLabel,
@@ -11,15 +8,15 @@ import {
    Tab,
    Tabs,
    TextField,
-   Typography,
 } from "@material-ui/core";
 import { ArrowBack, Close } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
 
 import { bankCode } from "../data/data";
 import { accountHolderFunc } from "../api/financialActions";
-import { a11yProps, getIsTuno, TabPanel } from "../app/functions";
+import { a11yProps, TabPanel } from "../app/functions";
 import { newUser } from "../actions/userActions";
+import * as Color from "../assets/colors";
 
 const RegisterPageView = () => {
    const [value, setValue] = useState(0);
@@ -60,13 +57,10 @@ const RegisterPageView = () => {
       const res = await accountHolderFunc(accountInfo);
       if (res === null || res === undefined) return;
 
-      switch (res.data.Header.Rsms) {
-         case "정상처리 되었습니다.":
-            setCheckAccount(true);
-
-         default:
-            setStatus(res.data.Header.Rsms);
+      if (res.data.Header.Rsms === "정상처리 되었습니다.") {
+         setCheckAccount(true);
       }
+      setStatus(res.data.Header.Rsms);
    };
 
    const handleOnRegister = async () => {
@@ -131,7 +125,9 @@ const RegisterPageView = () => {
          </div>
          <hr />
          <TabPanel value={value} index={0}>
-            <p>1. 개인정보를 입력해주세요.(필수)</p>
+            <br />
+            <h5>1. 개인정보를 입력해주세요.(필수)</h5>
+            <br />
             <br />
             <InputLabel>이름</InputLabel>
             <TextField
@@ -179,7 +175,9 @@ const RegisterPageView = () => {
             &emsp;
          </TabPanel>
          <TabPanel value={value} index={1}>
-            <p>2. 계정정보를 입력해주세요.(필수)</p>
+            <br />
+            <h5>2. 계정정보를 입력해주세요.(필수)</h5>
+            <br />
             <br />
             <InputLabel>아이디</InputLabel>
             <TextField
@@ -205,7 +203,9 @@ const RegisterPageView = () => {
             />
          </TabPanel>
          <TabPanel value={value} index={2}>
-            <p>3. 서류를 등록해주세요.(선택)</p>
+            <br />
+            <h5>3. 서류를 등록해주세요.(선택)</h5>
+            <br />
             <br />
             <InputLabel>토지등록번호</InputLabel>
             <TextField
@@ -218,7 +218,9 @@ const RegisterPageView = () => {
             />
          </TabPanel>
          <TabPanel value={value} index={3}>
-            <p>4. 계좌정보를 입력해주세요.(필수)</p>
+            <br />
+            <h5>4. 계좌정보를 입력해주세요.(필수)</h5>
+            <br />
             <br />
             <InputLabel>은행사 선택</InputLabel>
             <Select
@@ -253,12 +255,12 @@ const RegisterPageView = () => {
             />
             <br />
             <div
-               style={{ display: "flex", alignItems: "center", marginTop: 5 }}
+               style={{ display: "flex", alignItems: "center", marginTop: 15 }}
             >
                <Button
                   disabled={checkAccount}
-                  variant="contained"
-                  color="inherit"
+                  variant="outlined"
+                  color="primary"
                   onClick={handleOnAccountAuth}
                >
                   계좌인증
@@ -269,8 +271,7 @@ const RegisterPageView = () => {
             &emsp;
             <Button
                fullWidth
-               variant="outlined"
-               color="primary"
+               style={{ backgroundColor: Color.mainColor, color: "white" }}
                onClick={handleOnRegister}
             >
                회원가입
@@ -293,43 +294,3 @@ const RegisterPageView = () => {
    );
 };
 export default RegisterPageView;
-
-{
-   /* 
-
-
-   return (
-      <div style={{ padding: 20 }}>
-         <AccountCircleIcon style={{ fontSize: 50 }} />
-         &emsp;회원가입
-         <hr />
-         <InputLabel>개인정보 입력</InputLabel>
-         <div style={TextFieldDivStyle}>
-            
-            <TextField
-               fullWidth
-               label="토지등록번호"
-               name="landNumber"
-               value={personalInfo.landNumber}
-               onChange={onChangePersonalInfo}
-            />
-           
-         </div>
-         <br />
-        
-         &emsp;
-         
-         &emsp;
-         <Button
-            fullWidth
-            variant="outlined"
-            color="secondary"
-            onClick={handleOnLogin}
-         >
-            돌아가기
-         </Button>
-         <SnackbarRender />
-      </div>
-   );
-*/
-}

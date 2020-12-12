@@ -77,21 +77,22 @@ export const addFavorite = (user, current) => async (dispatch) => {
 };
 
 export const tradeRequest = (user, current) => async (dispatch) => {
-   delete user.user.landNumber;
-   delete user.user.password;
-   if (user.user.favorite) {
-      delete user.user.favorite;
-   }
+   let result;
 
    const tradeId = shortid.generate();
-   let myList = [];
-   let sellerList = [];
+
+   let myList = {};
+   let sellerList = {};
 
    // 셀러 정보 가져오기(거래정보)
+   const _user = await Axios.get(`${serverUrl}/users/${user.user.id}`);
    const seller = await Axios.get(`${serverUrl}/users/${current.sellerId}`);
 
-   if (user.user.trade) {
-      myList = user.user.trade;
+   console.info("my", _user);
+   console.info("seller", seller);
+
+   if (_user.data.trade) {
+      myList = _user.data.trade;
    }
    if (seller.data.trade) {
       sellerList = seller.data.trade;
@@ -101,7 +102,7 @@ export const tradeRequest = (user, current) => async (dispatch) => {
       tradeId: tradeId,
       noticeType: "거래대기",
       requester: {
-         ...user.user,
+         ..._user.data,
       },
       product: current,
    };
@@ -109,15 +110,18 @@ export const tradeRequest = (user, current) => async (dispatch) => {
    myList.push(newTrade);
    sellerList.push(newTrade);
 
+   console.info(sellerList);
+
    // 내 거래내역 추가
-   await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
+   result = await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
       trade: myList,
    }).catch((err) => {
-      console.error(err);
+      console.error("server error1", err);
+      return false;
    });
 
    // 상대방 거래내역 추가
-   await Axios.patch(`${serverUrl}/users/${current.sellerId}`, {
+   result = await Axios.patch(`${serverUrl}/users/${current.sellerId}`, {
       trade: sellerList,
       notice: sellerList,
    })
@@ -125,8 +129,11 @@ export const tradeRequest = (user, current) => async (dispatch) => {
          return true;
       })
       .catch((err) => {
-         console.error(err);
+         console.error("server error2", err);
+         return false;
       });
+
+   return result;
 };
 
 // 거래 수락

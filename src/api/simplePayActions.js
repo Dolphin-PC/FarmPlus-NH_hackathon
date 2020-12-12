@@ -46,13 +46,13 @@ export const drawingTransfer = async (user, product, tradeId) => {
 
    myTradeInfo = myTradeInfo.data.trade.map((trade) => {
       if (trade.tradeId === tradeId) {
-         return { ...trade, noticeType: "거래완료", deposit: product.cost };
+         return { ...trade, deposit: product.cost };
       }
       return trade;
    });
    sellerTradeInfo = sellerTradeInfo.data.trade.map((trade) => {
       if (trade.tradeId === tradeId) {
-         return { ...trade, noticeType: "거래완료", deposit: product.cost };
+         return { ...trade, deposit: product.cost };
       }
       return trade;
    });
@@ -108,5 +108,44 @@ export const receivedTransferAccountNumber = async (user, product, tradeId) => {
       .catch((err) => {
          console.error(err);
          return false;
+      });
+
+   // 내 거래정보
+   let myTradeInfo = await Axios.get(`${serverUrl}/users/${user.user.id}`);
+
+   // 판매자 거래정보
+   let sellerTradeInfo = await Axios.get(
+      `${serverUrl}/users/${product.sellerId}`
+   );
+
+   myTradeInfo = myTradeInfo.data.trade.map((trade) => {
+      if (trade.tradeId === tradeId) {
+         return { ...trade, noticeType: "거래완료" };
+      }
+      return trade;
+   });
+   sellerTradeInfo = sellerTradeInfo.data.trade.map((trade) => {
+      if (trade.tradeId === tradeId) {
+         return { ...trade, noticeType: "거래완료" };
+      }
+      return trade;
+   });
+
+   await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
+      trade: myTradeInfo,
+      notice: myTradeInfo,
+   }).catch((err) => {
+      console.error(err);
+   });
+   await Axios.patch(`${serverUrl}/users/${product.sellerId}`, {
+      trade: sellerTradeInfo,
+      notice: sellerTradeInfo,
+   })
+      .then((res) => {
+         console.info(res);
+         return true;
+      })
+      .catch((err) => {
+         console.error(err);
       });
 };
