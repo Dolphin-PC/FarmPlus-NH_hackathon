@@ -22,9 +22,7 @@ const MainPageView = () => {
    const user = useSelector((state) => state.user);
 
    useEffect(() => {
-      if (posts.length === 0) {
-         dispatch(getPosts());
-      }
+      dispatch(getPosts());
       dispatch({
          type: SET_NAV,
          payload: window.location.href.split("/")[3],

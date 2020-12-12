@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 const ItemCardComp = (props) => {
    const classes = useStyles();
 
-   const { imageUrls, title, star, size, location } = props;
+   const { imageUrls, title, star, size, location, seller } = props;
    const user = useSelector((state) => state.user);
    const history = useHistory();
 
@@ -67,7 +67,7 @@ const ItemCardComp = (props) => {
                   textOverflow: "ellipsis2",
                }}
             >
-               {user.user.isVIP === true ? (
+               {seller.isVIP === true ? (
                   <Tooltip
                      title={longText}
                      classes={{ tooltip: classes.customWidth }}

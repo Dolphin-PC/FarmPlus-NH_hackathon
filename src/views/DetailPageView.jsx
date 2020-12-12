@@ -121,7 +121,7 @@ const DetailPageView = () => {
    };
    const UserContactCard = () => {
       const handleOnPhone = () => {
-         alert(current.phoneNumber);
+         alert(current.seller.phoneNumber);
       };
       const handleOnFavorite = async () => {
          dispatch(addFavorite(user, current));
@@ -136,11 +136,11 @@ const DetailPageView = () => {
                }}
             >
                <div style={{ display: "flex", alignItems: "center" }}>
-                  <Avatar>{current.name[0]}</Avatar>
+                  <Avatar>{current.seller.name[0]}</Avatar>
                   &ensp;
                   <p style={{ margin: 0 }}>
-                     {current.name}&ensp;
-                     {user.user.isVIP === true ? (
+                     {current.seller.name}&ensp;
+                     {current.seller.isVIP ? (
                         <Tooltip
                            title={longText}
                            classes={{ tooltip: classes.customWidth }}

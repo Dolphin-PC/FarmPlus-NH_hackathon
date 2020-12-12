@@ -11,13 +11,10 @@ import {
 } from "./types";
 
 export const addNewPost = (post, images, user) => async (dispatch) => {
-   const sellerId = user.id; // 판매자 id
    const id = shortid.generate(); // 게시글 id
 
    delete user.password;
-   delete user.id;
 
-   console.info(user);
    try {
       dispatch({
          type: SET_POSTS_UPLOADING,
@@ -39,11 +36,10 @@ export const addNewPost = (post, images, user) => async (dispatch) => {
       await axios
          .post(`${serverUrl}/posts`, {
             id,
-            sellerId,
             ...post,
             cost: Number(post.cost),
             size: Number(post.size),
-            ...user,
+            seller: user,
          })
          .then((res) => {
             dispatch({

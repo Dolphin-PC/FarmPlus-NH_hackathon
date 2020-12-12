@@ -13,8 +13,8 @@ const NoticeDialog = (props) => {
       onClose();
    };
 
-   const user = useSelector((state) => state.user);
    const dispatch = useDispatch();
+   const user = useSelector((state) => state.user);
 
    const handleOnRefresh = () => {
       dispatch(getUserInfo(user));
@@ -34,22 +34,17 @@ const NoticeDialog = (props) => {
 
             <DialogContent>
                <ColumnCardComp />
-
                {props.children}
             </DialogContent>
          </Dialog>
       );
    };
 
-   if (!user.user.notice) {
-      return (
-         <DialogRender>
-            <p>수신된 알림이 없습니다.</p>
-         </DialogRender>
-      );
-   }
-
-   if (user.user.notice === null || user.user.notice === undefined) {
+   if (
+      user.user.notice === "" ||
+      user.user.notice === undefined ||
+      user.user.notice === null
+   ) {
       return (
          <DialogRender>
             <p>수신된 알림이 없습니다.</p>

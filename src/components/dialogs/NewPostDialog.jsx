@@ -1,9 +1,7 @@
 import {
    Dialog,
-   DialogActions,
    DialogContent,
    DialogTitle,
-   Button,
    InputLabel,
    TextField,
    Select,
@@ -11,14 +9,13 @@ import {
    Tab,
    FormHelperText,
 } from "@material-ui/core";
-import { ArrowBack, Cancel, PostAdd } from "@material-ui/icons";
-import React, { Fragment, useState } from "react";
+import { ArrowBack, PostAdd } from "@material-ui/icons";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewPost } from "../../actions/postActions";
 
 import { category, location } from "../../data/data";
 import { a11yProps, getToday, TabPanel } from "../../app/functions";
-import { useHistory } from "react-router-dom";
 
 const NewProductDialog = (props) => {
    const [page, setPage] = useState(0);

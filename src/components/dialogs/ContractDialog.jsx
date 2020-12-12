@@ -27,6 +27,7 @@ import ContractAccordionComp from "../accordions/ContractAccordionComp";
 import { getUserInfo } from "../../actions/userActions";
 import { getAccountNumber, getBankName } from "../../app/functions";
 import { getRemainCost } from "../../api/financialActions";
+import DrawerText from "../Drawer/DrawerText";
 
 const ContractDialog = (props) => {
    const dispatch = useDispatch();
@@ -61,7 +62,6 @@ const ContractDialog = (props) => {
    const [remainCost, setRemainCost] = useState("Loading...");
 
    useEffect(() => {
-      console.info(isContract);
       if (isContract) {
          setPage("deposit");
       }
@@ -143,10 +143,12 @@ const ContractDialog = (props) => {
          return alert("출금이체를 위해 핀어카운트 발급이 필요합니다.");
       }
 
-      // 출금 이체 성공 시
-      if (drawingTransfer(user, product, tradeId)) {
-         alert("정상적으로 처리되었습니다.");
-         onClose();
+      if (window.confirm("출금 이체를 하시겠습니까?")) {
+         // 출금 이체 성공 시
+         if (drawingTransfer(user, product, tradeId)) {
+            alert("정상적으로 처리되었습니다.");
+            onClose();
+         }
       }
    };
 
@@ -237,7 +239,7 @@ const ContractDialog = (props) => {
 
       // 송금 다이얼로그
       case "deposit":
-         if (user.user.id === product.sellerId) {
+         if (user.user.id === product.seller.id) {
             return (
                <Dialog open={open} onClose={handleClose}>
                   <DialogTitle>계약금 입금 대기 중</DialogTitle>
@@ -254,72 +256,54 @@ const ContractDialog = (props) => {
          }
          return (
             <Drawer anchor="bottom" open={open} onClose={handleClose}>
-               <div>
-                  <InputLabel>
-                     <div
-                        style={{ fontSize: "30px", padding: "20px 30px" }}
-                        className="text-left"
-                     >
-                        송금
-                     </div>
-                  </InputLabel>
-                  <div className="FormDivStyle">
-                     <InputLabel style={{ margin: "0 30px" }}>
-                        <div
-                           style={{ fontSize: "30px", paddingBottom: 25 }}
-                           className="text-center"
-                        >
-                           본인 계좌
-                        </div>
-                     </InputLabel>
-                     <div className="Account-Bank-Box Row">
-                        <div className="Col" style={{ width: "50%" }}>
-                           <InputLabel>
-                              {getBankName(user.user.bankCode)}
-                           </InputLabel>
-                           <b>{getAccountNumber(user.user.accountNumber)}</b>
-                        </div>
-                        <div className="Col" style={{ width: "50%" }}>
-                           <InputLabel>출금가능금액</InputLabel>
-                           <b>{remainCost}</b>
-                        </div>
-                     </div>
-                     <InputLabel style={{ margin: "0 30px" }}>
-                        <div
-                           style={{ fontSize: "30px", paddingBottom: 30 }}
-                           className="text-center"
-                        >
-                           판매자 정보
-                        </div>
-                     </InputLabel>
-                     <InputLabel style={{ margin: "0 30px" }}>
-                        <small>이름</small>
-                        <div className="Deposit-Name">
-                           <b>{product.name}</b>
-                        </div>
-                     </InputLabel>
-                     <InputLabel style={{ margin: "30px 30px 30px" }}>
-                        <small>전화번호</small>&ensp;
-                        <div className="Deposit-Phone">
-                           <b>{product.phoneNumber}</b>
-                        </div>
-                     </InputLabel>
-                     <InputLabel style={{ margin: "0 30px 0" }}>
-                        <small>가격</small>
-
-                        <div className="Deposit-Cost">
-                           <b>{product.cost.toLocaleString()} 원</b>
-                        </div>
-                     </InputLabel>
-                  </div>
-                  <Button
-                     onClick={handleOnSendDeposit}
-                     color="primary"
-                     className="Deposit-Button"
+               <div style={{ padding: "20px 20px 0px 20px " }}>
+                  <InputLabel>계약금 출금이체</InputLabel>
+                  <hr />
+                  <InputLabel>본인 계좌</InputLabel>
+                  <div
+                     className="Account-Bank-Box Row"
+                     style={{ justifyContent: "space-between" }}
                   >
-                     보내기
-                  </Button>
+                     <div className="Col" style={{ width: "48%" }}>
+                        <InputLabel>
+                           {getBankName(user.user.bankCode)}
+                        </InputLabel>
+                        <small>
+                           {getAccountNumber(user.user.accountNumber)}
+                        </small>
+                     </div>
+                     <div
+                        className="Col"
+                        style={{ width: "48%", textAlign: "right" }}
+                     >
+                        <InputLabel>현재 금액</InputLabel>
+                        <small>{remainCost}</small>
+                     </div>
+                  </div>
+
+                  <InputLabel>판매자 정보</InputLabel>
+                  <div className="Account-Bank-Box">
+                     <DrawerText left="이름" right={product.seller.name} />
+                     <DrawerText
+                        left="전화번호"
+                        right={product.seller.phoneNumber}
+                     />
+                     <DrawerText
+                        left="가격"
+                        right={`${product.cost.toLocaleString()} 원`}
+                     />
+                  </div>
                </div>
+
+               <Button
+                  fullWidth
+                  variant="contained"
+                  onClick={handleOnSendDeposit}
+                  color="primary"
+                  className="Deposit-Button"
+               >
+                  출금 이체
+               </Button>
             </Drawer>
          );
 

@@ -27,11 +27,11 @@ const ContractAccordionComp = ({ product, requester }) => {
                      매도인(갑)
                   </div>
                   <div className="col-xs-10" style={{ paddingLeft: "7px" }}>
-                     <small>{product.name}</small>
+                     <small>{product.seller.name}</small>
                      <br />
-                     <small>{product.phoneNumber}</small>
+                     <small>{product.seller.phoneNumber}</small>
                      <br />
-                     <small>{product.birthDay}</small>
+                     <small>{product.seller.birthDay}</small>
                      <br />
                      <small>{product.address}</small>
                   </div>

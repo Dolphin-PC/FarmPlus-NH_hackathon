@@ -45,12 +45,12 @@ export const loginUser = (user) => async (dispatch) => {
 };
 
 export const getUserInfo = (user) => async (dispatch) => {
-   await Axios.get(`${serverUrl}/users?id=${user.user.id}`)
+   await Axios.get(`${serverUrl}/users/${user.user.id}`)
       .then((res) => {
          console.info(res);
          dispatch({
             type: GET_USER,
-            payload: res.data[0],
+            payload: res.data,
          });
       })
       .catch((err) => {
@@ -77,51 +77,50 @@ export const addFavorite = (user, current) => async (dispatch) => {
 };
 
 export const tradeRequest = (user, current) => async (dispatch) => {
+   let requester = user.user;
+   // 불필요한 정보 삭제
+   delete requester.notice;
+   delete requester.favorite;
+   delete requester.trade;
+
    let result;
 
    const tradeId = shortid.generate();
 
-   let myList = {};
-   let sellerList = {};
+   let myList = [];
+   let sellerList = [];
 
-   // 셀러 정보 가져오기(거래정보)
-   const _user = await Axios.get(`${serverUrl}/users/${user.user.id}`);
-   const seller = await Axios.get(`${serverUrl}/users/${current.sellerId}`);
+   const myTradeInfo = await Axios.get(
+      `${serverUrl}/users/${user.user.id}`
+   ).then((res) => res.data.trade);
+   const sellerTradeInfo = await Axios.get(
+      `${serverUrl}/users/${current.seller.id}`
+   ).then((res) => res.data.trade);
 
-   console.info("my", _user);
-   console.info("seller", seller);
-
-   if (_user.data.trade) {
-      myList = _user.data.trade;
+   if (myTradeInfo) {
+      myList = myTradeInfo;
    }
-   if (seller.data.trade) {
-      sellerList = seller.data.trade;
+   if (sellerTradeInfo) {
+      sellerList = sellerTradeInfo;
    }
 
    const newTrade = {
       tradeId: tradeId,
       noticeType: "거래대기",
-      requester: {
-         ..._user.data,
-      },
+      requester,
       product: current,
    };
 
    myList.push(newTrade);
    sellerList.push(newTrade);
 
-   console.info(sellerList);
-
-   // 내 거래내역 추가
-   result = await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
+   // // 내 거래내역 추가
+   await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
       trade: myList,
-   }).catch((err) => {
-      console.error("server error1", err);
-      return false;
    });
 
-   // 상대방 거래내역 추가
-   result = await Axios.patch(`${serverUrl}/users/${current.sellerId}`, {
+   // // 상대방 거래내역 추가
+   result = await Axios.patch(`${serverUrl}/users/${current.seller.id}`, {
       trade: sellerList,
       notice: sellerList,
    })
@@ -129,7 +128,6 @@ export const tradeRequest = (user, current) => async (dispatch) => {
          return true;
       })
       .catch((err) => {
-         console.error("server error2", err);
          return false;
       });
 
@@ -140,6 +138,7 @@ export const tradeRequest = (user, current) => async (dispatch) => {
 export const acceptRequest = (user, tradeId, requester, product) => async (
    dispatch
 ) => {
+   let result;
    // 내 거래정보
    let myTradeInfo = await Axios.get(`${serverUrl}/users/${user.user.id}`);
    // 구매자 거래정보
@@ -160,13 +159,14 @@ export const acceptRequest = (user, tradeId, requester, product) => async (
       return trade;
    });
 
-   await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
+   result = await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
       trade: myTradeInfo,
       notice: myTradeInfo,
    }).catch((err) => {
       console.error(err);
    });
-   await Axios.patch(`${serverUrl}/users/${requester.id}`, {
+
+   result = await Axios.patch(`${serverUrl}/users/${requester.id}`, {
       trade: requesterTradeInfo,
       notice: requesterTradeInfo,
    })
@@ -176,5 +176,8 @@ export const acceptRequest = (user, tradeId, requester, product) => async (
       })
       .catch((err) => {
          console.error(err);
+         return false;
       });
+
+   return result;
 };

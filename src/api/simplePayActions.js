@@ -8,6 +8,8 @@ import Axios from "axios";
 
 // 출금 이체
 export const drawingTransfer = async (user, product, tradeId) => {
+   let result;
+
    const url = "https://developers.nonghyup.com/DrawingTransfer.nh";
 
    const body = {
@@ -23,7 +25,7 @@ export const drawingTransfer = async (user, product, tradeId) => {
       },
       FinAcno: user.user.FinAcno,
       Tram: product.cost,
-      DractOtlt: `[계약금] ${product.title}(${product.name})`,
+      DractOtlt: `[계약금] ${product.title}(${product.seller.name})`,
    };
 
    // 출금이체
@@ -33,7 +35,6 @@ export const drawingTransfer = async (user, product, tradeId) => {
       })
       .catch((err) => {
          console.error(err);
-         return "error";
       });
 
    // 내 거래정보
@@ -41,7 +42,7 @@ export const drawingTransfer = async (user, product, tradeId) => {
 
    // 판매자 거래정보
    let sellerTradeInfo = await Axios.get(
-      `${serverUrl}/users/${product.sellerId}`
+      `${serverUrl}/users/${product.seller.id}`
    );
 
    myTradeInfo = myTradeInfo.data.trade.map((trade) => {
@@ -63,7 +64,7 @@ export const drawingTransfer = async (user, product, tradeId) => {
    }).catch((err) => {
       console.error(err);
    });
-   await Axios.patch(`${serverUrl}/users/${product.sellerId}`, {
+   result = await Axios.patch(`${serverUrl}/users/${product.seller.id}`, {
       trade: sellerTradeInfo,
       notice: sellerTradeInfo,
    })
@@ -73,11 +74,20 @@ export const drawingTransfer = async (user, product, tradeId) => {
       })
       .catch((err) => {
          console.error(err);
+         return false;
       });
+
+   return result;
 };
 
 // 입금 이체
-export const receivedTransferAccountNumber = async (user, product, tradeId) => {
+export const receivedTransferAccountNumber = async (
+   user,
+   product,
+   requester,
+   tradeId
+) => {
+   let result;
    const url =
       "https://developers.nonghyup.com/ReceivedTransferAccountNumber.nh";
 
@@ -100,33 +110,37 @@ export const receivedTransferAccountNumber = async (user, product, tradeId) => {
    };
 
    // 입금이체
-   await Axios.post(url, body)
-      .then((res) => {
-         console.info(res.data);
-         return true;
-      })
-      .catch((err) => {
-         console.error(err);
-         return false;
-      });
+   try {
+      await Axios.post(url, body)
+         .then((res) => {
+            console.info(res.data);
+            return true;
+         })
+         .catch((err) => {
+            console.error(err);
+            return false;
+         });
+   } catch (err) {
+      return console.error(err);
+   }
 
    // 내 거래정보
    let myTradeInfo = await Axios.get(`${serverUrl}/users/${user.user.id}`);
 
    // 판매자 거래정보
-   let sellerTradeInfo = await Axios.get(
-      `${serverUrl}/users/${product.sellerId}`
-   );
+   let sellerTradeInfo = await Axios.get(`${serverUrl}/users/${requester.id}`);
+
+   console.info();
 
    myTradeInfo = myTradeInfo.data.trade.map((trade) => {
       if (trade.tradeId === tradeId) {
-         return { ...trade, noticeType: "거래완료" };
+         return { ...trade, noticeType: "거래완료", deposit: 0 };
       }
       return trade;
    });
    sellerTradeInfo = sellerTradeInfo.data.trade.map((trade) => {
       if (trade.tradeId === tradeId) {
-         return { ...trade, noticeType: "거래완료" };
+         return { ...trade, noticeType: "거래완료", deposit: 0 };
       }
       return trade;
    });
@@ -137,7 +151,8 @@ export const receivedTransferAccountNumber = async (user, product, tradeId) => {
    }).catch((err) => {
       console.error(err);
    });
-   await Axios.patch(`${serverUrl}/users/${product.sellerId}`, {
+
+   result = await Axios.patch(`${serverUrl}/users/${requester.id}`, {
       trade: sellerTradeInfo,
       notice: sellerTradeInfo,
    })
@@ -147,5 +162,8 @@ export const receivedTransferAccountNumber = async (user, product, tradeId) => {
       })
       .catch((err) => {
          console.error(err);
+         return false;
       });
+
+   return result;
 };

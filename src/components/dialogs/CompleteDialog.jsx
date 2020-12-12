@@ -7,6 +7,8 @@ import {
    Drawer,
    InputLabel,
 } from "@material-ui/core";
+import Rating from "@material-ui/lab/Rating";
+
 import React, { Fragment, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { receivedTradeDeposit } from "../../actions/tradeActions";
@@ -22,6 +24,7 @@ const CompleteDialog = (props) => {
    const dispatch = useDispatch();
    const user = useSelector((state) => state.user);
    const [remainCost, setRemainCost] = useState("Loading...");
+   const [star, setStar] = useState(2);
    const realCost = product.cost - product.cost * 0.01;
 
    useEffect(() => {
@@ -45,11 +48,9 @@ const CompleteDialog = (props) => {
             `${realCost.toLocaleString()} 원\n입금 이체를 신청하시겠습니까?`
          )
       ) {
-         if (receivedTransferAccountNumber(user, product, tradeId)) {
-            if (receivedTradeDeposit(user, tradeId)) {
-               alert("정상적으로 처리되었습니다.");
-               onClose();
-            }
+         if (receivedTransferAccountNumber(user, product, requester, tradeId)) {
+            alert("정상적으로 처리되었습니다.");
+            onClose();
          } else {
             alert("오류가 발생했습니다.(console 확인)");
          }
@@ -77,9 +78,14 @@ const CompleteDialog = (props) => {
                <ContractAccordionComp product={product} requester={requester} />
 
                <br />
-
+               <InputLabel>거래가 완료되었습니다.</InputLabel>
                <DialogActions>
-                  <InputLabel>거래가 완료되었습니다.</InputLabel>
+                  <Rating
+                     value={star}
+                     onChange={(event, star) => {
+                        setStar(star);
+                     }}
+                  />
                </DialogActions>
             </Fragment>
          </DialogRender>
@@ -88,7 +94,7 @@ const CompleteDialog = (props) => {
    return (
       <Drawer anchor="bottom" open={open} onClose={handleClose}>
          <div style={{ padding: "20px 20px 0px 20px " }}>
-            <InputLabel>계약금 입금</InputLabel>
+            <InputLabel>계약금 입금이체</InputLabel>
             <hr />
             <InputLabel>본인 계좌</InputLabel>
             <div

@@ -149,6 +149,7 @@ const Navbar = (props) => {
                <NoticeDialog
                   open={openNotice}
                   onClose={() => setOpenNotice(!openNotice)}
+                  user={user}
                />
                <BottomNavbarRender />
             </Fragment>
