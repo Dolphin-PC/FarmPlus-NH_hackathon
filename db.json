@@ -1,60 +1,97 @@
 {
   "posts": [
     {
-      "id": "fFDhDRRv2",
-      "title": "강원도 감자 10KG 5천원",
+      "id": "g6D1dswX6",
+      "title": "당근 농장(넓음)",
       "star": 0,
-      "size": 321312,
-      "category": "배추",
-      "subCategory": "fdsfd",
+      "size": 100000,
+      "category": "당근",
+      "subCategory": "당근",
       "location": "강원",
-      "cost": 312321,
-      "content": "fdsfds",
+      "cost": 30000000,
+      "content": "당근 농장 넓습니다.\n\n많은 이용 부탁드려요~",
       "imageUrls": [
-        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
+        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%8B%B9%EA%B7%BC%2Fimages%2F%EB%8B%B9%EA%B7%BC%20%EB%86%8D%EC%9E%A5(%EB%84%93%EC%9D%8C)?alt=media&token=57fd71d0-d265-4b05-90cb-7c8095baea75"
       ],
-      "createDate": "2020-12-12T12:44:48.777Z",
+      "createDate": "2020-12-12T14:27:24.217Z",
       "date": "2020-12-12",
-      "address": "fsdfds",
-      "plantDay": "2020-12-04",
-      "outDay": "2020-12-10",
-      "landNumber": "fsdf",
+      "address": "강원도 춘천시 당근농장",
+      "plantDay": "2020-12-19",
+      "outDay": "2021-01-02",
+      "landNumber": "157141-1481811-4848",
       "seller": {
-        "isVIP": true,
-        "name": "판매자",
-        "phoneNumber": "010-4597-1538",
-        "address": "경상북도 남양읍 34-1",
+        "isVIP": false,
+        "name": "김사기꾼",
+        "phoneNumber": "010-1575-7848",
+        "address": "경상남도 함안군 함안로 34-1",
         "landNumber": "3123-1233123-123213",
         "birthDay": "19960110",
-        "id": "seller",
+        "id": "seller2",
         "bankCode": "011",
-        "accountNumber": "3020000003104",
-        "Rgno": "20201212000001023",
-        "FinAcno": "00820100004520000000000004761"
+        "accountNumber": "3020000003105",
+        "Rgno": "20201212000001025",
+        "FinAcno": "00820100004520000000000004763",
+        "trade": [],
+        "notice": []
       }
     },
     {
-      "id": "vK9jCFa-5",
-      "title": "감자 밭 8월 재배예정",
+      "id": "lS1FS7KDI",
+      "title": "이쁜 파",
       "star": 0,
-      "size": 13123,
-      "category": "배추",
-      "subCategory": "fdsf",
-      "location": "충북",
-      "cost": 32132,
-      "content": "fdsfds",
+      "size": 55422,
+      "category": "파",
+      "subCategory": "파",
+      "location": "전남",
+      "cost": 20000000,
+      "content": "파들이 잘 자랄 예정이에요",
       "imageUrls": [
-        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%B6%A9%EB%B6%81%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%90%EC%9E%90%20%EB%B0%AD%208%EC%9B%94%20%EC%9E%AC%EB%B0%B0%EC%98%88%EC%A0%95?alt=media&token=cb6a388c-c1c3-4c4a-8b43-91e3b79fca13"
+        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%84%EB%82%A8%2F%ED%8C%8C%2Fimages%2F%EC%9D%B4%EC%81%9C%20%ED%8C%8C?alt=media&token=00059a48-4e3b-4b78-a957-2e74c4c8889f"
       ],
-      "createDate": "2020-12-12T12:45:09.699Z",
+      "createDate": "2020-12-12T14:29:25.331Z",
       "date": "2020-12-12",
-      "address": "fdsfdsds",
-      "plantDay": "2020-12-03",
-      "outDay": "2020-12-17",
-      "landNumber": "312321",
+      "address": "전남 함평군 어느파밭",
+      "plantDay": "2020-12-02",
+      "outDay": "2020-12-26",
+      "landNumber": "15154-485484-464374",
+      "seller": {
+        "isVIP": false,
+        "name": "김사기꾼",
+        "phoneNumber": "010-1575-7848",
+        "address": "경상남도 함안군 함안로 34-1",
+        "landNumber": "3123-1233123-123213",
+        "birthDay": "19960110",
+        "id": "seller2",
+        "bankCode": "011",
+        "accountNumber": "3020000003105",
+        "Rgno": "20201212000001025",
+        "FinAcno": "00820100004520000000000004763",
+        "trade": [],
+        "notice": []
+      }
+    },
+    {
+      "id": "BPaW84dKF",
+      "title": "마늘 대박예정",
+      "star": 0,
+      "size": 55555,
+      "category": "마늘",
+      "subCategory": "마늘",
+      "location": "제주",
+      "cost": 55000000,
+      "content": "마늘 대박 예정입니다 \n\n지금이 기회에요",
+      "imageUrls": [
+        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EB%A7%88%EB%8A%98%2Fimages%2F%EB%A7%88%EB%8A%98%20%EB%8C%80%EB%B0%95%EC%98%88%EC%A0%95?alt=media&token=e095872c-34a8-4712-9b16-ae73f000df36"
+      ],
+      "createDate": "2020-12-12T14:32:00.654Z",
+      "date": "2020-12-12",
+      "address": "제주도 서귀포시 어느마늘밭",
+      "plantDay": "2020-12-26",
+      "outDay": "2021-03-04",
+      "landNumber": "441-45465-4561323",
       "seller": {
         "isVIP": true,
-        "name": "판매자",
+        "name": "김판매자",
         "phoneNumber": "010-4597-1538",
         "address": "경상북도 남양읍 34-1",
         "landNumber": "3123-1233123-123213",
@@ -63,14 +100,256 @@
         "bankCode": "011",
         "accountNumber": "3020000003104",
         "Rgno": "20201212000001023",
-        "FinAcno": "00820100004520000000000004761"
+        "FinAcno": "00820100004520000000000004761",
+        "trade": [],
+        "notice": []
+      }
+    },
+    {
+      "id": "koDuTrfQX",
+      "title": "배!!추!!!농!!!가!!!",
+      "star": 0,
+      "size": 99999,
+      "category": "배추",
+      "subCategory": "배추",
+      "location": "충북",
+      "cost": 99000000,
+      "content": "저희 배추 농가를 찾아주셔서 감사합니다.\n\n많은 이용 바랍니다.",
+      "imageUrls": [
+        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%B6%A9%EB%B6%81%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EB%B0%B0!!%EC%B6%94!!!%EB%86%8D!!!%EA%B0%80!!!?alt=media&token=ca957b9e-2899-4865-ae07-7fbf0a23add6"
+      ],
+      "createDate": "2020-12-12T14:34:03.481Z",
+      "date": "2020-12-12",
+      "address": "충북 안동시 괴산군 어느배추농장",
+      "plantDay": "2021-03-25",
+      "outDay": "2021-06-04",
+      "landNumber": "1456156-98465564-411",
+      "seller": {
+        "isVIP": false,
+        "name": "김사기꾼",
+        "phoneNumber": "010-1575-7848",
+        "address": "경상남도 함안군 함안로 34-1",
+        "landNumber": "3123-1233123-123213",
+        "birthDay": "19960110",
+        "id": "seller2",
+        "bankCode": "011",
+        "accountNumber": "3020000003105",
+        "Rgno": "20201212000001025",
+        "FinAcno": "00820100004520000000000004763",
+        "trade": [],
+        "notice": []
+      }
+    },
+    {
+      "id": "olNlIe8iJ",
+      "title": "양파 많다많아",
+      "star": 0,
+      "size": 11122,
+      "category": "양파",
+      "subCategory": "양파",
+      "location": "전남",
+      "cost": 80000000,
+      "content": "양파 아주 많다 얼른 오너라",
+      "imageUrls": [
+        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%84%EB%82%A8%2F%EC%96%91%ED%8C%8C%2Fimages%2F%EC%96%91%ED%8C%8C%20%EB%A7%8E%EB%8B%A4%EB%A7%8E%EC%95%84?alt=media&token=651fc116-d83c-4536-8248-625205fb7e59"
+      ],
+      "createDate": "2020-12-12T14:34:12.917Z",
+      "date": "2020-12-12",
+      "address": "전남 나주시 어느양파농장",
+      "plantDay": "2020-12-01",
+      "outDay": "2021-04-28",
+      "landNumber": "56165-459816-78123",
+      "seller": {
+        "isVIP": false,
+        "name": "노양심",
+        "phoneNumber": "010-7891-2345",
+        "address": "서울광역시 강남구 역삼동 34-1",
+        "landNumber": "3123-1233123-123213",
+        "birthDay": "19960110",
+        "id": "seller1",
+        "bankCode": "011",
+        "accountNumber": "3020000003106",
+        "Rgno": "20201212000001024",
+        "FinAcno": "00820100004520000000000004762",
+        "trade": [],
+        "notice": []
+      }
+    },
+    {
+      "id": "sF66-1eUW",
+      "title": "귀해질 무",
+      "star": 0,
+      "size": 1235,
+      "category": "무",
+      "subCategory": "무",
+      "location": "충남",
+      "cost": 44000000,
+      "content": "올해 기후가 안 좋아서 무가 귀해진다고 하네요~ 얼른 찾아가세요~",
+      "imageUrls": [
+        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%B6%A9%EB%82%A8%2F%EB%AC%B4%2Fimages%2F%EA%B7%80%ED%95%B4%EC%A7%88%20%EB%AC%B4?alt=media&token=9383618c-91eb-4944-92be-993e895de97d"
+      ],
+      "createDate": "2020-12-12T14:33:30.095Z",
+      "date": "2020-12-12",
+      "address": "충남 예산군 어느무농장",
+      "plantDay": "2021-04-22",
+      "outDay": "2021-09-17",
+      "landNumber": "56165-4613298-78",
+      "seller": {
+        "isVIP": true,
+        "name": "김판매자",
+        "phoneNumber": "010-4597-1538",
+        "address": "경상북도 남양읍 34-1",
+        "landNumber": "3123-1233123-123213",
+        "birthDay": "19960110",
+        "id": "seller",
+        "bankCode": "011",
+        "accountNumber": "3020000003104",
+        "Rgno": "20201212000001023",
+        "FinAcno": "00820100004520000000000004761",
+        "trade": [],
+        "notice": []
+      }
+    },
+    {
+      "id": "C-yAc4S5V",
+      "title": "귀한 당근들",
+      "star": 0,
+      "size": 4000,
+      "category": "당근",
+      "subCategory": "당근",
+      "location": "경기",
+      "cost": 40000000,
+      "content": "귀한 당근들",
+      "imageUrls": [
+        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B2%BD%EA%B8%B0%2F%EB%8B%B9%EA%B7%BC%2Fimages%2F%EA%B7%80%ED%95%9C%20%EB%8B%B9%EA%B7%BC%EB%93%A4?alt=media&token=14485ea6-20e9-4214-9932-97a4f5260978"
+      ],
+      "createDate": "2020-12-12T14:39:16.126Z",
+      "date": "2020-12-12",
+      "address": "경기도 이천시 어느당근농장",
+      "plantDay": "2020-09-15",
+      "outDay": "2021-02-24",
+      "landNumber": "4444-7788-152154",
+      "seller": {
+        "isVIP": true,
+        "name": "김판매자",
+        "phoneNumber": "010-4597-1538",
+        "address": "경상북도 남양읍 34-1",
+        "landNumber": "3123-1233123-123213",
+        "birthDay": "19960110",
+        "id": "seller",
+        "bankCode": "011",
+        "accountNumber": "3020000003104",
+        "Rgno": "20201212000001023",
+        "FinAcno": "00820100004520000000000004761",
+        "trade": [],
+        "notice": []
+      }
+    },
+    {
+      "id": "tm-0C8-oA",
+      "title": "대파대파대파",
+      "star": 0,
+      "size": 1000000,
+      "category": "파",
+      "subCategory": "대파",
+      "location": "경북",
+      "cost": 100000000,
+      "content": "대파가대박",
+      "imageUrls": [
+        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B2%BD%EB%B6%81%2F%ED%8C%8C%2Fimages%2F%EB%8C%80%ED%8C%8C%EB%8C%80%ED%8C%8C%EB%8C%80%ED%8C%8C?alt=media&token=6eda09a0-e656-4f68-945b-23c7e01862ae"
+      ],
+      "createDate": "2020-12-12T14:40:19.727Z",
+      "date": "2020-12-12",
+      "address": "경북 안동시 어느대파밭",
+      "plantDay": "2020-07-06",
+      "outDay": "2021-03-18",
+      "landNumber": "15-48454-78485112",
+      "seller": {
+        "isVIP": false,
+        "name": "김사기꾼",
+        "phoneNumber": "010-1575-7848",
+        "address": "경상남도 함안군 함안로 34-1",
+        "landNumber": "3123-1233123-123213",
+        "birthDay": "19960110",
+        "id": "seller2",
+        "bankCode": "011",
+        "accountNumber": "3020000003105",
+        "Rgno": "20201212000001025",
+        "FinAcno": "00820100004520000000000004763",
+        "trade": [],
+        "notice": []
+      }
+    },
+    {
+      "id": "zCSCNglhW",
+      "title": "배추가배추",
+      "star": 0,
+      "size": 50,
+      "category": "배추",
+      "subCategory": "배추",
+      "location": "경남",
+      "cost": 1055000000,
+      "content": "배추가배추",
+      "imageUrls": [
+        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B2%BD%EB%82%A8%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EB%B0%B0%EC%B6%94%EA%B0%80%EB%B0%B0%EC%B6%94?alt=media&token=dd05f12a-3c90-4e4b-b5f9-5653b55ed063"
+      ],
+      "createDate": "2020-12-12T14:40:35.445Z",
+      "date": "2020-12-12",
+      "address": "경남 함안군 어느배추밭",
+      "plantDay": "2020-11-03",
+      "outDay": "2021-01-07",
+      "landNumber": "555-22333-515151",
+      "seller": {
+        "isVIP": false,
+        "name": "노양심",
+        "phoneNumber": "010-7891-2345",
+        "address": "서울광역시 강남구 역삼동 34-1",
+        "landNumber": "3123-1233123-123213",
+        "birthDay": "19960110",
+        "id": "seller1",
+        "bankCode": "011",
+        "accountNumber": "3020000003106",
+        "Rgno": "20201212000001024",
+        "FinAcno": "00820100004520000000000004762",
+        "trade": [],
+        "notice": []
+      }
+    },
+    {
+      "id": "ZWleckp8x",
+      "title": "양파테스트",
+      "star": 0,
+      "size": 30,
+      "category": "양파",
+      "subCategory": "양파",
+      "location": "제주",
+      "cost": 500000,
+      "content": "양파테스트",
+      "imageUrls": [
+        "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EC%96%91%ED%8C%8C%2Fimages%2F%EC%96%91%ED%8C%8C%ED%85%8C%EC%8A%A4%ED%8A%B8?alt=media&token=d5b57849-e0ef-4ff5-8308-29bbb558d1de"
+      ],
+      "createDate": "2020-12-13T06:12:53.408Z",
+      "date": "2020-12-13",
+      "address": "제주도 어느 양파농장",
+      "plantDay": "2020-12-13",
+      "outDay": "2020-12-31",
+      "landNumber": "123455-1234455",
+      "seller": {
+        "name": "박찬영",
+        "phoneNumber": "010-1234-5567",
+        "address": "강원도 옥천동 2-04",
+        "landNumber": "12344556-123456",
+        "birthDay": "19960110",
+        "id": "sellerqwe",
+        "bankCode": "011",
+        "accountNumber": "3020000003231"
       }
     }
   ],
   "users": [
     {
       "isVIP": true,
-      "name": "판매자",
+      "name": "김판매자",
       "phoneNumber": "010-4597-1538",
       "address": "경상북도 남양읍 34-1",
       "landNumber": "3123-1233123-123213",
@@ -83,7 +362,7 @@
       "FinAcno": "00820100004520000000000004761",
       "trade": [
         {
-          "tradeId": "PJRA4lqaY",
+          "tradeId": "z4eAC2J2C",
           "noticeType": "거래완료",
           "requester": {
             "name": "박찬영",
@@ -99,27 +378,27 @@
             "FinAcno": "00820100004520000000000004752"
           },
           "product": {
-            "id": "fFDhDRRv2",
-            "title": "강원도 감자 10KG 5천원",
+            "id": "BPaW84dKF",
+            "title": "마늘 대박예정",
             "star": 0,
-            "size": 321312,
-            "category": "배추",
-            "subCategory": "fdsfd",
-            "location": "강원",
-            "cost": 312321,
-            "content": "fdsfds",
+            "size": 55555,
+            "category": "마늘",
+            "subCategory": "마늘",
+            "location": "제주",
+            "cost": 55000000,
+            "content": "마늘 대박 예정입니다 \n\n지금이 기회에요",
             "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EB%A7%88%EB%8A%98%2Fimages%2F%EB%A7%88%EB%8A%98%20%EB%8C%80%EB%B0%95%EC%98%88%EC%A0%95?alt=media&token=e095872c-34a8-4712-9b16-ae73f000df36"
             ],
-            "createDate": "2020-12-12T12:44:48.777Z",
+            "createDate": "2020-12-12T14:32:00.654Z",
             "date": "2020-12-12",
-            "address": "fsdfds",
-            "plantDay": "2020-12-04",
-            "outDay": "2020-12-10",
-            "landNumber": "fsdf",
+            "address": "제주도 서귀포시 어느마늘밭",
+            "plantDay": "2020-12-26",
+            "outDay": "2021-03-04",
+            "landNumber": "441-45465-4561323",
             "seller": {
               "isVIP": true,
-              "name": "판매자",
+              "name": "김판매자",
               "phoneNumber": "010-4597-1538",
               "address": "경상북도 남양읍 34-1",
               "landNumber": "3123-1233123-123213",
@@ -128,168 +407,11 @@
               "bankCode": "011",
               "accountNumber": "3020000003104",
               "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
+              "FinAcno": "00820100004520000000000004761",
+              "trade": [],
+              "notice": []
             },
-            "image": "http://placeimg.com/640/480/technics"
-          },
-          "isContract": true,
-          "deposit": 0
-        },
-        {
-          "tradeId": "2yvAoHI7Q",
-          "noticeType": "거래완료",
-          "requester": {
-            "name": "박찬영",
-            "phoneNumber": "010-4894-4879",
-            "address": "강원도 춘천시 충열로 16번길 21-14",
-            "landNumber": "",
-            "birthDay": "19960110",
-            "id": "pcy",
-            "password": "123",
-            "bankCode": "011",
-            "accountNumber": "3020000003105",
-            "Rgno": "20201212000001022",
-            "FinAcno": "00820100004520000000000004752"
-          },
-          "product": {
-            "id": "vK9jCFa-5",
-            "title": "감자 밭 8월 재배예정",
-            "star": 0,
-            "size": 13123,
-            "category": "배추",
-            "subCategory": "fdsf",
-            "location": "충북",
-            "cost": 32132,
-            "content": "fdsfds",
-            "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%B6%A9%EB%B6%81%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%90%EC%9E%90%20%EB%B0%AD%208%EC%9B%94%20%EC%9E%AC%EB%B0%B0%EC%98%88%EC%A0%95?alt=media&token=cb6a388c-c1c3-4c4a-8b43-91e3b79fca13"
-            ],
-            "createDate": "2020-12-12T12:45:09.699Z",
-            "date": "2020-12-12",
-            "address": "fdsfdsds",
-            "plantDay": "2020-12-03",
-            "outDay": "2020-12-17",
-            "landNumber": "312321",
-            "seller": {
-              "isVIP": true,
-              "name": "판매자",
-              "phoneNumber": "010-4597-1538",
-              "address": "경상북도 남양읍 34-1",
-              "landNumber": "3123-1233123-123213",
-              "birthDay": "19960110",
-              "id": "seller",
-              "bankCode": "011",
-              "accountNumber": "3020000003104",
-              "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
-            },
-            "image": "http://placeimg.com/640/480/technics"
-          },
-          "isContract": true,
-          "deposit": 0
-        },
-        {
-          "tradeId": "n4ArATaL2",
-          "noticeType": "거래완료",
-          "requester": {
-            "name": "박찬영",
-            "phoneNumber": "010-4894-4879",
-            "address": "강원도 춘천시 충열로 16번길 21-14",
-            "landNumber": "",
-            "birthDay": "19960110",
-            "id": "pcy",
-            "password": "123",
-            "bankCode": "011",
-            "accountNumber": "3020000003105",
-            "Rgno": "20201212000001022",
-            "FinAcno": "00820100004520000000000004752"
-          },
-          "product": {
-            "id": "fFDhDRRv2",
-            "title": "강원도 감자 10KG 5천원",
-            "star": 0,
-            "size": 321312,
-            "category": "배추",
-            "subCategory": "fdsfd",
-            "location": "강원",
-            "cost": 312321,
-            "content": "fdsfds",
-            "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
-            ],
-            "createDate": "2020-12-12T12:44:48.777Z",
-            "date": "2020-12-12",
-            "address": "fsdfds",
-            "plantDay": "2020-12-04",
-            "outDay": "2020-12-10",
-            "landNumber": "fsdf",
-            "seller": {
-              "isVIP": true,
-              "name": "판매자",
-              "phoneNumber": "010-4597-1538",
-              "address": "경상북도 남양읍 34-1",
-              "landNumber": "3123-1233123-123213",
-              "birthDay": "19960110",
-              "id": "seller",
-              "bankCode": "011",
-              "accountNumber": "3020000003104",
-              "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
-            },
-            "image": "http://placeimg.com/640/480/animals"
-          },
-          "isContract": true,
-          "deposit": 0
-        },
-        {
-          "tradeId": "LSu7VyTfB",
-          "noticeType": "거래완료",
-          "requester": {
-            "name": "박찬영",
-            "phoneNumber": "010-4894-4879",
-            "address": "강원도 춘천시 충열로 16번길 21-14",
-            "landNumber": "",
-            "birthDay": "19960110",
-            "id": "pcy",
-            "password": "123",
-            "bankCode": "011",
-            "accountNumber": "3020000003105",
-            "Rgno": "20201212000001022",
-            "FinAcno": "00820100004520000000000004752"
-          },
-          "product": {
-            "id": "fFDhDRRv2",
-            "title": "강원도 감자 10KG 5천원",
-            "star": 0,
-            "size": 321312,
-            "category": "배추",
-            "subCategory": "fdsfd",
-            "location": "강원",
-            "cost": 312321,
-            "content": "fdsfds",
-            "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
-            ],
-            "createDate": "2020-12-12T12:44:48.777Z",
-            "date": "2020-12-12",
-            "address": "fsdfds",
-            "plantDay": "2020-12-04",
-            "outDay": "2020-12-10",
-            "landNumber": "fsdf",
-            "seller": {
-              "isVIP": true,
-              "name": "판매자",
-              "phoneNumber": "010-4597-1538",
-              "address": "경상북도 남양읍 34-1",
-              "landNumber": "3123-1233123-123213",
-              "birthDay": "19960110",
-              "id": "seller",
-              "bankCode": "011",
-              "accountNumber": "3020000003104",
-              "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
-            },
-            "image": "http://placeimg.com/640/480/city"
+            "image": "http://placeimg.com/640/480/abstract"
           },
           "isContract": true,
           "deposit": 0
@@ -297,7 +419,7 @@
       ],
       "notice": [
         {
-          "tradeId": "PJRA4lqaY",
+          "tradeId": "z4eAC2J2C",
           "noticeType": "거래완료",
           "requester": {
             "name": "박찬영",
@@ -313,27 +435,27 @@
             "FinAcno": "00820100004520000000000004752"
           },
           "product": {
-            "id": "fFDhDRRv2",
-            "title": "강원도 감자 10KG 5천원",
+            "id": "BPaW84dKF",
+            "title": "마늘 대박예정",
             "star": 0,
-            "size": 321312,
-            "category": "배추",
-            "subCategory": "fdsfd",
-            "location": "강원",
-            "cost": 312321,
-            "content": "fdsfds",
+            "size": 55555,
+            "category": "마늘",
+            "subCategory": "마늘",
+            "location": "제주",
+            "cost": 55000000,
+            "content": "마늘 대박 예정입니다 \n\n지금이 기회에요",
             "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EB%A7%88%EB%8A%98%2Fimages%2F%EB%A7%88%EB%8A%98%20%EB%8C%80%EB%B0%95%EC%98%88%EC%A0%95?alt=media&token=e095872c-34a8-4712-9b16-ae73f000df36"
             ],
-            "createDate": "2020-12-12T12:44:48.777Z",
+            "createDate": "2020-12-12T14:32:00.654Z",
             "date": "2020-12-12",
-            "address": "fsdfds",
-            "plantDay": "2020-12-04",
-            "outDay": "2020-12-10",
-            "landNumber": "fsdf",
+            "address": "제주도 서귀포시 어느마늘밭",
+            "plantDay": "2020-12-26",
+            "outDay": "2021-03-04",
+            "landNumber": "441-45465-4561323",
             "seller": {
               "isVIP": true,
-              "name": "판매자",
+              "name": "김판매자",
               "phoneNumber": "010-4597-1538",
               "address": "경상북도 남양읍 34-1",
               "landNumber": "3123-1233123-123213",
@@ -342,173 +464,48 @@
               "bankCode": "011",
               "accountNumber": "3020000003104",
               "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
+              "FinAcno": "00820100004520000000000004761",
+              "trade": [],
+              "notice": []
             },
-            "image": "http://placeimg.com/640/480/technics"
-          },
-          "isContract": true,
-          "deposit": 0
-        },
-        {
-          "tradeId": "2yvAoHI7Q",
-          "noticeType": "거래완료",
-          "requester": {
-            "name": "박찬영",
-            "phoneNumber": "010-4894-4879",
-            "address": "강원도 춘천시 충열로 16번길 21-14",
-            "landNumber": "",
-            "birthDay": "19960110",
-            "id": "pcy",
-            "password": "123",
-            "bankCode": "011",
-            "accountNumber": "3020000003105",
-            "Rgno": "20201212000001022",
-            "FinAcno": "00820100004520000000000004752"
-          },
-          "product": {
-            "id": "vK9jCFa-5",
-            "title": "감자 밭 8월 재배예정",
-            "star": 0,
-            "size": 13123,
-            "category": "배추",
-            "subCategory": "fdsf",
-            "location": "충북",
-            "cost": 32132,
-            "content": "fdsfds",
-            "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%B6%A9%EB%B6%81%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%90%EC%9E%90%20%EB%B0%AD%208%EC%9B%94%20%EC%9E%AC%EB%B0%B0%EC%98%88%EC%A0%95?alt=media&token=cb6a388c-c1c3-4c4a-8b43-91e3b79fca13"
-            ],
-            "createDate": "2020-12-12T12:45:09.699Z",
-            "date": "2020-12-12",
-            "address": "fdsfdsds",
-            "plantDay": "2020-12-03",
-            "outDay": "2020-12-17",
-            "landNumber": "312321",
-            "seller": {
-              "isVIP": true,
-              "name": "판매자",
-              "phoneNumber": "010-4597-1538",
-              "address": "경상북도 남양읍 34-1",
-              "landNumber": "3123-1233123-123213",
-              "birthDay": "19960110",
-              "id": "seller",
-              "bankCode": "011",
-              "accountNumber": "3020000003104",
-              "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
-            },
-            "image": "http://placeimg.com/640/480/technics"
-          },
-          "isContract": true,
-          "deposit": 0
-        },
-        {
-          "tradeId": "n4ArATaL2",
-          "noticeType": "거래완료",
-          "requester": {
-            "name": "박찬영",
-            "phoneNumber": "010-4894-4879",
-            "address": "강원도 춘천시 충열로 16번길 21-14",
-            "landNumber": "",
-            "birthDay": "19960110",
-            "id": "pcy",
-            "password": "123",
-            "bankCode": "011",
-            "accountNumber": "3020000003105",
-            "Rgno": "20201212000001022",
-            "FinAcno": "00820100004520000000000004752"
-          },
-          "product": {
-            "id": "fFDhDRRv2",
-            "title": "강원도 감자 10KG 5천원",
-            "star": 0,
-            "size": 321312,
-            "category": "배추",
-            "subCategory": "fdsfd",
-            "location": "강원",
-            "cost": 312321,
-            "content": "fdsfds",
-            "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
-            ],
-            "createDate": "2020-12-12T12:44:48.777Z",
-            "date": "2020-12-12",
-            "address": "fsdfds",
-            "plantDay": "2020-12-04",
-            "outDay": "2020-12-10",
-            "landNumber": "fsdf",
-            "seller": {
-              "isVIP": true,
-              "name": "판매자",
-              "phoneNumber": "010-4597-1538",
-              "address": "경상북도 남양읍 34-1",
-              "landNumber": "3123-1233123-123213",
-              "birthDay": "19960110",
-              "id": "seller",
-              "bankCode": "011",
-              "accountNumber": "3020000003104",
-              "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
-            },
-            "image": "http://placeimg.com/640/480/animals"
-          },
-          "isContract": true,
-          "deposit": 0
-        },
-        {
-          "tradeId": "LSu7VyTfB",
-          "noticeType": "거래완료",
-          "requester": {
-            "name": "박찬영",
-            "phoneNumber": "010-4894-4879",
-            "address": "강원도 춘천시 충열로 16번길 21-14",
-            "landNumber": "",
-            "birthDay": "19960110",
-            "id": "pcy",
-            "password": "123",
-            "bankCode": "011",
-            "accountNumber": "3020000003105",
-            "Rgno": "20201212000001022",
-            "FinAcno": "00820100004520000000000004752"
-          },
-          "product": {
-            "id": "fFDhDRRv2",
-            "title": "강원도 감자 10KG 5천원",
-            "star": 0,
-            "size": 321312,
-            "category": "배추",
-            "subCategory": "fdsfd",
-            "location": "강원",
-            "cost": 312321,
-            "content": "fdsfds",
-            "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
-            ],
-            "createDate": "2020-12-12T12:44:48.777Z",
-            "date": "2020-12-12",
-            "address": "fsdfds",
-            "plantDay": "2020-12-04",
-            "outDay": "2020-12-10",
-            "landNumber": "fsdf",
-            "seller": {
-              "isVIP": true,
-              "name": "판매자",
-              "phoneNumber": "010-4597-1538",
-              "address": "경상북도 남양읍 34-1",
-              "landNumber": "3123-1233123-123213",
-              "birthDay": "19960110",
-              "id": "seller",
-              "bankCode": "011",
-              "accountNumber": "3020000003104",
-              "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
-            },
-            "image": "http://placeimg.com/640/480/city"
+            "image": "http://placeimg.com/640/480/abstract"
           },
           "isContract": true,
           "deposit": 0
         }
       ]
+    },
+    {
+      "isVIP": false,
+      "name": "노양심",
+      "phoneNumber": "010-7891-2345",
+      "address": "서울광역시 강남구 역삼동 34-1",
+      "landNumber": "3123-1233123-123213",
+      "birthDay": "19960110",
+      "id": "seller1",
+      "password": "123",
+      "bankCode": "011",
+      "accountNumber": "3020000003106",
+      "Rgno": "20201212000001024",
+      "FinAcno": "00820100004520000000000004762",
+      "trade": [],
+      "notice": []
+    },
+    {
+      "isVIP": false,
+      "name": "김사기꾼",
+      "phoneNumber": "010-1575-7848",
+      "address": "경상남도 함안군 함안로 34-1",
+      "landNumber": "3123-1233123-123213",
+      "birthDay": "19960110",
+      "id": "seller2",
+      "password": "123",
+      "bankCode": "011",
+      "accountNumber": "3020000003105",
+      "Rgno": "20201212000001025",
+      "FinAcno": "00820100004520000000000004763",
+      "trade": [],
+      "notice": []
     },
     {
       "name": "박찬영",
@@ -524,145 +521,71 @@
       "FinAcno": "00820100004520000000000004752",
       "favorite": [
         {
-          "id": "fFDhDRRv2",
-          "title": "강원도 감자 10KG 5천원",
+          "id": "ZWleckp8x",
+          "title": "양파테스트",
           "star": 0,
-          "size": 321312,
-          "category": "배추",
-          "subCategory": "fdsfd",
-          "location": "강원",
-          "cost": 312321,
-          "content": "fdsfds",
+          "size": 30,
+          "category": "양파",
+          "subCategory": "양파",
+          "location": "제주",
+          "cost": 500000,
+          "content": "양파테스트",
           "imageUrls": [
-            "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
+            "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EC%96%91%ED%8C%8C%2Fimages%2F%EC%96%91%ED%8C%8C%ED%85%8C%EC%8A%A4%ED%8A%B8?alt=media&token=d5b57849-e0ef-4ff5-8308-29bbb558d1de"
           ],
-          "createDate": "2020-12-12T12:44:48.777Z",
-          "date": "2020-12-12",
-          "address": "fsdfds",
-          "plantDay": "2020-12-04",
-          "outDay": "2020-12-10",
-          "landNumber": "fsdf",
+          "createDate": "2020-12-13T06:12:53.408Z",
+          "date": "2020-12-13",
+          "address": "제주도 어느 양파농장",
+          "plantDay": "2020-12-13",
+          "outDay": "2020-12-31",
+          "landNumber": "123455-1234455",
           "seller": {
-            "isVIP": true,
-            "name": "판매자",
-            "phoneNumber": "010-4597-1538",
-            "address": "경상북도 남양읍 34-1",
-            "landNumber": "3123-1233123-123213",
+            "name": "박찬영",
+            "phoneNumber": "010-1234-5567",
+            "address": "강원도 옥천동 2-04",
+            "landNumber": "12344556-123456",
             "birthDay": "19960110",
-            "id": "seller",
+            "id": "sellerqwe",
             "bankCode": "011",
-            "accountNumber": "3020000003104",
-            "Rgno": "20201212000001023",
-            "FinAcno": "00820100004520000000000004761"
+            "accountNumber": "3020000003231"
           },
           "image": "http://placeimg.com/640/480/technics"
         },
         {
-          "id": "fFDhDRRv2",
-          "title": "강원도 감자 10KG 5천원",
+          "id": "ZWleckp8x",
+          "title": "양파테스트",
           "star": 0,
-          "size": 321312,
-          "category": "배추",
-          "subCategory": "fdsfd",
-          "location": "강원",
-          "cost": 312321,
-          "content": "fdsfds",
+          "size": 30,
+          "category": "양파",
+          "subCategory": "양파",
+          "location": "제주",
+          "cost": 500000,
+          "content": "양파테스트",
           "imageUrls": [
-            "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
+            "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EC%96%91%ED%8C%8C%2Fimages%2F%EC%96%91%ED%8C%8C%ED%85%8C%EC%8A%A4%ED%8A%B8?alt=media&token=d5b57849-e0ef-4ff5-8308-29bbb558d1de"
           ],
-          "createDate": "2020-12-12T12:44:48.777Z",
-          "date": "2020-12-12",
-          "address": "fsdfds",
-          "plantDay": "2020-12-04",
-          "outDay": "2020-12-10",
-          "landNumber": "fsdf",
+          "createDate": "2020-12-13T06:12:53.408Z",
+          "date": "2020-12-13",
+          "address": "제주도 어느 양파농장",
+          "plantDay": "2020-12-13",
+          "outDay": "2020-12-31",
+          "landNumber": "123455-1234455",
           "seller": {
-            "isVIP": true,
-            "name": "판매자",
-            "phoneNumber": "010-4597-1538",
-            "address": "경상북도 남양읍 34-1",
-            "landNumber": "3123-1233123-123213",
+            "name": "박찬영",
+            "phoneNumber": "010-1234-5567",
+            "address": "강원도 옥천동 2-04",
+            "landNumber": "12344556-123456",
             "birthDay": "19960110",
-            "id": "seller",
+            "id": "sellerqwe",
             "bankCode": "011",
-            "accountNumber": "3020000003104",
-            "Rgno": "20201212000001023",
-            "FinAcno": "00820100004520000000000004761"
+            "accountNumber": "3020000003231"
           },
-          "image": "http://placeimg.com/640/480/city"
-        },
-        {
-          "id": "fFDhDRRv2",
-          "title": "강원도 감자 10KG 5천원",
-          "star": 0,
-          "size": 321312,
-          "category": "배추",
-          "subCategory": "fdsfd",
-          "location": "강원",
-          "cost": 312321,
-          "content": "fdsfds",
-          "imageUrls": [
-            "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
-          ],
-          "createDate": "2020-12-12T12:44:48.777Z",
-          "date": "2020-12-12",
-          "address": "fsdfds",
-          "plantDay": "2020-12-04",
-          "outDay": "2020-12-10",
-          "landNumber": "fsdf",
-          "seller": {
-            "isVIP": true,
-            "name": "판매자",
-            "phoneNumber": "010-4597-1538",
-            "address": "경상북도 남양읍 34-1",
-            "landNumber": "3123-1233123-123213",
-            "birthDay": "19960110",
-            "id": "seller",
-            "bankCode": "011",
-            "accountNumber": "3020000003104",
-            "Rgno": "20201212000001023",
-            "FinAcno": "00820100004520000000000004761"
-          },
-          "image": "http://placeimg.com/640/480/city"
-        },
-        {
-          "id": "fFDhDRRv2",
-          "title": "강원도 감자 10KG 5천원",
-          "star": 0,
-          "size": 321312,
-          "category": "배추",
-          "subCategory": "fdsfd",
-          "location": "강원",
-          "cost": 312321,
-          "content": "fdsfds",
-          "imageUrls": [
-            "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
-          ],
-          "createDate": "2020-12-12T12:44:48.777Z",
-          "date": "2020-12-12",
-          "address": "fsdfds",
-          "plantDay": "2020-12-04",
-          "outDay": "2020-12-10",
-          "landNumber": "fsdf",
-          "seller": {
-            "isVIP": true,
-            "name": "판매자",
-            "phoneNumber": "010-4597-1538",
-            "address": "경상북도 남양읍 34-1",
-            "landNumber": "3123-1233123-123213",
-            "birthDay": "19960110",
-            "id": "seller",
-            "bankCode": "011",
-            "accountNumber": "3020000003104",
-            "Rgno": "20201212000001023",
-            "FinAcno": "00820100004520000000000004761"
-          },
-          "image": "http://placeimg.com/640/480/city"
+          "image": "http://placeimg.com/640/480/technics"
         }
       ],
       "trade": [
         {
-          "tradeId": "PJRA4lqaY",
+          "tradeId": "z4eAC2J2C",
           "noticeType": "거래완료",
           "requester": {
             "name": "박찬영",
@@ -678,27 +601,27 @@
             "FinAcno": "00820100004520000000000004752"
           },
           "product": {
-            "id": "fFDhDRRv2",
-            "title": "강원도 감자 10KG 5천원",
+            "id": "BPaW84dKF",
+            "title": "마늘 대박예정",
             "star": 0,
-            "size": 321312,
-            "category": "배추",
-            "subCategory": "fdsfd",
-            "location": "강원",
-            "cost": 312321,
-            "content": "fdsfds",
+            "size": 55555,
+            "category": "마늘",
+            "subCategory": "마늘",
+            "location": "제주",
+            "cost": 55000000,
+            "content": "마늘 대박 예정입니다 \n\n지금이 기회에요",
             "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EB%A7%88%EB%8A%98%2Fimages%2F%EB%A7%88%EB%8A%98%20%EB%8C%80%EB%B0%95%EC%98%88%EC%A0%95?alt=media&token=e095872c-34a8-4712-9b16-ae73f000df36"
             ],
-            "createDate": "2020-12-12T12:44:48.777Z",
+            "createDate": "2020-12-12T14:32:00.654Z",
             "date": "2020-12-12",
-            "address": "fsdfds",
-            "plantDay": "2020-12-04",
-            "outDay": "2020-12-10",
-            "landNumber": "fsdf",
+            "address": "제주도 서귀포시 어느마늘밭",
+            "plantDay": "2020-12-26",
+            "outDay": "2021-03-04",
+            "landNumber": "441-45465-4561323",
             "seller": {
               "isVIP": true,
-              "name": "판매자",
+              "name": "김판매자",
               "phoneNumber": "010-4597-1538",
               "address": "경상북도 남양읍 34-1",
               "landNumber": "3123-1233123-123213",
@@ -707,16 +630,116 @@
               "bankCode": "011",
               "accountNumber": "3020000003104",
               "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
+              "FinAcno": "00820100004520000000000004761",
+              "trade": [],
+              "notice": []
+            },
+            "image": "http://placeimg.com/640/480/abstract"
+          },
+          "isContract": true,
+          "deposit": 0
+        },
+        {
+          "tradeId": "hDr9_G9UL",
+          "noticeType": "거래완료",
+          "requester": {
+            "name": "박찬영",
+            "phoneNumber": "010-4894-4879",
+            "address": "강원도 춘천시 충열로 16번길 21-14",
+            "landNumber": "",
+            "birthDay": "19960110",
+            "id": "pcy",
+            "password": "123",
+            "bankCode": "011",
+            "accountNumber": "3020000003105",
+            "Rgno": "20201212000001022",
+            "FinAcno": "00820100004520000000000004752"
+          },
+          "product": {
+            "id": "ZWleckp8x",
+            "title": "양파테스트",
+            "star": 0,
+            "size": 30,
+            "category": "양파",
+            "subCategory": "양파",
+            "location": "제주",
+            "cost": 500000,
+            "content": "양파테스트",
+            "imageUrls": [
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EC%96%91%ED%8C%8C%2Fimages%2F%EC%96%91%ED%8C%8C%ED%85%8C%EC%8A%A4%ED%8A%B8?alt=media&token=d5b57849-e0ef-4ff5-8308-29bbb558d1de"
+            ],
+            "createDate": "2020-12-13T06:12:53.408Z",
+            "date": "2020-12-13",
+            "address": "제주도 어느 양파농장",
+            "plantDay": "2020-12-13",
+            "outDay": "2020-12-31",
+            "landNumber": "123455-1234455",
+            "seller": {
+              "name": "박찬영",
+              "phoneNumber": "010-1234-5567",
+              "address": "강원도 옥천동 2-04",
+              "landNumber": "12344556-123456",
+              "birthDay": "19960110",
+              "id": "sellerqwe",
+              "bankCode": "011",
+              "accountNumber": "3020000003231"
+            },
+            "image": "http://placeimg.com/640/480/food"
+          },
+          "isContract": true,
+          "deposit": 0
+        },
+        {
+          "tradeId": "_RGzsmn91",
+          "noticeType": "거래대기",
+          "requester": {
+            "name": "박찬영",
+            "phoneNumber": "010-4894-4879",
+            "address": "강원도 춘천시 충열로 16번길 21-14",
+            "landNumber": "",
+            "birthDay": "19960110",
+            "id": "pcy",
+            "password": "123",
+            "bankCode": "011",
+            "accountNumber": "3020000003105",
+            "Rgno": "20201212000001022",
+            "FinAcno": "00820100004520000000000004752"
+          },
+          "product": {
+            "id": "ZWleckp8x",
+            "title": "양파테스트",
+            "star": 0,
+            "size": 30,
+            "category": "양파",
+            "subCategory": "양파",
+            "location": "제주",
+            "cost": 500000,
+            "content": "양파테스트",
+            "imageUrls": [
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EC%96%91%ED%8C%8C%2Fimages%2F%EC%96%91%ED%8C%8C%ED%85%8C%EC%8A%A4%ED%8A%B8?alt=media&token=d5b57849-e0ef-4ff5-8308-29bbb558d1de"
+            ],
+            "createDate": "2020-12-13T06:12:53.408Z",
+            "date": "2020-12-13",
+            "address": "제주도 어느 양파농장",
+            "plantDay": "2020-12-13",
+            "outDay": "2020-12-31",
+            "landNumber": "123455-1234455",
+            "seller": {
+              "name": "박찬영",
+              "phoneNumber": "010-1234-5567",
+              "address": "강원도 옥천동 2-04",
+              "landNumber": "12344556-123456",
+              "birthDay": "19960110",
+              "id": "sellerqwe",
+              "bankCode": "011",
+              "accountNumber": "3020000003231"
             },
             "image": "http://placeimg.com/640/480/technics"
-          },
-          "isContract": true,
-          "deposit": 0
+          }
         },
         {
-          "tradeId": "2yvAoHI7Q",
-          "noticeType": "거래완료",
+          "tradeId": "crEoqRlkC",
+          "noticeType": "거래대기",
           "requester": {
             "name": "박찬영",
             "phoneNumber": "010-4894-4879",
@@ -731,152 +754,41 @@
             "FinAcno": "00820100004520000000000004752"
           },
           "product": {
-            "id": "vK9jCFa-5",
-            "title": "감자 밭 8월 재배예정",
+            "id": "ZWleckp8x",
+            "title": "양파테스트",
             "star": 0,
-            "size": 13123,
-            "category": "배추",
-            "subCategory": "fdsf",
-            "location": "충북",
-            "cost": 32132,
-            "content": "fdsfds",
+            "size": 30,
+            "category": "양파",
+            "subCategory": "양파",
+            "location": "제주",
+            "cost": 500000,
+            "content": "양파테스트",
             "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%B6%A9%EB%B6%81%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%90%EC%9E%90%20%EB%B0%AD%208%EC%9B%94%20%EC%9E%AC%EB%B0%B0%EC%98%88%EC%A0%95?alt=media&token=cb6a388c-c1c3-4c4a-8b43-91e3b79fca13"
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EC%96%91%ED%8C%8C%2Fimages%2F%EC%96%91%ED%8C%8C%ED%85%8C%EC%8A%A4%ED%8A%B8?alt=media&token=d5b57849-e0ef-4ff5-8308-29bbb558d1de"
             ],
-            "createDate": "2020-12-12T12:45:09.699Z",
-            "date": "2020-12-12",
-            "address": "fdsfdsds",
-            "plantDay": "2020-12-03",
-            "outDay": "2020-12-17",
-            "landNumber": "312321",
+            "createDate": "2020-12-13T06:12:53.408Z",
+            "date": "2020-12-13",
+            "address": "제주도 어느 양파농장",
+            "plantDay": "2020-12-13",
+            "outDay": "2020-12-31",
+            "landNumber": "123455-1234455",
             "seller": {
-              "isVIP": true,
-              "name": "판매자",
-              "phoneNumber": "010-4597-1538",
-              "address": "경상북도 남양읍 34-1",
-              "landNumber": "3123-1233123-123213",
+              "name": "박찬영",
+              "phoneNumber": "010-1234-5567",
+              "address": "강원도 옥천동 2-04",
+              "landNumber": "12344556-123456",
               "birthDay": "19960110",
-              "id": "seller",
+              "id": "sellerqwe",
               "bankCode": "011",
-              "accountNumber": "3020000003104",
-              "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
+              "accountNumber": "3020000003231"
             },
             "image": "http://placeimg.com/640/480/technics"
-          },
-          "isContract": true,
-          "deposit": 0
-        },
-        {
-          "tradeId": "n4ArATaL2",
-          "noticeType": "거래완료",
-          "requester": {
-            "name": "박찬영",
-            "phoneNumber": "010-4894-4879",
-            "address": "강원도 춘천시 충열로 16번길 21-14",
-            "landNumber": "",
-            "birthDay": "19960110",
-            "id": "pcy",
-            "password": "123",
-            "bankCode": "011",
-            "accountNumber": "3020000003105",
-            "Rgno": "20201212000001022",
-            "FinAcno": "00820100004520000000000004752"
-          },
-          "product": {
-            "id": "fFDhDRRv2",
-            "title": "강원도 감자 10KG 5천원",
-            "star": 0,
-            "size": 321312,
-            "category": "배추",
-            "subCategory": "fdsfd",
-            "location": "강원",
-            "cost": 312321,
-            "content": "fdsfds",
-            "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
-            ],
-            "createDate": "2020-12-12T12:44:48.777Z",
-            "date": "2020-12-12",
-            "address": "fsdfds",
-            "plantDay": "2020-12-04",
-            "outDay": "2020-12-10",
-            "landNumber": "fsdf",
-            "seller": {
-              "isVIP": true,
-              "name": "판매자",
-              "phoneNumber": "010-4597-1538",
-              "address": "경상북도 남양읍 34-1",
-              "landNumber": "3123-1233123-123213",
-              "birthDay": "19960110",
-              "id": "seller",
-              "bankCode": "011",
-              "accountNumber": "3020000003104",
-              "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
-            },
-            "image": "http://placeimg.com/640/480/animals"
-          },
-          "isContract": true,
-          "deposit": 0
-        },
-        {
-          "tradeId": "LSu7VyTfB",
-          "noticeType": "거래완료",
-          "requester": {
-            "name": "박찬영",
-            "phoneNumber": "010-4894-4879",
-            "address": "강원도 춘천시 충열로 16번길 21-14",
-            "landNumber": "",
-            "birthDay": "19960110",
-            "id": "pcy",
-            "password": "123",
-            "bankCode": "011",
-            "accountNumber": "3020000003105",
-            "Rgno": "20201212000001022",
-            "FinAcno": "00820100004520000000000004752"
-          },
-          "product": {
-            "id": "fFDhDRRv2",
-            "title": "강원도 감자 10KG 5천원",
-            "star": 0,
-            "size": 321312,
-            "category": "배추",
-            "subCategory": "fdsfd",
-            "location": "강원",
-            "cost": 312321,
-            "content": "fdsfds",
-            "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
-            ],
-            "createDate": "2020-12-12T12:44:48.777Z",
-            "date": "2020-12-12",
-            "address": "fsdfds",
-            "plantDay": "2020-12-04",
-            "outDay": "2020-12-10",
-            "landNumber": "fsdf",
-            "seller": {
-              "isVIP": true,
-              "name": "판매자",
-              "phoneNumber": "010-4597-1538",
-              "address": "경상북도 남양읍 34-1",
-              "landNumber": "3123-1233123-123213",
-              "birthDay": "19960110",
-              "id": "seller",
-              "bankCode": "011",
-              "accountNumber": "3020000003104",
-              "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
-            },
-            "image": "http://placeimg.com/640/480/city"
-          },
-          "isContract": true,
-          "deposit": 0
+          }
         }
       ],
       "notice": [
         {
-          "tradeId": "PJRA4lqaY",
+          "tradeId": "z4eAC2J2C",
           "noticeType": "거래완료",
           "requester": {
             "name": "박찬영",
@@ -892,27 +804,27 @@
             "FinAcno": "00820100004520000000000004752"
           },
           "product": {
-            "id": "fFDhDRRv2",
-            "title": "강원도 감자 10KG 5천원",
+            "id": "BPaW84dKF",
+            "title": "마늘 대박예정",
             "star": 0,
-            "size": 321312,
-            "category": "배추",
-            "subCategory": "fdsfd",
-            "location": "강원",
-            "cost": 312321,
-            "content": "fdsfds",
+            "size": 55555,
+            "category": "마늘",
+            "subCategory": "마늘",
+            "location": "제주",
+            "cost": 55000000,
+            "content": "마늘 대박 예정입니다 \n\n지금이 기회에요",
             "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EB%A7%88%EB%8A%98%2Fimages%2F%EB%A7%88%EB%8A%98%20%EB%8C%80%EB%B0%95%EC%98%88%EC%A0%95?alt=media&token=e095872c-34a8-4712-9b16-ae73f000df36"
             ],
-            "createDate": "2020-12-12T12:44:48.777Z",
+            "createDate": "2020-12-12T14:32:00.654Z",
             "date": "2020-12-12",
-            "address": "fsdfds",
-            "plantDay": "2020-12-04",
-            "outDay": "2020-12-10",
-            "landNumber": "fsdf",
+            "address": "제주도 서귀포시 어느마늘밭",
+            "plantDay": "2020-12-26",
+            "outDay": "2021-03-04",
+            "landNumber": "441-45465-4561323",
             "seller": {
               "isVIP": true,
-              "name": "판매자",
+              "name": "김판매자",
               "phoneNumber": "010-4597-1538",
               "address": "경상북도 남양읍 34-1",
               "landNumber": "3123-1233123-123213",
@@ -921,16 +833,179 @@
               "bankCode": "011",
               "accountNumber": "3020000003104",
               "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
+              "FinAcno": "00820100004520000000000004761",
+              "trade": [],
+              "notice": []
+            },
+            "image": "http://placeimg.com/640/480/abstract"
+          },
+          "isContract": true,
+          "deposit": 0
+        },
+        {
+          "tradeId": "hDr9_G9UL",
+          "noticeType": "거래완료",
+          "requester": {
+            "name": "박찬영",
+            "phoneNumber": "010-4894-4879",
+            "address": "강원도 춘천시 충열로 16번길 21-14",
+            "landNumber": "",
+            "birthDay": "19960110",
+            "id": "pcy",
+            "password": "123",
+            "bankCode": "011",
+            "accountNumber": "3020000003105",
+            "Rgno": "20201212000001022",
+            "FinAcno": "00820100004520000000000004752"
+          },
+          "product": {
+            "id": "ZWleckp8x",
+            "title": "양파테스트",
+            "star": 0,
+            "size": 30,
+            "category": "양파",
+            "subCategory": "양파",
+            "location": "제주",
+            "cost": 500000,
+            "content": "양파테스트",
+            "imageUrls": [
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EC%96%91%ED%8C%8C%2Fimages%2F%EC%96%91%ED%8C%8C%ED%85%8C%EC%8A%A4%ED%8A%B8?alt=media&token=d5b57849-e0ef-4ff5-8308-29bbb558d1de"
+            ],
+            "createDate": "2020-12-13T06:12:53.408Z",
+            "date": "2020-12-13",
+            "address": "제주도 어느 양파농장",
+            "plantDay": "2020-12-13",
+            "outDay": "2020-12-31",
+            "landNumber": "123455-1234455",
+            "seller": {
+              "name": "박찬영",
+              "phoneNumber": "010-1234-5567",
+              "address": "강원도 옥천동 2-04",
+              "landNumber": "12344556-123456",
+              "birthDay": "19960110",
+              "id": "sellerqwe",
+              "bankCode": "011",
+              "accountNumber": "3020000003231"
+            },
+            "image": "http://placeimg.com/640/480/food"
+          },
+          "isContract": true,
+          "deposit": 0
+        }
+      ]
+    },
+    {
+      "name": "박찬영",
+      "phoneNumber": "010-1234-5567",
+      "address": "강원도 옥천동 2-04",
+      "landNumber": "12344556-123456",
+      "birthDay": "19960110",
+      "id": "sellerqwe",
+      "password": "123",
+      "bankCode": "011",
+      "accountNumber": "3020000003231",
+      "trade": [
+        {
+          "tradeId": "hDr9_G9UL",
+          "noticeType": "거래완료",
+          "requester": {
+            "name": "박찬영",
+            "phoneNumber": "010-4894-4879",
+            "address": "강원도 춘천시 충열로 16번길 21-14",
+            "landNumber": "",
+            "birthDay": "19960110",
+            "id": "pcy",
+            "password": "123",
+            "bankCode": "011",
+            "accountNumber": "3020000003105",
+            "Rgno": "20201212000001022",
+            "FinAcno": "00820100004520000000000004752"
+          },
+          "product": {
+            "id": "ZWleckp8x",
+            "title": "양파테스트",
+            "star": 0,
+            "size": 30,
+            "category": "양파",
+            "subCategory": "양파",
+            "location": "제주",
+            "cost": 500000,
+            "content": "양파테스트",
+            "imageUrls": [
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EC%96%91%ED%8C%8C%2Fimages%2F%EC%96%91%ED%8C%8C%ED%85%8C%EC%8A%A4%ED%8A%B8?alt=media&token=d5b57849-e0ef-4ff5-8308-29bbb558d1de"
+            ],
+            "createDate": "2020-12-13T06:12:53.408Z",
+            "date": "2020-12-13",
+            "address": "제주도 어느 양파농장",
+            "plantDay": "2020-12-13",
+            "outDay": "2020-12-31",
+            "landNumber": "123455-1234455",
+            "seller": {
+              "name": "박찬영",
+              "phoneNumber": "010-1234-5567",
+              "address": "강원도 옥천동 2-04",
+              "landNumber": "12344556-123456",
+              "birthDay": "19960110",
+              "id": "sellerqwe",
+              "bankCode": "011",
+              "accountNumber": "3020000003231"
+            },
+            "image": "http://placeimg.com/640/480/food"
+          },
+          "isContract": true,
+          "deposit": 0
+        },
+        {
+          "tradeId": "_RGzsmn91",
+          "noticeType": "거래대기",
+          "requester": {
+            "name": "박찬영",
+            "phoneNumber": "010-4894-4879",
+            "address": "강원도 춘천시 충열로 16번길 21-14",
+            "landNumber": "",
+            "birthDay": "19960110",
+            "id": "pcy",
+            "password": "123",
+            "bankCode": "011",
+            "accountNumber": "3020000003105",
+            "Rgno": "20201212000001022",
+            "FinAcno": "00820100004520000000000004752"
+          },
+          "product": {
+            "id": "ZWleckp8x",
+            "title": "양파테스트",
+            "star": 0,
+            "size": 30,
+            "category": "양파",
+            "subCategory": "양파",
+            "location": "제주",
+            "cost": 500000,
+            "content": "양파테스트",
+            "imageUrls": [
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EC%96%91%ED%8C%8C%2Fimages%2F%EC%96%91%ED%8C%8C%ED%85%8C%EC%8A%A4%ED%8A%B8?alt=media&token=d5b57849-e0ef-4ff5-8308-29bbb558d1de"
+            ],
+            "createDate": "2020-12-13T06:12:53.408Z",
+            "date": "2020-12-13",
+            "address": "제주도 어느 양파농장",
+            "plantDay": "2020-12-13",
+            "outDay": "2020-12-31",
+            "landNumber": "123455-1234455",
+            "seller": {
+              "name": "박찬영",
+              "phoneNumber": "010-1234-5567",
+              "address": "강원도 옥천동 2-04",
+              "landNumber": "12344556-123456",
+              "birthDay": "19960110",
+              "id": "sellerqwe",
+              "bankCode": "011",
+              "accountNumber": "3020000003231"
             },
             "image": "http://placeimg.com/640/480/technics"
-          },
-          "isContract": true,
-          "deposit": 0
+          }
         },
         {
-          "tradeId": "2yvAoHI7Q",
-          "noticeType": "거래완료",
+          "tradeId": "crEoqRlkC",
+          "noticeType": "거래대기",
           "requester": {
             "name": "박찬영",
             "phoneNumber": "010-4894-4879",
@@ -945,44 +1020,41 @@
             "FinAcno": "00820100004520000000000004752"
           },
           "product": {
-            "id": "vK9jCFa-5",
-            "title": "감자 밭 8월 재배예정",
+            "id": "ZWleckp8x",
+            "title": "양파테스트",
             "star": 0,
-            "size": 13123,
-            "category": "배추",
-            "subCategory": "fdsf",
-            "location": "충북",
-            "cost": 32132,
-            "content": "fdsfds",
+            "size": 30,
+            "category": "양파",
+            "subCategory": "양파",
+            "location": "제주",
+            "cost": 500000,
+            "content": "양파테스트",
             "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%B6%A9%EB%B6%81%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%90%EC%9E%90%20%EB%B0%AD%208%EC%9B%94%20%EC%9E%AC%EB%B0%B0%EC%98%88%EC%A0%95?alt=media&token=cb6a388c-c1c3-4c4a-8b43-91e3b79fca13"
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EC%96%91%ED%8C%8C%2Fimages%2F%EC%96%91%ED%8C%8C%ED%85%8C%EC%8A%A4%ED%8A%B8?alt=media&token=d5b57849-e0ef-4ff5-8308-29bbb558d1de"
             ],
-            "createDate": "2020-12-12T12:45:09.699Z",
-            "date": "2020-12-12",
-            "address": "fdsfdsds",
-            "plantDay": "2020-12-03",
-            "outDay": "2020-12-17",
-            "landNumber": "312321",
+            "createDate": "2020-12-13T06:12:53.408Z",
+            "date": "2020-12-13",
+            "address": "제주도 어느 양파농장",
+            "plantDay": "2020-12-13",
+            "outDay": "2020-12-31",
+            "landNumber": "123455-1234455",
             "seller": {
-              "isVIP": true,
-              "name": "판매자",
-              "phoneNumber": "010-4597-1538",
-              "address": "경상북도 남양읍 34-1",
-              "landNumber": "3123-1233123-123213",
+              "name": "박찬영",
+              "phoneNumber": "010-1234-5567",
+              "address": "강원도 옥천동 2-04",
+              "landNumber": "12344556-123456",
               "birthDay": "19960110",
-              "id": "seller",
+              "id": "sellerqwe",
               "bankCode": "011",
-              "accountNumber": "3020000003104",
-              "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
+              "accountNumber": "3020000003231"
             },
             "image": "http://placeimg.com/640/480/technics"
-          },
-          "isContract": true,
-          "deposit": 0
-        },
+          }
+        }
+      ],
+      "notice": [
         {
-          "tradeId": "n4ArATaL2",
+          "tradeId": "hDr9_G9UL",
           "noticeType": "거래완료",
           "requester": {
             "name": "박찬영",
@@ -998,45 +1070,42 @@
             "FinAcno": "00820100004520000000000004752"
           },
           "product": {
-            "id": "fFDhDRRv2",
-            "title": "강원도 감자 10KG 5천원",
+            "id": "ZWleckp8x",
+            "title": "양파테스트",
             "star": 0,
-            "size": 321312,
-            "category": "배추",
-            "subCategory": "fdsfd",
-            "location": "강원",
-            "cost": 312321,
-            "content": "fdsfds",
+            "size": 30,
+            "category": "양파",
+            "subCategory": "양파",
+            "location": "제주",
+            "cost": 500000,
+            "content": "양파테스트",
             "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EC%96%91%ED%8C%8C%2Fimages%2F%EC%96%91%ED%8C%8C%ED%85%8C%EC%8A%A4%ED%8A%B8?alt=media&token=d5b57849-e0ef-4ff5-8308-29bbb558d1de"
             ],
-            "createDate": "2020-12-12T12:44:48.777Z",
-            "date": "2020-12-12",
-            "address": "fsdfds",
-            "plantDay": "2020-12-04",
-            "outDay": "2020-12-10",
-            "landNumber": "fsdf",
+            "createDate": "2020-12-13T06:12:53.408Z",
+            "date": "2020-12-13",
+            "address": "제주도 어느 양파농장",
+            "plantDay": "2020-12-13",
+            "outDay": "2020-12-31",
+            "landNumber": "123455-1234455",
             "seller": {
-              "isVIP": true,
-              "name": "판매자",
-              "phoneNumber": "010-4597-1538",
-              "address": "경상북도 남양읍 34-1",
-              "landNumber": "3123-1233123-123213",
+              "name": "박찬영",
+              "phoneNumber": "010-1234-5567",
+              "address": "강원도 옥천동 2-04",
+              "landNumber": "12344556-123456",
               "birthDay": "19960110",
-              "id": "seller",
+              "id": "sellerqwe",
               "bankCode": "011",
-              "accountNumber": "3020000003104",
-              "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
+              "accountNumber": "3020000003231"
             },
-            "image": "http://placeimg.com/640/480/animals"
+            "image": "http://placeimg.com/640/480/food"
           },
           "isContract": true,
           "deposit": 0
         },
         {
-          "tradeId": "LSu7VyTfB",
-          "noticeType": "거래완료",
+          "tradeId": "_RGzsmn91",
+          "noticeType": "거래대기",
           "requester": {
             "name": "박찬영",
             "phoneNumber": "010-4894-4879",
@@ -1051,41 +1120,84 @@
             "FinAcno": "00820100004520000000000004752"
           },
           "product": {
-            "id": "fFDhDRRv2",
-            "title": "강원도 감자 10KG 5천원",
+            "id": "ZWleckp8x",
+            "title": "양파테스트",
             "star": 0,
-            "size": 321312,
-            "category": "배추",
-            "subCategory": "fdsfd",
-            "location": "강원",
-            "cost": 312321,
-            "content": "fdsfds",
+            "size": 30,
+            "category": "양파",
+            "subCategory": "양파",
+            "location": "제주",
+            "cost": 500000,
+            "content": "양파테스트",
             "imageUrls": [
-              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EA%B0%95%EC%9B%90%2F%EB%B0%B0%EC%B6%94%2Fimages%2F%EA%B0%95%EC%9B%90%EB%8F%84%20%EA%B0%90%EC%9E%90%2010KG%205%EC%B2%9C%EC%9B%90?alt=media&token=d89bc8d7-f7c2-4b29-9ac3-2555087b2d75"
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EC%96%91%ED%8C%8C%2Fimages%2F%EC%96%91%ED%8C%8C%ED%85%8C%EC%8A%A4%ED%8A%B8?alt=media&token=d5b57849-e0ef-4ff5-8308-29bbb558d1de"
             ],
-            "createDate": "2020-12-12T12:44:48.777Z",
-            "date": "2020-12-12",
-            "address": "fsdfds",
-            "plantDay": "2020-12-04",
-            "outDay": "2020-12-10",
-            "landNumber": "fsdf",
+            "createDate": "2020-12-13T06:12:53.408Z",
+            "date": "2020-12-13",
+            "address": "제주도 어느 양파농장",
+            "plantDay": "2020-12-13",
+            "outDay": "2020-12-31",
+            "landNumber": "123455-1234455",
             "seller": {
-              "isVIP": true,
-              "name": "판매자",
-              "phoneNumber": "010-4597-1538",
-              "address": "경상북도 남양읍 34-1",
-              "landNumber": "3123-1233123-123213",
+              "name": "박찬영",
+              "phoneNumber": "010-1234-5567",
+              "address": "강원도 옥천동 2-04",
+              "landNumber": "12344556-123456",
               "birthDay": "19960110",
-              "id": "seller",
+              "id": "sellerqwe",
               "bankCode": "011",
-              "accountNumber": "3020000003104",
-              "Rgno": "20201212000001023",
-              "FinAcno": "00820100004520000000000004761"
+              "accountNumber": "3020000003231"
             },
-            "image": "http://placeimg.com/640/480/city"
+            "image": "http://placeimg.com/640/480/technics"
+          }
+        },
+        {
+          "tradeId": "crEoqRlkC",
+          "noticeType": "거래대기",
+          "requester": {
+            "name": "박찬영",
+            "phoneNumber": "010-4894-4879",
+            "address": "강원도 춘천시 충열로 16번길 21-14",
+            "landNumber": "",
+            "birthDay": "19960110",
+            "id": "pcy",
+            "password": "123",
+            "bankCode": "011",
+            "accountNumber": "3020000003105",
+            "Rgno": "20201212000001022",
+            "FinAcno": "00820100004520000000000004752"
           },
-          "isContract": true,
-          "deposit": 0
+          "product": {
+            "id": "ZWleckp8x",
+            "title": "양파테스트",
+            "star": 0,
+            "size": 30,
+            "category": "양파",
+            "subCategory": "양파",
+            "location": "제주",
+            "cost": 500000,
+            "content": "양파테스트",
+            "imageUrls": [
+              "https://firebasestorage.googleapis.com/v0/b/nh-farmplus.appspot.com/o/%EC%A0%9C%EC%A3%BC%2F%EC%96%91%ED%8C%8C%2Fimages%2F%EC%96%91%ED%8C%8C%ED%85%8C%EC%8A%A4%ED%8A%B8?alt=media&token=d5b57849-e0ef-4ff5-8308-29bbb558d1de"
+            ],
+            "createDate": "2020-12-13T06:12:53.408Z",
+            "date": "2020-12-13",
+            "address": "제주도 어느 양파농장",
+            "plantDay": "2020-12-13",
+            "outDay": "2020-12-31",
+            "landNumber": "123455-1234455",
+            "seller": {
+              "name": "박찬영",
+              "phoneNumber": "010-1234-5567",
+              "address": "강원도 옥천동 2-04",
+              "landNumber": "12344556-123456",
+              "birthDay": "19960110",
+              "id": "sellerqwe",
+              "bankCode": "011",
+              "accountNumber": "3020000003231"
+            },
+            "image": "http://placeimg.com/640/480/technics"
+          }
         }
       ]
     }
