@@ -6,3 +6,16 @@
                 - 홍정표(팀원 / 기획)
                 - 박지현(팀원 / 자료조사)
 
+#### 수상 - 장려상
+<img width="300" src="https://user-images.githubusercontent.com/43159931/104052386-007b0400-522d-11eb-8a95-4c8276f66c2a.jpg"/>
+
+#### 시연영상
+https://drive.google.com/file/d/1cjWEk6jL4fuFAf_NLi6j8E3E2TajTBAu/view?usp=sharing
+
+#### 개발 스택
+ - Front-End  : React.js(Hooks)
+ - State      : Redux
+ - Database   : json-server
+ - Storage    : Firebase
+ - API        : NH Developer Center API (Fin-Account, Transfer, etc...)
+ 
