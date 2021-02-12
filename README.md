@@ -6,12 +6,16 @@
                 - 홍정표(팀원 / 기획)
                 - 박지현(팀원 / 자료조사)
 
-#### 수상 - 장려상
+### 수상 - 장려상
+<img src="https://github.com/Dolphin-PC/FarmPlus-NH_hackathon/blob/main/docs/%EC%83%81%EC%9E%A5_%EC%84%A0%EA%B5%AC%EC%95%88.jpg" alt="상장" width="400px"/>
 
-#### 시연영상
-https://drive.google.com/file/d/1cjWEk6jL4fuFAf_NLi6j8E3E2TajTBAu/view?usp=sharing
+### 시연영상
+<a href="https://drive.google.com/file/d/1cjWEk6jL4fuFAf_NLi6j8E3E2TajTBAu/view?usp=sharing" target="_blank">View on Google Drive</a>
 
-#### 개발 스택
+### 발표자료
+<a href="https://dolphin-pc.github.io/FarmPlus-NH_hackathon/docs/FarmPlus_PPT_NH_hackathon.pdf" target="_blank">View on Github page</a>
+
+### 개발 스택
  - Front-End  : React.js(Hooks)
  - State      : Redux
  - Database   : json-server
