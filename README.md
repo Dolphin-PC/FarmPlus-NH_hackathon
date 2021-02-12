@@ -7,7 +7,7 @@
                 - 박지현(팀원 / 자료조사)
 
 ### 수상 - 장려상
-<img src="https://github.com/Dolphin-PC/FarmPlus-NH_hackathon/blob/main/docs/%EC%83%81%EC%9E%A5_%EC%84%A0%EA%B5%AC%EC%95%88.jpg" alt="상장" width="400px"/>
+<img width="300px" src="https://github.com/Dolphin-PC/FarmPlus-NH_hackathon/blob/main/docs/%EC%83%81%EC%9E%A5_%EC%84%A0%EA%B5%AC%EC%95%88.jpg?raw=true"/>
 
 ### 시연영상
 <a href="https://drive.google.com/file/d/1cjWEk6jL4fuFAf_NLi6j8E3E2TajTBAu/view?usp=sharing" target="_blank">View on Google Drive</a>
