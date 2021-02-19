@@ -17,7 +17,7 @@
 
 ### 개발 스택
  - Front-End  : React.js(Hooks)
- - State      : Redux
+ - State      : react-redux, redux-thunk
  - Database   : json-server
  - Storage    : Firebase
  - API        : NH Developer Center API (Fin-Account, Transfer, etc...)
