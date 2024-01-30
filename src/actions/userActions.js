@@ -123,20 +123,28 @@ export const addFavorite = (user, current) => async (dispatch) => {
   }
   favoriteList.push(current);
 
-  // TODO firebase
   //   * json-server
-  await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
-    favorite: favoriteList,
-  })
+  // await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
+  //   favorite: favoriteList,
+  // })
+  //   .then((res) => {
+  //     alert("찜 되었습니다.");
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //   });
+
+  //   * firebase
+  FiredbRef.child("users/" + user.user.id)
+    .update({
+      favorite: favoriteList,
+    })
     .then((res) => {
       alert("찜 되었습니다.");
     })
     .catch((err) => {
       console.error(err);
     });
-
-  //   * firebase
-  //   FiredbRef.child("users/" + user.user.id).
 };
 
 // 거래 요청

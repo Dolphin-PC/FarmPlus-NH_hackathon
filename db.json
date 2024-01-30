@@ -346,8 +346,8 @@
       }
     }
   ],
-  "users": [
-    {
+  "users": {
+    "seller": {
       "isVIP": true,
       "name": "김판매자",
       "phoneNumber": "010-4597-1538",
@@ -475,7 +475,7 @@
         }
       ]
     },
-    {
+    "seller1": {
       "isVIP": false,
       "name": "노양심",
       "phoneNumber": "010-7891-2345",
@@ -491,7 +491,7 @@
       "trade": [],
       "notice": []
     },
-    {
+    "seller2": {
       "isVIP": false,
       "name": "김사기꾼",
       "phoneNumber": "010-1575-7848",
@@ -507,7 +507,7 @@
       "trade": [],
       "notice": []
     },
-    {
+    "pcy": {
       "name": "박찬영",
       "phoneNumber": "010-4894-4879",
       "address": "강원도 춘천시 충열로 16번길 21-14",
@@ -894,7 +894,7 @@
         }
       ]
     },
-    {
+    "sellerqwe": {
       "name": "박찬영",
       "phoneNumber": "010-1234-5567",
       "address": "강원도 옥천동 2-04",
@@ -1201,5 +1201,5 @@
         }
       ]
     }
-  ]
+  }
 }
