@@ -1,11 +1,11 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import Faker from "faker";
 
-import { Avatar, Button, Divider, Drawer, Fade, InputLabel, List, ListItem, ListItemIcon, ListItemText, makeStyles, Tooltip } from "@material-ui/core";
+import { Avatar, Button, Drawer, InputLabel, makeStyles, Tooltip } from "@material-ui/core";
 import { Col } from "reactstrap";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import PhoneIcon from "@material-ui/icons/Phone";
-import { ArrowBack, Share, Dialpad, Inbox, Mail, ArrowDropUp, FavoriteBorder } from "@material-ui/icons";
+import { ArrowBack, Share, Dialpad, ArrowDropUp, FavoriteBorder } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -30,11 +30,11 @@ const useStyles = makeStyles((theme) => ({
 const DetailPageView = () => {
   const classes = useStyles();
 
-  const [openBottomDrawer, setOpenBottomDrawer] = useState(false);
-  const [isHeart, setIsHeart] = useState(false);
-
   const current = useSelector((state) => state.post.current);
   const user = useSelector((state) => state.user);
+
+  const [openBottomDrawer, setOpenBottomDrawer] = useState(false);
+  const [isHeart, setIsHeart] = useState(user.user.favorite.some((post) => post.id == current.id));
 
   const history = useHistory();
   const dispatch = useDispatch();
