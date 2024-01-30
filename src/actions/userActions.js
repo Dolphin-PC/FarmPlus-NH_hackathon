@@ -105,6 +105,12 @@ export const getUserInfo = (user) => async (dispatch) => {
     .then((snapshot) => {
       if (snapshot.exists()) {
         let res = snapshot.val();
+
+        // trade
+        if (res.trade) {
+          res.trade = Object.values(res.trade).map((value) => value);
+        }
+
         dispatch({
           type: GET_USER,
           payload: res,
@@ -149,7 +155,7 @@ export const addFavorite = (user, current) => async (dispatch) => {
 
 // 거래 요청
 export const tradeRequest = (user, current) => async (dispatch) => {
-  let requester = user.user;
+  let requester = { ...user.user };
   // 불필요한 정보 삭제
   delete requester.notice;
   delete requester.favorite;
@@ -162,15 +168,15 @@ export const tradeRequest = (user, current) => async (dispatch) => {
   let myList = [];
   let sellerList = [];
 
-  const myTradeInfo = await Axios.get(`${serverUrl}/users/${user.user.id}`).then((res) => res.data.trade);
-  const sellerTradeInfo = await Axios.get(`${serverUrl}/users/${current.seller.id}`).then((res) => res.data.trade);
+  // const myTradeInfo = await Axios.get(`${serverUrl}/users/${user.user.id}`).then((res) => res.data.trade);
+  // const sellerTradeInfo = await Axios.get(`${serverUrl}/users/${current.seller.id}`).then((res) => res.data.trade);
 
-  if (myTradeInfo) {
-    myList = myTradeInfo;
-  }
-  if (sellerTradeInfo) {
-    sellerList = sellerTradeInfo;
-  }
+  // if (myTradeInfo) {
+  //   myList = myTradeInfo;
+  // }
+  // if (sellerTradeInfo) {
+  //   sellerList = sellerTradeInfo;
+  // }
 
   const newTrade = {
     tradeId: tradeId,
@@ -179,25 +185,35 @@ export const tradeRequest = (user, current) => async (dispatch) => {
     product: current,
   };
 
-  myList.push(newTrade);
-  sellerList.push(newTrade);
+  // myList.push(newTrade);
+  // sellerList.push(newTrade);
 
   // // 내 거래내역 추가
-  await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
-    trade: myList,
-  });
+  // await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
+  //   trade: myList,
+  // });
 
   // // 상대방 거래내역 추가
-  result = await Axios.patch(`${serverUrl}/users/${current.seller.id}`, {
-    trade: sellerList,
-    notice: sellerList,
-  })
-    .then((res) => {
-      return true;
-    })
-    .catch((err) => {
-      return false;
-    });
+  // result = await Axios.patch(`${serverUrl}/users/${current.seller.id}`, {
+  //   trade: sellerList,
+  //   notice: sellerList,
+  // })
+  //   .then((res) => {
+  //     return true;
+  //   })
+  //   .catch((err) => {
+  //     return false;
+  //   });
+
+  // * firebase
+  result = FiredbRef.child("users/" + user.user.id + "/trade")
+    .push(newTrade)
+    .then(() => true)
+    .catch(() => false);
+  result = FiredbRef.child("users/" + current.seller.id + "/trade")
+    .push(newTrade)
+    .then(() => true)
+    .catch(() => false);
 
   return result;
 };
