@@ -56,9 +56,17 @@ export const loginUser = (user) => async (dispatch) => {
       .get()
       .then((snapshot) => {
         if (snapshot.exists()) {
-          console.log(snapshot.val());
+          const res = snapshot.val();
+          if (res.password == user.password) {
+            dispatch({
+              type: SET_USER,
+              payload: res,
+            });
+          } else {
+            alert("로그인 실패 | 비밀번호 오류");
+          }
         } else {
-          console.log("No data available");
+          alert("로그인 실패 | 아이디를 확인해주세요.");
         }
       })
       .catch((error) => {
