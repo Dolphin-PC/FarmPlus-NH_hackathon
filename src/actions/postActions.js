@@ -1,79 +1,104 @@
 import axios from "axios";
 import shortid from "shortid";
-import { FireStorage } from "../app/firebaseConfig";
+import { FireStorage, FiredbRef } from "../app/firebaseConfig";
 import { serverUrl } from "../app/info";
-import {
-   ADD_POST,
-   SET_POSTS,
-   SET_POSTS_ERROR,
-   SET_POSTS_LOADING,
-   SET_POSTS_UPLOADING,
-} from "./types";
+import { ADD_POST, SET_POSTS, SET_POSTS_ERROR, SET_POSTS_LOADING, SET_POSTS_UPLOADING } from "./types";
 
 export const addNewPost = (post, images, user) => async (dispatch) => {
-   const id = shortid.generate(); // 게시글 id
+  const id = shortid.generate(); // 게시글 id
 
-   delete user.password;
+  delete user.password;
 
-   try {
-      dispatch({
-         type: SET_POSTS_UPLOADING,
+  try {
+    dispatch({
+      type: SET_POSTS_UPLOADING,
+    });
+
+    const imageRef = FireStorage.ref(`${post.location}/${post.category}/images`).child(post.title);
+
+    await imageRef
+      .put(images[0])
+      .then(() => console.info("success upload image!"))
+      .catch((err) => console.error(err));
+
+    await imageRef.getDownloadURL().then((url) => {
+      post.imageUrls.push(url);
+    });
+
+    // * json-server
+    // await axios
+    //   .post(`${serverUrl}/posts`, {
+    //     id,
+    //     ...post,
+    //     cost: Number(post.cost),
+    //     size: Number(post.size),
+    //     seller: user,
+    //   })
+    //   .then((res) => {
+    //     dispatch({
+    //       type: ADD_POST,
+    //       payload: res.data,
+    //     });
+    //   });
+
+    // * firebase
+    FiredbRef.child("/posts/" + id)
+      .set({
+        ...post,
+        cost: Number(post.cost),
+        size: Number(post.size),
+        seller: user,
+      })
+      .then((res) => {
+        dispatch({
+          type: ADD_POST,
+          payload: res,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        throw "게시물 저장에 실패했습니다.";
       });
-
-      const imageRef = FireStorage.ref(
-         `${post.location}/${post.category}/images`
-      ).child(post.title);
-
-      await imageRef
-         .put(images[0])
-         .then(() => console.info("success upload image!"))
-         .catch((err) => console.error(err));
-
-      await imageRef.getDownloadURL().then((url) => {
-         post.imageUrls.push(url);
-      });
-
-      await axios
-         .post(`${serverUrl}/posts`, {
-            id,
-            ...post,
-            cost: Number(post.cost),
-            size: Number(post.size),
-            seller: user,
-         })
-         .then((res) => {
-            dispatch({
-               type: ADD_POST,
-               payload: res.data,
-            });
-         });
-   } catch (err) {
-      console.error(err);
-      dispatch({
-         type: SET_POSTS_ERROR,
-         payload: err,
-      });
-   }
+  } catch (err) {
+    console.error(err);
+    dispatch({
+      type: SET_POSTS_ERROR,
+      payload: err,
+    });
+  }
 };
 
+// 게시물 조회
 export const getPosts = () => async (dispatch) => {
-   try {
-      dispatch({
-         type: SET_POSTS_LOADING,
-      });
+  try {
+    dispatch({
+      type: SET_POSTS_LOADING,
+    });
 
-      const res = await axios.get(`${serverUrl}/posts`);
+    // * json-server
+    // const res = await axios.get(`${serverUrl}/posts`);
 
-      dispatch({
-         type: SET_POSTS,
-         payload: res.data,
-      });
-   } catch (err) {
-      console.error(err);
-      dispatch({
-         type: SET_POSTS_ERROR,
-         payload: err,
-      });
-   }
+    // * firebase
+    const snapshot = await FiredbRef.child("posts/").get();
+    if (!snapshot.exists()) throw "게시물이 존재하지 않습니다.";
+
+    let res = Object.entries(snapshot.val()).map(([key, value]) => {
+      return {
+        id: key,
+        ...value,
+      };
+    });
+
+    dispatch({
+      type: SET_POSTS,
+      payload: res,
+    });
+  } catch (err) {
+    console.error(err);
+    dispatch({
+      type: SET_POSTS_ERROR,
+      payload: err,
+    });
+  }
 };
 export const setLoading = () => async (dispatch) => {};

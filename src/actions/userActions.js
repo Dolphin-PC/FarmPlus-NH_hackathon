@@ -6,6 +6,7 @@ import { ADD_FAVORITE, GET_USER, SET_FAVORITE, SET_USER } from "./types";
 import shortid from "shortid";
 import { FireDB, FiredbRef } from "../app/firebaseConfig";
 
+// 회원가입
 export const newUser = async (user) => {
   // * json-server
   //   await Axios.post(`${serverUrl}/users`, {
@@ -33,6 +34,7 @@ export const newUser = async (user) => {
     });
 };
 
+// 로그인
 export const loginUser = (user) => async (dispatch) => {
   try {
     // * json-server
@@ -81,38 +83,63 @@ export const loginUser = (user) => async (dispatch) => {
   }
 };
 
+// 사용자 정보 조회
 export const getUserInfo = (user) => async (dispatch) => {
-  await Axios.get(`${serverUrl}/users/${user.user.id}`)
-    .then((res) => {
-      console.info(res);
-      dispatch({
-        type: GET_USER,
-        payload: res.data,
-      });
-    })
-    .catch((err) => {
-      alert("오류 발생");
-      console.error(err);
+  // * json-server
+  //   await Axios.get(`${serverUrl}/users/${user.user.id}`)
+  //     .then((res) => {
+  //       console.info(res);
+  //       dispatch({
+  //         type: GET_USER,
+  //         payload: res.data,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       alert("오류 발생");
+  //       console.error(err);
+  //     });
+
+  // * firebase
+  FiredbRef.child("users/" + user.user.id)
+    .get()
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        let res = snapshot.val();
+        dispatch({
+          type: GET_USER,
+          payload: res,
+        });
+      } else {
+        alert("오류 발생");
+      }
     });
 };
 
+// 찜하기
 export const addFavorite = (user, current) => async (dispatch) => {
   var favoriteList = [];
   if (user.user.favorite) {
     favoriteList = user.user.favorite;
   }
   favoriteList.push(current);
-  //   await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
-  //     favorite: favoriteList,
-  //   })
-  //     .then((res) => {
-  //       alert("찜 되었습니다.");
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
+
+  // TODO firebase
+  //   * json-server
+  await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
+    favorite: favoriteList,
+  })
+    .then((res) => {
+      alert("찜 되었습니다.");
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+  //   * firebase
+  //   FiredbRef.child("users/" + user.user.id).
 };
 
+// 거래 요청
 export const tradeRequest = (user, current) => async (dispatch) => {
   let requester = user.user;
   // 불필요한 정보 삭제
