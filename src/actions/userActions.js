@@ -35,6 +35,7 @@ export const newUser = async (user) => {
 
 export const loginUser = (user) => async (dispatch) => {
   try {
+    // * json-server
     //  await Axios.get(`${serverUrl}users?id=${user.id}`).then((res) => {
     //    console.info(res);
     //    if (res.data.length === 0) {
@@ -52,6 +53,7 @@ export const loginUser = (user) => async (dispatch) => {
     //    }
     //  });
 
+    // * firebase
     FiredbRef.child("users/" + user.id)
       .get()
       .then((snapshot) => {
@@ -100,15 +102,15 @@ export const addFavorite = (user, current) => async (dispatch) => {
     favoriteList = user.user.favorite;
   }
   favoriteList.push(current);
-  await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
-    favorite: favoriteList,
-  })
-    .then((res) => {
-      alert("찜 되었습니다.");
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+  //   await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
+  //     favorite: favoriteList,
+  //   })
+  //     .then((res) => {
+  //       alert("찜 되었습니다.");
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
 };
 
 export const tradeRequest = (user, current) => async (dispatch) => {
