@@ -7,7 +7,12 @@ const initialState: { user: TypeUser } = {
   user: JSON.parse(localStorage.getItem("user")),
 };
 
-export default function userReducer(state = initialState, action) {
+export default function userReducer(
+  state = initialState,
+  action
+): {
+  user: TypeUser;
+} {
   switch (action.type) {
     case SET_USER:
       localStorage.setItem("user", JSON.stringify(action.payload));

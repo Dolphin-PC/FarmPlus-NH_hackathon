@@ -6,7 +6,7 @@ import nav from "./navReducer";
 import contract from "./contractReducer";
 
 export const rootReducer = combineReducers({
-  user: user,
+  user,
   filter,
   post,
   nav,

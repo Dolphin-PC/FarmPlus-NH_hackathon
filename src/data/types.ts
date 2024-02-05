@@ -1,17 +1,17 @@
 export type TypeUser = {
-  FinAcno: String;
-  Rgno: String;
-  accountNumber: String;
-  address: String;
-  bankCode: String;
-  birthDay: String;
+  FinAcno: string;
+  Rgno: string;
+  accountNumber: string;
+  address: string;
+  bankCode: string;
+  birthDay: string;
   favorite: any;
-  id: String;
+  id: string;
   isVIP?: boolean;
-  landNumber?: String;
-  name: String;
-  password: String;
-  phoneNumber: String;
+  landNumber?: string;
+  name: string;
+  password: string;
+  phoneNumber: string;
   notice?: any[];
   trade?: any[];
 };
