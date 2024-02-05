@@ -22,3 +22,6 @@ export const FirebaseApp = firebase;
 export const FireStorage = firebase.storage();
 export const FireDB = firebase.database;
 export const FiredbRef = firebase.database().ref();
+
+export const UserRef = firebase.database().ref("users/");
+export const PostRef = firebase.database().ref("posts/");

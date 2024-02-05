@@ -4,7 +4,8 @@ import { serverUrl } from "../app/info";
 import { ADD_FAVORITE, GET_USER, SET_FAVORITE, SET_USER } from "./types";
 
 import shortid from "shortid";
-import { FireDB, FiredbRef } from "../app/firebaseConfig";
+import { FireDB, FiredbRef, UserRef } from "../app/firebaseConfig";
+import { TypeUser } from "../data/types";
 
 // 회원가입
 export const newUser = async (user) => {
@@ -60,7 +61,11 @@ export const loginUser = (user) => async (dispatch) => {
       .get()
       .then((snapshot) => {
         if (snapshot.exists()) {
-          const res = snapshot.val();
+          const res: TypeUser = snapshot.val();
+          if (res.trade) {
+            res.trade = Object.values(res.trade);
+          }
+
           if (res.password == user.password) {
             dispatch({
               type: SET_USER,
@@ -178,12 +183,12 @@ export const tradeRequest = (user, current) => async (dispatch) => {
   //   sellerList = sellerTradeInfo;
   // }
 
-  const newTrade = {
-    tradeId: tradeId,
-    noticeType: "거래대기",
-    requester,
-    product: current,
-  };
+  // const newTrade = {
+  //   tradeId: tradeId,
+  //   noticeType: "거래대기",
+  //   requester,
+  //   product: current,
+  // };
 
   // myList.push(newTrade);
   // sellerList.push(newTrade);
@@ -206,58 +211,92 @@ export const tradeRequest = (user, current) => async (dispatch) => {
   //   });
 
   // * firebase
-  result = FiredbRef.child("users/" + user.user.id + "/trade")
-    .push(newTrade)
+  const newTrade = {
+    tradeId: tradeId,
+    noticeType: "거래대기",
+    requester,
+    product: current,
+  };
+
+  FiredbRef.child("users/" + user.user.id + "/trade")
+    .child(tradeId)
+    .update(newTrade)
     .then(() => true)
     .catch(() => false);
-  result = FiredbRef.child("users/" + current.seller.id + "/trade")
-    .push(newTrade)
+  FiredbRef.child("users/" + current.seller.id + "/trade")
+    .child(tradeId)
+    .update(newTrade)
     .then(() => true)
     .catch(() => false);
 
   return result;
 };
 
-// 거래 수락
+// TODO firebase
+/**
+ * 거래수락
+ * 거래요청자 -> 판매자, 판매자의 거래수락 Action
+ * @param {*} user
+ * @param {*} tradeId
+ * @param {*} requester
+ * @param {*} product
+ * @returns
+ */
 export const acceptRequest = (user, tradeId, requester, product) => async (dispatch) => {
-  let result;
-  // 내 거래정보
-  let myTradeInfo = await Axios.get(`${serverUrl}/users/${user.user.id}`);
-  // 구매자 거래정보
-  let requesterTradeInfo = await Axios.get(`${serverUrl}/users/${requester.id}`);
+  try {
+    const updateObj = {
+      noticeType: "거래진행",
+    };
+    // 내 거래정보 -> noticeType(거래진행 변경)
+    UserRef.child(user.user.id).child("trade/").child(tradeId).update(updateObj);
+    // 상대방 거래정보 -> noticeType(거래진행 변경)
+    UserRef.child(requester.id).child("trade/").child(tradeId).update(updateObj);
 
-  myTradeInfo = myTradeInfo.data.trade.map((trade) => {
-    if (trade.tradeId === tradeId) {
-      return { ...trade, noticeType: "거래진행" };
-    }
-    return trade;
-  });
-  requesterTradeInfo = requesterTradeInfo.data.trade.map((trade) => {
-    if (trade.tradeId === tradeId) {
-      return { ...trade, noticeType: "거래진행" };
-    }
-    return trade;
-  });
-
-  result = await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
-    trade: myTradeInfo,
-    notice: myTradeInfo,
-  }).catch((err) => {
+    return true;
+  } catch (err) {
     console.error(err);
-  });
+    return false;
+  }
 
-  result = await Axios.patch(`${serverUrl}/users/${requester.id}`, {
-    trade: requesterTradeInfo,
-    notice: requesterTradeInfo,
-  })
-    .then(() => {
-      console.info("거래가 성사되었습니다.");
-      return true;
-    })
-    .catch((err) => {
-      console.error(err);
-      return false;
-    });
+  // let result;
 
-  return result;
+  // // 내 거래정보
+  // let myTradeInfo = await Axios.get(`${serverUrl}/users/${user.user.id}`);
+  // // 구매자 거래정보
+  // let requesterTradeInfo = await Axios.get(`${serverUrl}/users/${requester.id}`);
+
+  // myTradeInfo = myTradeInfo.data.trade.map((trade) => {
+  //   if (trade.tradeId === tradeId) {
+  //     return { ...trade, noticeType: "거래진행" };
+  //   }
+  //   return trade;
+  // });
+  // requesterTradeInfo = requesterTradeInfo.data.trade.map((trade) => {
+  //   if (trade.tradeId === tradeId) {
+  //     return { ...trade, noticeType: "거래진행" };
+  //   }
+  //   return trade;
+  // });
+
+  // result = await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
+  //   trade: myTradeInfo,
+  //   notice: myTradeInfo,
+  // }).catch((err) => {
+  //   console.error(err);
+  // });
+
+  // result = await Axios.patch(`${serverUrl}/users/${requester.id}`, {
+  //   trade: requesterTradeInfo,
+  //   notice: requesterTradeInfo,
+  // })
+  //   .then(() => {
+  //     console.info("거래가 성사되었습니다.");
+  //     return true;
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //     return false;
+  //   });
+
+  // return result;
 };

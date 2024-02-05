@@ -12,8 +12,8 @@ export type TypeUser = {
   name: String;
   password: String;
   phoneNumber: String;
-  notice?: any;
-  trade?: any;
+  notice?: any[];
+  trade?: any[];
 };
 export type TypeFilter = {};
 
