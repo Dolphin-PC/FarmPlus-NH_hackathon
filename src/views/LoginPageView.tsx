@@ -1,11 +1,12 @@
 import { Button, TextField } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { SET_NAV } from "../actions/types";
 import { loginUser } from "../actions/userActions";
 // import * as Color from "../assets/colors";
 import loginVideo from "../assets/video/LoginVideo.mp4";
+import { RootStateType } from "../reducers";
 
 const LoginPageView = () => {
   // 현재 브라우저의 전체 높이 값을 반환
@@ -13,7 +14,7 @@ const LoginPageView = () => {
 
   const history = useHistory();
   const dispatch = useDispatch();
-  const _user = useSelector((state) => state.user);
+  const _user = useSelector((state: RootStateType) => state.user);
 
   const [user, setUser] = useState({
     id: "seller",

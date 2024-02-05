@@ -5,10 +5,12 @@ import post from "./postReducer";
 import nav from "./navReducer";
 import contract from "./contractReducer";
 
-export default combineReducers({
-   user,
-   filter,
-   post,
-   nav,
-   contract,
+export const rootReducer = combineReducers({
+  user: user,
+  filter,
+  post,
+  nav,
+  contract,
 });
+
+export type RootStateType = ReturnType<typeof rootReducer>;

@@ -1,8 +1,9 @@
 // import {} from '../actions/types'
 
 import { ADD_FAVORITE, CLEAR_USER, SET_FAVORITE, SET_USER, GET_USER } from "../actions/types";
+import { TypeUser } from "../data/types";
 
-const initialState = {
+const initialState: { user: TypeUser } = {
   user: JSON.parse(localStorage.getItem("user")),
 };
 

@@ -4,7 +4,8 @@
     "target": "ES5",
     "outDir": "./dist",
     "moduleResolution": "Node",
-    "lib": ["ES2015", "DOM", "DOM.Iterable"]
+    "lib": ["ES2015", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx"
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules", "dist"]
