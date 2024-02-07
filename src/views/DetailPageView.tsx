@@ -171,7 +171,7 @@ const DetailPageView = () => {
           </Button>
         </Col>
         <Col lg="6" style={{ padding: 0 }}>
-          <Button style={{ backgroundColor: Color.mainColor, color: "white" }} fullWidth onClick={handleOnRequest}>
+          <Button disabled={user.id === current.seller.id} style={{ backgroundColor: user.id == current.seller.id ? "gray" : Color.mainColor, color: "white" }} fullWidth onClick={handleOnRequest}>
             신청
           </Button>
         </Col>
