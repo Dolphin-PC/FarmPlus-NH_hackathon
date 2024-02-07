@@ -5,11 +5,12 @@ import { ADD_FAVORITE, GET_USER, SET_FAVORITE, SET_USER } from "./types";
 
 import shortid from "shortid";
 import { FireDB, FiredbRef, UserRef } from "../app/firebaseConfig";
-import { TypeUser } from "../data/dbType";
 import { TypeStateCurrentPost } from "../data/stateType";
+import { TypeUser } from "../data/dbType";
+import { TypeAccountInfo, TypePersonalInfo } from "../views/RegisterPageView";
 
 // 회원가입
-export const newUser = async (user) => {
+export const newUser = async (user: { personalInfo: TypePersonalInfo; accountInfo: TypeAccountInfo }): Promise<boolean> => {
   // * json-server
   //   await Axios.post(`${serverUrl}/users`, {
   //     ...user.personalInfo,
@@ -24,7 +25,7 @@ export const newUser = async (user) => {
   //     });
 
   // * firebase
-  FiredbRef.child("users/" + user.personalInfo.id)
+  return await FiredbRef.child("users/" + user.personalInfo.id)
     .set({
       ...user.personalInfo,
       ...user.accountInfo,
@@ -37,7 +38,7 @@ export const newUser = async (user) => {
 };
 
 // 로그인
-export const loginUser = (user) => async (dispatch) => {
+export const loginUser = (user: { id: string; password: string }) => async (dispatch) => {
   try {
     // * json-server
     //  await Axios.get(`${serverUrl}users?id=${user.id}`).then((res) => {
@@ -106,7 +107,7 @@ export const getUserInfo = (user: TypeUser) => async (dispatch) => {
   //     });
 
   // * firebase
-  FiredbRef.child("users/" + user.id)
+  await FiredbRef.child("users/" + user.id)
     .get()
     .then((snapshot) => {
       if (snapshot.exists()) {
@@ -127,10 +128,10 @@ export const getUserInfo = (user: TypeUser) => async (dispatch) => {
 };
 
 // 찜하기
-export const addFavorite = (user, current) => async (dispatch) => {
+export const addFavorite = (user: TypeUser, current: TypeStateCurrentPost) => async (dispatch) => {
   var favoriteList = [];
-  if (user.user.favorite) {
-    favoriteList = user.user.favorite;
+  if (user.favorite) {
+    favoriteList = user.favorite;
   }
   favoriteList.push(current);
 
@@ -146,7 +147,7 @@ export const addFavorite = (user, current) => async (dispatch) => {
   //   });
 
   //   * firebase
-  FiredbRef.child("users/" + user.user.id)
+  await FiredbRef.child("users/" + user.id)
     .update({
       favorite: favoriteList,
     })
@@ -219,19 +220,31 @@ export const tradeRequest = (user: TypeUser, current: TypeStateCurrentPost) => a
   };
 
   try {
-    FiredbRef.child("users/" + user.id + "/trade")
+    await FiredbRef.child("users/" + user.id + "/trade")
       .child(tradeId)
-      .update(newTrade);
-    FiredbRef.child("users/" + user.id + "/notice")
+      .update(newTrade)
+      .catch((err) => {
+        throw err;
+      });
+    await FiredbRef.child("users/" + user.id + "/notice")
       .child(tradeId)
-      .update(newTrade);
+      .update(newTrade)
+      .catch((err) => {
+        throw err;
+      });
 
-    FiredbRef.child("users/" + current.seller.id + "/trade")
+    await FiredbRef.child("users/" + current.seller.id + "/trade")
       .child(tradeId)
-      .update(newTrade);
-    FiredbRef.child("users/" + current.seller.id + "/notice")
+      .update(newTrade)
+      .catch((err) => {
+        throw err;
+      });
+    await FiredbRef.child("users/" + current.seller.id + "/notice")
       .child(tradeId)
-      .update(newTrade);
+      .update(newTrade)
+      .catch((err) => {
+        throw err;
+      });
 
     return true;
   } catch (err) {
@@ -257,11 +270,35 @@ export const acceptRequest = (user: TypeUser, tradeId: string, requester: TypeUs
       noticeType: "거래진행",
     };
     // 내 거래정보 -> noticeType(거래진행 변경)
-    UserRef.child(user.id).child("trade").child(tradeId).update(updateObj);
-    UserRef.child(user.id).child("notice").child(tradeId).update(updateObj);
+    await UserRef.child(user.id)
+      .child("trade")
+      .child(tradeId)
+      .update(updateObj)
+      .catch((err) => {
+        throw err;
+      });
+    await UserRef.child(user.id)
+      .child("notice")
+      .child(tradeId)
+      .update(updateObj)
+      .catch((err) => {
+        throw err;
+      });
     // 상대방 거래정보 -> noticeType(거래진행 변경)
-    UserRef.child(requester.id).child("trade").child(tradeId).update(updateObj);
-    UserRef.child(requester.id).child("notice").child(tradeId).update(updateObj);
+    await UserRef.child(requester.id)
+      .child("trade")
+      .child(tradeId)
+      .update(updateObj)
+      .catch((err) => {
+        throw err;
+      });
+    await UserRef.child(requester.id)
+      .child("notice")
+      .child(tradeId)
+      .update(updateObj)
+      .catch((err) => {
+        throw err;
+      });
 
     return true;
   } catch (err) {

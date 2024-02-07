@@ -53,4 +53,6 @@ export type TypeNotice = {
   requester: TypeUser;
   tradeId: string;
 };
+
+export type TypeTrade = TypeNotice;
 export type TypeNoticeType = "거래대기" | "거래진행" | "거래완료";

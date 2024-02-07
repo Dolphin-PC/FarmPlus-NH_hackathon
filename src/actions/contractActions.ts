@@ -5,7 +5,7 @@ import { TypeUser } from "../data/dbType";
 import { RootStateType } from "../reducers";
 
 /**
- * 계약내용 확인 및 동의 후, 계약서 전송
+ * @desc 계약내용 확인 및 동의 후, 계약서 전송
  * user > data > trade > isContract(true) 수정
  * @param {*} user
  * @param {*} tradeId
@@ -35,12 +35,24 @@ export const sendContract = async (user: TypeUser, tradeId: string) => {
   //   });
 
   try {
-    UserRef.child(user.id).child("trade").child(tradeId).update({
-      isContract: true,
-    });
-    UserRef.child(user.id).child("notice").child(tradeId).update({
-      isContract: true,
-    });
+    await UserRef.child(user.id)
+      .child("trade")
+      .child(tradeId)
+      .update({
+        isContract: true,
+      })
+      .catch((err) => {
+        throw err;
+      });
+    await UserRef.child(user.id)
+      .child("notice")
+      .child(tradeId)
+      .update({
+        isContract: true,
+      })
+      .catch((err) => {
+        throw err;
+      });
     return true;
   } catch (err) {
     return false;

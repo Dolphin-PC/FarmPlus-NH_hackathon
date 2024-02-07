@@ -21,7 +21,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { contract } from "../../data/data";
 import { sendContract } from "../../actions/contractActions";
-import { drawingTransfer } from "../../api/simplePayActions";
+import { confirmTransferTrade, drawingTransfer } from "../../api/simplePayActions";
 import ContractAccordionComp from "../accordions/ContractAccordionComp";
 import { getUserInfo } from "../../actions/userActions";
 import { getAccountNumber, getBankName } from "../../app/functions";
@@ -128,14 +128,19 @@ const ContractDialog = (props) => {
     }
   };
 
-  const handleOnSendDeposit = () => {
+  const handleOnSendDeposit = async () => {
     if (!user.FinAcno) {
       return alert("출금이체를 위해 핀어카운트 발급이 필요합니다.");
     }
 
+    if (!(await confirmTransferTrade(user, tradeId))) {
+      alert("이미 출금이체가 완료된  거래입니다.");
+      return;
+    }
+
     if (window.confirm("출금 이체를 하시겠습니까?")) {
       // 출금 이체 성공 시
-      if (drawingTransfer(user, product, tradeId)) {
+      if (await drawingTransfer(user, product, tradeId)) {
         alert("정상적으로 처리되었습니다.");
         onClose();
       }

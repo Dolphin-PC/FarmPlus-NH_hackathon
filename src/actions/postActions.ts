@@ -3,8 +3,9 @@ import shortid from "shortid";
 import { FireStorage, FiredbRef } from "../app/firebaseConfig";
 import { serverUrl } from "../app/info";
 import { ADD_POST, SET_POSTS, SET_POSTS_ERROR, SET_POSTS_LOADING, SET_POSTS_UPLOADING } from "./types";
+import { TypePost, TypeUser } from "../data/dbType";
 
-export const addNewPost = (post, images, user) => async (dispatch) => {
+export const addNewPost = (post: TypePost, images: FileList, user: TypeUser) => async (dispatch) => {
   const id = shortid.generate(); // 게시글 id
 
   delete user.password;
@@ -42,7 +43,7 @@ export const addNewPost = (post, images, user) => async (dispatch) => {
     //   });
 
     // * firebase
-    FiredbRef.child("/posts/" + id)
+    await FiredbRef.child("/posts/" + id)
       .set({
         ...post,
         cost: Number(post.cost),
@@ -57,7 +58,7 @@ export const addNewPost = (post, images, user) => async (dispatch) => {
       })
       .catch((err) => {
         console.error(err);
-        throw "게시물 저장에 실패했습니다.";
+        throw new Error("게시물 저장에 실패했습니다.");
       });
   } catch (err) {
     console.error(err);
@@ -80,7 +81,7 @@ export const getPosts = () => async (dispatch) => {
 
     // * firebase
     const snapshot = await FiredbRef.child("posts/").get();
-    if (!snapshot.exists()) throw "게시물이 존재하지 않습니다.";
+    if (!snapshot.exists()) throw new Error("게시물이 존재하지 않습니다.");
 
     let res = Object.entries(snapshot.val()).map(([key, value]) => {
       return value;

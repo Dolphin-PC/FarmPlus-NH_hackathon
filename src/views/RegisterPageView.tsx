@@ -9,10 +9,23 @@ import { a11yProps, TabPanel } from "../app/functions";
 import { newUser } from "../actions/userActions";
 import * as Color from "../assets/colors";
 
+export type TypePersonalInfo = {
+  name: string;
+  phoneNumber: string;
+  address: string;
+  landNumber: string;
+  birthDay: string;
+  id: string;
+  password: string;
+};
+export type TypeAccountInfo = {
+  bankCode: string;
+  accountNumber: string;
+};
 const RegisterPageView = () => {
   const [value, setValue] = useState(0);
   const history = useHistory();
-  const [personalInfo, setPersonalInfo] = useState({
+  const [personalInfo, setPersonalInfo] = useState<TypePersonalInfo>({
     name: "",
     phoneNumber: "",
     address: "",
@@ -21,7 +34,7 @@ const RegisterPageView = () => {
     id: "",
     password: "",
   });
-  const [accountInfo, setAccountInfo] = useState({
+  const [accountInfo, setAccountInfo] = useState<TypeAccountInfo>({
     bankCode: "011",
     accountNumber: "",
   });

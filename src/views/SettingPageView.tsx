@@ -25,8 +25,8 @@ const SettingPageView = () => {
     setOpenTrade(true);
   };
 
-  const handleAccount = () => {
-    registerFinAccount(user);
+  const handleAccount = async () => {
+    await registerFinAccount(user);
   };
   const handleRemit = () => {};
   const handleContract = () => {};
