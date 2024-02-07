@@ -45,4 +45,12 @@ export type TypeProduct = TypePost & {
   image: string;
 };
 
-export type TypeAccountHolderResult = any;
+export type TypeNotice = {
+  deposit?: number;
+  isContract?: boolean;
+  noticeType: TypeNoticeType;
+  product: TypeProduct;
+  requester: TypeUser;
+  tradeId: string;
+};
+export type TypeNoticeType = "거래대기" | "거래진행" | "거래완료";

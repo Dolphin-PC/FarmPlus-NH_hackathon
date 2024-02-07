@@ -6,7 +6,7 @@ import { getTodayApi, getIsTuno, getTimeApi } from "../app/functions";
 import { Iscd, FintechApsno, ApiSvcCd, AccessToken } from "../app/info";
 import Axios from "axios";
 import { UserRef } from "../app/firebaseConfig";
-import { TypeProduct, TypeUser } from "../data/types";
+import { TypeProduct, TypeUser } from "../data/dbType";
 
 // 출금 이체
 export const drawingTransfer = async (user: TypeUser, product: TypeProduct, tradeId: string) => {

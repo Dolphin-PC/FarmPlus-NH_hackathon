@@ -1,13 +1,6 @@
 import { ADD_POST, CLEAR_CURRENT, CLEAR_POSTS, SET_CURRENT, SET_POSTS, SET_POSTS_ERROR, SET_POSTS_LOADING, SET_POSTS_UPLOADING } from "../actions/types";
-import { TypePost, TypeUser } from "../data/types";
-
-export type TypeStatePost = {
-  posts: TypePost[];
-  current: TypePost & { seller: TypeUser };
-  loading: boolean;
-  uploading: boolean;
-  error?: any;
-};
+import { TypePost, TypeUser } from "../data/dbType";
+import { TypeStatePost } from "../data/stateType";
 
 const initialState: TypeStatePost = {
   posts: [],

@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { serverUrl } from "../app/info";
 import { UserRef } from "../app/firebaseConfig";
-import { TypeUser } from "../data/types";
+import { TypeUser } from "../data/dbType";
 import { RootStateType } from "../reducers";
 
 /**
@@ -34,17 +34,15 @@ export const sendContract = async (user: TypeUser, tradeId: string) => {
   //     console.error(err);
   //   });
 
-  return UserRef.child(user.id)
-    .child("trade")
-    .child(tradeId)
-    .update({
+  try {
+    UserRef.child(user.id).child("trade").child(tradeId).update({
       isContract: true,
-    })
-    .then(() => {
-      return true;
-    })
-    .catch((err) => {
-      console.error(err);
-      return false;
     });
+    UserRef.child(user.id).child("notice").child(tradeId).update({
+      isContract: true,
+    });
+    return true;
+  } catch (err) {
+    return false;
+  }
 };

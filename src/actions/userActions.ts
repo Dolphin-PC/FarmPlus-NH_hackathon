@@ -5,7 +5,8 @@ import { ADD_FAVORITE, GET_USER, SET_FAVORITE, SET_USER } from "./types";
 
 import shortid from "shortid";
 import { FireDB, FiredbRef, UserRef } from "../app/firebaseConfig";
-import { TypeUser } from "../data/types";
+import { TypeUser } from "../data/dbType";
+import { TypeStateCurrentPost } from "../data/stateType";
 
 // 회원가입
 export const newUser = async (user) => {
@@ -112,12 +113,11 @@ export const getUserInfo = (user: TypeUser) => async (dispatch) => {
         let res = snapshot.val();
 
         // trade
-        if (res.trade) {
-          res.trade = Object.values(res.trade).map((value) => value);
-        }
+        if (res.trade) res.trade = Object.values(res.trade).map((value) => value);
+        if (res.notice) res.notice = Object.values(res.notice).map((value) => value);
 
         dispatch({
-          type: GET_USER,
+          type: SET_USER,
           payload: res,
         });
       } else {
@@ -159,8 +159,8 @@ export const addFavorite = (user, current) => async (dispatch) => {
 };
 
 // 거래 요청
-export const tradeRequest = (user, current) => async (dispatch) => {
-  let requester = { ...user.user };
+export const tradeRequest = (user: TypeUser, current: TypeStateCurrentPost) => async (dispatch) => {
+  let requester = { ...user };
   // 불필요한 정보 삭제
   delete requester.notice;
   delete requester.favorite;
@@ -218,21 +218,30 @@ export const tradeRequest = (user, current) => async (dispatch) => {
     product: current,
   };
 
-  FiredbRef.child("users/" + user.user.id + "/trade")
-    .child(tradeId)
-    .update(newTrade)
-    .then(() => true)
-    .catch(() => false);
-  FiredbRef.child("users/" + current.seller.id + "/trade")
-    .child(tradeId)
-    .update(newTrade)
-    .then(() => true)
-    .catch(() => false);
+  try {
+    FiredbRef.child("users/" + user.id + "/trade")
+      .child(tradeId)
+      .update(newTrade);
+    FiredbRef.child("users/" + user.id + "/notice")
+      .child(tradeId)
+      .update(newTrade);
+
+    FiredbRef.child("users/" + current.seller.id + "/trade")
+      .child(tradeId)
+      .update(newTrade);
+    FiredbRef.child("users/" + current.seller.id + "/notice")
+      .child(tradeId)
+      .update(newTrade);
+
+    return true;
+  } catch (err) {
+    console.error(err);
+    return false;
+  }
 
   return result;
 };
 
-// TODO firebase
 /**
  * 거래수락
  * 거래요청자 -> 판매자, 판매자의 거래수락 Action
@@ -242,15 +251,17 @@ export const tradeRequest = (user, current) => async (dispatch) => {
  * @param {*} product
  * @returns
  */
-export const acceptRequest = (user, tradeId, requester, product) => async (dispatch) => {
+export const acceptRequest = (user: TypeUser, tradeId: string, requester: TypeUser, product) => async (dispatch) => {
   try {
     const updateObj = {
       noticeType: "거래진행",
     };
     // 내 거래정보 -> noticeType(거래진행 변경)
-    UserRef.child(user.user.id).child("trade/").child(tradeId).update(updateObj);
+    UserRef.child(user.id).child("trade").child(tradeId).update(updateObj);
+    UserRef.child(user.id).child("notice").child(tradeId).update(updateObj);
     // 상대방 거래정보 -> noticeType(거래진행 변경)
-    UserRef.child(requester.id).child("trade/").child(tradeId).update(updateObj);
+    UserRef.child(requester.id).child("trade").child(tradeId).update(updateObj);
+    UserRef.child(requester.id).child("notice").child(tradeId).update(updateObj);
 
     return true;
   } catch (err) {

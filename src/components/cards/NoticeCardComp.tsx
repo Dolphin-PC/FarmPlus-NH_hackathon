@@ -6,9 +6,20 @@ import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import RequesterInfoDialog from "../dialogs/RequesterInfoDialog";
 import ContractDialog from "../dialogs/ContractDialog";
 import CompleteDialog from "../dialogs/CompleteDialog";
+import { TypeNotice, TypeNoticeType, TypeProduct, TypeUser } from "../../data/dbType";
 
 const NoticeCardComp = (props) => {
-  const { noticeType, requester, product, deposit } = props;
+  const {
+    noticeType,
+    requester,
+    product,
+    deposit,
+  }: {
+    noticeType: TypeNoticeType;
+    requester: TypeUser;
+    product: TypeProduct;
+    deposit: number;
+  } = props;
   const [openRequesterInfoDialog, setOpenRequesterInfoDialog] = useState(false);
   const [openContractDialog, setOpenContractDialog] = useState(false);
   const [openCompleteDialog, setOpenCompleteDialog] = useState(false);

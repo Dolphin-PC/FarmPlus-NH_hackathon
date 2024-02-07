@@ -5,7 +5,8 @@ import { getTodayApi, getIsTuno, getTimeApi } from "../app/functions";
 
 import { Iscd, FintechApsno, ApiSvcCd, AccessToken } from "../app/info";
 import Axios from "axios";
-import { TypeAccountHolderResult, TypeUser } from "../data/types";
+import { TypeUser } from "../data/dbType";
+import { TypeAccountHolderResult } from "../data/apiType";
 
 export const accountHolderFunc = async (accountInfo): Promise<TypeAccountHolderResult> => {
   if (accountInfo.bankCode === "") return alert("은행사를 선택해주세요.");
