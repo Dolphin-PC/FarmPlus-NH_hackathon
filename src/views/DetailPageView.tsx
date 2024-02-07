@@ -35,7 +35,7 @@ const DetailPageView = () => {
   const user = useSelector((state: RootStateType) => state.user);
 
   const [openBottomDrawer, setOpenBottomDrawer] = useState(false);
-  const [isHeart, setIsHeart] = useState(user.favorite.some((post) => post.id == current.id));
+  const [isHeart, setIsHeart] = useState(user.favorite?.some((post) => post.id == current.id));
 
   const history = useHistory();
   const dispatch = useDispatch();

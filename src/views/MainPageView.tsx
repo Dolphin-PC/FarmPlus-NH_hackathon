@@ -14,6 +14,7 @@ import { category, category_icon } from "../data/data";
 import { getUserInfo } from "../actions/userActions";
 import * as Color from "../assets/colors";
 import { RootStateType } from "../reducers";
+import { TypePost } from "../data/dbType";
 
 const MainPageView = () => {
   const [openAdd, setOpenAdd] = useState(false);
@@ -109,7 +110,7 @@ const MainPageView = () => {
 
     return (
       <div className="Posts">
-        {filterValue?.map((post, idx) => (
+        {filterValue?.map((post: TypePost, idx) => (
           <ItemCardComp key={idx} {...post} />
         ))}
       </div>

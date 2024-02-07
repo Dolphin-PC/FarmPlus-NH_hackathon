@@ -36,7 +36,7 @@ const RegisterPageView = () => {
   });
   const [accountInfo, setAccountInfo] = useState<TypeAccountInfo>({
     bankCode: "011",
-    accountNumber: "",
+    accountNumber: "3020000003105",
   });
   const [checkAccount, setCheckAccount] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);

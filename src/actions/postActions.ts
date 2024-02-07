@@ -1,6 +1,6 @@
 import axios from "axios";
 import shortid from "shortid";
-import { FireStorage, FiredbRef } from "../app/firebaseConfig";
+import { FireStorage, FiredbRef, PostRef } from "../app/firebaseConfig";
 import { serverUrl } from "../app/info";
 import { ADD_POST, SET_POSTS, SET_POSTS_ERROR, SET_POSTS_LOADING, SET_POSTS_UPLOADING } from "./types";
 import { TypePost, TypeUser } from "../data/dbType";
@@ -43,7 +43,7 @@ export const addNewPost = (post: TypePost, images: FileList, user: TypeUser) => 
     //   });
 
     // * firebase
-    await FiredbRef.child("/posts/" + id)
+    await PostRef.child(id)
       .set({
         ...post,
         cost: Number(post.cost),
@@ -53,7 +53,7 @@ export const addNewPost = (post: TypePost, images: FileList, user: TypeUser) => 
       .then((res) => {
         dispatch({
           type: ADD_POST,
-          payload: res,
+          payload: { ...post, cost: Number(post.cost), size: Number(post.size), seller: user },
         });
       })
       .catch((err) => {

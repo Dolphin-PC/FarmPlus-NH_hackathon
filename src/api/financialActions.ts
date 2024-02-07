@@ -43,7 +43,7 @@ export const accountHolderFunc = async (accountInfo): Promise<TypeAccountHolderR
 };
 
 export const registerFinAccount = async (user: TypeUser) => {
-  // 핀어카운트 발급
+  // 핀어카운트 발급(https://developers.nonghyup.com/guide/GU_1010)
   const url = "https://developers.nonghyup.com/OpenFinAccountDirect.nh";
 
   const body = {
@@ -64,10 +64,26 @@ export const registerFinAccount = async (user: TypeUser) => {
   };
 
   try {
-    let result;
-    await Axios.post(url, body)
-      .then((res) => (result = res))
+    let result = await Axios.post(url, body)
+      .then((res) => res)
       .catch((err) => {
+        console.error(err);
+        throw err;
+      });
+
+    console.log(result.data);
+    if (!result.data.Rgno) {
+      alert(result.data.Header.Rsms);
+      throw new Error(result.data);
+    }
+
+    console.log(result);
+    await UserRef.child(user.id)
+      .update({
+        Rgno: result.data.Rgno,
+      })
+      .catch((err) => {
+        console.error(err);
         throw err;
       });
 
@@ -87,15 +103,8 @@ export const registerFinAccount = async (user: TypeUser) => {
     //     console.error(err);
     //     alert("에러가 발생하였습니다.");
     //   });
-    await UserRef.child(user.id)
-      .update({
-        Rgno: result.data.Rgno,
-      })
-      .catch((err) => {
-        throw err;
-      });
 
-    // 핀어카운트 발급 확인
+    // 핀어카운트 발급 확인(https://developers.nonghyup.com/guide/GU_1020)
     const url1 = "https://developers.nonghyup.com/CheckOpenFinAccountDirect.nh";
 
     const body1 = {
@@ -118,6 +127,7 @@ export const registerFinAccount = async (user: TypeUser) => {
     await Axios.post(url1, body1)
       .then((res) => (result1 = res))
       .catch((err) => {
+        console.error(err);
         throw err;
       });
 
@@ -140,12 +150,12 @@ export const registerFinAccount = async (user: TypeUser) => {
         alert(result1.data.Header.Rsms);
       })
       .catch((err) => {
+        console.error(err);
         throw err;
       });
   } catch (err) {
-    alert("에러가 발생하였습니다.");
-
     console.error(err);
+    // alert("에러가 발생하였습니다.");
   }
 };
 

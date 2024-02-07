@@ -38,7 +38,7 @@ const NoticeDialog = (props) => {
     );
   };
 
-  if (user.notice.length === 0 || user.notice === undefined || user.notice === null) {
+  if (user.notice === undefined || user.notice === null || user.notice.length === 0) {
     return (
       <DialogRender>
         <p>수신된 알림이 없습니다.</p>
