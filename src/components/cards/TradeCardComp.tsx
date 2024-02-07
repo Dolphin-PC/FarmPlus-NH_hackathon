@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import { Fragment, useState } from "react";
 import RateReviewIcon from "@material-ui/icons/RateReview";
 import CompareArrowsIcon from "@material-ui/icons/CompareArrows";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";

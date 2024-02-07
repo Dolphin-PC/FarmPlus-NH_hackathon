@@ -83,10 +83,7 @@ export const getPosts = () => async (dispatch) => {
     if (!snapshot.exists()) throw "게시물이 존재하지 않습니다.";
 
     let res = Object.entries(snapshot.val()).map(([key, value]) => {
-      return {
-        id: key,
-        ...value,
-      };
+      return value;
     });
 
     dispatch({

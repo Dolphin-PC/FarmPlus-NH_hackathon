@@ -1,4 +1,4 @@
-export const getToday = () => {
+export const getToday = (): string => {
   var date = new Date();
   var year = date.getFullYear();
   var month = date.getMonth() + 1;
@@ -9,9 +9,9 @@ export const getToday = () => {
 
 export const getTodayApi = () => {
   var date = new Date();
-  var year = date.getFullYear();
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
+  var year: number | string = date.getFullYear();
+  var month: number | string = date.getMonth() + 1;
+  var day: number | string = date.getDate();
   if (year < 10) {
     year = "0" + year;
   }
@@ -24,11 +24,11 @@ export const getTodayApi = () => {
 
   return `${year}${month}${day}`;
 };
-export const getTimeApi = () => {
+export const getTimeApi = (): string => {
   var date = new Date();
-  var hour = date.getHours();
-  var minutes = date.getMinutes();
-  var seconds = date.getSeconds();
+  var hour: number | string = date.getHours();
+  var minutes: number | string = date.getMinutes();
+  var seconds: number | string = date.getSeconds();
   if (hour < 10) {
     hour = "0" + hour;
   }

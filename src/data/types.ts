@@ -17,30 +17,32 @@ export type TypeUser = {
 };
 export type TypeFilter = {};
 
-export type TypePost = {};
+export type TypePost = {
+  id?: string;
+  title: string;
+  star: number;
+  size?: number;
+  category: string;
+  subCategory: string;
+  location: string;
+  cost?: number;
+  content: string;
+  imageUrls: string[];
+  createDate: Date;
+  date: string;
+  address?: string;
+  plantDay?: string;
+  outDay?: string;
+  landNumber?: string;
+};
 export type TypeNav = {};
 
 export type TypeContract = {};
 
-export type TypeProduct = {
-  address: string;
-  category: string;
-  content: string;
-  cost: number;
-  createDate: Date;
-  date: string;
+export type TypeProduct = TypePost & {
+  seller: TypeUser;
   id: string;
   image: string;
-  imageUrls: string[];
-  landNumber: string;
-  location: string;
-  outDay: string;
-  plantDay: string;
-  seller: TypeUser;
-  size: number;
-  star: number;
-  subCategory: string;
-  title: string;
 };
 
 export type TypeAccountHolderResult = any;
