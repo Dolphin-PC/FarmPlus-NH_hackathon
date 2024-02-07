@@ -68,6 +68,10 @@ export const loginUser = (user: { id: string; password: string }) => async (disp
             res.trade = Object.values(res.trade);
           }
 
+          if (res.notice) {
+            res.notice = Object.values(res.notice);
+          }
+
           if (res.password == user.password) {
             dispatch({
               type: SET_USER,
