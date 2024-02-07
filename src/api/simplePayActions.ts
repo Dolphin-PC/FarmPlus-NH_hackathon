@@ -5,9 +5,11 @@ import { getTodayApi, getIsTuno, getTimeApi } from "../app/functions";
 
 import { Iscd, FintechApsno, ApiSvcCd, AccessToken } from "../app/info";
 import Axios from "axios";
+import { UserRef } from "../app/firebaseConfig";
+import { TypeProduct, TypeUser } from "../data/types";
 
 // 출금 이체
-export const drawingTransfer = async (user, product, tradeId) => {
+export const drawingTransfer = async (user: TypeUser, product: TypeProduct, tradeId: string) => {
   let result;
 
   const url = "https://developers.nonghyup.com/DrawingTransfer.nh";
@@ -23,7 +25,7 @@ export const drawingTransfer = async (user, product, tradeId) => {
       IsTuno: getIsTuno(),
       AccessToken,
     },
-    FinAcno: user.user.FinAcno,
+    FinAcno: user.FinAcno,
     Tram: product.cost,
     DractOtlt: `[계약금] ${product.title}(${product.seller.name})`,
   };
@@ -37,49 +39,54 @@ export const drawingTransfer = async (user, product, tradeId) => {
       console.error(err);
     });
 
-  // TODO firebase
-  // 내 거래정보
-  let myTradeInfo = await Axios.get(`${serverUrl}/users/${user.user.id}`);
+  // // 내 거래정보
+  // let myTradeInfo = await Axios.get(`${serverUrl}/users/${user.user.id}`);
 
-  // TODO firebase
-  // 판매자 거래정보
-  let sellerTradeInfo = await Axios.get(`${serverUrl}/users/${product.seller.id}`);
+  // // 판매자 거래정보
+  // let sellerTradeInfo = await Axios.get(`${serverUrl}/users/${product.seller.id}`);
 
-  myTradeInfo = myTradeInfo.data.trade.map((trade) => {
-    if (trade.tradeId === tradeId) {
-      return { ...trade, deposit: product.cost };
-    }
-    return trade;
+  // myTradeInfo = myTradeInfo.data.trade.map((trade) => {
+  //   if (trade.tradeId === tradeId) {
+  //     return { ...trade, deposit: product.cost };
+  //   }
+  //   return trade;
+  // });
+  // sellerTradeInfo = sellerTradeInfo.data.trade.map((trade) => {
+  //   if (trade.tradeId === tradeId) {
+  //     return { ...trade, deposit: product.cost };
+  //   }
+  //   return trade;
+  // });
+
+  // await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
+  //   trade: myTradeInfo,
+  //   notice: myTradeInfo,
+  // }).catch((err) => {
+  //   console.error(err);
+  // });
+  // result = await Axios.patch(`${serverUrl}/users/${product.seller.id}`, {
+  //   trade: sellerTradeInfo,
+  //   notice: sellerTradeInfo,
+  // })
+  //   .then((res) => {
+  //     console.info(res);
+  //     return true;
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //     return false;
+  //   });
+
+  // * firebase
+  UserRef.child(user.id).child("trade").child(tradeId).update({
+    deposit: product.cost,
   });
-  sellerTradeInfo = sellerTradeInfo.data.trade.map((trade) => {
-    if (trade.tradeId === tradeId) {
-      return { ...trade, deposit: product.cost };
-    }
-    return trade;
+
+  UserRef.child(product.seller.id).child("trade").child(tradeId).update({
+    deposit: product.cost,
   });
 
-  // TODO firebase
-  await Axios.patch(`${serverUrl}/users/${user.user.id}`, {
-    trade: myTradeInfo,
-    notice: myTradeInfo,
-  }).catch((err) => {
-    console.error(err);
-  });
-  // TODO firebase
-  result = await Axios.patch(`${serverUrl}/users/${product.seller.id}`, {
-    trade: sellerTradeInfo,
-    notice: sellerTradeInfo,
-  })
-    .then((res) => {
-      console.info(res);
-      return true;
-    })
-    .catch((err) => {
-      console.error(err);
-      return false;
-    });
-
-  return result;
+  // return result;
 };
 
 // 입금 이체

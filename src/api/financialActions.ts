@@ -5,8 +5,9 @@ import { getTodayApi, getIsTuno, getTimeApi } from "../app/functions";
 
 import { Iscd, FintechApsno, ApiSvcCd, AccessToken } from "../app/info";
 import Axios from "axios";
+import { TypeAccountHolderResult, TypeUser } from "../data/types";
 
-export const accountHolderFunc = async (accountInfo) => {
+export const accountHolderFunc = async (accountInfo): Promise<TypeAccountHolderResult> => {
   if (accountInfo.bankCode === "") return alert("은행사를 선택해주세요.");
   if (accountInfo.accountNumber === "") return alert("계좌번호를 입력해주세요.");
 
@@ -29,18 +30,14 @@ export const accountHolderFunc = async (accountInfo) => {
 
   // console.info(body);
 
-  let result;
-
   await Axios.post(url, body)
     .then((res) => {
-      result = res;
+      return res;
     })
     .catch((err) => {
       console.error(err);
       return "error";
     });
-
-  return result;
 };
 
 export const registerFinAccount = async (u) => {
@@ -141,7 +138,7 @@ export const registerFinAccount = async (u) => {
     });
 };
 
-export const getRemainCost = async (user) => {
+export const getRemainCost = async (user: TypeUser) => {
   const url = "https://developers.nonghyup.com/InquireBalance.nh";
 
   const body = {
@@ -155,7 +152,7 @@ export const getRemainCost = async (user) => {
       IsTuno: getIsTuno(),
       AccessToken,
     },
-    FinAcno: user.user.FinAcno,
+    FinAcno: user.FinAcno,
   };
 
   const result = await Axios.post(url, body)

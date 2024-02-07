@@ -1,5 +1,4 @@
-import DialpadIcon from "@material-ui/icons/Dialpad";
-import React, { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Slider from "react-slick";
 import ItemCardComp from "../components/cards/ItemCardComp";
@@ -13,14 +12,15 @@ import { getPosts } from "../actions/postActions";
 import { category, category_icon } from "../data/data";
 import { getUserInfo } from "../actions/userActions";
 import * as Color from "../assets/colors";
+import { RootStateType } from "../reducers";
 
 const MainPageView = () => {
   const [openAdd, setOpenAdd] = useState(false);
 
   const dispatch = useDispatch();
-  const { loading, error, posts } = useSelector((state) => state.post);
-  const { filter } = useSelector((state) => state);
-  const user = useSelector((state) => state.user);
+  const { loading, error, posts } = useSelector((state: RootStateType) => state.post);
+  const { filter } = useSelector((state: RootStateType) => state);
+  const user = useSelector((state: RootStateType) => state.user);
 
   useEffect(() => {
     dispatch(getPosts());

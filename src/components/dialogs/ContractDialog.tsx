@@ -129,7 +129,7 @@ const ContractDialog = (props) => {
   };
 
   const handleOnSendDeposit = () => {
-    if (!user.user.FinAcno) {
+    if (!user.FinAcno) {
       return alert("출금이체를 위해 핀어카운트 발급이 필요합니다.");
     }
 
@@ -208,7 +208,7 @@ const ContractDialog = (props) => {
 
     // 송금 다이얼로그
     case "deposit":
-      if (user.user.id === product.seller.id) {
+      if (user.id === product.seller.id) {
         return (
           <Dialog open={open} onClose={handleClose}>
             <DialogTitle>계약금 입금 대기 중</DialogTitle>
@@ -229,8 +229,8 @@ const ContractDialog = (props) => {
             <InputLabel>본인 계좌</InputLabel>
             <div className="Account-Bank-Box Row" style={{ justifyContent: "space-between" }}>
               <div className="Col" style={{ width: "48%" }}>
-                <InputLabel>{getBankName(user.user.bankCode)}</InputLabel>
-                <small>{getAccountNumber(user.user.accountNumber)}</small>
+                <InputLabel>{getBankName(user.bankCode)}</InputLabel>
+                <small>{getAccountNumber(user.accountNumber)}</small>
               </div>
               <div className="Col" style={{ width: "48%", textAlign: "right" }}>
                 <InputLabel>현재 금액</InputLabel>

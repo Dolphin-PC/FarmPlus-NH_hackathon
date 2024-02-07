@@ -1,14 +1,10 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from "@material-ui/core";
+import { Dialog, DialogContent, DialogContentText, DialogTitle } from "@material-ui/core";
 import { Cancel } from "@material-ui/icons";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserInfo } from "../../actions/userActions";
 import TradeCardComp from "../cards/TradeCardComp";
+import { RootStateType } from "../../reducers";
 
 const TradeDialog = (props) => {
   const { onClose, open, tradeType } = props;
@@ -17,7 +13,7 @@ const TradeDialog = (props) => {
     onClose();
   };
 
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state: RootStateType) => state.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,10 +25,7 @@ const TradeDialog = (props) => {
       <Dialog fullScreen open={open} onClose={handleClose}>
         <DialogTitle>
           {tradeType}
-          <Cancel
-            style={{ position: "fixed", top: 20, right: 20 }}
-            onClick={handleClose}
-          />
+          <Cancel style={{ position: "fixed", top: 20, right: 20 }} onClick={handleClose} />
         </DialogTitle>
 
         <DialogContent>{props.children}</DialogContent>
@@ -40,7 +33,7 @@ const TradeDialog = (props) => {
     );
   };
 
-  if (user.user.trade === null || user.user.trade === undefined) {
+  if (user.trade === null || user.trade === undefined) {
     return (
       <DialogRender>
         <p>거래 내역이 없습니다.</p>
@@ -48,15 +41,7 @@ const TradeDialog = (props) => {
     );
   }
 
-  return (
-    <DialogRender>
-      {user.user.trade.map((trade, index) =>
-        trade.noticeType === tradeType ? (
-          <TradeCardComp key={index} {...trade} />
-        ) : null
-      )}
-    </DialogRender>
-  );
+  return <DialogRender>{user.trade.map((trade, index) => (trade.noticeType === tradeType ? <TradeCardComp key={index} {...trade} /> : null))}</DialogRender>;
 };
 
 export default TradeDialog;

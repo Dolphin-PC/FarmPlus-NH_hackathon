@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Faker from "faker";
 
 import { Avatar, Button, Drawer, InputLabel, makeStyles, Tooltip } from "@material-ui/core";
@@ -14,6 +14,7 @@ import { addFavorite, tradeRequest } from "../actions/userActions";
 import badge from "../assets/icon/badge.png";
 import * as Color from "../assets/colors";
 import DrawerText from "../components/Drawer/DrawerText";
+import { RootStateType } from "../reducers";
 
 const longText = `배지 X -  수수료 1.0%\n
 동배지 -  수수료 0.9%
@@ -30,11 +31,11 @@ const useStyles = makeStyles((theme) => ({
 const DetailPageView = () => {
   const classes = useStyles();
 
-  const current = useSelector((state) => state.post.current);
-  const user = useSelector((state) => state.user);
+  const current = useSelector((state: RootStateType) => state.post.current);
+  const user = useSelector((state: RootStateType) => state.user);
 
   const [openBottomDrawer, setOpenBottomDrawer] = useState(false);
-  const [isHeart, setIsHeart] = useState(user.user.favorite.some((post) => post.id == current.id));
+  const [isHeart, setIsHeart] = useState(user.favorite.some((post) => post.id == current.id));
 
   const history = useHistory();
   const dispatch = useDispatch();

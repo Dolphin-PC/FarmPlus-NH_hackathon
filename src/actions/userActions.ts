@@ -89,7 +89,7 @@ export const loginUser = (user) => async (dispatch) => {
 };
 
 // 사용자 정보 조회
-export const getUserInfo = (user) => async (dispatch) => {
+export const getUserInfo = (user: TypeUser) => async (dispatch) => {
   // * json-server
   //   await Axios.get(`${serverUrl}/users/${user.user.id}`)
   //     .then((res) => {
@@ -105,7 +105,7 @@ export const getUserInfo = (user) => async (dispatch) => {
   //     });
 
   // * firebase
-  FiredbRef.child("users/" + user.user.id)
+  FiredbRef.child("users/" + user.id)
     .get()
     .then((snapshot) => {
       if (snapshot.exists()) {

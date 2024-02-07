@@ -10,7 +10,7 @@ import { RootStateType } from "../reducers";
  * @param {*} user
  * @param {*} tradeId
  */
-export const sendContract = async (user: { user: TypeUser }, tradeId) => {
+export const sendContract = async (user: TypeUser, tradeId) => {
   // let myInfo = await Axios.get(`${serverUrl}/users/${user.user.id}`).catch((err) => {
   //   console.error(err);
   // });
@@ -34,7 +34,7 @@ export const sendContract = async (user: { user: TypeUser }, tradeId) => {
   //     console.error(err);
   //   });
 
-  return UserRef.child(user.user.id)
+  return UserRef.child(user.id)
     .child("trade")
     .child(tradeId)
     .update({

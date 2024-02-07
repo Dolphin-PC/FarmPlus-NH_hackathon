@@ -39,7 +39,7 @@ const LoginPageView = () => {
 
   // eslint-disable-next-line
   useEffect(() => {
-    if (_user.user !== null) {
+    if (_user !== null) {
       history.push("/filter");
       dispatch({
         type: SET_NAV,

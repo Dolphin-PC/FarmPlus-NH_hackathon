@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Badge, Col, Row } from "reactstrap";
 import { Settings, ChevronRight } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,19 +6,20 @@ import { SET_NAV } from "../actions/types";
 import { Button } from "@material-ui/core";
 import { registerFinAccount } from "../api/financialActions";
 import TradeDialog from "../components/dialogs/TradeDialog";
+import { RootStateType } from "../reducers";
 
 const SettingPageView = () => {
   const [tradeType, setTradeType] = useState("");
   const [openTrade, setOpenTrade] = useState(false);
 
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state: RootStateType) => state.user);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({
       type: SET_NAV,
       payload: window.location.href.split("/")[3],
     });
-  }, []);
+  }, [dispatch]);
 
   const handleTrade = (e) => {
     setOpenTrade(true);
@@ -35,8 +36,8 @@ const SettingPageView = () => {
     let waitTrade = [],
       proceedTrade = [],
       completeTrade = [];
-    if (user.user.trade) {
-      user.user.trade.map((trade) => {
+    if (user.trade) {
+      user.trade.map((trade) => {
         switch (trade.noticeType) {
           case "거래대기":
             return waitTrade.push(trade);
@@ -64,9 +65,9 @@ const SettingPageView = () => {
           <Col
             xs="4"
             className="center"
-            onClick={() => {
+            onClick={(e) => {
               setTradeType("거래대기");
-              handleTrade();
+              handleTrade(e);
             }}
           >
             <h5>{waitTrade.length}</h5>
@@ -75,9 +76,9 @@ const SettingPageView = () => {
           <Col
             xs="4"
             className="center"
-            onClick={() => {
+            onClick={(e) => {
               setTradeType("거래진행");
-              handleTrade();
+              handleTrade(e);
             }}
           >
             <h5>{proceedTrade.length}</h5>
@@ -86,9 +87,9 @@ const SettingPageView = () => {
           <Col
             xs="4"
             className="center"
-            onClick={() => {
+            onClick={(e) => {
               setTradeType("거래완료");
-              handleTrade();
+              handleTrade(e);
             }}
           >
             <h5>{completeTrade.length}</h5>
@@ -166,7 +167,7 @@ const SettingPageView = () => {
         <p>내 정보</p>
 
         <h3>
-          <b>{user.user.name}</b> 님<br />
+          <b>{user.name}</b> 님<br />
           안녕하세요.
         </h3>
         <GyuljaehamRender />
