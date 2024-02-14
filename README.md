@@ -51,12 +51,15 @@ https://nh-farmplus.firebaseapp.com/
   매물(밭)거래부터 계약서 작성, 계약금 송금 기능을 지원하는 `[선도거래 간편결제 서비스]`
   (인터넷 취약 계층인 농민들을 위해 React를 통한 웹과 앱에서 실행가능한 웹뷰 기반의 앱 형태의 서비스 구축)
 
-### 서비스 기능
+### 서비스 주요기능
 
 - 판매 게시글 작성
 - 게시글 필터링 및 상세 내용 확인
 - 계약 요청 및 응답
 - 계약서 작성 및 계약금 송금
+  - [계약금 송금 화면](https://github.com/Dolphin-PC/FarmPlus-NH_hackathon/blob/main/src/components/dialogs/ContractDialog.tsx#L131)
+  - [출금이체 API](https://github.com/Dolphin-PC/FarmPlus-NH_hackathon/blob/main/src/api/simplePayActions.ts#L12)
+  - [입금이체 API](https://github.com/Dolphin-PC/FarmPlus-NH_hackathon/blob/main/src/api/simplePayActions.ts#L131)
 - 계약서 저장 기능
 
 ### 거래 흐름도
