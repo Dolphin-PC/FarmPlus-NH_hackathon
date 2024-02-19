@@ -2,11 +2,11 @@
 
 ### 선구안 팀 - 팜플러스(간편 선도거래 서비스)
 
-                - 박찬영(팀장 / 기획,개발(서비스 프로세스, Front, API))
-                - 김성원(팀원 / 발표, 기획)
-                - 전병준(팀원 / 개발(Front))
-                - 홍정표(팀원 / 기획)
-                - 박지현(팀원 / 자료조사)
+- 박찬영(팀장 / 기획,개발(서비스 프로세스, Front, API))
+- 김성원(팀원 / 발표, 기획)
+- 전병준(팀원 / 개발(Front))
+- 홍정표(팀원 / 기획)
+- 박지현(팀원 / 자료조사)
 
 ### 수상 - 장려상
 
@@ -28,6 +28,25 @@ https://nh-farmplus.firebaseapp.com/
   - ID : seller / PW : 123
   - ID : pcy / PW : 123
 
+
+## 서비스 설명
+
+- 선도거래(일명 '밭떼기거래') 에서 계약서 미작성으로 인해 피해를 보는 농민들을 위한
+  매물(밭)거래부터 계약서 작성, 계약금 송금 기능을 지원하는 `[선도거래 간편결제 서비스]`
+  (인터넷 취약 계층인 농민들을 위해 React를 통한 웹과 앱에서 실행가능한 웹뷰 기반의 앱 형태의 서비스 구축)
+
+### 서비스 주요기능
+
+- 판매 게시글 작성
+- 게시글 필터링 및 상세 내용 확인
+- 계약 요청 및 응답
+- 계약서 작성 및 계약금 송금
+  - [계약금 송금 화면 Source](https://github.com/Dolphin-PC/FarmPlus-NH_hackathon/blob/main/src/components/dialogs/ContractDialog.tsx#L131)
+  - [출금이체 API Source](https://github.com/Dolphin-PC/FarmPlus-NH_hackathon/blob/main/src/api/simplePayActions.ts#L12)
+  - [입금이체 API Source](https://github.com/Dolphin-PC/FarmPlus-NH_hackathon/blob/main/src/api/simplePayActions.ts#L131)
+- 계약서 저장 기능
+
+
 ### 개발 스택
 
 - Front-End : React.js
@@ -44,23 +63,6 @@ https://nh-farmplus.firebaseapp.com/
 1. yarn install
 2. yarn start
 ```
-
-## 서비스 설명
-
-- 선도거래(일명 '밭떼기거래') 에서 계약서 미작성으로 인해 피해를 보는 농민들을 위한
-  매물(밭)거래부터 계약서 작성, 계약금 송금 기능을 지원하는 `[선도거래 간편결제 서비스]`
-  (인터넷 취약 계층인 농민들을 위해 React를 통한 웹과 앱에서 실행가능한 웹뷰 기반의 앱 형태의 서비스 구축)
-
-### 서비스 주요기능
-
-- 판매 게시글 작성
-- 게시글 필터링 및 상세 내용 확인
-- 계약 요청 및 응답
-- 계약서 작성 및 계약금 송금
-  - [계약금 송금 화면](https://github.com/Dolphin-PC/FarmPlus-NH_hackathon/blob/main/src/components/dialogs/ContractDialog.tsx#L131)
-  - [출금이체 API](https://github.com/Dolphin-PC/FarmPlus-NH_hackathon/blob/main/src/api/simplePayActions.ts#L12)
-  - [입금이체 API](https://github.com/Dolphin-PC/FarmPlus-NH_hackathon/blob/main/src/api/simplePayActions.ts#L131)
-- 계약서 저장 기능
 
 ### 거래 흐름도
 
