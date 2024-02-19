@@ -1,6 +1,8 @@
 # 2020 NH 디지털혁신캠퍼스 챌린지 온라인 해커톤
 
 ### 선구안 팀 - 팜플러스(간편 선도거래 서비스)
+> - 선도거래(일명 '밭떼기거래') 에서 계약서 미작성으로 인해 피해를 보는 농민들을 위한
+  매물(밭)거래부터 계약서 작성, 계약금 송금 기능을 지원하는 **선도거래 간편결제 서비스**
 
 - 박찬영(팀장 / 기획,개발(서비스 프로세스, Front, API))
 - 김성원(팀원 / 발표, 기획)
@@ -12,31 +14,16 @@
 
 <img width="300px" src="https://github.com/Dolphin-PC/FarmPlus-NH_hackathon/blob/main/docs/%EC%83%81%EC%9E%A5_%EC%84%A0%EA%B5%AC%EC%95%88.jpg?raw=true"/>
 
-### 시연영상
-
-<a href="https://drive.google.com/file/d/1cjWEk6jL4fuFAf_NLi6j8E3E2TajTBAu/view?usp=sharing" target="_blank">View on Google Drive</a>
-
-### 발표자료
-
-<a href="https://dolphin-pc.github.io/FarmPlus-NH_hackathon/docs/FarmPlus_PPT_NH_hackathon.pdf" target="_blank">View on Github page</a>
-
-### 호스팅
-
-https://nh-farmplus.firebaseapp.com/
-
-- 로그인 계정정보 :
-  - ID : seller / PW : 123
-  - ID : pcy / PW : 123
-
-
-## 서비스 설명
-
-- 선도거래(일명 '밭떼기거래') 에서 계약서 미작성으로 인해 피해를 보는 농민들을 위한
-  매물(밭)거래부터 계약서 작성, 계약금 송금 기능을 지원하는 `[선도거래 간편결제 서비스]`
-  (인터넷 취약 계층인 농민들을 위해 React를 통한 웹과 앱에서 실행가능한 웹뷰 기반의 앱 형태의 서비스 구축)
+### 개발 스택
+- Front-End : React.js
+- State : react-redux, redux-thunk
+- Database :
+  - 로컬 : json-server
+  - 배포 : firebase realtime DB
+- Storage : Firebase Storage
+- API : [NH Developer Center API](https://developers.nonghyup.com/guide/GU_1000) (Fin-Account, Transfer, etc...)
 
 ### 서비스 주요기능
-
 - 판매 게시글 작성
 - 게시글 필터링 및 상세 내용 확인
 - 계약 요청 및 응답
@@ -46,23 +33,13 @@ https://nh-farmplus.firebaseapp.com/
   - [입금이체 API Source](https://github.com/Dolphin-PC/FarmPlus-NH_hackathon/blob/main/src/api/simplePayActions.ts#L131)
 - 계약서 저장 기능
 
-
-### 개발 스택
-
-- Front-End : React.js
-- State : react-redux, redux-thunk
-- Database :
-  - 로컬 : json-server
-  - 배포 : firebase realtime DB
-- Storage : Firebase Storage
-- API : [NH Developer Center API](https://developers.nonghyup.com/guide/GU_1000) (Fin-Account, Transfer, etc...)
-
-### 프로젝트 실행
-
-```
-1. yarn install
-2. yarn start
-```
+### 결과물
+- [시연영상](https://drive.google.com/file/d/1cjWEk6jL4fuFAf_NLi6j8E3E2TajTBAu/view?usp=sharing)
+- [발표자료](https://dolphin-pc.github.io/FarmPlus-NH_hackathon/docs/FarmPlus_PPT_NH_hackathon.pdf)
+- 호스팅 - https://nh-farmplus.firebaseapp.com
+  - 로그인 계정정보 :
+    - ID : seller / PW : 123
+    - ID : pcy / PW : 123
 
 ### 거래 흐름도
 
@@ -121,3 +98,15 @@ participant 다 as 팜플러스(플랫폼)
 
 - 총 매매대금의 1% 중개 수수료(예상 매출액 약 100억원)
 - 노지작물 시장규모(2017~2018, 1조 4,400억원)
+
+---
+
+### 프로젝트 실행방법
+```
+1. yarn install
+2. yarn start
+```
+
+### (2024.2 변경)
+- firebase서비스 배포를 위해, 기존 DB를 json-server에서 firebase realtime DB로 변경
+- typescript를 적용하여, 런타임 환경에서의 redux데이터 오류 해결
